@@ -43,6 +43,8 @@
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
 
+(define-key ctl-xm-map "b" 'ibuffer)	
+
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
       next-line-add-newlines nil
@@ -218,10 +220,11 @@
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
 	       (top . 20)
-	       (background-color . ,"DarkSlateGrey")
-	       (foreground-color . ,"Wheat")
-	       ,(cons 'width  (frame-width))
-	       ,(cons 'height (frame-height))
+	       (left . 1)
+	       (width . 111)
+	       (height . 48)
+	       (background-color . "DarkSlateGrey")
+	       (foreground-color . "Wheat")
 	       (cursor-color     . "gold1")
 	       (mouse-color      . "gold1")
 	       (font . "9x15")
