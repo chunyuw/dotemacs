@@ -247,16 +247,16 @@
 
 ;;; Customize setup.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ediff-current-diff-face-A ((((type tty)) (:background "blue" :foreground "red" :weight bold))))
  '(ediff-current-diff-face-Ancestor ((((type tty)) (:background "magenta" :foreground "black"))))
  '(ediff-current-diff-face-B ((((type tty)) (:background "blue" :foreground "yellow" :weight bold))))
@@ -273,6 +273,7 @@
  '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green" :weight bold))))
  '(ediff-odd-diff-face-B ((((type tty)) (:background "black" :foreground "yellow" :weight bold))))
  '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold))))
+ '(gnus-header-subject-face ((((class color) (background dark)) (:foreground "red" :weight bold))))
  '(log-view-file-face ((t (:foreground "blue" :weight bold))))
  '(log-view-message-face ((t (:foreground "yellow" :weight bold)))))
 

@@ -22,6 +22,13 @@
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
+
+      gnus-header-face-alist
+      '(("From" nil gnus-header-from-face)
+	("Subject" nil gnus-header-subject-face)
+	("Newsgroups" nil gnus-header-newsgroups-face)
+	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-from-face)
+	("" gnus-header-name-face gnus-header-content-face))
       )
 
 (setq gnus-default-charset 'cn-gb-2312
