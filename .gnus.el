@@ -1,10 +1,9 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
-;; nntp hosts: news.bentium.com, freenews.netfront.net,
-;;  news.zixia.com, news.webking.cn, news.newsfan.net
-;;国内: news.cnnb.net 国外: news.ind.mh.se
-
+;; NNTP Hosts: 
+;;  news.bentium.com, news.zixia.com, freenews.netfront.net, news.ind.mh.se
+;;  news.webking.cn, news.newsfan.net, new.cnnb.net
 
 (setq gnus-select-method '(nntp "news.cn99.com"))
 (setq gnus-secondary-select-methods '((nnml "private")))
