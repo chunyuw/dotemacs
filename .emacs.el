@@ -35,7 +35,7 @@
 (require 'uniquify)
 (require 'generic-x)
 (require 'flyspell)
-;; (require 're-builder)
+(require 're-builder)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
@@ -219,6 +219,8 @@
 	("stardic" . gb2312)
 	("xdict" . gb2312)))
 
+(setq ecb-options-version "2.20")
+
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
 
@@ -378,6 +380,7 @@
 (require 'boxquote)
 (require 'dired-tar)
 (require 'browse-kill-ring)
+(require 'dictionary)
 
 ;; (add-to-list 'load-path "/usr/local/share/xref/emacs")
 ;; (add-to-list 'exec-path "/usr/local/share/xref")
@@ -388,8 +391,23 @@
 
 (load ".emacs-records")
 (setq records-init-file "~/.emacs.d/.emacs-records")
+;; (define-key global-map [?\C-x ?n ?t] 'records-goto-today)
+;; (define-key global-map [?\C-x ?n ?r] 'records-insert-record-region)
+;; (define-key global-map [?\C-x ?n ?b] 'records-insert-record-buffer)
+;; (define-key global-map [?\C-x ?n ?l] 'records-insert-link)
+(add-hook 'calendar-load-hook
+	  (function
+	   (lambda ()
+	     (define-key calendar-mode-map "n"
+	       'records-calendar-to-record))))
+(add-hook 'records-mode-hooks
+	  (function 
+	   (lambda ()
+	     ;; (abbrev-mode 1)
+	     (turn-on-auto-fill)
+	     (turn-on-filladapt-mode))))
 
-;; (load ".emacs_erc")
+(load ".emacs_erc")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
 (load ".emacs_wiki")

@@ -30,6 +30,8 @@
 
 (setq gnus-agent-mark-unread-after-downloaded nil)
 
+(setq mm-inline-large-images t)
+
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
 	("list\\..*" (subscribed . t) (total-expire . t))
