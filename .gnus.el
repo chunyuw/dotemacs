@@ -16,14 +16,19 @@
       gnus-save-killed-list nil
       gnus-asynchronous t
       gnus-summary-display-while-building 50
-
+      gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
+      gnus-confirm-mail-reply-to-news t
+      gnus-gcc-mark-as-read t
+      gnus-gcc-externalize-attachments 'all
 
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
 
-      gnus-header-face-alist
+      gnus-treat-display-smileys nil)
+
+(setq gnus-header-face-alist
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
@@ -97,8 +102,7 @@
       sc-fixup-whitespace-p t
       sc-nested-citation-p nil
       sc-preferred-header-style 5
-      sc-use-only-preference-p nil
-      )
+      sc-use-only-preference-p nil)
 
 (setq mail-self-blind t
       message-from-style 'angles
@@ -120,6 +124,8 @@
        "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
        "\\|^Status:\\|^Errors-To:\\|FL-Build:"))
 
+(setq nnml-use-compressed-files t)
+
 (setq nnmail-treat-duplicates 'delete
       nnmail-crosspost nil
       nnmail-split-methods 'nnmail-split-fancy
@@ -132,15 +138,13 @@
 	(any "ding@gnus.org" "list.ding")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
-	(to "chunyu@hit.edu.cn" - "dddkk@sina.com" - "spr@db.cs.hit.edu.cn" - "spr@db.hit.edu.cn" 
-	    (| (from "moomooo" - "beautifulbamboo" - "kexin" - "zjj259900" -
-		     "limoo" - "xiaonan" - "however"  - "jellycart" "classmate.misc")
-	       (from "pacz@sohu.com" - "pacz@pa18.com" - "tccz@sina.com" "mail.wife")
-	       (from "m_pupil@yahoo.com.cn""mail.friends")
-	       (from "@bbs" - "@smth" "mail.bbs")
+	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db.cs.hit.edu.cn\\|spr@db.hit.edu.cn"
+	    (| (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo\\|xiaonan\\|however\\|jellycart" "classmate.misc")
+	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
+	       (from "m_pupil@yahoo.com.cn" "mail.friends")
+	       (from "bbs@bbs\\|@smth" "mail.bbs")
 	       "mail.misc"))
-	"misc.misc")
-      )
+	"misc.misc"))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
