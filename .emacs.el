@@ -140,6 +140,7 @@
       ido-save-directory-list-file nil
       ido-save-directory-list-file nil)
       tramp-unified-filenames t
+(setq tramp-unified-filenames t
       ange-ftp-default-user t)
       quack-default-program "guile"
       quack-fontify-style nil
@@ -270,13 +271,18 @@
 (autoload 'todo-insert-item "todo-mode" "Add TODO item." t)
 (autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
 (autoload 'todo-show "todo-mode" "Show TODO items." t)
+(autoload 'css-mode "css-mode" "CSS editing mode" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
-		("\\.css\\'" . css-mode)) auto-mode-alist))
+		("\\.css\\'" . css-mode)
+;;		("\\.html\\'" . html-helper-mode)
+;;		("\\.asp\\'" . html-helper-mode)
+;;		("\\.phtml\\'" . html-helper-mode)
+		) auto-mode-alist))
 
 (defun chunyu-recenter () "Recenter: once middle, twice top, thrice bottom"
   (interactive)
@@ -288,6 +294,7 @@
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
+(add-to-list 'load-path "~/.emacs.d/elisp/tramp")
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
 (require 'gnus-load)
@@ -296,8 +303,9 @@
 	      auto-mode-alist))
 (require 'jka-compr)
 (require 'uniquify)
-(require 'tramp)
+;;(require 'tramp)
 (require 'flyspell)
+;;(require 'html-helper-mode)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
