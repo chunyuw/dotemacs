@@ -4,10 +4,10 @@
 (setq message-send-mail-function 'smtpmail-send-it)
 (setq smtpmail-default-smtp-server "202.118.224.153")
 (setq smtpmail-smtp-server "202.118.224.153")
-;;(setq smtpmail-local-domain "db.hit.edu.cn")
-;;(setq smtpmail-sendto-domain "db.hit.edu.cn")
-;;(setq smtpmail-auth-credentials
-;;      '(("202.118.224.153" "25" "chunyu" "Lbh ner Cvt.")))
+(setq smtpmail-local-domain "db.hit.edu.cn")
+(setq smtpmail-sendto-domain "db.hit.edu.cn")
+(setq smtpmail-auth-credentials
+      '(("202.118.224.153" "25" "chunyu" "Lbh ner Cvt.")))
 
 ;;(setq smtpmail-default-smtp-server "smtp.sina.com.cn")
 ;;(setq smtpmail-smtp-server "smtp.sina.com.cn")

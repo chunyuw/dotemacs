@@ -434,6 +434,8 @@
 (load ".emacs_bbdb")
 (load ".emacs_wiki")
 (load ".emacs_bhl")
+(if (equal (getenv "HOSTNAME") "ds1")
+    (load ".emacs_smtp"))
 ;; (load custom-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
