@@ -181,6 +181,8 @@
 ;;    (concat "<"(message-unique-id)"@cyber.net>"))
 
 ;; (setq spam-use-stat t) ;; if needed
+(setq gnus-registry-max-entries 2500
+      gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
 (spam-initialize)
      
