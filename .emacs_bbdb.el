@@ -26,8 +26,8 @@
       bbdb-electric-p t
       bbdb-use-pop-up nil		; 'horiz
       bbdb-pop-up-target-lines 1
-      ;;bbdb-elided-display-fields '(net)
-      ;;bbdb-elided-display t
+      ;; bbdb-elided-display-fields '()
+      bbdb-elided-display '(creation-date timestamp)
       bbdb-offer-save nil
       bbdb-complete-name-allow-cycling t
       bbdb-time-display-format "%Y-%m-%d"
@@ -45,21 +45,30 @@
 ;; 	(separator . 2)
 ;; 	(include-files "bbdb-print" "bbdb-cols")))
 
-;; (setq bbdb-display-layout-alist
-;;       '((one-line (order phones mail-alias net)
-;; 		  (name-end . 24)
-;; 		  (toggle . t))
-;; 	(multi-line (indention . 14)
-;; 		    (toggle . t)
-;; 		    (omit creation-date timestamp aka notes))
-;; 	(pop-up-multi-line  (indention . 14))))
+(setq bbdb-display-layout-alist
+      '((one-line (order phones net)
+		  (name-end . 24)
+		  (toggle . t))
+	(multi-line (indention . 14)
+		    (toggle . t)
+		    (omit creation-date timestamp notes))
+	(pop-up-multi-line  (indention . 14))))
 
 
-;; (cond ((not window-system)
-;;        (set-face-attribute 'bbdb-name nil  :foreground "yellow" :underline nil)
-;;        ;;(set-face-attribute 'bbdb-company nil :foreground "blue" :weight 'bold)
-;;        (set-face-attribute 'bbdb-field-name nil :foreground "cyan")
-;;        ;;(set-face-attribute 'bbdb-field-value nil :foreground "red" :weight 'normal)
-;;        ))
+(cond ((not window-system)
+       (eval-after-load "bbdb-gui"
+	 '(progn
+	    (set-face-attribute 'bbdb-name nil  :foreground "gold" :underline nil)
+	    (set-face-attribute 'bbdb-company nil :foreground "sandy brown")
+	    (set-face-attribute 'bbdb-field-name nil :foreground "slate blue")
+	    (set-face-attribute 'bbdb-field-value nil :foreground "deep sky blue" :weight 'normal))))
+
+      (window-system
+       (eval-after-load "bbdb-gui"
+	 '(progn
+	    (set-face-attribute 'bbdb-name nil  :foreground "gold" :underline nil)
+	    (set-face-attribute 'bbdb-company nil :foreground "sandy brown")
+	    (set-face-attribute 'bbdb-field-name nil :foreground "slate blue")
+	    (set-face-attribute 'bbdb-field-value nil :foreground "deep sky blue" :weight 'normal)))))
 
 ;; Chunyu's .emacs_bbdb.el ends here.

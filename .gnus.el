@@ -75,8 +75,7 @@
       '((".*"
 	 (signature-file "~/.sig/default")
 	 (name "Wang Chunyu")
-	 (address "dddkk@sina.com")
-	 ("X-Face" 'chunyu-gnus-x-face))
+	 (address "dddkk@sina.com"))
 	("^nntp\\+ds1:.*"
 	 (signature-file "~/.sig/localnews")
 	 (name "Chunyu")
