@@ -177,7 +177,7 @@
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@cyber.net>"))
 
-(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
 	  (lambda ()
@@ -191,7 +191,8 @@
   (eval-after-load "gnus-art"
     '(progn 
        (copy-face 'gnus-header-from-face 'gnus-x-face)
-       (set-face-attribute 'gnus-x-face nil :foreground "blue"))))
+       (set-face-attribute 'gnus-x-face nil :foreground "blue")))
+  (set-face-attribute 'gnus-summary-high-unread-face nil :foreground "LightGoldenrod3"))
 
 (unless window-system
   (require 'gnus-sum)
