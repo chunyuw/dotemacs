@@ -123,7 +123,7 @@
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
 	(any "guile-sources@gnu.org" "list.guile-sources")
-	(any "ding@gnu.org" "list.ding")
+	(any "ding@gnus.org" "list.ding")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(to  "chunyu@hit.edu.cn" - 
