@@ -145,7 +145,6 @@
 
 (setq nnmail-treat-duplicates 'delete
       nnmail-crosspost nil
-      nnmail-mail-splitting-decodes t
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
@@ -162,9 +161,11 @@
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-		 ("Subject" "\\[[Oo][Ss]\\]" "mail.ta")
+		 ("Subject" "[Oo][Ss]\\|操作系统\\|实验\\|试验" "mail.ta")
 		 "mail.misc"))
-	  "misc.junk"))
+	  "misc.junk")
+      nnmail-mail-splitting-decodes t
+      nnmail-mail-splitting-charset 'gb2312)
 
 (require 'spam-stat)
 (spam-stat-load)
