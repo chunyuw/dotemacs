@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("elisp"
+(("emacscoding"
+  ((filename . "/usr/local/info/elisp")
+   (front-context-string . "File: elisp,  No")
+   (rear-context-string)
+   (position . 38502)
+   (info-node . "User-Chosen Coding Systems")))
+ ("elisp"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)
