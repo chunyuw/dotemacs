@@ -19,7 +19,7 @@
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      gnus-check-new-newsgroups nil
+      ;;gnus-check-new-newsgroups nil
       gnus-backup-startup-file t
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
@@ -158,11 +158,10 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (: gnus-registry-split-fancy-with-parent)
-	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
+      '(| (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
-	  (any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
+	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
@@ -222,6 +221,8 @@
   (eval-after-load "gnus-art"
     '(progn
        (set-face-attribute 'gnus-header-subject-face nil :foreground "red" :weight 'bold)))
+
+  (set-face-attribute 'gnus-splash-face nil :foreground "yellow")
 
   (set-face-attribute 'gnus-group-mail-1-empty-face nil :foreground "magenta")
   (set-face-attribute 'gnus-group-mail-1-face nil :foreground "magenta" :weight 'bold)
