@@ -14,6 +14,9 @@
       TeX-auto-save t
       TeX-auto-untabify t)
 
+(setq LaTeX-top-caption-list 
+      '("table" "table*"))
+
 (setq reftex-revisit-to-follow t
       ;; reftex-auto-recenter-toc t
       )
