@@ -185,7 +185,7 @@
 
 (setq tramp-unified-filenames t
       tramp-auto-save-directory "~/var/tramp"
-      ;; ange-ftp-smart-gateway nil
+      ;; ange-ftp-retry-time 60
       ange-ftp-smart-gateway nil
       ;; ange-ftp-gateway-ftp-program-name nil
       ;; ange-ftp-local-host-regexp ".*$"
