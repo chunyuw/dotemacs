@@ -69,13 +69,11 @@
 	  (concat "mail." (format-time-string "%Y-%m")))))
 
 (setq chunyu-gnus-x-face
-      (concat "$,MrC{\".#Of\"+5o4f&\"Y%BEXbu::2[3u0PK.G\\]'&Irj>a"
-	      "%BRPq%aA\"6f<Ywarj_/AR5<o9'<!\"9.\\ZqzkDv-OK0&Vx&D"
-	      "(0'5O(jx,]LgQk/J@P<F$X\\br>y\"[Eo8lEBloB*tfsz~]\\L"
-	      "l\\}&C{}ar^R\\Ic9shnEW?'8o-9%MQ03+izFFbQV&CUKVd>%V"
-	      "1sog)m1$L=Z(K!I5ID8nucdF}Bb(/r>b]7*t@GP%=VS_~:&~:F"
-	      "$?7,i1Wqj\\C(q)|@71421c2ynlCQ<u%\"'6|28Oww\":7N6=F"
-	      "s/?mUj&_^u&\\^yrrY{O"))
+      (concat "$,MrC{\".#Of\"+5o4f&\"Y%BEXbu::2[3u0PK.G\\]'&Irj>a%BRPq%aA\"6f<Ywarj_/A\n"
+	      " R5<o9'<!\"9.\\ZqzkDv-OK0&Vx&D(0'5O(jx,]LgQk/J@P<F$X\\br>y\"[Eo8lEBloB*tfsz~]\\\n"
+	      " Ll\\}&C{}ar^R\\Ic9shnEW?'8o-9%MQ03+izFFbQV&CUKVd>%V1sog)m1$L=Z(K!I5ID8nucdF\n"
+	      " }Bb(/r>b]7*t@GP%=VS_~:&~:F$?7,i1Wqj\\C(q)|@71421c2ynlCQ<u%\"'6|28Oww\":7N6=F\n"
+	      " s/?mUj&_^u&\\^yrrY{O"))
 
 (setq gnus-posting-styles
       '((".*"
@@ -117,7 +115,7 @@
       message-from-style 'angles
       message-kill-buffer-on-exit t
       message-cite-function 'sc-cite-original
-      message-elide-ellipsis "    [...]\n"
+      message-elide-ellipsis "\n[...]\n"
       message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
@@ -144,7 +142,7 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(|
-	(to "Dddkk \\<dddkk@sina\\.com\\>" "misc.junk")
+	(to "Dddkk <dddkk@sina\\.com>" "misc.junk")
 	;;(from "sinamx.sina.com.cn" "misc.junk")
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
