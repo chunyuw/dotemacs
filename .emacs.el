@@ -328,10 +328,10 @@
 
 ;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
 ;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
-;;(load-file "~/.emacs.d/.emacs_smtp.el")
-;;(load-file "~/.emacs.d/.emacs_erc.el")
+;; (load-file "~/.emacs.d/.emacs_smtp.el")
+;; (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
-;;(load-file custom-file)
+;; (load-file custom-file)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
