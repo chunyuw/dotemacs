@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: cn-gb-2312 -*-
 ;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
@@ -154,11 +154,6 @@
       dictionary-server "192.168.1.191"
       )
 
-(setq chinese-calendar-celestial-stem
-      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"])
-(setq chinese-calendar-terrestrial-branch
-      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"])
-
 
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
@@ -175,6 +170,11 @@
 
 
 ;;(define-coding-system-alias 'gb18030 'gb2312)
+(set-clipboard-coding-system 'chinese-iso-8bit)
+(setq chinese-calendar-celestial-stem
+      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"])
+(setq chinese-calendar-terrestrial-branch
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"])
 
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
