@@ -106,7 +106,7 @@
 ;; (setq w32-pass-rwindow-to-system nil)
 ;; (setq w32-rwindow-modifier 'hyper)
 
-(setq truncate-partial-width-windows t
+(setq ;;truncate-partial-width-windows t
       sentence-end-double-space nil
       makefile-electric-keys t
       compilation-window-height nil
