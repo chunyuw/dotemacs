@@ -11,13 +11,12 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
-(global-set-key "\C-x\C-b" 'electric-buffer-list) ; ibuffer
+(global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-buffer-directly)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
-;;(global-set-key "\C-l" 'chunyu-recenter)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
@@ -27,26 +26,26 @@
 (global-set-key [(end)] 'end-of-buffer)
 (global-set-key [(insertchar)] 'overwrite-mode)
 
-(define-prefix-command 'ctl-xm-map)
-(global-set-key "\C-xm" 'ctl-xm-map)
-(define-key ctl-xm-map "s" 'dictionary-search)
-(define-key ctl-xm-map "c" 'boxquote-shell-command)
-(define-key ctl-xm-map "f" 'boxquote-describe-function)
-(define-key ctl-xm-map "i" 'boxquote-insert-file)
-(define-key ctl-xm-map "k" 'boxquote-describe-key)
-(define-key ctl-xm-map "p" 'boxquote-paragraph)
-(define-key ctl-xm-map "r" 'boxquote-region)
-(define-key ctl-xm-map "t" 'boxquote-title)
-(define-key ctl-xm-map "u" 'boxquote-unbox)
-(define-key ctl-xm-map "v" 'boxquote-describe-variable)
-(define-key ctl-xm-map "y" 'boxquote-yank)
-(define-key ctl-xm-map "e" 'cvs-examine)
-(define-key ctl-xm-map "m" 'man-follow)
-(define-key ctl-xm-map "g" 'run-scheme)
-(define-key ctl-xm-map "b" 'list-bookmarks)
-(define-key ctl-xm-map "l" 'browse-kill-ring)
-(define-key ctl-xm-map "a" 'align-current)
-(define-key ctl-xm-map "w" 'ibuffer)
+(define-prefix-command 'ctl-x-m-map)
+(global-set-key "\C-xm" 'ctl-x-m-map)
+(define-key ctl-x-m-map "s" 'dictionary-search)
+(define-key ctl-x-m-map "c" 'boxquote-shell-command)
+(define-key ctl-x-m-map "f" 'boxquote-describe-function)
+(define-key ctl-x-m-map "i" 'boxquote-insert-file)
+(define-key ctl-x-m-map "k" 'boxquote-describe-key)
+(define-key ctl-x-m-map "p" 'boxquote-paragraph)
+(define-key ctl-x-m-map "r" 'boxquote-region)
+(define-key ctl-x-m-map "t" 'boxquote-title)
+(define-key ctl-x-m-map "u" 'boxquote-unbox)
+(define-key ctl-x-m-map "v" 'boxquote-describe-variable)
+(define-key ctl-x-m-map "y" 'boxquote-yank)
+(define-key ctl-x-m-map "e" 'cvs-examine)
+(define-key ctl-x-m-map "m" 'man-follow)
+(define-key ctl-x-m-map "g" 'run-scheme)
+(define-key ctl-x-m-map "b" 'list-bookmarks)
+(define-key ctl-x-m-map "l" 'browse-kill-ring)
+(define-key ctl-x-m-map "a" 'align-current)
+(define-key ctl-x-m-map "w" 'ibuffer)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -103,6 +102,15 @@
       calendar-location-name "Harbin"
       calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
+      christian-holidays nil
+      hebrew-holidays nil
+      islamic-holidays nil
+      solar-holidays nil
+      general-holidays '((holiday-fixed 1 1 "元旦")
+			 (holiday-fixed 4 1 "愚人节")
+			 (holiday-float 5 0 2 "母亲节")
+			 (holiday-float 6 0 3 "父亲节"))
+
       mark-diary-entries-in-calendar t
       appt-issue-message nil
       mark-holidays-in-calendar nil
@@ -240,11 +248,6 @@
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
-;;        (setq default-left-fringe-width 4
-;; 	     default-right-fringe-width 4)
-;;        (set-background-color "DarkSlateGrey")
-;;        (set-foreground-color "Wheat")
-;;        (set-cursor-color "gold1")
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
 	       (top . 0)
@@ -283,6 +286,7 @@
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (autoload 'flex-mode "flex-mode.el" "Flex mode" t)
+(autoload 'py-shell "python-mode" "Python shell" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
@@ -290,17 +294,10 @@
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 		("\\.css\\'" . css-mode)
-;;		("\\.html\\'" . html-helper-mode)
-;;		("\\.asp\\'" . html-helper-mode)
-;;		("\\.phtml\\'" . html-helper-mode)
+		;; ("\\.s?html?\\'" . html-helper-mode)
+		;; ("\\.asp\\'" . html-helper-mode)
+		;; ("\\.phtml\\'" . html-helper-mode)
 		) auto-mode-alist))
-
-(defun chunyu-recenter () "Recenter: once middle, twice top, thrice bottom"
-  (interactive)
-  (cond ((eq last-command 'cy-recenter-twice) (recenter -1))
-	((eq last-command 'cy-recenter-once) (recenter 0)
-	 (setq this-command 'cy-recenter-twice))
-	(t (recenter) (setq this-command 'cy-recenter-once))))
 
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
@@ -309,16 +306,12 @@
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
 (require 'gnus-load)
+(require 'tex-site)
 		("\\.css\\'" . css-mode))
 (require 'compile)
 	      auto-mode-alist))
-(require 'jka-compr)
-(require 'tex-site)
 (require 'uniquify)
-;;(require 'tramp)
-(require 'flyspell)
-;;(require 'html-helper-mode)
-(require 'browse-kill-ring)
+;; (require 'flyspell)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -328,17 +321,17 @@
 (put 'upcase-region 'disabled nil)
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
+(require 'tex-site)
+(require 'boxquote)
+(require 'dired-tar)
+(require 'browse-kill-ring)
+
+;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
+;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
 ;;(load-file "~/.emacs.d/.emacs_smtp.el")
 ;;(load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
 ;;(load-file custom-file)
-
-;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
-;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
-;; (load "xrefactory")
-
-;;(setq semantic-load-turn-everything-on t)
-;;(require 'semantic-load)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)

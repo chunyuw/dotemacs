@@ -2,12 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("notes-linux"
-  ((filename . "/home/spr/work/notes/notes-linux")
-   (front-context-string)
-   (rear-context-string . "ex4/index.shtml\n")
-   (position . 490)))
- ("elisp"
+(("elisp"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)
@@ -41,6 +36,11 @@
    (front-context-string . "\n\n</pre></p>\n<dt")
    (rear-context-string . "===============\n")
    (position . 3107)))
+ ("notes-linux"
+  ((filename . "/home/spr/work/notes/notes-linux")
+   (front-context-string)
+   (rear-context-string . "===============\n")
+   (position . 1160)))
  ("socket-libc"
   ((filename . "/usr/share/info/libc")
    (front-context-string . "File: libc.info,")

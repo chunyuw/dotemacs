@@ -8,13 +8,12 @@
 ;;(setq smtpmail-local-domain "db.hit.edu.cn")
 ;;(setq smtpmail-sendto-domain "db.hit.edu.cn")
 ;;(setq smtpmail-auth-credentials
-;;      '(("202.118.224.153" "25" "chunyu" "passwd")))
+;;      '(("202.118.224.153" "25" "chunyu" "Lbh ner Cvt.")))
 
 ;;(setq smtpmail-default-smtp-server "smtp.sina.com.cn")
 ;;(setq smtpmail-smtp-server "smtp.sina.com.cn")
 ;;(setq smtpmail-starttls-credentials
-;;      '(("smtp.sina.com.cn" "25" "dddkk" "passwd")))
+;;      '(("smtp.sina.com.cn" "25" "dddkk" "Lbh ner Cvt.")))
 ;;(setq smtpmail-debug-info t)
-
 
 ;; Chunyu's .emacs_smtp.el ends here.
