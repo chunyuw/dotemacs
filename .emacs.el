@@ -41,7 +41,6 @@
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
-(define-key ctl-x-m-map "s" 'dictionary-search)
 (define-key ctl-x-m-map "k" 'boxquote-describe-key)
 (define-key ctl-x-m-map "r" 'boxquote-region)
 (define-key ctl-x-m-map "t" 'boxquote-title)
@@ -61,6 +60,7 @@
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
 (define-key meta-m-map "\M-p" 'emacs-wiki-publish)
+(define-key meta-m-map "\M-l" 'dictionary-search)
 (define-key meta-m-map "c" 'calendar)
 (define-key meta-m-map "i" 'ibuffer)
 
