@@ -48,6 +48,7 @@
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
+(define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (eval-after-load "apropos"
@@ -293,7 +294,6 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'write-file-hooks 'time-stamp)
-(add-hook 'find-file-hook 'auto-insert)
 
 (add-hook 'message-setup-hook
 	  (lambda ()
@@ -314,16 +314,13 @@
 
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    (setq fill-paragraph-function nil)))
-
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
 
-(add-hook 'find-file-hooks 'auto-insert)
+;; auto-insert
+;; (add-hook 'find-file-hooks 'auto-insert)
 (setq auto-insert-directory "~/.emacs.d/insert/")
 ;; (setq auto-insert-query nil)
 ;; (setq auto-insert-alist
@@ -371,6 +368,7 @@
 		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")
 		      ("[.]pdf\\'" . "gsview32.exe %s")
 		      ("[.]dvi\\'" . "windvi %s")))
+
 	      (setq dired-guess-shell-alist-user
 		    (list (list "\\.pdf\\'" "explorer")
 			  (list "\\.dvi\\'" "dvipdfmx")
@@ -378,16 +376,16 @@
 	      (setq default-frame-alist
 		    (append '((width . 80) (height . 43))
 			    default-frame-alist))
+	      (setq Man-header-file-path '("d:/free_ware/MinGW/include"))
 
 	      ;; other things for win32
 	      ;; (setq-default cursor-type '(bar . 1))
 	      (setq Info-default-directory-list 
-		    (append Info-default-directory-list (list "d:/free_ware/TeXLive/info")))
+		    '("d:/free_ware/TeXLive/info" "d:/usr/emacs-21.3.50/info/"))
 	      ;;;; ECB ;;;;
 	      ;; (setq ecb-options-version "2.23")
 	      (require 'ecb-autoloads)
 	      (setq ecb-tip-of-the-day nil)
-	      (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
 
 	      ;; ispell
 	      (setenv "ISPELLDICTDIR" (concat (getenv "emacs_dir") "/site-lisp/EnglishDic"))
@@ -411,7 +409,6 @@
 
 (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/elisp")
-(require 'tex-site)
 ;; (require 'boxquote)
 ;; (require 'dired-tar)
 ;; (require 'browse-kill-ring)
@@ -439,6 +436,7 @@
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
 (load custom-file)
+(load ".emacs_tex")
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
