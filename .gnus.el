@@ -72,6 +72,7 @@
       message-from-style 'angles
       message-kill-buffer-on-exit t
       message-cite-function 'sc-cite-original
+      message-elide-ellipsis "    [...]\n"
       message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
