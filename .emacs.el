@@ -21,7 +21,7 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
-(global-set-key "\M-`" 'next-err)
+(global-set-key "\M-`" 'next-error)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 (global-set-key [(insertchar)] 'overwrite-mode)
@@ -32,6 +32,8 @@
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
+
+(define-key global-map (kbd "C-c _") 'mst-under-line)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
@@ -77,6 +79,7 @@
       line-number-display-limit 1000000
       kill-ring-max 200
       vc-follow-symlinks t
+      enable-recursive-minibuffers t
       ring-bell-function 'ignore)
 
 (setq sentence-end-double-space nil)
@@ -92,7 +95,8 @@
       cvs-dired-use-hook 'always)
 
 (setq abbrev-file-name "~/.emacs.d/.abbrev_defs"
-      custom-file "~/.emacs.d/.emacs_custom.el")
+      custom-file "~/.emacs.d/.emacs_custom.el"
+      custom-buffer-done-function 'kill-buffer)
 
 (setq display-time-24hr-format t
       display-time-day-and-date t
@@ -236,13 +240,6 @@
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
-(defun chunyu-message-expand (&optional arg)
-  "message mode expand."
-  (interactive)
-  (if (message-point-in-header-p)
-      (bbdb-complete-name arg)
-    (hippie-expand arg)))
-
 
 (add-hook 'message-setup-hook
 	  (lambda ()
@@ -256,6 +253,25 @@
 	  (lambda ()
 (eval-after-load "help-mode"
   '(progn (define-key help-mode-map "l" 'help-go-back)))
+
+(eval-after-load "view"
+  '(progn (define-key view-mode-map "j" 'View-scroll-line-forward)
+	  (define-key view-mode-map "k" 'View-scroll-line-backward)))
+
+(defun mst-under-line ()
+  (interactive)
+  (end-of-line)
+  (let ((end (current-column)))
+    (newline)
+    (loop repeat end do (insert "-"))
+    (newline)))
+
+	    (c-toggle-auto-hungry-state 1)
+	    (which-func-mode 1)))
+
+(add-hook 'bs-mode-hook 'hl-line-mode)
+
+(defun chunyu-message-expand (&optional arg)
   "message mode expand."
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
