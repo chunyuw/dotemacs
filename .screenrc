@@ -24,7 +24,7 @@
   pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 # Pretty status bar at the bottom.
-caption always "%m/%d/%y %0c%{=b kW}  %l  %{=r kd}%-Lw%{= bd}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
+  caption always "%m/%d/%y %0c%{=b kW}  %l  %{=r kd}%-Lw%{= bd}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
 
 # XTERM TWEAKS
 # ===============================================================
