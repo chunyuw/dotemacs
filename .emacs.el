@@ -1,22 +1,15 @@
 ;; $Id$  -*- mode: emacs-lisp; coding: gb2312; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
-(require 'gnus-load)
-
-(global-set-key [f1] 'cvs-examine)
-(global-set-key [f5] 'undo)
-(global-set-key [f6] 'eshell)
-(global-set-key [f7] 'calendar)
-(global-set-key [f9] 'view-mode)
-(global-set-key [f8] 'other-window)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
-
-(global-unset-key "\C-\\")
 
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-xB" 'bury-buffer)
+(global-set-key "\C-xE" 'apply-macro-to-region-lines)
+(global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
@@ -26,31 +19,32 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
-(global-set-key [(home)] 'beginning-of-buffer)
-(global-set-key [(end)] 'end-of-buffer)
-(global-set-key [(insertchar)] 'overwrite-mode)
-(global-set-key [(control meta s)] 'isearch-forward)
-(global-set-key [(control meta r)] 'isearch-backward)
-(global-set-key [(control s)] 'isearch-forward-regexp)
-(global-set-key [(control r)] 'isearch-backward-regexp)
-(global-set-key "\C-xB" 'bury-buffer)
-(global-set-key "\C-xE" 'apply-macro-to-region-lines)
-(global-set-key "\C-xI" 'insert-buffer)
+(global-set-key "\C-\M-s" 'isearch-forward)
+(global-set-key "\C-\M-r" 'isearch-backward)
+(global-set-key "\C-s" 'isearch-forward-regexp)
+(global-set-key "\C-r" 'isearch-backward-regexp)
 
-(global-set-key "\C-c\C-_" 'mst-under-line)
+(require 'gnus-load)
+(require 'help-mode)
+(require 'view)
+(require 'info)
+(require 'dired)
+(require 'dired-x)
+
+(define-key help-mode-map "l" 'help-go-back)
+(define-key view-mode-map "j" 'chunyu-view-scroll-forward)
+(define-key view-mode-map "k" 'chunyu-view-scroll-backward)
+(define-key Info-mode-map "w" 'Info-scroll-down)
+(define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
+(define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
+(define-key dired-mode-map "b" 'dired-mark-extension)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
 (define-key ctl-x-m-map "s" 'dictionary-search)
-(define-key ctl-x-m-map "c" 'boxquote-shell-command)
-(define-key ctl-x-m-map "f" 'boxquote-describe-function)
-(define-key ctl-x-m-map "i" 'boxquote-insert-file)
 (define-key ctl-x-m-map "k" 'boxquote-describe-key)
-(define-key ctl-x-m-map "p" 'boxquote-paragraph)
 (define-key ctl-x-m-map "r" 'boxquote-region)
 (define-key ctl-x-m-map "t" 'boxquote-title)
-(define-key ctl-x-m-map "u" 'boxquote-unbox)
-(define-key ctl-x-m-map "v" 'boxquote-describe-variable)
 (define-key ctl-x-m-map "y" 'boxquote-yank)
 (define-key ctl-x-m-map "e" 'cvs-examine)
 (define-key ctl-x-m-map "m" 'man-follow)
@@ -58,7 +52,6 @@
 (define-key ctl-x-m-map "b" 'list-bookmarks)
 (define-key ctl-x-m-map "l" 'browse-kill-ring)
 (define-key ctl-x-m-map "a" 'align-current)
-(define-key ctl-x-m-map "w" 'ibuffer)
 
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
@@ -68,7 +61,14 @@
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
 (define-key meta-m-map "\M-p" 'emacs-wiki-publish)
-(define-key meta-m-map "c"    'calendar)
+(define-key meta-m-map "c" 'calendar)
+(define-key meta-m-map "i" 'ibuffer)
+
+
+(require 'compile)
+(require 'uniquify)
+(require 'generic-x)
+(require 'flyspell)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -241,11 +241,6 @@
 (menu-bar-mode (if window-system 1 -1))
 (icomplete-mode 1)
 (ido-mode 1)
-;; (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
-(add-hook 'dired-load-hook
-          (lambda ()
-	    (require 'dired-x)
-	    (define-key dired-mode-map "b" 'dired-mark-extension)))
 
 (add-hook 'diary-hook 'appt-make-list)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -267,26 +262,6 @@
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-(eval-after-load "help-mode"
-  '(progn (define-key help-mode-map "l" 'help-go-back)))
-
-(eval-after-load "view"
-  '(progn (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
-	  (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
-
-(eval-after-load "info"
-  '(progn (define-key Info-mode-map "w" 'Info-scroll-down)
-	  (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
-	  (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)))
-
-(defun mst-under-line ()
-  (interactive)
-  (end-of-line)
-  (let ((end (current-column)))
-    (newline)
-    (loop repeat end do (insert "-"))
-    (newline)))
-
 	    (c-toggle-auto-hungry-state 1)
 	    (which-func-mode 1)))
 
@@ -368,30 +343,10 @@
       (append '(("\\.py\\'" . python-mode)
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
-
-;; (require 'tex-site)
+		("\\.phtml\\'" . html-helper-mode)
 		("\\.css\\'" . css-mode))
-(require 'compile)
 	      auto-mode-alist))
-(require 'uniquify)
-(require 'generic-x)
 
-;; (require 'flyspell)
-
-(require 'dired)
-(require 'dired-x)
-(require 'help-mode)
-(require 'info)
-(require 'view)
-
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'set-goal-column 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'erase-buffer 'disabled nil)
-(put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
 (require 'boxquote)
@@ -403,12 +358,20 @@
 ;; (load "xrefactory")
 
 ;; (setq semantic-load-turn-everything-on t)
-;; (load-file "~/.emacs.d/.emacs_smtp.el")
 ;; (require 'semantic-load)
 
 (load "~/.emacs.d/.emacs-records")
 (setq records-init-file"~/.emacs.d/.emacs-records")
 
+(load-file "~/.emacs.d/.emacs_erc.el")
+(load-file "~/.emacs.d/.emacs_faces.el")
+(load-file "~/.emacs.d/.emacs_bbdb.el")
+(load-file "~/.emacs.d/.emacs_wiki.el")
+;; (load-file custom-file)
+
+(put 'dired-find-alternate-file 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
