@@ -26,6 +26,10 @@
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 (global-set-key [(insertchar)] 'overwrite-mode)
+(global-set-key [(control meta s)] 'isearch-forward)
+(global-set-key [(control meta r)] 'isearch-backward)
+(global-set-key [(control s)] 'isearch-forward-regexp)
+(global-set-key [(control r)] 'isearch-backward-regexp)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
