@@ -52,7 +52,6 @@
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil            ; 'y-or-n-p
-      gnus-inhibit-startup-message t
 
       apropos-do-all nil
       x-stretch-cursor t
@@ -71,6 +70,9 @@
       display-time-use-mail-icon t
       display-time-interval 10
 
+      gnus-inhibit-startup-message t
+      gnus-init-file "~/.emacs.d/.gnus.el"
+
       mail-signature-file "~/.sig/default"
       mail-user-agent 'gnus-user-agent
       mail-alias-file "~/.mailrc"
@@ -81,7 +83,7 @@
       time-stamp-warn-inactive t
       time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S %u on %s"
 
-      diary-file "~/.diary"
+      diary-file "~/.emacs.d/.diary"
       calendar-latitude +45.75
       calendar-longitude +126.63
       calendar-location-name "Harbin"
@@ -128,14 +130,16 @@
       quack-default-program "guile"
       quack-fontify-style nil
       quack-fontify-style nil)
+      bbdb-file "~/.emacs.d/.bbdb"
+(setq bbdb-file "~/.emacs.d/.bbdb")
       dictionary-server "192.168.1.191"
       canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
       )
 
 
 (setq help-at-pt-display-when-idle 
-(set-register ?e '(file . "~/.emacs.el"))
-(set-register ?g '(file . "~/.gnus.el"))
+      '(keymap local-map button kbd-help))
+
 (setq-default kill-whole-line t)
 
 (set-register ?v '(file . "/usr/local/cvsroot/sprcvs"))
@@ -233,9 +237,9 @@
 (put 'upcase-region 'disabled nil)
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
-;;(load-file "~/.emacs_smtp.el")
-(load-file "~/.emacs_erc.el")
-(load-file "~/.emacs_bbdb.el")
+;;(load-file "~/.emacs.d/.emacs_smtp.el")
+(load-file "~/.emacs.d/.emacs_erc.el")
+(load-file "~/.emacs.d/.emacs_bbdb.el")
 
 ;;; Customize setup.
 (custom-set-variables
