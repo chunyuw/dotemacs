@@ -86,7 +86,6 @@
       ring-bell-function 'ignore)
 
 (setq truncate-partial-width-windows nil
-      Info-use-header-line nil
       sentence-end-double-space nil
       makefile-electric-keys t
       compilation-window-height 10
@@ -154,7 +153,9 @@
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
-      backup-directory-alist '(("." . "~/var/tmp"))
+      backup-directory-alist 
+      '(("." . "~/var/tmp") 
+	(cons tramp-file-name-regexp nil))
       backup-by-copying t
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
@@ -304,7 +305,7 @@
   (interactive "p")
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
-       (set-face-background 'region "blue")
+    (goto-char pos)
     (previous-line lines)))
 
 (cond ((not window-system) ;; text console
@@ -361,7 +362,6 @@
       (append '(("\\.py\\'" . python-mode)
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
-(add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
 (require 'gnus-load)
 (require 'tex-site)
