@@ -2,13 +2,7 @@
 ;; Chunyu <chunyu@hit.edu.cn>'s .gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods
-      `((nnml "")
-	;; (nntp "news.individual.net")
-	;; (nntp "news.gmane.org")
-	;; (nntp "localhost")
-	;; (nntp "news.newsfan.net")
-	(nntp "ds1")))
+      gnus-secondary-select-methods `((nnml "")))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
@@ -18,7 +12,6 @@
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      ;;gnus-check-new-newsgroups nil
       gnus-backup-startup-file t
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
@@ -36,7 +29,7 @@
 
 (setq mm-inline-large-images t
       mm-text-html-renderer 'html2text
-      mm-inline-override-types '("text/html"));; nil)
+      mm-inline-override-types '("text/html")) ;; or nil
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
@@ -49,7 +42,6 @@
 (setq gnus-header-face-alist
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
-	;;("Newsgroups" nil gnus-header-newsgroups-face)
 	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
 	("" gnus-header-name-face gnus-header-content-face)))
 
@@ -63,7 +55,6 @@
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
 		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
-;; dddkk@163.com
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -135,10 +126,9 @@
       message-cite-function 'sc-cite-original
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
-      ;; message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
-      message-mail-alias-type nil	; don't use ~/.mailrc aliases
+      message-mail-alias-type nil
       message-forward-ignored-headers
       (concat "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
 	      "\\|^Thread-\\|^[GB]cc:\\|^Reply-To:\\|^Received:\\|^User-Agent:"
@@ -166,23 +156,19 @@
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
 	  (any "cmbchina\\.com" "mail.cmbchina")
-
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
-	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
-	  ;; ("Subject" "dbworld" "list.db.dbworld")
 	  (from "dddkk@smth.edu.cn\\|\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
-	  ("Subject" "OS" "mail.ta")
 	  (to "202.118.224.153" "mail.misc")
-	  (: spam-split)
+	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
+		 ("Subject" "\\[[Oo][Ss]\\]" "mail.ta")
 		 "mail.misc"))
 	  "misc.junk"))
 
-;; (defun message-make-message-id()
-;;    (concat "<"(message-unique-id)"@cyber.net>"))
-
-;; (setq spam-use-stat t) ;; if needed
+(require 'spam-stat)
+(spam-stat-load)
+(setq spam-use-stat t)
 (setq gnus-registry-max-entries 2500
       gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
@@ -190,7 +176,8 @@
      
 (setq spam-log-to-registry t
       spam-use-BBDB t
-      spam-use-regex-headers t)
+      spam-use-regex-headers t
+      spam-stat-split-fancy-spam-group "mail.junk")
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
