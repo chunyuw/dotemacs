@@ -351,7 +351,7 @@
 
 (load "~/.emacs.d/.emacs-records")
 (setq records-init-file"~/.emacs.d/.emacs-records")
-(load-file custom-file)
+
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 
