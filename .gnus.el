@@ -192,7 +192,8 @@
 (when window-system
   (eval-after-load "gnus-art"
     '(progn 
-   (copy-face 'gnus-header-from-face 'gnus-x-face))))
+   (copy-face 'gnus-header-from-face 'gnus-x-face)
+   (set-face-attribute 'gnus-x-face nil :foreground "blue"))))
 
 (unless window-system
   (require 'gnus-sum)
