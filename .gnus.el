@@ -137,7 +137,7 @@
 		     "limoo" - "xiaonan" - "however"  - "jellycart" "classmate.misc")
 	       (from "pacz@sohu.com" - "pacz@pa18.com" - "tccz@sina.com" "mail.wife")
 	       (from "m_pupil@yahoo.com.cn""mail.friends")
-	       (from "@bbd" - "@smth" "mail.bbs")
+	       (from "@bbs" - "@smth" "mail.bbs")
 	       "mail.misc"))
 	"misc.misc")
       )
