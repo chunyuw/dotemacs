@@ -5,6 +5,7 @@
 (global-set-key [f12] 'gdb)
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
+(global-unset-key [(insert)])
 
 (global-set-key "\C-x\C-b" 'bs-show) ; electric-buffer-list
 (global-set-key "\C-x\C-v" 'view-file)
@@ -22,6 +23,7 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
+(setq outline-minor-mode-prefix "\C-c\C-o")
 
 (require 'gnus-load)
 (require 'bs)
