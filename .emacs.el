@@ -13,6 +13,7 @@
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
+(global-set-key "\C-xve" 'cvs-examine)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
@@ -54,24 +55,6 @@
      (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
      (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
 
-;; (eval-after-load "calc"
-;;   '(progn
-;;      (load "calc-misc")
-;;      (load "calc-ext")
-;;      (load "calc-undo")
-;;      (define-key calc-mode-map (kbd "C--") 'calc-undo)
-;;      (define-key calc-mode-map (kbd "C-/") 'calc-undo)))
-
-(define-prefix-command 'ctl-x-m-map)
-(global-set-key "\C-xm" 'ctl-x-m-map)
-(define-key global-map "\C-xve" 'cvs-examine)
-(define-key ctl-x-m-map "e" 'cvs-examine)
-(define-key ctl-x-m-map "m" 'man-follow)
-(define-key ctl-x-m-map "g" 'run-scheme)
-(define-key ctl-x-m-map "b" 'list-bookmarks)
-(define-key ctl-x-m-map "l" 'browse-kill-ring)
-(define-key ctl-x-m-map "a" 'align-current)
-
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
 (define-key meta-m-map "\M-m" 'back-to-indentation)
@@ -84,6 +67,8 @@
 (define-key meta-m-map "\M-e" 're-builder)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
+(define-key meta-m-map "b" 'browse-kill-ring)
+(define-key meta-m-map "a" 'chunyu-maxize-emacs)
 
 (setq gc-cons-threshold 2000000
       echo-keystrokes 0.5)
@@ -270,7 +255,6 @@
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
 (set-register ?w '(file . "~/Wiki"))
-(set-register ?j '(file . "~/work/xmldb/loader"))
 (setenv "DISPLAY" "chunyu:0")
 
 ;; (set-locale-environment "en")
@@ -474,5 +458,6 @@
 (put 'erase-buffer 'disabled nil)
 (put 'overwrite-mode 'disabled t)
 (put 'rmail 'disabled t)
+(put 'LaTeX-hide-environment 'disabled nil)
 
 ;; Chunyu's .emacs.el ends here.
