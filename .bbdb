@@ -25,7 +25,7 @@
 ["冯丽" nil ("fengli") "计算机系办" (["Office" "86413309"]) nil ("fl@hit.edu.cn") ((creation-date . "2004-03-09") (timestamp . "2004-09-06")) nil]
 ["高晶" nil ("Jing Gao") nil nil nil ("gaoj@hit.edu.cn") ((creation-date . "2003-11-15") (timestamp . "2004-07-05")) nil]
 ["葛鹏程" nil nil nil nil nil ("grey_hit@hit.edu.cn" "pengcheng.ge@gmail.com") ((creation-date . "2004-09-08") (timestamp . "2004-09-13")) nil]
-["管威" nil nil nil nil nil ("qiaoxiaoyao@sina.com") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
+["管威" nil nil nil nil nil ("qiaoxiaoyao@sina.com" "fancyway@gmail.com") ((creation-date . "2003-07-30") (timestamp . "2004-09-16")) nil]
 ["郭建立" nil nil nil nil nil ("superguojianli@sina.com") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["郭宁" nil ("guoning") nil nil nil ("loverggn@sina.com" "loverggn@MSN.com") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["郭振华" nil nil nil nil nil ("denis@hit.edu.cn") ((creation-date . "2004-07-09") (timestamp . "2004-07-09")) nil]
