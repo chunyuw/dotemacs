@@ -1,5 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs_smtp.el is created on 2003/06/15 on db.cs.hit.edu.cn. 
+;; Chunyu's .emacs_smtp.el is created on 2003/06/15 on db.cs.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
 (setq message-send-mail-function 'smtpmail-send-it)

@@ -1,5 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs_bbdb.el is created on 2003/07/26 on db.cs.hit.edu.cn. 
+;; Chunyu's .emacs_bbdb.el is created on 2003/07/26 on db.cs.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
 (require 'supercite)
@@ -25,22 +25,22 @@
       bbdb-elided-display-fields '(net)
       bbdb-elided-display t
       bbdb-offer-save nil
-      bbdb-complete-name-allow-cycling t 
+      bbdb-complete-name-allow-cycling t
       bbdb-user-mail-names
-      (regexp-opt '("dddkk@sina.com" 
+      (regexp-opt '("dddkk@sina.com"
 		    "dddkk@163.net"
-		    "chunyu@hit.edu.cn" 
+		    "chunyu@hit.edu.cn"
 		    "chunyu@db.hit.edu.cn"
 		    "chunyu@db.cs.hit.edu.cn"
-		    "spr@db.hit.edu.cn" 
-		    "spr@db.cs.hit.edu.cn" 
+		    "spr@db.hit.edu.cn"
+		    "spr@db.cs.hit.edu.cn"
 		    "emacs.bbs@bbs.hit.edu.cn" ; bbs.hit.edu.cn
 		    "emacs.bbs@bbs.nju.edu.cn" ; bbs.nju.edu.cn
-		    "dddkk@smth.edu.cn"	       ; smth.org
+		    "dddkk@smth.edu.cn"	       ; bbs smth.edu.cn
 		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
 		    )))
 
-;; (cond ((not window-system) 
+;; (cond ((not window-system)
 ;;        (set-face-attribute 'bbdb-name nil  :foreground "yellow" :underline nil)
 ;;        ;;(set-face-attribute 'bbdb-company nil :foreground "blue" :weight 'bold)
 ;;        (set-face-attribute 'bbdb-field-name nil :foreground "cyan")

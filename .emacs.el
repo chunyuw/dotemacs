@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: cn-gb-2312 -*-
+;; $Id$  -*- mode: emacs-lisp; coding: cn-gb-2312; -*-
 ;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
@@ -43,7 +43,7 @@
 (define-key ctl-xm-map "e" 'cvs-examine)
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
-(define-key ctl-xm-map "b" 'ibuffer)	
+(define-key ctl-xm-map "b" 'ibuffer)
 (define-key ctl-xm-map "l" 'browse-kill-ring)
 (define-key ctl-xm-map "a" 'align-current)
 
@@ -197,7 +197,7 @@
 (add-hook 'dired-load-hook
           (lambda ()
             (load "dired-x")
-	    (setq dired-view-command-alist 
+	    (setq dired-view-command-alist
 		  '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 		    ("[.]pdf\\'" . "xpdf %s")
 		    ("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")
@@ -207,7 +207,7 @@
 (defun ido-my-keys () "Add my keybindings for ido."
   (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir))
 
-(cond ((not window-system) 
+(cond ((not window-system)
     (view-scroll-lines lines t 1 t)
        (eval-after-load "log-view"
 	 '(progn
@@ -297,7 +297,7 @@
 (defun chunyu-recenter () "Recenter: once middle, twice top, thrice bottom"
   (interactive)
   (cond ((eq last-command 'cy-recenter-twice) (recenter -1))
-	((eq last-command 'cy-recenter-once) (recenter 0) 
+	((eq last-command 'cy-recenter-once) (recenter 0)
 	 (setq this-command 'cy-recenter-twice))
 	(t (recenter) (setq this-command 'cy-recenter-once))))
 

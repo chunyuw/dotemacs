@@ -1,5 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs_erc.el is created on 2003/07/26 on db.cs.hit.edu.cn. 
+;; Chunyu's .emacs_erc.el is created on 2003/07/26 on db.cs.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
 ;; irc.sunnet.org, irc.linuxfire.com
