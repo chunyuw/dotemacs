@@ -40,6 +40,11 @@
 		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
 		    )))
 
+;; (setq bbdb-print-full-alist
+;;       '((columns . 4)
+;; 	(separator . 2)
+;; 	(include-files "bbdb-print" "bbdb-cols")))
+
 ;; (setq bbdb-display-layout-alist
 ;;       '((one-line (order phones mail-alias net)
 ;; 		  (name-end . 24)
