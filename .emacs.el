@@ -348,9 +348,9 @@
 	      (load ".emacs_w32_tex")
 
 	      ;;-- ECB --;;
-	      ;; (setq ecb-options-version "2.23")
-	      (require 'ecb-autoloads)
-	      (setq ecb-tip-of-the-day nil)
+	      ;; ;; (setq ecb-options-version "2.23")
+	      ;; (require 'ecb-autoloads)
+	      ;; (setq ecb-tip-of-the-day nil)
 
 	      ;;-- ISPELL --;;
 	      (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/others/EnglishDic"))
