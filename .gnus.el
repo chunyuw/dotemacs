@@ -4,6 +4,7 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
       '((nnml "")
+	;; (nntp "news.individual.net")
 	;; (nntp "bbs.52098.com")
 	;; (nntp "news.gmane.org")
 	;; (nntp "localhost")
