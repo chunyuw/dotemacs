@@ -3,10 +3,11 @@
 
 (cond ((not window-system)
        (set-face-attribute 'highlight nil
-			   :foreground "red"
-			   :background "black"
-			   :underline t
+			   :foreground "white"
+			   :background "blue"
+			   :underline nil
 			   :weight 'bold)
+       (set-face-attribute 'region nil :background "blue")
        (eval-after-load "log-view"
 	 '(progn
 	    (set-face-attribute 'log-view-file-face nil
@@ -74,7 +75,6 @@
 				:background "black"
 				:foreground "green"
 				:weight 'bold))))
-
       (window-system
        (set-face-attribute 'fringe nil
 			   :foreground "limegreen"
