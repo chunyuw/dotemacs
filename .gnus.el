@@ -93,7 +93,7 @@
 	("^nnml:mail\\.\\(wife\\|985101\\|classmate\\|lab\\|friends\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
-	 (address "chunyu@hit.edu.cn"))))
+	 (address "spr@db.cs.hit.edu.cn"))))
 
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
@@ -143,7 +143,7 @@
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
 	(any "guile-sources@gnu.org" "list.guile-sources")
-	(any "ding@gnus.org" "list.ding")
+	(any "ding@gnus.org\\|ding@hpc.uh.edu" "list.ding")
 	(any "fetchmail-friends" "list.fetchmail")
 	(any "pgsql-general@postgresql.org" "list.pg-general")
 	(any "zope@zope.org" "list.zope")
