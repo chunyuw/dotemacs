@@ -53,6 +53,9 @@
 (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key dired-mode-map "r" 'dired-mark-files-regexp)
+(define-key dired-mode-map "/" 'dired-mark-directories)
+(define-key dired-mode-map "K" 'dired-kill-subdir)
+(define-key dired-mode-map [(control ?/)] 'dired-undo)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
@@ -229,10 +232,10 @@
 (menu-bar-mode -1)
 (icomplete-mode 1)
 (ido-everywhere 1)
-(autoarg-mode 1)
 (ido-mode 1)
 
 ;; (desktop-save-mode 1)
+;; (autoarg-mode 1)
 ;; (hi-lock-mode 1)
 ;; (allout-init t)
 
