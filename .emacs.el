@@ -234,7 +234,7 @@
 ;;        (set-cursor-color "gold1")
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
-	       (top . 20)
+	       (top . 0)
 	       (left . 1)
 	       (width . 111)
 	       (height . 48)
