@@ -162,7 +162,7 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (to ".*@db\\.hit\\.edu\\.cn\\|.*@itrc" - "chunyu@db\\.hit\\.edu\\.cn" "logs.itrc")
+      '(| (to ".*@db\\.hit\\.edu\\.cn\\|.*@itrc" - "\\(spr\\|chunyu\\)@db\\.hit\\.edu\\.cn" "logs.itrc")
 	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
@@ -170,10 +170,10 @@
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
+	  (from "dddkk@smth.edu.cn\\|\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
 	  (: spam-split)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth\\|@db" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk"))
 
