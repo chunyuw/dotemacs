@@ -7,6 +7,7 @@
 (global-set-key [end] 'end-of-buffer)
 
 (global-set-key "\C-x\C-b" 'bs-show) ; electric-buffer-list
+(global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
@@ -45,6 +46,7 @@
 (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
+(define-key dired-mode-map "T" 'dired-tar-pack-unpack)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (eval-after-load "apropos"
@@ -355,7 +357,7 @@
 	     `((vertical-scroll-bars)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
-	       (cursor-color . "gold1")
+	       (cursor-color . "gold3")
 	       (mouse-color . "gold1")))
 
        (cond ((eq window-system 'w32) 
@@ -381,7 +383,7 @@
 			    default-frame-alist))
 
 	      ;; other things for win32
-	      (setq-default cursor-type '(bar . 1))
+	      ;; (setq-default cursor-type '(bar . 1))
 	      (setq Info-default-directory-list 
 		    (append Info-default-directory-list (list "d:/free_ware/TeXLive/info")))
 	      ;;;; ECB ;;;;
@@ -409,21 +411,6 @@
 			      (font . "9x15"))
 			    default-frame-alist))))))
 
-(autoload 'big5togb-region "big5togb" "Big5 to GB2312" t)
-(autoload 'css-mode "css-mode" "CSS editing mode" t)
-(autoload 'python-mode "python-mode" "Python editing mode." t)
-(autoload 'py-shell "python-mode" "Python shell" t)
-(autoload 'run-scheme "quack" "Quack scheme editing mode" t)
-(autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
-(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-(autoload 'htmlize-buffer "htmlize" "HTMLize mode" t)
-(autoload 'browse-kill-ring "browse-kill-ring" "Browse kill ring" t)
-(autoload 'flex-mode "flex-mode" "Flex mode" t)
-(autoload 'bhl-mode "bhl" "BHL Mode" t)
-;; (autoload 'folding-mode "folding" "Folding mode" t)
-;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
-;; (autoload 'turn-on-folding-mode "folding" "Folding mode" t)
-
 (setq auto-mode-alist
       (append '(("\\.py\\'" . python-mode)
 		("\\.s?html?\\'" . html-helper-mode)
@@ -437,7 +424,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
 ;; (require 'boxquote)
-(require 'dired-tar)
+;; (require 'dired-tar)
 ;; (require 'browse-kill-ring)
 ;; (require 'dictionary)
 
