@@ -295,6 +295,10 @@
 	  (lambda ()
 	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
 
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (which-func-mode 1)))
+
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (c-toggle-auto-hungry-state 1)
@@ -406,7 +410,7 @@
 	      auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/elisp")
+;;(add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
 ;; (require 'boxquote)
 ;; (require 'dired-tar)

@@ -23,13 +23,14 @@
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
       gnus-treat-display-smileys t
+      gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
       gnus-activate-foreign-newsgroups 4
       gnus-interactive-exit nil)
 
-;; (setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
+;;(setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
 
-(setq gnus-agent-mark-unread-after-downloaded nil)
+;;(setq gnus-agent-mark-unread-after-downloaded nil)
 
 (setq mm-inline-large-images t
       mm-inline-override-types '("text/html"))
@@ -56,9 +57,9 @@
 	      "\\|^Apparently-To:\\|^Gnus-Warning:\\|^Resent-From:\\|^X-Sent:"
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
 
-
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
+      gnus-group-name-charset-method-alist '(((nntp "news.newsfan.net") . cn-gb-2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
@@ -104,11 +105,6 @@
 	("cn.test"
 	 (name "abc")
 	 (address "xiaoludeche1980@eyou.com"))))
-;; xiaoludeche1980@eyou.com
-;; li_9888@hotmail.com
-;; xuery@126.com
-;; fj35@vip.sina.com
-
 
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
@@ -190,7 +186,12 @@
 	    (turn-on-auto-fill)
 	    (footnote-mode)))
 
-;; (require 'message-x)
+(require 'message-x)
+
+(when window-system
+  (eval-after-load "gnus-art"
+    '(progn 
+   (copy-face 'gnus-header-from-face 'gnus-x-face))))
 
 (unless window-system
   (require 'gnus-sum)
