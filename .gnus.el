@@ -169,6 +169,17 @@
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@aabb.ccdd.eeff>"))
 
+(setq gnus-use-trees t
+      gnus-generate-tree-function 'gnus-generate-horizontal-tree
+      gnus-tree-minimize-window nil
+      gnus-selected-tree-face 'underline
+      gnus-tree-line-format "%(%[%6,6n%]%)")
+
+(gnus-add-configuration
+ '(article (vertical 1.0
+		     (horizontal 0.25 (summary 0.7 point) (tree 1.0))
+		     (article 1.0))))
+
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook (lambda () (setq fill-column 72) (turn-on-auto-fill)))
