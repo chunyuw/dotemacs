@@ -6,8 +6,8 @@
       gnus-secondary-select-methods
       '((nnml "")
 	(nntp "localhost")
-	(nntp "news.newsfan.net")))
-;; news.gnus.org
+	;; (nntp "news.gnus.org")	; gnus.org nntp server
+	(nntp "news.newsfan.net")))	; newsfan nntp server
 
 (setq gnus-asynchronous t
       ;; gnus-auto-select-subject 'first
@@ -16,7 +16,7 @@
       gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      gnus-summary-display-while-building 50
+      ;; gnus-summary-display-while-building 50
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
@@ -63,10 +63,8 @@
 	(message-this-is-news nil t)))
 
 (setq gnus-ignored-from-addresses
-      (regexp-opt '("dddkk@sina.com"
-		    "spr@db.hit.edu.cn"
-		    "spr@db.cs.hit.edu.cn"
-		    "chunyu@hit.edu.cn")))
+      (regexp-opt '("dddkk@sina.com" "spr@db.hit.edu.cn"
+		    "spr@db.cs.hit.edu.cn" "chunyu@hit.edu.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -92,7 +90,7 @@
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "½ø»¯µÄÓã")
-	 (address "dddkk@sina.com")	; o.oO@Oo.o
+	 (address "dddkk@sina.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:list\\..*\\|^nnml:mail\\.foreigner"
 	 (signature-file "~/.sig/pubmail")
@@ -137,8 +135,7 @@
        "\\|^NNTP-Posting-Host:\\|^Content-Transfer-Encoding:"
        "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
        "\\|^Status:\\|^Errors-To:\\|FL-Build:")
-      message-make-forward-subject-function 'message-forward-subject-fwd
-      )
+      message-make-forward-subject-function 'message-forward-subject-fwd)
 
 
 (setq nnml-use-compressed-files t)
@@ -151,23 +148,23 @@
       '(|
 	(to "Dddkk <dddkk@sina\\.com>" junk)
 	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk) ; junk = delete
-	;;(from "sinamx.sina.com.cn" "misc.junk")
+	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
+	;; (any "guile-user@gnu.org" "list.guile.user")
+	;; (any "guile-sources@gnu.org" "list.guile.sources")
+	;; (any "fetchmail-friends" "list.fetchmail")
+	;; (any "pgsql-general@postgresql.org" "list.pg-general")
+	;; (any "zope@zope.org" "list.zope")
+	;; (any "xml-sig@python.org" "list.python.xml-sig")
+	;; (any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
+	;; (any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
+	;; (any "cedet-semantic@lists.sourceforge.net" "list.emacs.cedet-semantic")
+	;; (any "tutor@python.org" "list.python.tutor")
+	;; (any "gdb@gnu.org" "list.gdb")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
-	(any "guile-user@gnu.org" "list.guile.user")
-	(any "guile-sources@gnu.org" "list.guile.sources")
 	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
-	(any "fetchmail-friends" "list.fetchmail")
-	(any "pgsql-general@postgresql.org" "list.pg-general")
-	(any "zope@zope.org" "list.zope")
-	(any "xml-sig@python.org" "list.python.xml-sig")
-	(any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
-	(any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
-	(any "cedet-semantic@lists.sourceforge.net" "list.emacs.cedet-semantic")
-	(any "tutor@python.org" "list.python.tutor")
-	(any "gdb@gnu.org" "list.gdb")
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
 	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
@@ -180,7 +177,7 @@
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
-;;	("Delivered-To" "dddkk@sina\\.com" junk)
+	;; ("Delivered-To" "dddkk@sina\\.com" junk)
 	(any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
 	"misc.junk"))
 
@@ -203,14 +200,14 @@
 (add-hook 'message-mode-hook (lambda () (setq fill-column 72) (turn-on-auto-fill)))
 
 ;; (eval-after-load "mm-decode"
-;;   '(progn 
+;;   '(progn
 ;;      (setq mm-discouraged-alternatives '("text/html")
 ;; 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
 ;;(gnus-demon-add-scanmail)
 ;;(gnus-demon-init)
 
-(unless window-system 
+(unless window-system
   (require 'gnus-sum)
   (defface chunyu-gnus-own-related-posting-face nil "Postings by myself.")
   (set-face-attribute 'chunyu-gnus-own-related-posting-face nil :foreground "red" :weight 'bold)
@@ -237,7 +234,6 @@
   (set-face-attribute 'gnus-group-news-2-empty-face nil :foreground "cyan")
   (set-face-attribute 'gnus-group-news-2-face nil :foreground "cyan" :weight 'bold)
   (set-face-attribute 'gnus-group-news-3-empty-face nil :foreground "green")
-  (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold)
-  )
+  (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold))
 
 ;; Chunyu's .gnus.el ends here.
