@@ -351,11 +351,6 @@
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)))))
 
-;; (require 'boxquote)
-;; (require 'dired-tar)
-;; (require 'browse-kill-ring)
-;; (require 'dictionary)
-
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
