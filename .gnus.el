@@ -7,6 +7,7 @@
       '((nnml "")
 	(nntp "localhost")
 	(nntp "news.newsfan.net")))
+;; news.gnus.org
 
 (setq gnus-asynchronous t
       ;; gnus-auto-select-subject 'first
@@ -169,7 +170,7 @@
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
 	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
-	       (from "huahua1027000\\|sunhaiyang" "classmate.misc")
+	       (from "huahua1027000\\|sunhaiyang\\|xingbaolin" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")

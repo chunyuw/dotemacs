@@ -227,7 +227,7 @@
 
       ((eq window-system 'x)
        (global-set-key (kbd "C--") 'undo)
-
+       (setq visible-bell t)
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
