@@ -11,7 +11,7 @@
 (setq TeX-electric-escape t	    ; `\' bound to TeX-electric-macro
       TeX-insert-braces nil	    ; insert a macro without `{}' pair
       TeX-parse-self t
-      TeX-auto-save t
+      ;; TeX-auto-save t
       TeX-auto-untabify t)
 
 (setq LaTeX-top-caption-list 
