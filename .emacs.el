@@ -213,7 +213,7 @@
 
 (setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee")
 
-(setq dictionary-server "192.168.1.191"
+(setq dictionary-server "192.168.1.194"
       dictionary-coding-systems-for-dictionaries
       '(("cdict" . gb2312)
 	("stardic" . gb2312)
