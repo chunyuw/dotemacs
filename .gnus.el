@@ -95,7 +95,20 @@
 	 (name "Õı¥∫”Ó")
 	 (address "chunyu@hit.edu.cn"))))
 
-(setq sc-attrib-selection-list nil
+(setq sc-mail-glom-frame
+      '((begin                        (setq sc-mail-headers-start (point)))
+	("^x-attribution:[ \t]+.*$"   (sc-mail-fetch-field t) nil t)
+	("^\\S +:.*$"                 (sc-mail-fetch-field) nil t)
+	("^$"                         (progn (bbdb/sc-default)
+					     (list 'abort '(step . 0))))
+	("^[ \t]+"                    (sc-mail-append-field))
+	(sc-mail-warn-if-non-rfc822-p (sc-mail-error-in-mail-field))
+	(end                          (setq sc-mail-headers-end (point)))))
+
+(setq sc-attrib-selection-list
+      '(("sc-from-address"
+	 ((".*" . (bbdb/sc-consult-attr
+		   (sc-mail-field "sc-from-address"))))))
       sc-auto-fill-region-p nil
       sc-blank-lines-after-headers 1
       sc-citation-leader "  "
@@ -106,6 +119,9 @@
       sc-fixup-whitespace-p t
       sc-nested-citation-p nil
       sc-preferred-header-style 4
+      sc-preferred-attribution-list
+      '("sc-lastchoice" "x-attribution" "sc-consult"
+	"initials" "firstname" "lastname")
       sc-use-only-preference-p nil)
 
 (setq message-from-style 'angles
