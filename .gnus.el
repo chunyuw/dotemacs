@@ -169,6 +169,7 @@
 	       (from "m_pupil\\|zhoufei\\|liuqionline" "mail.friends")
 	       (from "chunyu@hit.edu.cn\\|\\(spr\\|chunyu\\)@db.\\(cs.\\)?hit.edu.cn\\|dddkk@sina.com" "mail.myself")
 	       (from "boldyrev" "mail.foreigner")
+	       (from "applejelly326@yahoo.com.cn" "mail.lab")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
