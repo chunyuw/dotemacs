@@ -8,13 +8,13 @@
 	(nntp "localhost")
 	(nntp "news.newsfan.net")))
 
-(setq gnus-auto-select-subject 'first
-      gnus-auto-select-first nil
+(setq gnus-asynchronous t
+      ;; gnus-auto-select-subject 'first
+      ;; gnus-auto-select-first t
       gnus-read-active-file nil
       gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      gnus-asynchronous t
       gnus-summary-display-while-building 50
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
@@ -27,6 +27,8 @@
       gnus-treat-strip-multiple-blank-lines 'last
 
       gnus-treat-display-smileys nil
+
+      gnus-auto-select-next 'quietly
       )
 
 (setq gnus-parameters
