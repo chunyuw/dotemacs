@@ -47,10 +47,6 @@
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
-(define-key ctl-x-m-map "k" 'boxquote-describe-key)
-(define-key ctl-x-m-map "r" 'boxquote-region)
-(define-key ctl-x-m-map "t" 'boxquote-title)
-(define-key ctl-x-m-map "y" 'boxquote-yank)
 (define-key ctl-x-m-map "e" 'cvs-examine)
 (define-key ctl-x-m-map "m" 'man-follow)
 (define-key ctl-x-m-map "g" 'run-scheme)
