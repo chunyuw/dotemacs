@@ -110,8 +110,8 @@
 ;; (setq redisplay-dont-pause t)
 
 (setq makefile-electric-keys t
-      ;;truncate-partial-width-windows t
-      ;;apropos-do-all t
+      ;; truncate-partial-width-windows t
+      ;; apropos-do-all t
       sentence-end-double-space nil
       compilation-window-height nil
       scroll-preserve-screen-position t
