@@ -38,6 +38,17 @@
 
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
+(add-hook 'calendar-load-hook
+	  '(lambda ()
+	     (define-key calendar-mode-map "n" 'records-calendar-to-record)
+	     (define-key calendar-mode-map "<" 'scroll-calendar-left)
+	     (define-key calendar-mode-map ">" 'scroll-calendar-right)
+	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)))
+
+
 (autoload 'chinese-year "cal-china" "Chinese year data" t)
 
 (defun holiday-chinese (cmonth cday string)
@@ -60,9 +71,6 @@ Returns nil if it is not visible in the current calendar window."
 ;;;; records mode ;;;;
 (load ".emacs-records")
 (setq records-init-file "~/.emacs.d/.emacs-records")
-(add-hook 'calendar-load-hook
-	  '(lambda ()
-	     (define-key calendar-mode-map "n" 'records-calendar-to-record)))
 (add-hook 'records-mode-hooks
 	  '(lambda ()
 	     (turn-on-auto-fill)))
