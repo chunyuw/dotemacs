@@ -161,11 +161,10 @@
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-		 ("Subject" "[Oo][Ss]\\|操作系统\\|实验\\|试验" "mail.ta")
+		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
 		 "mail.misc"))
 	  "misc.junk")
-      nnmail-mail-splitting-decodes t
-      nnmail-mail-splitting-charset 'gb2312)
+      nnmail-mail-splitting-decodes t)
 
 (require 'spam-stat)
 (spam-stat-load)
@@ -178,7 +177,7 @@
 (setq spam-log-to-registry t
       spam-use-BBDB t
       spam-use-regex-headers t
-      spam-stat-split-fancy-spam-group "mail.junk")
+      spam-stat-split-fancy-spam-group "misc.junk")
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
