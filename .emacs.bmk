@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("notes-elisp"
+(("socket-libc"
+  ((filename . "/usr/share/info/libc")
+   (front-context-string . "File: libc.info,")
+   (rear-context-string)
+   (position . 35374)
+   (info-node . "Socket Concepts")))
+ ("notes-elisp"
   ((filename . "/home/spr/work/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")
    (rear-context-string . "  两种数的类型：整数和浮点数。")
