@@ -10,6 +10,8 @@
 (setq gnus-summary-line-format "%ub %U%R%z%I%(%[%4L: %-20,20n%]%) %s\n")
 ;; gnus-summary-line-format's default value is "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n"
 
+;;(bbdb-define-all-aliases)
+
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 
 (setq bbdb-north-american-phone-numbers-p nil
