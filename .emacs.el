@@ -281,15 +281,13 @@
        
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
-	       (top . 0)
-	       (left . 0)
-	       (width . 111)
-	       (height . 48)
+	       (top . 0) (left . 0) (width . 111) (height . 48)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
 	       (cursor-color     . "gold1")
 	       (mouse-color      . "gold1")
-	       (font . "9x15")))
+	       ;;(font . "9x15")
+	       ))
 
        (if (facep 'mode-line)
 	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
@@ -310,9 +308,6 @@
 			    default-frame-alist))))))
 
 (autoload 'big5togb-region "big5togb" "Big5 to GB2312" t)
-(autoload 'todo-insert-item "todo-mode" "Add TODO item." t)
-(autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
-(autoload 'todo-show "todo-mode" "Show TODO items." t)
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (autoload 'flex-mode "flex-mode.el" "Flex mode" t)
