@@ -69,6 +69,7 @@
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "b" 'browse-kill-ring)
 (define-key meta-m-map "a" 'chunyu-maxize-emacs)
+(define-key meta-m-map "f" 'chunyu-insert-file-variable)
 
 (setq gc-cons-threshold 2000000
       echo-keystrokes 0.5)
@@ -251,6 +252,8 @@
 (setq sentence-end
       "\\([.?!][]\"')}]*\\($\\|	\\| \\)\\|[¡££®£¿£¡]+\\)[ 	\n]*")
 
+(setq reftex-plug-into-AUCTeX t)
+
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
@@ -280,7 +283,7 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
-;; (desktop-save-mode 1)
+(desktop-save-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
