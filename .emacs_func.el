@@ -78,4 +78,9 @@ comment char"
   (goto-char (posn-point (event-end event)))
   (dired-execute-file))
 
+(defun chunyu-metapost-build-mp ()
+  "build mp files"
+  (interactive)
+  (shell-command (format "mptopdf %s" (buffer-name))))
+
 ;; Chunyu's .emacs_func.el ends here.

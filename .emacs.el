@@ -256,6 +256,10 @@
      (require 'webjump-plus)
      (setq webjump-sites webjump-plus-sites)))
 
+(eval-after-load "meta-mode"
+  '(progn
+     (define-key meta-mode-map "\C-c\C-c" 'chunyu-metapost-build-mp)))
+
 ;; auto-insert
 ;; (add-hook 'find-file-hooks 'auto-insert)
 (setq auto-insert-directory "~/.emacs.d/insert/")
