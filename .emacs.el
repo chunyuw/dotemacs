@@ -24,6 +24,7 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
+(global-set-key "\C-\M-[" 'keyboard-escape-quit)
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
 (require 'gnus-load)
