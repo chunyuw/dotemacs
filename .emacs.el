@@ -135,8 +135,10 @@
       chinese-calendar-terrestrial-branch
       ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ðç" "º¥"]
       general-holidays
-      '((holiday-fixed 1 1 "Ôªµ©") (holiday-fixed 4 1 "ÓÞÈË½Ú")
-	(holiday-float 5 0 2 "Ä¸Ç×½Ú") (holiday-float 6 0 3 "¸¸Ç×½Ú"))
+      '((holiday-fixed 1 1 "Ôªµ©")
+	(holiday-fixed 4 1 "ÓÞÈË½Ú")
+	(holiday-float 5 0 2 "Ä¸Ç×½Ú")
+	(holiday-float 6 0 3 "¸¸Ç×½Ú"))
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
@@ -144,8 +146,13 @@
 
 (setq mark-diary-entries-in-calendar t
       appt-issue-message nil
-      mark-holidays-in-calendar nil
+      mark-holidays-in-calendar t
       view-calendar-holidays-initially nil)
+
+(setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
+      calendar-date-display-form '(year "/" month "/" day)
+      calendar-time-display-form
+      '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
 (setq todo-file-do "~/.emacs.d/todo-do"
       todo-file-done "~/.emacs.d/todo-done"
@@ -241,6 +248,7 @@
 (ido-mode 1)
 
 (add-hook 'diary-hook 'appt-make-list)
+(add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'write-file-hooks 'time-stamp)
