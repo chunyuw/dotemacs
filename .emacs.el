@@ -9,6 +9,7 @@
 
 (global-set-key "\C-x\C-b" 'bs-show)
 ;;(global-set-key "\C-x\C-b" 'electric-buffer-list)
+(global-set-key "\C-x\C-p" 'pop-global-mark)
 (global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'chunyu-kill-this-buffer)
@@ -210,6 +211,7 @@
 (set-register ?j '(file . "d:/usr/work/books/mybook/"))
 (set-register ?u '(file . "m:/"))
 (setenv "DISPLAY" "chunyu:0")
+(setenv "SHELL" "sh.exe")
 
 ;; (set-locale-environment "en")
 ;; (set-locale-environment "zh_CN")
