@@ -51,7 +51,7 @@
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
-      confirm-kill-emacs nil		; 'y-or-n-p
+      confirm-kill-emacs nil            ; 'y-or-n-p
       gnus-inhibit-startup-message t
 
       apropos-do-all nil
@@ -60,7 +60,7 @@
       compilation-scroll-output t
       compile-command "make "
 
-      dired-listing-switches "-avl"	;`C-u s'
+      dired-listing-switches "-avl"     ; `C-u s'
       dired-recursive-copies t
       dired-recursive-deletes t
       dired-guess-shell-gnutar t
@@ -107,18 +107,18 @@
 
       hippie-expand-try-functions-list
       '(try-expand-line
-	try-expand-line-all-buffers
-	try-expand-list
-	try-expand-list-all-buffers
-	try-expand-dabbrev
-	try-expand-dabbrev-visible
-	try-expand-dabbrev-all-buffers 
-	try-expand-dabbrev-from-kill
-	try-complete-file-name
-	try-complete-file-name-partially
-	try-complete-lisp-symbol 
-	try-complete-lisp-symbol-partially
-	try-expand-whole-kill)
+        try-expand-line-all-buffers
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers 
+        try-expand-dabbrev-from-kill
+        try-complete-file-name
+        try-complete-file-name-partially
+        try-complete-lisp-symbol 
+        try-complete-lisp-symbol-partially
+        try-expand-whole-kill)
 
       ido-enable-tramp-completion t
       ido-save-directory-list-file nil
@@ -162,11 +162,11 @@
 (display-time-mode 1)
 (ido-mode 1)
 (add-hook 'dired-load-hook
-	  (lambda () 
-	    (load "dired-x")
-	    (setq dired-view-command-alist
-		  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
-			  dired-view-command-alist))))
+          (lambda () 
+            (load "dired-x")
+            (setq dired-view-command-alist
+                  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
+                          dired-view-command-alist))))
 
 (when window-system
   (scroll-bar-mode -1)
