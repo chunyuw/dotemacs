@@ -28,6 +28,7 @@
       bbdb-elided-display t
       bbdb-offer-save nil
       bbdb-complete-name-allow-cycling t
+      bbdb-time-display-format "%Y-%m-%d"
       bbdb-user-mail-names
       (regexp-opt '("dddkk@sina.com"
 		    "dddkk@163.net"
@@ -36,6 +37,16 @@
 		    "dddkk@smth.edu.cn"	       ; bbs smth.edu.cn
 		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
 		    )))
+
+(setq bbdb-display-layout-alist
+      '((one-line (order phones mail-alias net)
+		  (name-end . 24)
+		  (toggle . t))
+	(multi-line (indention . 14)
+		    (toggle . t)
+		    (omit creation-date timestamp aka notes))
+	(pop-up-multi-line  (indention . 14))))
+
 
 ;; (cond ((not window-system)
 ;;        (set-face-attribute 'bbdb-name nil  :foreground "yellow" :underline nil)
