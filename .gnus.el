@@ -9,8 +9,7 @@
 	;; (nntp "localhost")
 	(nntp "news.newsfan.net")
 	,@(if (equal (getenv "HOSTNAME") "ds1") 
-	      '((nntp "ds1")))
-	))
+	      '((nntp "ds1")))))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
