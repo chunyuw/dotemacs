@@ -1,6 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
-;; last modified at 2003-05-21 10:26:28
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
@@ -12,31 +11,29 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
-(global-set-key "\C-x\C-b" 'electric-buffer-list) ; `ibuffer' , `electric-buffer-list' or `bs-show'
+(global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-j" 'dired-jump)
-(global-set-key "\C-xk"    'kill-buffer-directly)
+(global-set-key "\C-xk" 'kill-buffer-directly)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
 (global-set-key "\C-z" 'set-mark-command)
-(global-set-key "\M-/" 'hippie-expand)		 ; dabbrev-expand
+(global-set-key "\M-/" 'hippie-expand)           ; dabbrev-expand
 (global-set-key "\M-o" 'other-window)            ; M-o
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 
-;;(setq text-mode-hook 'turn-on-auto-fill)
 (setq inhibit-startup-message t)
 (setq default-major-mode 'text-mode)
 (setq uniquify-buffer-name-style 'forward)
 (setq ido-save-directory-list-file nil)
 (setq resize-mini-windows nil)
-(setq bs-default-configuration 'all) ; all, files or files-and-scratch
 (setq display-time-day-and-date t)
 (setq next-line-add-newlines nil)
 (setq display-time-24hr-format t)
 (setq require-final-newline t)
 (setq user-mail-address "dddkk@sina.com")
-(setq dired-listing-switches "-avl")	; Set it by hand with `C-u s'.
+(setq dired-listing-switches "-avl")    ;`C-u s'
 (setq user-full-name "Chunyu Wang")
 (setq compile-command "make ")
 (setq diary-file "~/.diary")
@@ -75,7 +72,6 @@
         try-complete-lisp-symbol-partially
         try-expand-whole-kill))
 
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
@@ -85,15 +81,16 @@
 (ido-mode 1)
 (add-hook 'dired-load-hook (lambda () (load "dired-x")))
 
-(cond (window-system
-       (set-background-color "DarkSlateGrey")
-       (set-foreground-color "Wheat")
-       (set-cursor-color "gold1")))
+(if (not window-system) nil
+  (set-background-color "DarkSlateGrey")
+  (set-foreground-color "Wheat")
+  (set-cursor-color "gold1"))
 	      (setq default-frame-alist
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(autoload 'css-mode "css-mode.el" "CSS editing mode" t)
+(autoload 'css-mode "css-mode" "CSS editing mode" t)
 (setq auto-mode-alist (cons '("\\.css\\'" . css-mode) auto-mode-alist))
+(autoload 'iptables-save-mode "iptables-save-mode" "iptables save files" t)
 
 (defun dos-unix () (interactive) (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
@@ -104,7 +101,6 @@
 (require 'jka-compr)
 (require 'uniquify)
 (require 'dired-tar)
-(require 'iptables-save-mode)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -113,14 +109,6 @@
 (put 'narrow-to-page 'disabled nil)
 
 (setq canlock-password "f6d9e4eb8360cf2cd5db9d5d0f83f7f09ac74767")
-
-
-
-;; Local variables:
-;; time-stamp-start: "last modified at"
-;; time-stamp-format: " %:y-%02m-%02d %02H:%02M:%02S"
-;; time-stamp-end: "$"
-;; End:
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
