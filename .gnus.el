@@ -126,7 +126,7 @@
   '(progn (add-to-list 'mm-discouraged-alternatives "text/html")
 	  (add-to-list 'mm-discouraged-alternatives "text/richtext")))
 
-(gnus-demon-init)
-(gnus-demon-add-rescan)
-(gnus-demon-add-disconnection)
-(gnus-demon-add-scanmail)
+;; (gnus-demon-init)
+;; (gnus-demon-add-rescan)
+;; (gnus-demon-add-disconnection)
+;; (gnus-demon-add-scanmail)
