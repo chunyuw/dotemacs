@@ -14,7 +14,7 @@
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
+      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030))
 
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
@@ -163,7 +163,8 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
+      '(| (to ".*@db\\.hit\\.edu\\.cn\\|.*@itrc" - "chunyu@db\\.hit\\.edu\\.cn" "logs.itrc")
+	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
