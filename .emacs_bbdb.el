@@ -1,7 +1,7 @@
 ;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_bbdb.el, created on 2003/07/26 on db.cs.hit.edu.cn.
 
-(global-set-key [(control tab)] 'bbdb-complete-name)
+;;(global-set-key [(control tab)] 'bbdb-complete-name)
 
 (require 'supercite)
 (require 'message)
@@ -26,8 +26,8 @@
       bbdb-electric-p t
       bbdb-use-pop-up nil		; 'horiz
       bbdb-pop-up-target-lines 1
-      bbdb-elided-display-fields '(net)
-      bbdb-elided-display t
+      ;;bbdb-elided-display-fields '(net)
+      ;;bbdb-elided-display t
       bbdb-offer-save nil
       bbdb-complete-name-allow-cycling t
       bbdb-time-display-format "%Y-%m-%d"
@@ -40,14 +40,14 @@
 		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
 		    )))
 
-(setq bbdb-display-layout-alist
-      '((one-line (order phones mail-alias net)
-		  (name-end . 24)
-		  (toggle . t))
-	(multi-line (indention . 14)
-		    (toggle . t)
-		    (omit creation-date timestamp aka notes))
-	(pop-up-multi-line  (indention . 14))))
+;; (setq bbdb-display-layout-alist
+;;       '((one-line (order phones mail-alias net)
+;; 		  (name-end . 24)
+;; 		  (toggle . t))
+;; 	(multi-line (indention . 14)
+;; 		    (toggle . t)
+;; 		    (omit creation-date timestamp aka notes))
+;; 	(pop-up-multi-line  (indention . 14))))
 
 
 ;; (cond ((not window-system)
