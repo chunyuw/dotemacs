@@ -1,6 +1,8 @@
 ;; $Id$  -*- mode: emacs-lisp; coding: gb2312; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
+(require 'gnus-load)
+
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
 (global-set-key [f6] 'eshell)
@@ -242,7 +244,7 @@
 ;; (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
           (lambda ()
-	    (load "dired-x")
+	    (require 'dired-x)
 	    (define-key dired-mode-map "b" 'dired-mark-extension)))
 
 (add-hook 'diary-hook 'appt-make-list)
@@ -271,6 +273,11 @@
 (eval-after-load "view"
   '(progn (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
 	  (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
+
+(eval-after-load "info"
+  '(progn (define-key Info-mode-map "w" 'Info-scroll-down)
+	  (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
+	  (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)))
 
 (defun mst-under-line ()
   (interactive)
@@ -347,11 +354,10 @@
 (autoload 'big5togb-region "big5togb" "Big5 to GB2312" t)
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
-(autoload 'flex-mode "flex-mode.el" "Flex mode" t)
 (autoload 'py-shell "python-mode" "Python shell" t)
-(autoload 'folding-mode          "folding" "Folding mode" t)
-(autoload 'turn-off-folding-mode "folding" "Folding mode" t)
-(autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
+(autoload 'run-scheme "quack" "Quack scheme editing mode" t)
+(autoload 'scheme-mode "quack" "Quack scheme editing mode" t)
+(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
@@ -363,14 +369,20 @@
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
 
-(require 'gnus-load)
-(require 'tex-site)
+;; (require 'tex-site)
 		("\\.css\\'" . css-mode))
 (require 'compile)
 	      auto-mode-alist))
 (require 'uniquify)
 (require 'generic-x)
+
 ;; (require 'flyspell)
+
+(require 'dired)
+(require 'dired-x)
+(require 'help-mode)
+(require 'info)
+(require 'view)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -392,7 +404,7 @@
 
 ;; (setq semantic-load-turn-everything-on t)
 ;; (load-file "~/.emacs.d/.emacs_smtp.el")
-;; (load-file "~/.emacs.d/.emacs_erc.el")
+;; (require 'semantic-load)
 
 (load "~/.emacs.d/.emacs-records")
 (setq records-init-file"~/.emacs.d/.emacs-records")
