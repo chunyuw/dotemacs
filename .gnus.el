@@ -30,6 +30,8 @@
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1)
       gnus-group-posting-charset-alist
       '(("^\\(cn\\)\\.[^,]*\\(,[ 	\n]*\\(cn\\)\\.[^,]*\\)*$" gb2312 (gb2312))
+	("^\\(º∆À„ª˙\\|–›œ–”È¿÷\\).*" gb2312 (gb2312))
+	("^\\(Itr\\|db\\).*" gb2312 (gb2312))
 	(message-this-is-mail nil nil)
 	(message-this-is-news nil t)))
 
