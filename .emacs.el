@@ -187,9 +187,12 @@
 
 (setq c-cleanup-list
       '(brace-else-brace brace-elseif-brace
-	scope-operator empty-defun-braces)
+	scope-operator empty-defun-braces
+	defun-close-semi list-close-comma)
       c-electric-pound-behavior
-      '(alignleft))
+      '(alignleft)
+      c-report-syntactic-errors t)
+(setq-default c-block-comment-prefix "* ")
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
