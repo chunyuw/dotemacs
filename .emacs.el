@@ -176,35 +176,35 @@
                   (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
                           dired-view-command-alist))))
 
-(unless window-system
-  (set-background-color "black")
-  (set-foreground-color "white"))
+(cond ((not window-system) 
+       (set-background-color "black")
+       (set-foreground-color "white"))
 
-(when window-system
-  (global-set-key (kbd "C--") 'undo)
+      ((eq window-system 'x)
+       (global-set-key (kbd "C--") 'undo)
 
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
+       (scroll-bar-mode -1)
+       (tool-bar-mode -1)
 
-  (set-background-color "DarkSlateGrey")
-  (set-foreground-color "Wheat")
-  (set-cursor-color "gold1")
+       (set-background-color "DarkSlateGrey")
+       (set-foreground-color "Wheat")
+       (set-cursor-color "gold1")
 
-  (setq default-left-fringe-width 4
-	default-right-fringe-width 4)
+       (setq default-left-fringe-width 4
+	     default-right-fringe-width 4)
 
-  (if (facep 'mode-line)
-      (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
-  (if (facep 'fringe)
-      (set-face-attribute 'fringe nil :foreground "lawngreen" :background "SteelBlue4"))
-  (if (facep 'tool-bar)
-      (set-face-background 'tool-bar "DarkSlateGrey"))
-  (if (facep 'menu)
-      (face-spec-set 'menu '((t (:foreground "Wheat" :background "DarkSlateGrey")))))
-  (if (facep 'trailing-whitespace)
-      (set-face-background 'trailing-whitespace "SeaGreen1"))
-  (if (facep 'minibuffer-prompt)
-      (face-spec-set 'minibuffer-prompt '((t (:foreground "cyan"))))))
+       (if (facep 'mode-line)
+	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
+       (if (facep 'fringe)
+	   (set-face-attribute 'fringe nil :foreground "lawngreen" :background "SteelBlue4"))
+       (if (facep 'tool-bar)
+	   (set-face-background 'tool-bar "DarkSlateGrey"))
+       (if (facep 'menu)
+	   (face-spec-set 'menu '((t (:foreground "Wheat" :background "DarkSlateGrey")))))
+       (if (facep 'trailing-whitespace)
+	   (set-face-background 'trailing-whitespace "SeaGreen1"))
+       (if (facep 'minibuffer-prompt)
+	   (face-spec-set 'minibuffer-prompt '((t (:foreground "cyan")))))))
 	      (setq default-frame-alist
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
@@ -217,7 +217,7 @@
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
-                ("\\.css\\'" . css-mode)) auto-mode-alist))
+		("\\.css\\'" . css-mode)) auto-mode-alist))
 
 (defun dos-unix () (interactive) (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
@@ -250,16 +250,16 @@
 
 ;;; Customize setup.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ediff-current-diff-face-A ((((type tty)) (:background "blue" :foreground "red" :weight bold))))
  '(ediff-current-diff-face-Ancestor ((((type tty)) (:background "magenta" :foreground "black"))))
  '(ediff-current-diff-face-B ((((type tty)) (:background "blue" :foreground "yellow" :weight bold))))
