@@ -161,7 +161,7 @@
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
 	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
-	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
+	    (| (from "bbs@bbs\\|dddkk@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
 	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
 	       (from "huahua1027000\\|sunhaiyang\\|xingbaolin" "classmate.misc")
