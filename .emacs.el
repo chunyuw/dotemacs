@@ -33,6 +33,7 @@
 (require 'uniquify)
 (require 'generic-x)
 (require 'flyspell)
+;; (require 're-builder)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
