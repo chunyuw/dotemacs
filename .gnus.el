@@ -5,7 +5,7 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
       '((nnml "")
-	(nntp "localhost")
+	(nntp "aqua")
 	;; (nntp "news.gnus.org")	; gnus.org nntp server
 	(nntp "news.newsfan.net")))	; newsfan nntp server
 
@@ -92,7 +92,7 @@
 	 (signature-file "~/.sig/default")
 	 (name "Wang Chunyu")
 	 (address "dddkk@sina.com"))
-	("^nntp\\+localhost:.*"
+	("^nntp\\+aqua:.*"
 	 (signature-file "~/.sig/localnews")
 	 (name "Õı¥∫”Ó")
 	 (address "chunyu@hit.edu.cn"))
