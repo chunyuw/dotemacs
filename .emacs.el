@@ -249,7 +249,7 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
@@ -295,6 +295,8 @@
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")
 	("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")))
+
+(add-to-list 'load-path "~/.emacs.d")
 
 (cond ((not window-system) 
        ;; Text-Only console
@@ -348,6 +350,8 @@
 	      (setq Info-default-directory-list '("d:/free_ware/TeXLive/info")
 		    Info-additional-directory-list '("d:/usr/emacs-21.3.50/info/"))
 	      
+	      (load ".emacs_w32_tex")
+
 	      ;;-- ECB --;;
 	      ;; (setq ecb-options-version "2.23")
 	      (require 'ecb-autoloads)
@@ -367,7 +371,6 @@
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)))))
 
-(add-to-list 'load-path "~/.emacs.d")
 ;; (require 'boxquote)
 ;; (require 'dired-tar)
 ;; (require 'browse-kill-ring)
@@ -395,8 +398,6 @@
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
 (load custom-file)
-(if (equal (getenv "HOSTNAME") "chunyu")
-    (load ".emacs_tex"))
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
