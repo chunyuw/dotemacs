@@ -410,7 +410,7 @@
 	      auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d")
-;;(add-to-list 'load-path "~/.emacs.d/elisp")
+;; (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
 ;; (require 'boxquote)
 ;; (require 'dired-tar)
