@@ -84,6 +84,7 @@
       kill-ring-max 100
       vc-follow-symlinks t
       enable-recursive-minibuffers t
+      line-move-ignore-invisible t
       ring-bell-function 'ignore)
 
 (setq truncate-partial-width-windows nil
