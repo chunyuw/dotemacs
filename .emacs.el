@@ -236,7 +236,7 @@
 (find-function-setup-keys)
 (minibuffer-electric-default-mode 1)
 (partial-completion-mode 1)
-(utf-translate-cjk-mode 1)
+(utf-translate-cjk-mode -1)
 (global-font-lock-mode 1)
 (auto-compression-mode 1)
 (column-number-mode 1)
