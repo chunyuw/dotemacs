@@ -22,8 +22,9 @@
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
-      solar-holidays nil
-      bahai-holidays nil)
+      ;; solar-holidays nil
+      bahai-holidays nil
+      solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
 
 (setq mark-diary-entries-in-calendar t
       appt-issue-message nil

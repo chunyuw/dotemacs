@@ -138,36 +138,6 @@
       time-stamp-warn-inactive t
       time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
 
-(setq diary-file "~/.emacs.d/.diary"
-      view-diary-entries-initially t
-      calendar-latitude +45.75
-      calendar-longitude +126.63
-      calendar-location-name "Harbin"
-      calendar-remove-frame-by-deleting t
-      calendar-week-start-day 1
-      chinese-calendar-celestial-stem
-      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ý" "ÐÁ" "ÈÉ" "¹ï"]
-      chinese-calendar-terrestrial-branch
-      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îç" "Î´" "Éê" "ÓÏ" "Ðç" "º¥"]
-      general-holidays
-      '((holiday-fixed 1 1 "Ôªµ©") (holiday-fixed 4 1 "ÓÞÈË½Ú")
-	(holiday-float 5 0 2 "Ä¸Ç×½Ú") (holiday-float 6 0 3 "¸¸Ç×½Ú"))
-      christian-holidays nil
-      hebrew-holidays nil
-      islamic-holidays nil
-      solar-holidays nil
-      bahai-holidays nil)
-
-(setq mark-diary-entries-in-calendar t
-      appt-issue-message nil
-      mark-holidays-in-calendar t
-      view-calendar-holidays-initially nil)
-
-(setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
-      calendar-date-display-form '(year "/" month "/" day)
-      calendar-time-display-form
-      '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
-
 (setq todo-file-do "~/.emacs.d/todo-do"
       todo-file-done "~/.emacs.d/todo-done"
       todo-file-top "~/.emacs.d/todo-top")
@@ -377,19 +347,11 @@
 ;; (require 'browse-kill-ring)
 ;; (require 'dictionary)
 
-(load ".emacs-records")
-(setq records-init-file "~/.emacs.d/.emacs-records")
-(add-hook 'calendar-load-hook
-	  '(lambda ()
-	     (define-key calendar-mode-map "n" 'records-calendar-to-record)))
-(add-hook 'records-mode-hooks
-	  '(lambda ()
-	     (turn-on-auto-fill)))
-
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
 (load custom-file)
+(load ".emacs_cal")
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
