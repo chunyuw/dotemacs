@@ -46,13 +46,19 @@
 
 (add-hook 'calendar-load-hook
 	  '(lambda ()
-	     (define-key calendar-mode-map "n" 'records-calendar-to-record)
+	     (define-key calendar-mode-map "r" 'records-calendar-to-record)
 	     (define-key calendar-mode-map ">" 'scroll-calendar-left)
 	     (define-key calendar-mode-map "<" 'scroll-calendar-right)
 	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
 	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
 	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
 	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "f" 'calendar-forward-day)
+	     (define-key calendar-mode-map "b" 'calendar-backward-day)
+	     (define-key calendar-mode-map "j" 'calendar-forward-week)
+	     (define-key calendar-mode-map "k" 'calendar-backward-week)
+	     (define-key calendar-mode-map "n" 'calendar-forward-month)
+	     (define-key calendar-mode-map "p" 'calendar-backward-month)
 	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)))
 
 (autoload 'chinese-year "cal-china" "Chinese year data" t)
