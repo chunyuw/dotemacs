@@ -51,7 +51,7 @@
   (let ((default-directory (TeX-master-directory)))
     (w32-shell-execute "open" command nil 3)))
 
-;;;; LaTeX-Preview ;;;;
+;;-- LaTeX-Preview --;;
 ;; (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
 ;; (setq preview-scale-function 1.5)
 
