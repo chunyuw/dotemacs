@@ -78,6 +78,26 @@ Sep 11, 2003
 |    )
 `----
 
+,----[ NewBlue：原来跟说的那个hook所绑定的函数有点毛病，需要加入一条lisp句子。]
+|  (defun my-sc-pre-hook ()
+|    (save-excursion
+|      (let ((start (point))
+|            (end (mark t)))
+|        (goto-char end)
+|        (re-search-backward gnus-signature-separator start t)
+|          (forward-line -1)
+|          (while (looking-at "[ \t]*$")
+|            (forward-line -1))
+|          (forward-line 1)
+|          (setq mark (set-marker (make-marker) (point)))
+|          (delete-region mark (mark t))
+|        )
+|      )
+|    (insert "\n\n");;加入这一条，用多了发现它会把回车也干掉，所以加两个
+|                   ;;回车，让它不要把自己的签名标志当作引用内容。
+|    )
+`----
+
 ,----[ 在.gnus里面加入这个hook ]
 | (add-hook 'sc-pre-hook 'my-sc-pre-hook)
 `----
