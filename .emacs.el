@@ -7,18 +7,19 @@
 (global-set-key [f7] 'calendar)
 (global-set-key [f9] 'view-mode)
 (global-set-key [f8] 'other-window)
-(global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-buffer-directly)
+(global-set-key "\C-xm" 'man-follow)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)           ; dabbrev-expand
+(global-set-key "\C-\\" 'dictionary-search)
 (global-set-key "\M-o" 'other-window)            ; M-o
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
@@ -38,6 +39,10 @@
 (setq compile-command "make ")
 (setq diary-file "~/.diary")
 (setq bookmark-save-flag 1)
+(setq dired-recursive-copies t)
+(setq dired-recursive-deletes t)
+(setq Man-notify-method 'pushy)
+(setq dictionary-server "192.168.1.194")
 
 (setq version-control t)
 (setq kept-old-versions 2)
@@ -55,6 +60,7 @@
 (ido-mode t)
 
 (set-terminal-coding-system 'chinese-iso-8bit)
+(set-keyboard-coding-system 'chinese-iso-8bit)
 (set-language-environment 'Chinese-GB)
 
 (setq hippie-expand-try-functions-list
@@ -74,9 +80,12 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(set-register ?e '(file . "~/.emacs.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
 (set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
 (setenv "DISPLAY" "chunyu:0")
+(setq emacs-wiki-directories  '("~/00PAGE/m/Wiki"))
+(setq canlock-password "f6d9e4eb8360cf2cd5db9d5d0f83f7f09ac74767")
 
 (ido-mode 1)
 (add-hook 'dired-load-hook (lambda () (load "dired-x")))
@@ -86,11 +95,17 @@
   (set-foreground-color "Wheat")
   (set-cursor-color "gold1"))
 	      (setq default-frame-alist
+(autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
+(autoload 'todo-show "todo-mode" "Show TODO items." t)
+(autoload 'todo-insert-item "todo-mode" "Add TODO item." t)
+(autoload 'big5togb-region "big5togb" "Big5 to GB2312" t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
-(setq auto-mode-alist (cons '("\\.css\\'" . css-mode) auto-mode-alist))
-(autoload 'iptables-save-mode "iptables-save-mode" "iptables save files" t)
+(autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
+(setq auto-mode-alist 
+;; (autoload 'folding-mode          "folding" "Folding mode" t)
+                ("\\.css\\'" . css-mode))
+              auto-mode-alist))
 
 (defun dos-unix () (interactive) (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
@@ -98,6 +113,7 @@
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
+(require 'compile)
 (require 'jka-compr)
 (require 'uniquify)
 (require 'dired-tar)
@@ -107,8 +123,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
-
-(setq canlock-password "f6d9e4eb8360cf2cd5db9d5d0f83f7f09ac74767")
+(put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
