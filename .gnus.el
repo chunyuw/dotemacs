@@ -1,7 +1,7 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
-;; Time-stamp: <2003-06-15 Sun 16:15:14 spr on db.hit.edu.cn>.
+;; Time-stamp: <2003-07-28 Mon 13:06:10 root on db.cs.hit.edu.cn>.
 
 ;; NNTP Hosts: 
 ;;  freenews.netfront.net, news.ind.mh.se
@@ -13,7 +13,6 @@
       gnus-secondary-select-methods '((nnml "private") (nntp "localhost"))
       gnus-auto-select-first nil
       gnus-auto-select-subject 'first
-      gnus-inhibit-startup-message t
       gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-asynchronous t     ; *No* delay when I hop betwixt articles

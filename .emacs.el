@@ -2,7 +2,7 @@
 ;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn. 
 ;; Chunyu <chunyu@hit.edu.cn>.
 
-;; Time-stamp: <2003-07-26 Sat 16:01:43 spr on db.cs.hit.edu.cn>.
+;; Time-stamp: <2003-07-28 Mon 13:06:35 root on db.cs.hit.edu.cn>.
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
@@ -54,6 +54,7 @@
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil		; 'y-or-n-p
+      gnus-inhibit-startup-message t
 
       apropos-do-all nil
       x-stretch-cursor t
