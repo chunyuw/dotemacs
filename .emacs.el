@@ -10,7 +10,7 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
-(global-set-key "\C-x\C-b" 'electric-buffer-list)
+(global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-c\C-o" 'occur)
@@ -21,7 +21,7 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
-(global-set-key "\M-`" 'shell-command)
+(global-set-key "\M-`" 'next-err)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 (global-set-key [(insertchar)] 'overwrite-mode)
@@ -29,6 +29,9 @@
 (global-set-key [(control meta r)] 'isearch-backward)
 (global-set-key [(control s)] 'isearch-forward-regexp)
 (global-set-key [(control r)] 'isearch-backward-regexp)
+(global-set-key "\C-xB" 'bury-buffer)
+(global-set-key "\C-xE" 'apply-macro-to-region-lines)
+(global-set-key "\C-xI" 'insert-buffer)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
@@ -120,10 +123,8 @@
       chinese-calendar-terrestrial-branch
       ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"]
       general-holidays
-      '((holiday-fixed 1 1 "元旦")
-	(holiday-fixed 4 1 "愚人节")
-	(holiday-float 5 0 2 "母亲节")
-	(holiday-float 6 0 3 "父亲节"))
+      '((holiday-fixed 1 1 "元旦") (holiday-fixed 4 1 "愚人节")
+	(holiday-float 5 0 2 "母亲节") (holiday-float 6 0 3 "父亲节"))
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
@@ -143,7 +144,9 @@
       kept-new-versions 5
       delete-old-versions t
       backup-directory-alist '(("." . "~/var/tmp"))
-      backup-by-copying t)
+      backup-by-copying t
+      backup-by-copying-when-linked t
+      backup-by-copying-when-mismatch t)
 
 (setq font-lock-maximum-decoration t
       font-lock-global-modes '(not shell-mode text-mode)
@@ -249,6 +252,11 @@
 	  (lambda ()
 	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
 
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+(eval-after-load "help-mode"
+  '(progn (define-key help-mode-map "l" 'help-go-back)))
+  "message mode expand."
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
        (set-face-background 'region "blue")
@@ -256,33 +264,34 @@
 
 (cond ((not window-system) ;; text console
        (setq frame-background-mode 'dark)
-       (window-system ;; both X-Window and MS Windows systems
-	(global-set-key (kbd "C--") 'undo)
-	(setq x-stretch-cursor nil)
-	(auto-image-file-mode 1)
-	(scroll-bar-mode -1)
-	(tool-bar-mode -1)
-	
-	(setq default-frame-alist
-	      `((vertical-scroll-bars)
-		(background-color . "DarkSlateGrey")
-		(foreground-color . "Wheat")
-		(cursor-color . "gold1")
-		(mouse-color . "gold1")))
+       (setq Info-use-header-line nil)
+       (setq dired-view-command-alist
+	     (append '(("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s"))
+		     dired-view-command-alist)))
 
-	(cond ((eq window-system 'w32) ;; MS windows system
-	       (defun net-message (recipient text)
-		  "Send a net message with Emacs.\nThis needs Windows/NT, I think."
-		  (interactive "s机器名(或IP): \ns消息内容: ")
-		  (shell-command (format "net send %s %s" recipient text))))
-	      ((eq window-system 'x) ;; X-Window system
-	       (setq visible-bell t)
-	       (setq ring-bell-function t)
-	       (setq default-frame-alist
-		     (append '((top . 0) (left . 0)
-			       (width . 111) (height . 48)
-			       (font . "9x15"))
-			     default-frame-alist))))))
+      (window-system ;; both X-Window and MS Windows systems
+       (global-set-key (kbd "C--") 'undo)
+       (setq x-stretch-cursor nil)
+       (auto-image-file-mode 1)
+       (scroll-bar-mode -1)
+       (tool-bar-mode -1)
+
+       (setq default-frame-alist
+	     `((vertical-scroll-bars)
+	       (background-color . "DarkSlateGrey")
+	       (foreground-color . "Wheat")
+	       (cursor-color . "gold1")
+	       (mouse-color . "gold1")))
+
+       (cond ((eq window-system 'w32) ;; MS windows system
+	      (defun net-message (recipient text)
+		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
+		(interactive "s机器名(或IP): \ns消息内容: ")
+		(shell-command (format "net send %s %s" recipient text))))
+
+			      (width . 111) (height . 48)
+	      (setq visible-bell t)
+	      (setq ring-bell-function t)
 	      (setq default-frame-alist
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
@@ -294,9 +303,9 @@
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (autoload 'flex-mode "flex-mode.el" "Flex mode" t)
 (autoload 'py-shell "python-mode" "Python shell" t)
-;; (autoload 'folding-mode          "folding" "Folding mode" t)
-;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
-;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
+(autoload 'folding-mode          "folding" "Folding mode" t)
+(autoload 'turn-off-folding-mode "folding" "Folding mode" t)
+(autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
@@ -324,6 +333,7 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
@@ -336,49 +346,15 @@
 ;; (load "xrefactory")
 
 ;; (setq semantic-load-turn-everything-on t)
-(cond ((not window-system)
-       (eval-after-load "log-view"
-	 '(progn
-	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
-	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
-
-       (eval-after-load "ediff-init"
-	 '(progn
-	    (set-face-attribute 'ediff-current-diff-face-A nil :background "blue" :foreground "red" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-B nil :background "blue" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-C nil :background "blue" :foreground "magenta"	:weight 'bold)
-	    (set-face-attribute 'ediff-even-diff-face-A nil :background "black" :foreground "red")
-	    (set-face-attribute 'ediff-even-diff-face-B nil :background "black" :foreground "blue")
-	    (set-face-attribute 'ediff-even-diff-face-C nil :background "black" :foreground "magenta")
-	    (set-face-attribute 'ediff-fine-diff-face-A nil :background "cyan" :foreground "red")
-	    (set-face-attribute 'ediff-fine-diff-face-B nil :background "cyan" :foreground "yellow"  :weight 'bold)
-	    (set-face-attribute 'ediff-fine-diff-face-C nil :background "cyan" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-A nil :background "black" :foreground "red3" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
-	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
-
-       
-      (window-system
-       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
-       (set-face-attribute 'menu   nil :foreground "Wheat"     :background "DarkSlateGrey")
-       (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-       (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-       (set-face-attribute 'region   nil :background "grey21")
-       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
-       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
-
 ;; (load-file "~/.emacs.d/.emacs_smtp.el")
 ;; (load-file "~/.emacs.d/.emacs_erc.el")
+
 (load "~/.emacs.d/.emacs-records")
 (setq records-init-file"~/.emacs.d/.emacs-records")
 (load-file custom-file)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
