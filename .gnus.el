@@ -39,8 +39,7 @@
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
 	("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
-	("" gnus-header-name-face gnus-header-content-face))
-      )
+	("" gnus-header-name-face gnus-header-content-face)))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . gb2312))
