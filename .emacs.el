@@ -168,7 +168,7 @@
 
 (when window-system
   (scroll-bar-mode -1)
-  (tool-bar-mode 1)
+  (tool-bar-mode -1)
 
   (set-background-color "DarkSlateGrey")
   (set-foreground-color "Wheat")
