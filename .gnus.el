@@ -61,7 +61,7 @@
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
 
 (setq gnus-ignored-from-addresses
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn")))
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn")))
 ;; cymacs@gmail.com cyemacs@gmail.com chunyu@myrealbox.com dddkk@163.com
 
 (setq gnus-message-archive-group
@@ -171,9 +171,9 @@
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
 	  (: spam-split)
-	  (to "chunyu@hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
+	  (to "chunyu@\\(db\\.\\)?hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth" "mail.myself")
+		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth\\|@db" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk"))
 
