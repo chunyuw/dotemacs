@@ -17,8 +17,16 @@
 (setq LaTeX-top-caption-list 
       '("table" "table*"))
 
-(setq bibtex-entry-format
-      '(opts-or-alts numerical-fields))
+(setq bibtex-autokey-names 1
+      bibtex-autokey-names-stretch 1
+      bibtex-autokey-name-separator "-"
+      bibtex-autokey-additional-names "-et.al."
+      bibtex-autokey-name-case-convert 'identity
+      bibtex-autokey-name-year-separator "_"
+      bibtex-autokey-titlewords-stretch 0
+      bibtex-autokey-titlewords 0
+      bibtex-maintain-sorted-entries 'plain
+      bibtex-entry-format '(opts-or-alts numerical-fields))
 
 (setq reftex-revisit-to-follow t
       ;; reftex-auto-recenter-toc t
