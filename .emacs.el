@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: emacs-lisp; coding: cn-gb-2312; -*-
+;; $Id$  -*- mode: emacs-lisp; coding: gb2312; -*-
 ;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
@@ -62,7 +62,6 @@
       ring-bell-function 'ignore
 
       apropos-do-all nil
-      x-stretch-cursor t
 
       bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/.emacs.bmk"
@@ -235,7 +234,8 @@
 
       ((eq window-system 'x)
        (global-set-key (kbd "C--") 'undo)
-       (setq visible-bell t)
+       (setq visible-bell t
+	     x-stretch-cursor t)
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
