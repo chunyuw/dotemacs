@@ -21,12 +21,6 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
-;;(global-set-key [(control tab)] 'bury-buffer)
-
-;; (global-set-key "\C-\M-s" 'isearch-forward)
-;; (global-set-key "\C-\M-r" 'isearch-backward)
-;; (global-set-key "\C-s" 'isearch-forward-regexp)
-;; (global-set-key "\C-r" 'isearch-backward-regexp)
 
 (require 'gnus-load)
 (require 'bs)
