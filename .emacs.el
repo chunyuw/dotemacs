@@ -243,6 +243,9 @@
 
 (cond ((not window-system)
     (view-scroll-lines lines t 1 t)
+
+       (set-face-background 'region "blue")
+
        (eval-after-load "log-view"
 	 '(progn
 	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
@@ -274,6 +277,8 @@
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
+       (set-face-background 'region "grey21")
+       
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
 	       (top . 0)
@@ -355,6 +360,10 @@
 ;; (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
 ;; (load-file custom-file)
+
+;; (load "xrefactory")
+
+;; (setq semantic-load-turn-everything-on t)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)

@@ -1,0 +1,26 @@
+;;; -*- Emacs-Lisp -*-
+;;; AUTOMATICALLY GENERATED: DO NOT ALTER OR DELETE FROM THIS LINE ONWARDS
+;;; Add any emacs customization before this comment.
+
+(let ((f (expand-file-name "/usr/local/share/emacs/site-lisp")))
+  (if (not (member f load-path))
+      (setq load-path (cons f load-path))))
+
+(autoload 'records-mode "records" "records mode" t)
+(autoload 'records-goto-today "records" "Go to today's records" t)
+(autoload 'records-underline-line "records" "underine a title" t)
+(autoload 'records-index-mode "records-index" "records index mode" t)
+
+(setq auto-mode-alist
+      (cons (cons "[0-9][0-9][0-9][0-9][0-9][0-9].?.?$" 'records-mode)
+	    auto-mode-alist))
+
+;;; The following part of the file is also read by perl.
+(setq records-directory "/home/spr/.emacs.d/records")
+(setq records-index-file "/home/spr/.emacs.d/records/index")
+(setq records-dindex-file "/home/spr/.emacs.d/records/dindex")
+(setq records-directory-structure 1)
+(setq records-day-order 0)
+(setq records-month-order 1)
+(setq records-year-order 2)
+(setq records-year-length 4)
