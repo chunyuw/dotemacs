@@ -4,7 +4,6 @@
 
 (require 'bbdb)
 ;;(bbdb-initialize)
-(require 'sc)
 (require 'message)
 (bbdb-initialize 'gnus 'message 'sc)
 
