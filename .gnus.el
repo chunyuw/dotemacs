@@ -72,6 +72,10 @@
 	 (name "进化的鱼")
 	 (address "dddkk@sina.com")	; o.oO@Oo.o
 	 ("X-Face" 'chunyu-gnus-x-face))
+	("^nnml\\+private:\\(emacs\\|guile\\|ding\\).*"
+	 (signature-file "~/.sig/pubmail")
+	 (name "Chunyu Wang")
+	 (address "spr@db.cs.hit.edu.cn"))
 	("^nnml\\+private:\\(985101\\|classmate\\|lab\\|wife\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
@@ -112,20 +116,21 @@
 
 (setq nnmail-crosspost nil
       nnmail-split-methods
-      '(("emacs-devel" "^\\(To:\\|[Cc]c:\\).*emacs-devel@gnu.org.*")
-	("emacs-bidi" "^\\(To:\\|[Cc]c:\\).*emacs-bidi@gnu.org.*")
-	("guile-user" "^\\(To:\\|[Cc]c:\\).*guile-user@gnu.org")
-	("guile-sources" "^\\(To:\\|[Cc]c:\\).*guile-sources@gnu.org")
-	("zope" "^\\(To:\\|[Cc]c:\\).*zope@zope.org")
+      '(("emacs-devel" "^\\(To:\\|Cc:\\).*emacs-devel@gnu.org")
+	("emacs-bidi" "^\\(To:\\|Cc:\\).*emacs-bidi@gnu.org")
+	("guile-user" "^\\(To:\\|Cc:\\).*guile-user@gnu.org")
+	("ding" "^\\(To:\\|Cc:\\).*ding@")
+	("guile-sources" "^\\(To:\\|Cc:\\).*guile-sources@gnu.org")
+	("zope" "^\\(To:\\|Cc:\\).*zope@zope.org")
 	("bbs" "^From:.*\\(@bbs\\|@smth\\)")
 	("wife" "^From:.*\\(pacz\\|tccz\\)")
-	("985101" "^\\(To:\\|[Cc]c:\\).*985101\\(-admin\\|-owner\\|-request\\)?")
+	("985101" "^\\(To:\\|Cc:\\).*985101\\(-admin\\|-owner\\|-request\\)?")
 	("classmate" "^From:.*\\(moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\)")
 	("classmate" "^From:.*\\(jellycart\\|limoo\\|xiaonan\\|however\\)")
 	("friends" "^From:.*\\(m_pupil@yahoo.com.cn\\)")
 	("lab" "^From:.*db.cs.hit.edu.cn")
 	("misc" "^From:.*hit.edu.cn")
-	("misc" "^\\([Cc]c\\|To\\|From\\):.*\\(chunyu@\\|spr@\\|dddkk@sina.com\\)")
+	("misc" "^\\(Cc\\|To\\|From\\):.*\\(chunyu@\\|spr@\\|dddkk@sina.com\\)")
 	("junk" "^From:.*sinamx.sina.com.cn")
 	("junk" "")))
 
