@@ -188,9 +188,12 @@
 (add-hook 'dired-load-hook
           (lambda ()
             (load "dired-x")
-            (setq dired-view-command-alist
-                  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
-                          dired-view-command-alist))))
+	    (setq dired-view-command-alist 
+		  '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
+		    ("[.]pdf\\'" . "xpdf %s")
+		    ("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")
+		    ("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))))
+
 (add-hook 'ido-define-mode-map-hook 'ido-my-keys)
 (defun ido-my-keys () "Add my keybindings for ido."
   (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir))
