@@ -116,24 +116,38 @@
 
 (setq nnmail-treat-duplicates 'delete
       nnmail-crosspost nil
-      nnmail-split-methods
-      '(("emacs-devel" "^\\(To:\\|Cc:\\).*emacs-devel@gnu.org")
-	("emacs-bidi" "^\\(To:\\|Cc:\\).*emacs-bidi@gnu.org")
-	("guile-user" "^\\(To:\\|Cc:\\).*guile-user@gnu.org")
-	("ding" "^\\(To:\\|Cc:\\).*ding@")
-	("guile-sources" "^\\(To:\\|Cc:\\).*guile-sources@gnu.org")
-	("zope" "^\\(To:\\|Cc:\\).*zope@zope.org")
-	("bbs" "^From:.*\\(@bbs\\|@smth\\)")
-	("wife" "^From:.*\\(pacz\\|tccz\\)")
-	("985101" "^\\(To:\\|Cc:\\).*985101\\(-admin\\|-owner\\|-request\\)?")
-	("classmate" "^From:.*\\(moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\)")
-	("classmate" "^From:.*\\(jellycart\\|limoo\\|xiaonan\\|however\\)")
-	("friends" "^From:.*\\(m_pupil@yahoo.com.cn\\)")
-	("lab" "^From:.*db.cs.hit.edu.cn")
-	("misc" "^From:.*hit.edu.cn")
-	("misc" "^\\(Cc\\|To\\|From\\):.*\\(chunyu@\\|spr@\\|dddkk@sina.com\\)")
-	("junk" "^From:.*sinamx.sina.com.cn")
-	("junk" "")))
+      nnmail-split-methods 'nnmail-split-fancy
+      nnmail-split-fancy
+      '(| 
+	(from "sinamx.sina.com.cn" "misc.junk")
+	(any "emacs-devel@gnu.org" "list.emacs-devel")
+	(any "guile-user@gnu.org" "list.guile-user")
+	(any "guile-sources@gnu.org" "list.guile-sources")
+	(any "ding@gnu.org" "list.ding")
+	(any "zope@zope.org" "list.zope")
+	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
+	(to  "chunyu@hit.edu.cn" - 
+	     "dddkk@sina.com" - 
+	     "spr@db.cs.hit.edu.cn" - 
+	     "spr@db.hit.edu.cn" 
+	     (| (from "moomooo" - 
+		      "beautifulbamboo" - 
+		      "kexin" - 
+		      "zjj259900" - 
+		      "jellycart" - 
+		      "limoo" - 
+		      "xiaonan" - 
+		      "however"
+		      "classmate.misc")
+		(from "pacz@sohu.com" -
+		      "pacz@pa18.com" -
+		      "tccz@sina.com"
+		      "mail.wife")
+		(from "m_pupil@yahoo.com.cn""mail.friends")
+		(from "@bbd" - "@smth" "mail.bbs")
+		"mail.misc"))
+	"misc.misc")
+      )
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
