@@ -97,15 +97,12 @@
 	("^nnml:list\\..*\\|^nnml:mail\\.foreigner\\|^nntp\\+news\\.gmane\\.org:.*\\|^nntp\\+news\\.gnus\\.org:.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
-	 (address "spr@db.cs.hit.edu.cn")
+	 (address "chunyu@hit.edu.cn")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\|misc\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "Íõ´ºÓî")
-	 (address "chunyu@hit.edu.cn"))
-	("cn.test"
-	 (name "abc")
-	 (address "xiaoludeche1980@eyou.com"))))
+	 (address "chunyu@hit.edu.cn"))))
 
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
