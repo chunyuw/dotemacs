@@ -12,7 +12,6 @@
 (global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
-(global-set-key "\C-c\C-z" 'pop-global-mark)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
@@ -281,7 +280,7 @@
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
   (interactive)
-  (if (message-point-in-header-p)
+  (if (and (message-mail-p) (message-point-in-header-p))
       (bbdb-complete-name arg)
     (hippie-expand arg)))
 
