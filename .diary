@@ -4,3 +4,8 @@
 
 &%%(diary-sunrise-sunset)
 &%%(diary-phases-of-moon)
+%%(diary-date '(6 7) 1 t) CIDR 8月1日
+%%(diary-date '(6 7 8) 29 t) DAASFA 8月29日
+%%(diary-date '(6 7 8 9) 17 t) APWeb 9月17日
+%%(diary-date '(6) 1 t) sigmod 11月1日 / PODS 11月15日 (WebDB?)
+%%(diary-date '(9 10 11 12) 1 t) WAIM / VLDB / ER / CIKM

@@ -41,6 +41,7 @@
       cal-tex-daily-start 8
       cal-tex-daily-end 22)
 
+;;(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
 (add-hook 'calendar-load-hook
@@ -51,7 +52,8 @@
 	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
 	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
 	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
-	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)))
+	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)))
 
 (autoload 'chinese-year "cal-china" "Chinese year data" t)
 
