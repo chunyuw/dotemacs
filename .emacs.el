@@ -154,6 +154,8 @@
 (set-terminal-coding-system 'chinese-iso-8bit)
 
 
+(define-coding-system-alias 'gb18030 'gb2312)
+
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
 

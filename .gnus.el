@@ -53,8 +53,6 @@
 	(message-this-is-mail nil nil)
 	(message-this-is-news nil t)))
 
-(define-coding-system-alias 'gb18030 'gb2312)
-
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com"
 		    "spr@db.hit.edu.cn"
