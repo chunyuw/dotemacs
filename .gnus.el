@@ -161,10 +161,9 @@
      (setq mm-discouraged-alternatives '("text/html")
 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
-(gnus-demon-init)
-(gnus-demon-add-rescan)
-(gnus-demon-add-disconnection)
+(gnus-demon-add-nntp-close-connection)
 (gnus-demon-add-scanmail)
+(gnus-demon-init)
 
 (unless window-system 
   (require 'gnus-sum)
