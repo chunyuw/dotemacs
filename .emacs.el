@@ -24,6 +24,7 @@
 (global-set-key "\M-n" 'gnus)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
+(global-set-key [(insertchar)] 'overwrite-mode)
 
 (define-prefix-command 'ctl-xm-map)
 (global-set-key "\C-xm" 'ctl-xm-map)
