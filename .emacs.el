@@ -145,8 +145,8 @@
       kept-new-versions 5
       delete-old-versions t
       backup-directory-alist 
-      '(("." . "~/var/tmp") 
-	(cons tramp-file-name-regexp nil))
+      `(("." . "~/var/tmp") 
+	,(cons tramp-file-name-regexp nil))
       backup-by-copying t
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
