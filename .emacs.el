@@ -43,8 +43,7 @@
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
 
-(setq inhibit-startup-message t
-      default-major-mode 'text-mode
+(setq default-major-mode 'text-mode
       next-line-add-newlines nil
       require-final-newline t
       resize-mini-windows nil
@@ -177,8 +176,7 @@
                           dired-view-command-alist))))
 
 (cond ((not window-system) 
-       (set-background-color "black")
-       (set-foreground-color "white")
+    (view-scroll-lines lines t 1 t)
        (eval-after-load "log-view"
 	 '(progn
 	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
@@ -209,12 +207,26 @@
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
-       (set-background-color "DarkSlateGrey")
-       (set-foreground-color "Wheat")
-       (set-cursor-color "gold1")
-
        (setq default-left-fringe-width 4
 	     default-right-fringe-width 4)
+
+;;        (set-background-color "DarkSlateGrey")
+;;        (set-foreground-color "Wheat")
+;;        (set-cursor-color "gold1")
+       (setq default-frame-alist
+	     `((vertical-scroll-bars)
+	       (top . 1)
+
+	       (background-color . ,"DarkSlateGrey")
+	       (foreground-color . ,"Wheat")
+	       ,(cons 'width  (frame-width))
+	       ,(cons 'height (frame-height))
+	       (cursor-color     . "gold1")
+	       (mouse-color      . "gold1")
+	       (font . "9x15")
+	       ))
+       (setq minibuffer-frame-alist
+	     nil )
 
        (if (facep 'mode-line)
 	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
