@@ -285,7 +285,7 @@
        ;; BOTH X-Window and MS-Windows
        (auto-image-file-mode 1)
        (scroll-bar-mode -1)
-       (tool-bar-mode -1)
+       ;; (tool-bar-mode -1)
 
        (create-fontset-from-fontset-spec
 	(concat 
@@ -298,9 +298,8 @@
        (set-face-font 'bold "fontset-chinesebold")
 
        (setq default-frame-alist
-	     `((top . 0) (left . 0)
-	       (width . 80) (height . 44)
-	       (background-mode . dark)
+	     `((background-mode . dark)
+	       ;; (top . 0) (left . 0) (width . 80) (height . 44)
 	       (vertical-scroll-bars)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
