@@ -93,7 +93,7 @@
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn"))
-	("^nnml\\+private:\\(985101\\|classmate\\|lab\\|wife\\).*"
+	("^nnml\\+private:mail\\.\\(wife\\|985101\\|classmate\\|lab\\|friends\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "Íõ´ºÓî")
 	 (address "chunyu@hit.edu.cn"))))
