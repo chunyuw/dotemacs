@@ -91,7 +91,8 @@
 
       time-stamp-active t
       time-stamp-warn-inactive t
-      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S %u on %s"
+      ;;time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S %u on %s"
+      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S"
 
       diary-file "~/.emacs.d/.diary"
       calendar-latitude +45.75
