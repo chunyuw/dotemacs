@@ -4,7 +4,7 @@
 
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
-      '((nnml "private")
+      '((nnml "")
 	(nntp "localhost")
 	(nntp "news.newsfan.net")))
 
@@ -31,8 +31,8 @@
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t))
 	("misc\\..*" (auto-expire . t))
-	)
-      )
+	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
+	))
 
 (setq gnus-header-face-alist
       '(("From" nil gnus-header-from-face)
@@ -89,11 +89,11 @@
 	 (name "进化的鱼")
 	 (address "dddkk@sina.com")	; o.oO@Oo.o
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml\\+private:list\\..*"
+	("^nnml:list\\..*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn"))
-	("^nnml\\+private:mail\\.\\(wife\\|985101\\|classmate\\|lab\\|friends\\).*"
+	("^nnml:mail\\.\\(wife\\|985101\\|classmate\\|lab\\|friends\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))))
