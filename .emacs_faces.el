@@ -18,6 +18,12 @@
 	    (set-face-attribute 'log-view-message-face nil
 				:foreground "yellow"
 				:weight 'bold)))
+       (eval-after-load "calendar"
+	 '(progn
+	    (set-face-attribute 'holiday-face nil
+				:foreground "red"
+				:background "black"
+				:weight 'bold)))
 
        (eval-after-load "ediff-init"
 	 '(progn
