@@ -88,7 +88,7 @@
 	("^nnml:list.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
-	 (address "chunyu@hit.edu.cn")
+	 (address "dddkk@sina.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:mail.*"
 	 (signature-file "~/.sig/mail")

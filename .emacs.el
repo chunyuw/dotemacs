@@ -372,8 +372,7 @@
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
-(if (equal (getenv "HOSTNAME") "ds1")
-    (load ".emacs_smtp"))
+(load ".emacs_smtp")
 
 ;;-- SEMANTIC --;;
 ;; (setq semantic-load-turn-everything-on t)
