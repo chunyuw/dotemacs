@@ -31,8 +31,10 @@
 
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t))
-	("misc\\..*" (auto-expire . t))
+	("misc\\..*" (total-expire . t))
 	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
+	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
+	("mail\\..*" (gnus-use-scoring nil))
 	))
 
 (setq gnus-header-face-alist
@@ -99,6 +101,7 @@
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
       sc-blank-lines-after-headers 1
+      sc-citation-leader ""
       sc-citation-delimiter-regexp "[>]+\\|\\(: \\)+"
       sc-cite-blank-lines-p nil
       sc-confirm-always-p nil
