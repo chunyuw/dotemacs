@@ -89,7 +89,7 @@
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "½ø»¯µÄÓã")
-	 (address "user@cyber.net")
+	 (address "cyemacs@gmail.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:list.*"
 	 (signature-file "~/.sig/pubmail")
