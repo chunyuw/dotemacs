@@ -307,6 +307,18 @@
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
+       (create-fontset-from-fontset-spec
+	(concat 
+	 "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese,"
+	 "ascii:-*-Courier New-normal-r-*-*-13-*-*-*-c-*-iso8859-1,"
+	 "chinese-gb2312:-*-MS Song-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
+       (create-fontset-from-fontset-spec
+	(concat
+	 "-*-Courier New-bold-r-*-*-13-*-*-*-c-*-fontset-chinesebold,"
+	 "ascii:-*-Courier New-bold-r-*-*-13-*-*-*-c-*-iso8859-1,"
+	 "chinese-gb2312:-*-MS Song-bold-r-*-*-14-*-*-*-c-*-gb2312*-*"))
+       (set-face-font 'bold "fontset-chinesebold")
+
        (setq default-frame-alist
 	     `((top . 0) (left . 0)
 	       (width . 80) (height . 43)
@@ -317,6 +329,7 @@
 	       (foreground-color . "Wheat")
 	       (cursor-color . "gold3")
 	       (mouse-color . "gold1")
+	       (font . "fontset-chinese")
 	       . ,(if (eq window-system 'x) '((font . "9x15")))))
 
        (cond ((eq window-system 'w32) 
@@ -415,3 +428,11 @@
 (put 'LaTeX-hide-environment 'disabled nil)
 
 ;; Chunyu's .emacs.el ends here.
+
+;; (
+;;  ("-*-courier new-normal-r-*-*-13-*-*-*-c-*-fontset-standard" 
+;;   . "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
+;;  ("-*-courier new-normal-r-*-*-13-*-*-*-c-*-fontset-standard" 
+;;   . "fontset-standard")
+;;  ("-*-*-*-*-*-*-*-*-*-*-*-*-fontset-default" 
+;;   . "fontset-default"))
