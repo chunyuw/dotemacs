@@ -117,7 +117,7 @@
 	("friends" "^From:.*\\(m_pupil@yahoo.com.cn\\)")
 	("lab" "^From:.*db.cs.hit.edu.cn")
 	("misc" "^From:.*hit.edu.cn")
-	("misc" "^\\([Cc]c\\|To\\):.*\\(chunyu\\|spr\\|dddkk@sina.com\\)")
+	("misc" "^\\([Cc]c\\|To\\|From\\):.*\\(chunyu@\\|spr@\\|dddkk@sina.com\\)")
 	("junk" "^From:.*sinamx.sina.com.cn")
 	("junk" "")))
 
