@@ -151,7 +151,7 @@
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
 	       (from "xiaonan\\|however\\|jellycart" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-	       (from "m_pupil@yahoo.com.cn" "mail.friends")
+	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       "mail.misc"))
 	"misc.misc"))
 
