@@ -260,9 +260,6 @@
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 ;; (add-hook 'write-file-hooks 'time-stamp)
 (add-hook 'bs-mode-hook 'hl-line-mode)
-(add-hook 'message-setup-hook
-	  (lambda ()
-	    (define-key message-mode-map "\M-/" 'chunyu-message-expand)))
 (add-hook 'ido-define-mode-map-hook
 	  (lambda ()
 	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
