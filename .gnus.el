@@ -27,7 +27,7 @@
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
-	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
+	("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
 	("" gnus-header-name-face gnus-header-content-face))
       )
 
@@ -43,6 +43,12 @@
 	(message-this-is-news nil t)))
 
 (define-coding-system-alias 'gb18030 'gb2312)
+
+(setq gnus-ignored-from-addresses 
+      (regexp-opt '("dddkk@sina.com"
+		    "spr@db.hit.edu.cn"
+		    "spr@db.cs.hit.edu.cn"
+		    "chunyu@hit.edu.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -126,26 +132,13 @@
 	(any "ding@gnus.org" "list.ding")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
-	(to  "chunyu@hit.edu.cn" - 
-	     "dddkk@sina.com" - 
-	     "spr@db.cs.hit.edu.cn" - 
-	     "spr@db.hit.edu.cn" 
-	     (| (from "moomooo" - 
-		      "beautifulbamboo" - 
-		      "kexin" - 
-		      "zjj259900" - 
-		      "jellycart" - 
-		      "limoo" - 
-		      "xiaonan" - 
-		      "however"
-		      "classmate.misc")
-		(from "pacz@sohu.com" -
-		      "pacz@pa18.com" -
-		      "tccz@sina.com"
-		      "mail.wife")
-		(from "m_pupil@yahoo.com.cn""mail.friends")
-		(from "@bbd" - "@smth" "mail.bbs")
-		"mail.misc"))
+	(to "chunyu@hit.edu.cn" - "dddkk@sina.com" - "spr@db.cs.hit.edu.cn" - "spr@db.hit.edu.cn" 
+	    (| (from "moomooo" - "beautifulbamboo" - "kexin" - "zjj259900" -
+		     "limoo" - "xiaonan" - "however"  - "jellycart" "classmate.misc")
+	       (from "pacz@sohu.com" - "pacz@pa18.com" - "tccz@sina.com" "mail.wife")
+	       (from "m_pupil@yahoo.com.cn""mail.friends")
+	       (from "@bbd" - "@smth" "mail.bbs")
+	       "mail.misc"))
 	"misc.misc")
       )
 
@@ -184,6 +177,5 @@
              '((and (and (>= 8500 score) (>= score 7500)) (eq mark gnus-unread-mark)) . chunyu-gnus-direct-fup-face))
 (add-to-list 'gnus-summary-highlight
              '((and (and (>= 7499 score) (>= score 6500)) (eq mark gnus-unread-mark)) . chunyu-gnus-indirect-fup-face))
-
 
 ;; .gnus.el ends here.
