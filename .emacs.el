@@ -322,12 +322,12 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
-	    (which-func-mode 1)))
+	    (which-function-mode 1)))
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (c-toggle-auto-hungry-state 1)
-	    (which-func-mode 1)))
+	    (which-function-mode 1)))
 
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
