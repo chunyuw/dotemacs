@@ -48,7 +48,7 @@
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
-(delete ".pdf" dired-omit-extensions)
+(setq dired-omit-extensions (delete ".pdf" dired-omit-extensions))
 
 (eval-after-load "apropos"
   '(progn
