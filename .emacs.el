@@ -33,7 +33,7 @@
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
 
-(define-key global-map (kbd "C-c _") 'mst-under-line)
+(global-set-key "\C-c\C-_" 'mst-under-line)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
@@ -81,6 +81,8 @@
       vc-follow-symlinks t
       enable-recursive-minibuffers t
       ring-bell-function 'ignore)
+
+(setq Info-use-header-line nil)
 
 (setq sentence-end-double-space nil)
 
@@ -205,11 +207,12 @@
 (setenv "DISPLAY" "chunyu:0")
 
 (set-language-environment    'Chinese-GB)
-
-;;(define-coding-system-alias 'gb18030 'gb2312)
+(set-keyboard-coding-system  'chinese-iso-8bit)
+(set-terminal-coding-system  'chinese-iso-8bit)
 (set-clipboard-coding-system 'chinese-iso-8bit)
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
+;; (define-coding-system-alias 'gb18030 'gb2312)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -229,6 +232,7 @@
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
           (lambda ()
+	    ;; (define-key dired-mode-map "q" 'kill-this-buffer)
             (load "dired-x")))
 
 (add-hook 'diary-hook 'appt-make-list)

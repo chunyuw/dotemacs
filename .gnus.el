@@ -204,7 +204,11 @@
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
-(add-hook 'message-mode-hook (lambda () (setq fill-column 72) (turn-on-auto-fill)))
+(add-hook 'message-mode-hook 
+	  (lambda ()
+	    (setq fill-column 72)
+	    (turn-on-auto-fill)
+	    (footnote-mode)))
 
 ;; (eval-after-load "mm-decode"
 ;;   '(progn
