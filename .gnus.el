@@ -160,8 +160,9 @@
 (add-hook 'message-mode-hook (lambda () (setq fill-column 72) (turn-on-auto-fill)))
 
 (eval-after-load "mm-decode"
-  '(progn (add-to-list 'mm-discouraged-alternatives "text/html")
-	  (add-to-list 'mm-discouraged-alternatives "text/richtext")))
+  '(progn 
+     (setq mm-discouraged-alternatives '("text/html")
+	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
 ;; (gnus-demon-init)
 ;; (gnus-demon-add-rescan)
