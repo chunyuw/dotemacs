@@ -30,7 +30,7 @@
       )
 
 (setq gnus-parameters
-      '(("list\\..*" (subscribed . t))
+      '(("list\\..*" (subscribed . t) (total-expire . t))
 	("misc\\..*" (total-expire . t))
 	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
