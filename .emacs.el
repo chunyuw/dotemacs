@@ -225,6 +225,7 @@
 (auto-compression-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
+(global-cwarn-mode 1)
 (display-time-mode 1)
 ;; (desktop-save-mode 1)
 (show-paren-mode 1)
