@@ -47,11 +47,11 @@
 (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
-(define-key dired-mode-map "r" 'dired-tar-pack-unpack)
+(define-key dired-mode-map "T" 'dired-tar-pack-unpack)
 (define-key dired-mode-map "c" 'dired-up-directory)
 (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
-(define-key dired-mode-map "J" 'dired-mark-files-regexp)
+(define-key dired-mode-map "r" 'dired-mark-files-regexp)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
