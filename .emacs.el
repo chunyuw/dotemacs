@@ -281,6 +281,7 @@
 (autoload 'todo-show "todo-mode" "Show TODO items." t)
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
+(autoload 'flex-mode "flex-mode.el" "Flex mode" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
@@ -317,7 +318,6 @@
 (require 'flyspell)
 ;;(require 'html-helper-mode)
 (require 'browse-kill-ring)
-(require 'flex-mode)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
