@@ -107,7 +107,7 @@
       sc-electric-references-p nil
       sc-fixup-whitespace-p t
       sc-nested-citation-p nil
-      sc-preferred-header-style 5
+      sc-preferred-header-style 4
       sc-use-only-preference-p nil)
 
 (setq mail-self-blind t
@@ -143,7 +143,7 @@
 	(any "guile-user@gnu.org" "list.guile-user")
 	(any "guile-sources@gnu.org" "list.guile-sources")
 	(any "ding@gnus.org" "list.ding")
-	(any "fetchmail-friends@ccil.org" "list.fetchmail")
+	(any "fetchmail-friends" "list.fetchmail")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
