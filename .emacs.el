@@ -104,6 +104,10 @@
       mark-holidays-in-calendar nil
       view-calendar-holidays-initially nil
 
+      todo-file-do "~/.emacs.d/todo-do"
+      todo-file-done "~/.emacs.d/todo-done"
+      todo-file-top "~/.emacs.d/todo-top"
+
       version-control t
       kept-old-versions 2
       kept-new-versions 5
@@ -141,8 +145,8 @@
       quack-fontify-style nil)
       bbdb-file "~/.emacs.d/.bbdb"
 (setq bbdb-file "~/.emacs.d/.bbdb")
-      dictionary-server "192.168.1.191"
       canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
+      dictionary-server "192.168.1.191"
       )
 
 
@@ -175,6 +179,7 @@
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
+(show-paren-mode 1)
 (menu-bar-mode (if window-system 1 -1))
 (ido-mode 1)
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
