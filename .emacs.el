@@ -2,7 +2,7 @@
 ;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn. 
 ;; Chunyu <chunyu@hit.edu.cn>.
 
-;; Time-stamp: <2003-07-26 Sat 09:24:03 spr on db.cs.hit.edu.cn>.
+;; Time-stamp: <2003-07-26 Sat 16:01:43 spr on db.cs.hit.edu.cn>.
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
@@ -21,8 +21,8 @@
 (global-set-key "\C-c\C-z" 'pop-global-mark)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
-(global-set-key "\M-/" 'hippie-expand)	; dabbrev-expand
-(global-set-key "\M-o" 'other-window)	; M-o
+(global-set-key "\M-/" 'hippie-expand)
+(global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
@@ -157,14 +157,13 @@
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
-
 (ido-mode 1)
 (add-hook 'dired-load-hook
 	  (lambda () 
 	    (load "dired-x")
 	    (setq dired-view-command-alist
-		  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee")
-			    ) dired-view-command-alist))))
+		  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
+			  dired-view-command-alist))))
 
 (when window-system
   (scroll-bar-mode -1)
@@ -213,11 +212,6 @@
 (require 'uniquify)
 (require 'tramp)
 
-;;(require 'bbdb)
-;;(bbdb-initialize)
-;;(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-;;(bbdb-insinuate-message)
-
 (add-to-list 'backup-directory-alist
 	     (cons tramp-file-name-regexp nil))
 
@@ -229,27 +223,9 @@
 (put 'upcase-region 'disabled nil)
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
-;;(load-file "~/.emacs_smtp")
-
-;; ---------- ERC setup -----------
-;; irc.sunnet.org, irc.linuxfire.com
-;; irc.linuxfans.org, irc.pchome.net
-(require 'erc)
-(require 'erc-fill)
-(require 'erc-match)
-(require 'erc-notify)
-(require 'erc-track)
-(setq erc-auto-query t)
-(setq erc-timestamp-format "[%H:%M] ")
-(setq erc-fill-prefix "      + ")
-(setq erc-current-nick-highlight-type 'nick)
-(add-hook 'erc-insert-modify-hook 'erc-fill)
-(add-hook 'erc-send-modify-hook 'erc-fill)
-(add-hook 'erc-mode-hook
-	  '(lambda () (require 'erc-pcomplete)
-	     (pcomplete-erc-setup) (erc-completion-mode 1)))
-(erc-match-mode 1)
-(erc-track-mode 1)
+;;(load-file "~/.emacs_smtp.el")
+;;(load-file "~/.emacs_erc.el")
+;;(load-file "~/.emacs_bbdb.el")
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
