@@ -88,7 +88,7 @@
 ["张炜" nil ("wzhang") nil nil nil ("wzhang74@hit.edu.cn") ((creation-date . "2004-09-09") (timestamp . "2004-12-09")) nil]
 ["赵娟娟" nil nil nil nil nil ("zjj259900@163.com" "bingyu.lucky@gmail.com") ((creation-date . "2003-08-03") (timestamp . "2004-09-13")) nil]
 ["赵老师" nil nil "计算机院办" (["Office" "86413283"]) nil ("zhaoshx@hit.edu.cn") ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
-["赵森" nil nil nil nil nil ("luckyzs2000@sohu.com") ((creation-date . "2004-12-30") (timestamp . "2004-12-30")) nil]
+["赵森" nil ("luckyzs") nil nil nil ("luckyzs2000@sohu.com") ((creation-date . "2004-12-30") (timestamp . "2005-01-10")) nil]
 ["周琳" nil ("Zhuo Lin" "Catherine") nil nil nil ("lzhou@cse.cuhk.edu.hk") ((creation-date . "2003-07-30") (timestamp . "2004-11-06") (msn . "catheri7931@hotmail.com") (www . "http://www.cse.cuhk.edu.hk/~lzhou")) nil]
 ["周悦" nil nil nil (["Mobile" "13604539124"]) nil nil ((creation-date . "2004-12-16") (timestamp . "2004-12-16")) nil]
 ["朱敬华" nil nil "工大首创" nil nil ("zjh@mail.banner.com.cn") ((creation-date . "2004-08-27") (timestamp . "2004-08-27")) nil]
