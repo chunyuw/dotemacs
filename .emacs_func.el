@@ -62,9 +62,8 @@ comment char"
   (interactive)
   (insert 
    (concat comment-start " -*- "
-	   (capitalize
-	    (substring 
-	     (symbol-name (symbol-value 'major-mode)) 0 -5)) 
+	   (substring 
+	    (symbol-name (symbol-value 'major-mode)) 0 -5) 
 	   " -*- " comment-end)))
 
 ;; Chunyu's .emacs_func.el ends here.
