@@ -77,9 +77,6 @@
 (define-key meta-m-map "f" 'chunyu-insert-file-variable)
 (define-key meta-m-map "\M-j" 'webjump)
 
-;; (setq gc-cons-threshold 2000000
-;;       echo-keystrokes 0.1)
-
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
       require-final-newline t
