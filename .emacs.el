@@ -427,11 +427,3 @@
 (put 'LaTeX-hide-environment 'disabled nil)
 
 ;; Chunyu's .emacs.el ends here.
-
-;; (
-;;  ("-*-courier new-normal-r-*-*-13-*-*-*-c-*-fontset-standard" 
-;;   . "-outline-Courier New-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1")
-;;  ("-*-courier new-normal-r-*-*-13-*-*-*-c-*-fontset-standard" 
-;;   . "fontset-standard")
-;;  ("-*-*-*-*-*-*-*-*-*-*-*-*-fontset-default" 
-;;   . "fontset-default"))
