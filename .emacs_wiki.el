@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_wiki.el, created on 2003/11/17 on db.cs.hit.edu.cn.
 
 (require 'emacs-wiki)

@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_func.el, created on 2004/03/28 on ds1.db.hit.edu.cn.
 
 (defun chunyu-message-expand (&optional arg)

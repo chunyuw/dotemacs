@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_tex.el, created on 2004/04/15 on db.cs.hit.edu.cn.
 
 (require 'tex-site)
@@ -6,7 +6,9 @@
 (add-hook 'TeX-mode-hook 
 	  (lambda () 
 	    (setq reftex-plug-into-AUCTeX t)
-	    (turn-on-reftex)))
+	    (turn-on-reftex)
+	    ;; (flyspell-mode)
+	    (auto-fill-mode)))
 
 ;; (add-hook 'LaTeX-mode-hook
 ;; 	  (lambda ()

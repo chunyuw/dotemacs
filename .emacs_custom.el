@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_custom.el, created on 2003/08/25 on db.cs.hit.edu.cn.
 
 (custom-set-variables

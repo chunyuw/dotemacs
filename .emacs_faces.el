@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_faces.el, created on 2003/11/20 on db.cs.hit.edu.cn.
 
 (cond ((not window-system)

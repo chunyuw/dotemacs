@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_erc.el, created on 2003/07/26 on db.cs.hit.edu.cn.
 
 ;; irc.sunnet.org, irc.linuxfire.com

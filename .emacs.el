@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: emacs-lisp; coding: gb2312; -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
 (global-set-key [f11] 'compile)

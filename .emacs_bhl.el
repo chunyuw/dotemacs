@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_bhl.el, created on 2003/12/16 on db.cs.hit.edu.cn.
 
 (setq bhl-html-content-type 
