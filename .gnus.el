@@ -125,7 +125,10 @@
        "\\|^Mail-Copies-To:\\|^Return-Receipt-To:\\|^NNTP-Posting-Date:"
        "\\|^NNTP-Posting-Host:\\|^Content-Transfer-Encoding:"
        "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
-       "\\|^Status:\\|^Errors-To:\\|FL-Build:"))
+       "\\|^Status:\\|^Errors-To:\\|FL-Build:")
+      message-make-forward-subject-function 'message-forward-subject-fwd
+      )
+
 
 (setq nnml-use-compressed-files t)
 
