@@ -17,6 +17,7 @@
 (global-set-key [(control z)]  'set-mark-command)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)]        'end-of-buffer)
+(global-set-key [(select)]        'end-of-buffer)
 (global-set-key [kp-delete] 'delete-char)
 (global-set-key [delete]    'delete-char)
 
@@ -43,7 +44,7 @@
 (display-time-mode     t)
 (auto-revert-mode)
 
-(load-file "/home/spr/.emacs.kbd")
+;;(load-file "/home/spr/.emacs.kbd")
 
 (cond ((fboundp 'global-font-lock-mode)
        (global-font-lock-mode t)
@@ -67,7 +68,7 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             ;; Set dired-x buffer-local variables here.  For example:
-	    (setq dired-omit-files-p t)
+	    (setq dired-omit-files-p nil)
             ))
 
 (require 'python-mode)
@@ -85,10 +86,10 @@
   (goto-char (point-min))
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
 
-(require 'tramp)
+;;(require 'tramp)
 (require 'jka-compr)
 (require 'dired-tar)
-(require 'cubeconf-mode)
+;;(require 'cubeconf-mode)
 
 (set-language-environment 'Chinese-GB)
 ;;(create-fontset-from-fontset-spec
@@ -120,25 +121,12 @@
  '(diary-file "~/.diary" t)
  '(dired-listing-switches "-alv")
  '(global-font-lock-mode t nil (font-lock))
- '(mail-host-address "192.168.1.178")
- '(rmail-pop-password "asasdasd")
- '(rmail-pop-password-required t)
- '(rmail-primary-inbox-list (quote ("po:dddkk@sina.com#pop3.sina.com.cn" "po:dddkk@263.net#263.net")) t)
- '(rmail-user-mail-address-regexp nil t)
- '(show-paren-mode t nil (paren))
- '(smtpmail-default-smtp-server "192.168.1.178")
- '(smtpmail-smtp-service 2501)
- '(user-full-name "Chunyu W.")
- '(user-mail-address "dddkk@sina.com"))
+ '(show-paren-mode t nil (paren)))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
  )
-
-(setenv "MAILHOST" "192.168.1.178")
-
 (put 'upcase-region 'disabled nil)
-
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
