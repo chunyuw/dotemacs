@@ -89,7 +89,7 @@
 	 (name "½ø»¯µÄÓã")
 	 (address "dddkk@sina.com")	; o.oO@Oo.o
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml\\+private:\\(emacs\\|guile\\|ding\\).*"
+	("^nnml\\+private:list\\..*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn"))
@@ -138,11 +138,12 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(|
-	(from "sinamx.sina.com.cn" "misc.junk")
+	(from "sinamx.sina.com.cn" "misc.misc")
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
 	(any "guile-sources@gnu.org" "list.guile-sources")
 	(any "ding@gnus.org" "list.ding")
+	(any "fetchmail-friends@ccil.org" "list.fetchmail")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
