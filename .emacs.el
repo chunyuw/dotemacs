@@ -9,7 +9,7 @@
 (global-set-key "\C-x\C-b" 'bs-show) ; electric-buffer-list
 (global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
-(global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-xk" 'chunyu-kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
@@ -27,18 +27,18 @@
 ;; (global-set-key "\C-r" 'isearch-backward-regexp)
 
 (require 'gnus-load)
-(require 'help-mode)
+(require 'bs)
+(require 'ido)
 (require 'view)
 (require 'info)
 (require 'dired)
 (require 'dired-x)
-;; (require 'compile)
 (require 'uniquify)
+(require 'help-mode)
 (require 'generic-x)
+;; (require 'compile)
 ;; (require 'flyspell)
 ;; (require 're-builder)
-(require 'bs)
-(require 'ido)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
@@ -304,35 +304,6 @@
 	  (lambda ()
 	    (setq fill-paragraph-function nil)))
 
-(defun chunyu-message-expand (&optional arg)
-  "message mode expand."
-  (interactive)
-  (if (and (message-mail-p) (message-point-in-header-p))
-      (bbdb-complete-name arg)
-    (hippie-expand arg)))
-
-(defun chunyu-view-scroll-forward (&optional lines)
-  "Move forward one line or LINES lines."
-  (interactive "p")
-  (let ((pos (point)))
-    (view-scroll-lines lines nil 1 t)
-    (goto-char pos)
-    (next-line lines)))
-
-(defun chunyu-view-scroll-backward (&optional lines)
-  "Move backward one line or LINES lines."
-  (interactive "p")
-  (let ((pos (point)))
-    (view-scroll-lines lines t 1 t)
-    (goto-char pos)
-    (previous-line lines)))
-
-(defun chunyu-bs-backup-unmark ()
-  (interactive)
-  (bs-up 1)
-  (bs-unmark-current 1)
-  (bs-up 1))
-
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
@@ -458,14 +429,15 @@
 	     (turn-on-auto-fill)
 	     (turn-on-filladapt-mode))))
 
-;;(load ".emacs_erc")
-(load ".emacs_faces")
-(load ".emacs_bbdb")
+;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
+;; (load custom-file)
+(load ".emacs_func")
+(load ".emacs_faces")
+(load ".emacs_bbdb")
 (if (equal (getenv "HOSTNAME") "ds1")
     (load ".emacs_smtp"))
-;; (load custom-file)
 
 ;; (setq semantic-load-turn-everything-on t)
 ;; (require 'semantic-load)
