@@ -43,6 +43,8 @@
        (set-face-attribute 'region nil :background "grey21")
        (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
        (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+       (copy-face 'default 'font-lock-warning-face)
+       (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
        (eval-after-load "font-latex"
 	 '(progn 
 	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")

@@ -73,13 +73,9 @@ Returns nil if it is not visible in the current calendar window."
   (let* ((m displayed-month)
 	 (y displayed-year)
 	 (gdate (calendar-gregorian-from-absolute
-		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday))))
-	 (gm (car gdate))
-	 (gd (cadr gdate))
-	 (gy (caddr gdate)))
-    (increment-calendar-month m y (- 11 gm))
-    (if (> m 9)
-	(list (list (list gm gd gy) string)))))
+		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
+    (increment-calendar-month m y (- 11 (car gdate)))
+    (if (> m 9) (list (list gdate string)))))
 
 ;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
 ;;   ())

@@ -61,9 +61,10 @@
 	("BibTeX" "bibtex %s" TeX-run-BibTeX nil t)
 	("Index" "makeindex %s" TeX-run-command nil t)
 	("Check" "lacheck %s" TeX-run-compile nil t)
-	("Clean" ,(concat "rm -f " "*.pdf *.dvi *.ps"
-			  "*.tmp *.mpo *mpx *.toc *.log *.tui *.top *.tuo *.bbl *.blg"
-			  "_region_.*") TeX-run-shell nil t)))
+	("Clean" ,(concat "rm -f " 
+			  "*.tmp *.mpo *mpx *.toc *.log *.tui *.top *.tuo *.bbl *.blg "
+			  "_region_.* ") TeX-run-shell nil t)
+	("Clean Bin" ,(concat "rm -f " "*.pdf *.dvi *.ps ") TeX-run-shell nil t)))
 
 (setq TeX-output-view-style
       '(("^ps$" "." "%f")

@@ -48,6 +48,7 @@
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
+(define-key dired-mode-map "c" 'dired-up-directory)
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
@@ -198,9 +199,9 @@
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
-(set-register ?j '(file . "d:/documents/tsimmis"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
+(set-register ?j '(file . "d:/usr/work/books/mybook/"))
 (set-register ?u '(file . "m:/"))
 (setenv "DISPLAY" "chunyu:0")
 
