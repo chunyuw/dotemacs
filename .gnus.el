@@ -41,6 +41,7 @@
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
 	("list\\..*" (subscribed . t) (total-expire . nil))
+	("mail\\..*" (total-expire . nil))
 	("misc\\..*" (total-expire . t))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
 	("mail\\..*\\|classmate\\..*" (gnus-use-scoring nil))))
@@ -163,6 +164,7 @@
 	  (any "python-chinese@lists.python.cn" "list.python-cn")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
+	  (any "cmbchina\\.com" "mail.cmbchina")
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
