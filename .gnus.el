@@ -4,6 +4,7 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
       '((nnml "")
+	(nntp "news.gmane.org")
 	(nntp "localhost")
 	(nntp "news.newsfan.net")))
 
@@ -26,7 +27,7 @@
 
 ;; (setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
 
-;; (setq gnus-agent-mark-unread-after-downloaded nil)
+(setq gnus-agent-mark-unread-after-downloaded nil)
 
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t) (total-expire . t))
@@ -85,7 +86,7 @@
 	 (name "½ø»¯µÄÓã")
 	 (address "user@cyber.net")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list\\..*\\|^nnml:mail\\.foreigner"
+	("^nnml:list\\..*\\|^nnml:mail\\.foreigner\\|^nntp\\+news\\.gmane\\.org:.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn"))
