@@ -26,10 +26,12 @@
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
 
-      gnus-treat-display-smileys nil
+      gnus-treat-display-smileys t
 
       gnus-auto-select-next 'quietly
       gnus-activate-foreign-newsgroups 4
+
+      gnus-interactive-exit nil
       )
 
 (setq gnus-parameters
@@ -163,6 +165,7 @@
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
+	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	"misc.junk"))
 
