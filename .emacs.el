@@ -223,7 +223,6 @@
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
-(set-register ?w '(file . "~/Wiki"))
 (setenv "DISPLAY" "chunyu:0")
 
 ;; (set-locale-environment "en")
