@@ -41,8 +41,8 @@
 (add-hook 'calendar-load-hook
 	  '(lambda ()
 	     (define-key calendar-mode-map "n" 'records-calendar-to-record)
-	     (define-key calendar-mode-map "<" 'scroll-calendar-left)
-	     (define-key calendar-mode-map ">" 'scroll-calendar-right)
+	     (define-key calendar-mode-map ">" 'scroll-calendar-left)
+	     (define-key calendar-mode-map "<" 'scroll-calendar-right)
 	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
 	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
 	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
