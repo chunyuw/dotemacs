@@ -14,5 +14,7 @@
       bbdb-elided-display-fields '(net)
       bbdb-elided-display t
       bbdb-offer-save nil
-)
 
+      bbdb-user-mail-names
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "spr@db.hit.edu.cn"))
+)
