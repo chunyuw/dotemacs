@@ -354,7 +354,7 @@
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
-(load custom-file)
+;; (load custom-file)
 (load ".emacs_cal")
 (load ".emacs_func")
 (load ".emacs_faces")

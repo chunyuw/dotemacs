@@ -62,7 +62,7 @@
 	("Index" "makeindex %s" TeX-run-command nil t)
 	("Check" "lacheck %s" TeX-run-compile nil t)
 	("Clean" ,(concat "rm -f " "*.pdf *.dvi *.ps"
-			  "*.tmp *.mpo *mpx *.toc *.aux *.log *.tui *.top *.tuo *.bbl *.blg"
+			  "*.tmp *.mpo *mpx *.toc *.log *.tui *.top *.tuo *.bbl *.blg"
 			  "_region_.*") TeX-run-shell nil t)))
 
 (setq TeX-output-view-style
