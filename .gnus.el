@@ -7,7 +7,7 @@
 	;; (nntp "news.individual.net")
 	;; (nntp "news.gmane.org")
 	;; (nntp "localhost")
-	(nntp "news.newsfan.net")
+	;; (nntp "news.newsfan.net")
 	(nntp "ds1")))
 
 (setq gnus-default-charset 'cn-gb-2312
