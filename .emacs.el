@@ -58,6 +58,14 @@
      (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
      (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
 
+(eval-after-load "calc"
+  '(progn
+     (load "calc-misc")
+     (load "calc-ext")
+     (load "calc-undo")
+     (define-key calc-mode-map (kbd "C--") 'calc-undo)
+     (define-key calc-mode-map (kbd "C-/") 'calc-undo)))
+
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
 (define-key global-map "\C-xve" 'cvs-examine)
