@@ -43,7 +43,8 @@
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
 
-(setq default-major-mode 'text-mode
+(setq inhibit-startup-message t
+      default-major-mode 'text-mode
       next-line-add-newlines nil
       require-final-newline t
       resize-mini-windows nil
