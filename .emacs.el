@@ -231,7 +231,7 @@
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
 ;;(load-file "~/.emacs_smtp.el")
-;;(load-file "~/.emacs_erc.el")
+(load-file "~/.emacs_erc.el")
 (load-file "~/.emacs_bbdb.el")
 
 ;; .emacs.el ends here.
