@@ -2,7 +2,7 @@
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_func.el, created on 2004/03/28 on ds1.db.hit.edu.cn.
 
 (defun chunyu-plink () 
-  "plink"
+  "run plink for proxy in background."
   (interactive)
   (w32-shell-execute nil "plink.exe" "runnat" 0))
 

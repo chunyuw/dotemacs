@@ -171,7 +171,7 @@
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
 	  (: spam-split)
-	  (to "chunyu@\\(db\\.\\)?hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
+	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth\\|@db" "mail.myself")
 		 "mail.misc"))

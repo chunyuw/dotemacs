@@ -121,7 +121,7 @@ caption always "%m/%d/%y %0c%{=b kW}  %l  %{=r kd}%-Lw%{= bd}%50>%n%f* %t%{-}%+L
 msgwait 15
 
 # Don't you want to start programs which need a DISPLAY ?
-setenv DISPLAY 'chunyu:0'
+# setenv DISPLAY 'chunyu:0'
 logfile ~/var/screen_%Y-%m-%d_%0c
 
 # Bind F11 and F12 (NOT F1 and F2) to previous and next screen window
