@@ -118,7 +118,7 @@
       message-from-style 'angles
       message-kill-buffer-on-exit t
       message-cite-function 'sc-cite-original
-      message-elide-ellipsis "\n[...]\n"
+      message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
@@ -160,6 +160,8 @@
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(any "help-emacs-windows@gnu.org" "list.help-emacs-windows")
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
+	(any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
+	(any "cedet-semantic@lists.sourceforge.net" "list.cedet-semantic")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
@@ -169,6 +171,7 @@
 	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
+	("Delivered-To" "dddkk@sina\\.com" junk)
 	"misc.junk"))
 
 ;; (defun message-make-message-id()
@@ -194,8 +197,8 @@
      (setq mm-discouraged-alternatives '("text/html")
 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
-(gnus-demon-add-scanmail)
-(gnus-demon-init)
+;;(gnus-demon-add-scanmail)
+;;(gnus-demon-init)
 
 (unless window-system 
   (require 'gnus-sum)
