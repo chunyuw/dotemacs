@@ -49,7 +49,9 @@
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
 (define-key dired-mode-map "c" 'dired-up-directory)
+(define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
+(define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (eval-after-load "apropos"
@@ -92,7 +94,7 @@
       vc-follow-symlinks t
       enable-recursive-minibuffers t
       line-move-ignore-invisible t
-      ring-bell-function 'ignore
+      default-fill-column 78
       tooltip-gud-tips-p t)
 
 ;; (setq redisplay-dont-pause t)
@@ -209,7 +211,7 @@
 ;; (define-coding-system-alias 'gb18030 'gb2312)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
+(set-message-beep 'silent)
 (find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
