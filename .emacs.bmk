@@ -32,9 +32,9 @@
    (position . 2932)))
  ("notes-emacs"
   ((filename . "/home/spr/notes/notes-emacs")
-   (front-context-string . "\n\n\nLocal Variabl")
+   (front-context-string . "\n\nLocal Variable")
    (rear-context-string . "===============\n")
-   (position . 7919)))
+   (position . 8019)))
  ("notes-gnus"
   ((filename . "/home/spr/notes/notes-gnus")
    (front-context-string . "\n\nLocal Variable")
