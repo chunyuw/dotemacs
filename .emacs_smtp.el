@@ -7,7 +7,7 @@
 ;;(setq smtpmail-local-domain "db.hit.edu.cn")
 ;;(setq smtpmail-sendto-domain "db.hit.edu.cn")
 (setq smtpmail-auth-credentials
-      '(("202.118.224.153" 25 "chunyu" "abcdefgh")))
+      '(("202.118.224.153" 25 "chunyu" "abcdefg")))
 
 ;;(setq smtpmail-default-smtp-server "smtp.sina.com.cn")
 ;;(setq smtpmail-smtp-server "smtp.sina.com.cn")
