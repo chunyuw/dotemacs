@@ -62,7 +62,6 @@
       dired-listing-switches "-avl"     ; `C-u s'
       dired-recursive-copies t
       dired-recursive-deletes t
-      dired-guess-shell-gnutar t
       cvs-dired-use-hook 'always
 
       abbrev-file-name "~/.emacs.d/.abbrev_defs"
