@@ -10,8 +10,13 @@
 	;; (nntp "localhost")
 	(nntp "news.newsfan.net")))
 
-(setq gnus-asynchronous t
-      gnus-read-newsrc-file nil
+(setq gnus-default-charset 'cn-gb-2312
+      gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
+      ;; gnus-group-name-charset-method-alist '(((nntp "news.newsfan.net") . cn-gb-2312))
+      gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
+      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
+
+(setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
       gnus-summary-display-arrow nil
@@ -25,15 +30,8 @@
       gnus-treat-display-smileys t
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
-      gnus-activate-foreign-newsgroups 4
-      gnus-interactive-exit nil)
-
-;; (setq gnus-thread-sort-functions
-;;       '(not gnus-thread-sort-by-date))
-
-;;(setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
-
-;;(setq gnus-agent-mark-unread-after-downloaded nil)
+      gnus-interactive-exit nil
+      )
 
 (setq mm-inline-large-images t
       mm-inline-override-types '("text/html"))
@@ -59,12 +57,6 @@
 	      "\\|^Posted-To:\\|^Mail-Copies-To:\\|^Mail-Followup-To:"
 	      "\\|^Apparently-To:\\|^Gnus-Warning:\\|^Resent-From:\\|^X-Sent:"
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
-
-(setq gnus-default-charset 'cn-gb-2312
-      gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
-      ;; gnus-group-name-charset-method-alist '(((nntp "news.newsfan.net") . cn-gb-2312))
-      gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "spr@db.hit.edu.cn"
@@ -120,8 +112,7 @@
       sc-preferred-header-style 4
       sc-use-only-preference-p nil)
 
-(setq mail-self-blind t
-      message-from-style 'angles
+(setq message-from-style 'angles
       message-kill-buffer-on-exit t
       message-cite-function 'sc-cite-original
       message-elide-ellipsis "\n  [...]\n"
@@ -139,7 +130,6 @@
 	      "\\|^Status:\\|^Errors-To:\\|FL-Build:")
       message-make-forward-subject-function 'message-forward-subject-fwd
       message-forward-as-mime nil)
-
 
 (setq nnml-use-compressed-files t)
 
@@ -194,8 +184,8 @@
 (when window-system
   (eval-after-load "gnus-art"
     '(progn 
-   (copy-face 'gnus-header-from-face 'gnus-x-face)
-   (set-face-attribute 'gnus-x-face nil :foreground "blue"))))
+       (copy-face 'gnus-header-from-face 'gnus-x-face)
+       (set-face-attribute 'gnus-x-face nil :foreground "blue"))))
 
 (unless window-system
   (require 'gnus-sum)
