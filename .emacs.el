@@ -224,6 +224,7 @@
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
+(set-register ?j '(file . "d:/documents/tsimmis"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
 (setenv "DISPLAY" "chunyu:0")
@@ -323,14 +324,12 @@
 
        (setq default-frame-alist
 	     `((top . 0) (left . 0)
-	       (width . 80) (height . 43)
-	       (menu-bar-lines . 0)
-	       (tool-bar-lines . 0)
+	       (width . 80) (height . 44)
+	       (background-mode . dark)
 	       (vertical-scroll-bars)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
 	       (cursor-color . "gold3")
-	       (mouse-color . "gold1")
 	       (font . "fontset-chinese")
 	       . ,(if (eq window-system 'x) '((font . "9x15")))))
 
