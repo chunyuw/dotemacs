@@ -255,7 +255,7 @@
 (menu-bar-mode -1)
 (icomplete-mode 1)
 (ido-everywhere 1)
-(hi-lock-mode 1)
+;; (hi-lock-mode 1)
 (ido-mode 1)
 
 (add-hook 'diary-hook 'appt-make-list)
