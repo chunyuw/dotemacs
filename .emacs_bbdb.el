@@ -18,6 +18,8 @@
 ;;(bbdb-define-all-aliases)
 
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+(autoload 'bbdb-insinuate-sc "bbdb-sc" "bbdb sc init" nil)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
 
 (setq bbdb-north-american-phone-numbers-p nil
       bbdb-check-zip-codes-p nil
