@@ -6,7 +6,7 @@
 			   :foreground "white"
 			   :background "blue"
 			   :underline nil
-			   :weight 'bold)
+			   :weight 'normal)
        (set-face-attribute 'region nil :background "blue")
        (eval-after-load "log-view"
 	 '(progn
