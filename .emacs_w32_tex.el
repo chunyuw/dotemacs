@@ -17,6 +17,9 @@
 (setq LaTeX-top-caption-list 
       '("table" "table*"))
 
+(setq bibtex-entry-format
+      '(opts-or-alts numerical-fields))
+
 (setq reftex-revisit-to-follow t
       ;; reftex-auto-recenter-toc t
       )
@@ -28,10 +31,11 @@
 	    ;; (flyspell-mode)
 	    (auto-fill-mode)))
 
-;; (add-hook 'LaTeX-mode-hook
-;; 	  (lambda ()
-;; 	    ;;(setq fill-paragraph-function nil)
-;; 	    ))
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (turn-on-cdlatex)
+	    ;;(setq fill-paragraph-function nil)
+	    ))
 
 (setq TeX-command-list 
       '(("TeX" "tex %S \\nonstopmode\\input %t" TeX-run-TeX nil (plain-tex-mode))
@@ -47,7 +51,8 @@
 	("Dvips" "dvips %d -o %f " TeX-run-command t t)
 	("BibTeX" "bibtex %s" TeX-run-BibTeX nil t)
 	("Index" "makeindex %s" TeX-run-command nil t)
-	("Check" "lacheck %s" TeX-run-compile nil t)))
+	("Check" "lacheck %s" TeX-run-compile nil t)
+	("Clean" "rm -f *.pdf *.dvi *.ps *.toc *.aux *.log *.tui *.top *.tuo _region_.*" TeX-run-shell nil t)))
 
 (setq TeX-output-view-style
       '(("^ps$" "." "%f")
