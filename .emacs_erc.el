@@ -2,8 +2,6 @@
 ;; Chunyu's .emacs_erc.el is created on 2003/07/26 on db.cs.hit.edu.cn. 
 ;; Chunyu <chunyu@hit.edu.cn>.
 
-;; Time-stamp: <2003-07-26 Sat 15:58:04 spr on db.cs.hit.edu.cn>.
-
 ;; irc.sunnet.org, irc.linuxfire.com
 ;; irc.linuxfans.org, irc.pchome.net
 (require 'erc)

@@ -1,8 +1,6 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
-;; Time-stamp: <2003-07-28 Mon 13:18:50 spr on db.cs.hit.edu.cn>.
-
 ;; NNTP Hosts: 
 ;;  news.yaako.com
 ;;  news.so-net.com.hk
