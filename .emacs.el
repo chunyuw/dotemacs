@@ -258,6 +258,9 @@
 
 (setq-default kill-whole-line t)
 
+(setq sentence-end
+      "\\([.?!][]\"')}]*\\($\\|	\\| \\)\\|[¡££®£¿£¡]+\\)[ 	\n]*")
+
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
