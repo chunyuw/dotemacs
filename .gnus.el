@@ -114,7 +114,8 @@
        "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
        "\\|^Status:\\|^Errors-To:\\|FL-Build:"))
 
-(setq nnmail-crosspost nil
+(setq nnmail-treat-duplicates 'delete
+      nnmail-crosspost nil
       nnmail-split-methods
       '(("emacs-devel" "^\\(To:\\|Cc:\\).*emacs-devel@gnu.org")
 	("emacs-bidi" "^\\(To:\\|Cc:\\).*emacs-bidi@gnu.org")
