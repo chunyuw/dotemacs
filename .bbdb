@@ -51,6 +51,7 @@
 ["刘颖" nil ("留影") nil nil nil ("yarley@sohu.com" "xiaoniulovely@sina.com") ((creation-date . "2003-07-30") (timestamp . "2004-11-02")) nil]
 ["刘益东" nil nil nil nil nil ("liuyidong535@263.net") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["刘禹" nil ("LIU Yu") nil nil nil ("pamws@hit.edu.cn") ((creation-date . "2004-12-08") (timestamp . "2004-12-09")) nil]
+["骆吉洲" nil nil nil (["mobile" "13936139854"]) nil ("luojizhou@hit.edu.cn") ((creation-date . "2005-01-14") (timestamp . "2005-01-14")) nil]
 ["商超" nil nil nil nil nil ("shinechar@163.com") ((creation-date . "2003-08-23") (timestamp . "2004-07-05") (notes . "机器密码159632")) nil]
 ["舒燕君" nil nil nil (["Mobile" "13115314394"] ["Office" "86413555-14"]) nil nil ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
 ["隋晓鹏" nil ("sxp") "北方交通大学" nil nil ("sxpfbt@163.com") ((creation-date . "2004-06-28") (timestamp . "2004-09-06") (notes . "Black Box Recorder")) nil]
