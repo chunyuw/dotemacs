@@ -162,10 +162,11 @@
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
 	(any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
 	(any "cedet-semantic@lists.sourceforge.net" "list.cedet-semantic")
+	(any "tutor@python.org" "list.python.tutor")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
-	       (from "xiaonan\\|however\\|jellycart" "classmate.misc")
+	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
