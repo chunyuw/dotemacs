@@ -43,8 +43,9 @@
 (define-key ctl-xm-map "e" 'cvs-examine)
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
-
 (define-key ctl-xm-map "b" 'ibuffer)	
+(define-key ctl-xm-map "l" 'browse-kill-ring)
+(define-key ctl-xm-map "a" 'align-current)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -57,6 +58,7 @@
       confirm-kill-emacs nil            ; 'y-or-n-p
       suggest-key-bindings 1
       line-number-display-limit 1000000
+      kill-ring-max 240
 
       apropos-do-all nil
       x-stretch-cursor t
@@ -306,6 +308,7 @@
 ;;(require 'tramp)
 (require 'flyspell)
 ;;(require 'html-helper-mode)
+(require 'browse-kill-ring)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
