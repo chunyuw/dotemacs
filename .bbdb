@@ -44,7 +44,7 @@
 ["商超" nil nil nil nil nil ("shinechar@163.com") ((creation-date . "2003-08-23") (timestamp . "2004-07-05") (notes . "机器密码159632")) nil]
 ["舒燕君" nil nil nil (["Mobile" "13115314394"] ["Office" "86413555-14"]) nil nil ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
 ["隋晓鹏" nil ("sxp") "北方交通大学" nil nil ("sxpfbt@163.com") ((creation-date . "2004-06-28") (timestamp . "2004-09-06") (notes . "Black Box Recorder")) nil]
-["孙海阳" nil ("sun sea") nil nil nil ("sunhaiyang@hotmail.com") ((creation-date . "2003-07-30") (timestamp . "2004-08-04") (msn . "sunhaiyang@hotmail.com")) nil]
+["孙海阳" nil ("sun sea") nil (["Mobile" "13751008802"]) nil ("sunhaiyang@hotmail.com") ((creation-date . "2003-07-30") (timestamp . "2004-09-06") (msn . "sunhaiyang@hotmail.com")) nil]
 ["孙力生" nil ("Lisheng" "Lisheng Sun") nil nil nil ("lisheng@cs.ualberta.ca" "lisheng_alberta@yahoo.ca") ((creation-date . "2003-07-30") (timestamp . "2004-08-04") (msn . "datasunny@hotmail.com")) nil]
 ["谭玲" nil nil nil nil nil ("tanling@ftcl.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["汪冰" nil nil nil nil nil ("hit_wangbing@sohu.com") ((creation-date . "2003-08-11") (timestamp . "2003-08-11")) nil]
