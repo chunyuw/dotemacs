@@ -81,7 +81,7 @@
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "½ø»¯µÄÓã")
-	 (address "dddkk@sina.com")
+	 (address "user@cyber.net")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:list\\..*\\|^nnml:mail\\.foreigner"
 	 (signature-file "~/.sig/pubmail")
