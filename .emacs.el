@@ -47,6 +47,11 @@
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
+(eval-after-load "apropos"
+  '(progn
+     (define-key apropos-mode-map "n" 'forward-button)
+     (define-key apropos-mode-map "p" 'backward-button)))
+
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
 (define-key ctl-x-m-map "e" 'cvs-examine)
@@ -68,6 +73,8 @@
 (define-key meta-m-map "\M-e" 're-builder)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
+
+(setq gc-cons-threshold 2000000)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -230,6 +237,7 @@
 (set-register ?j '(file . "~/work/xmldb/loader"))
 (setenv "DISPLAY" "chunyu:0")
 
+;; (set-locale-environment "en")
 ;; (set-locale-environment "zh_CN")
 (set-language-environment    'Chinese-GB)
 (set-keyboard-coding-system  'chinese-iso-8bit)
@@ -261,6 +269,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'write-file-hooks 'time-stamp)
+(add-hook 'find-file-hook 'auto-insert)
 
 (add-hook 'message-setup-hook
 	  (lambda ()
@@ -277,9 +286,9 @@
 
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
-;; (add-hook 'LaTeX-mode-hook 
-;; 	  (lambda ()
-;; 	    (setq fill-paragraph-function nil)))
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (setq fill-paragraph-function nil)))
 
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
@@ -355,12 +364,40 @@
 		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
 		(interactive "s机器名(或IP): \ns消息内容: ")
 		(shell-command (format "net send %s %s" recipient text)))
+
+	      ;; -> TeX-command-list <-
+	      ;;
+	      (setq preview-gs-command "GSWIN32C.EXE")
+	      (setq dired-view-command-alist
+		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")
+		      ("[.]pdf\\'" . "gsview32.exe %s")
+		      ("[.]dvi\\'" . "windvi %s")))
 	      (setq dired-guess-shell-alist-user
 		    (list (list "\\.pdf\\'" "explorer")
-			  (list "\\.dvi\\'" "dvipdfmx")))
+			  (list "\\.dvi\\'" "dvipdfmx")
+			  (list "\\.rar\\'" "rar l")))
 	      (setq default-frame-alist
 		    (append '((width . 80) (height . 43))
-			    default-frame-alist)))
+			    default-frame-alist))
+
+	      ;; other things for win32
+	      (setq-default cursor-type '(bar . 1))
+	      (setq Info-default-directory-list 
+		    (append Info-default-directory-list (list "d:/free_ware/TeXLive/info")))
+	      ;;;; ECB ;;;;
+	      (setq ecb-options-version "2.20")
+	      (require 'ecb-autoloads)
+	      (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+
+	      ;; ispell
+	      (setenv "ISPELLDICTDIR" (concat (getenv "emacs_dir") "/site-lisp/EnglishDic"))
+	      (setq ispell-dictionary-alist
+		    '((nil "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+		      ("english" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+		      ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
+		      ("UK-xlg" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
+		      ("US-xlg" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
+	      )
 
 	     ((eq window-system 'x)
 	      ;; X-Window
@@ -404,13 +441,6 @@
 (require 'browse-kill-ring)
 (require 'dictionary)
 
-;; (add-to-list 'load-path "/usr/local/share/xref/emacs")
-;; (add-to-list 'exec-path "/usr/local/share/xref")
-;; (load "xrefactory")
-
-;; (setq semantic-load-turn-everything-on t)
-;; (require 'semantic-load)
-
 (load ".emacs-records")
 (setq records-init-file "~/.emacs.d/.emacs-records")
 ;; (define-key global-map [?\C-x ?n ?t] 'records-goto-today)
@@ -429,14 +459,24 @@
 	     (turn-on-auto-fill)
 	     (turn-on-filladapt-mode))))
 
-(load ".emacs_erc")
+;;(load ".emacs_erc")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
-(load ".emacs_wiki")
-(load ".emacs_bhl")
+;; (load ".emacs_wiki")
+;; (load ".emacs_bhl")
 (if (equal (getenv "HOSTNAME") "ds1")
     (load ".emacs_smtp"))
 ;; (load custom-file)
+
+;; (setq semantic-load-turn-everything-on t)
+;; (require 'semantic-load)
+
+;; xref
+;; (add-to-list 'load-path "/usr/local/share/xref/emacs")
+;; (add-to-list 'exec-path "/usr/local/share/xref")
+;; (defvar xref-current-project nil) ;; can be also "my_project_name"
+;; (defvar xref-key-binding 'global) ;; can be also 'local or 'none
+;; (load "xrefactory")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
