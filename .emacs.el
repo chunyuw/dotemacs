@@ -206,15 +206,16 @@
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
+		("\\.asp\\'" . html-helper-mode)
+(add-to-list 'backup-directory-alist
+	     (cons tramp-file-name-regexp nil))
+
 		("\\.css\\'" . css-mode))
 (require 'compile)
 	      auto-mode-alist))
 (require 'jka-compr)
 (require 'uniquify)
 (require 'tramp)
-
-(add-to-list 'backup-directory-alist
-	     (cons tramp-file-name-regexp nil))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
