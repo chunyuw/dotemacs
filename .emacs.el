@@ -168,6 +168,10 @@
                   (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
                           dired-view-command-alist))))
 
+(unless window-system
+  (set-background-color "black")
+  (set-foreground-color "white"))
+
 (when window-system
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
@@ -228,7 +232,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 ;;(load-file "~/.emacs_smtp.el")
 ;;(load-file "~/.emacs_erc.el")
-;;(load-file "~/.emacs_bbdb.el")
+(load-file "~/.emacs_bbdb.el")
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
