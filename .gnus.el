@@ -102,7 +102,7 @@
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
       sc-blank-lines-after-headers 1
-      sc-citation-leader ""
+      sc-citation-leader "  "
       sc-citation-delimiter-regexp "[>]+\\|\\(: \\)+"
       sc-cite-blank-lines-p nil
       sc-confirm-always-p nil
@@ -144,6 +144,7 @@
       nnmail-split-fancy
       '(|
 	(to "Dddkk <dddkk@sina\\.com>" "misc.junk")
+	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk) ; junk = delete
 	;;(from "sinamx.sina.com.cn" "misc.junk")
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
@@ -152,6 +153,7 @@
 	(any "fetchmail-friends" "list.fetchmail")
 	(any "pgsql-general@postgresql.org" "list.pg-general")
 	(any "zope@zope.org" "list.zope")
+	(any "xml-sig@python.org" "list.python.xml-sig")
 	(any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
@@ -160,6 +162,7 @@
 	       (from "xiaonan\\|however\\|jellycart" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
+	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
 	       "mail.misc"))
 	"misc.junk"))
 

@@ -46,3 +46,38 @@ Aug 15, 2003
     news://godfrey.mcc.ac.uk
 Aug 21, 2003 
     postgres-general mailing list subscribe and unsubscribe to majordomo@postgresql.org
+
+Sep 10, 2003 
+    即时IRC  irc://irc.3322.net/#CN99新闻组
+Sep 11, 2003 
+
+用 Supercite 时，在引文中删除签名。
+
+,----[ 重新定义gnus-signature-separator ]
+| (setq gnus-signature-separator
+|       "^\\(-- *\\|--*\\|[ \t]>-- *\\|^---*\\)$")
+`----
+
+,----[ 定义一个处理的函数 ]
+|  (defun my-sc-pre-hook ()
+|    (save-excursion
+|      (let ((start (point))
+|            (end (mark t)))
+|        (goto-char end)
+|        (when (re-search-backward gnus-signature-separator start t)
+|        ;;这里要重新定义gnus-signature-separator 
+|          (forward-line -1)
+|          (while (looking-at "[ \t]*$")
+|            (forward-line -1))
+|          (forward-line 1)
+|          (setq mark (set-marker (make-marker) (point)))
+|          (delete-region mark (mark t))
+|          )
+|        )
+|      )
+|    )
+`----
+
+,----[ 在.gnus里面加入这个hook ]
+| (add-hook 'sc-pre-hook 'my-sc-pre-hook)
+`----
