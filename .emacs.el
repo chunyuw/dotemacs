@@ -59,6 +59,7 @@
       suggest-key-bindings 1
       line-number-display-limit 1000000
       kill-ring-max 240
+      ring-bell-function 'ignore
 
       apropos-do-all nil
       x-stretch-cursor t
@@ -94,7 +95,7 @@
       time-stamp-active t
       time-stamp-warn-inactive t
       ;;time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S %u on %s"
-      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S"
+      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu"
 
       diary-file "~/.emacs.d/.diary"
       calendar-latitude +45.75
@@ -274,6 +275,7 @@
 (autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
 (autoload 'todo-show "todo-mode" "Show TODO items." t)
 (autoload 'css-mode "css-mode" "CSS editing mode" t)
+(autoload 'python-mode "python-mode" "Python editing mode." t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
