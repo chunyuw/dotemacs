@@ -122,20 +122,17 @@
       message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
-      message-forward-as-mime nil
-      message-forward-show-mml t
-      message-forward-decoded-p nil
       message-forward-ignored-headers
-      (concat
-       "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
-       "\\|^Thread-\\|^[GB]cc:\\|^Reply-To:\\|^Received:\\|^User-Agent:"
-       "\\|^Message-ID:\\|^Precedence:\\|^References:\\|^Return-Path:"
-       "\\|^Cancel-Lock:\\|^Delivered-To:\\|^Organization:\\|^content-class:"
-       "\\|^Mail-Copies-To:\\|^Return-Receipt-To:\\|^NNTP-Posting-Date:"
-       "\\|^NNTP-Posting-Host:\\|^Content-Transfer-Encoding:"
-       "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
-       "\\|^Status:\\|^Errors-To:\\|FL-Build:")
-      message-make-forward-subject-function 'message-forward-subject-fwd)
+      (concat "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
+	      "\\|^Thread-\\|^[GB]cc:\\|^Reply-To:\\|^Received:\\|^User-Agent:"
+	      "\\|^Message-ID:\\|^Precedence:\\|^References:\\|^Return-Path:"
+	      "\\|^Cancel-Lock:\\|^Delivered-To:\\|^Organization:\\|^content-class:"
+	      "\\|^Mail-Copies-To:\\|^Return-Receipt-To:\\|^NNTP-Posting-Date:"
+	      "\\|^NNTP-Posting-Host:\\|^Content-Transfer-Encoding:"
+	      "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
+	      "\\|^Status:\\|^Errors-To:\\|FL-Build:")
+      message-make-forward-subject-function 'message-forward-subject-fwd
+      message-forward-as-mime nil)
 
 
 (setq nnml-use-compressed-files t)
