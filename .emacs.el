@@ -21,10 +21,10 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
-(global-set-key "\C-\M-s" 'isearch-forward)
-(global-set-key "\C-\M-r" 'isearch-backward)
-(global-set-key "\C-s" 'isearch-forward-regexp)
-(global-set-key "\C-r" 'isearch-backward-regexp)
+;; (global-set-key "\C-\M-s" 'isearch-forward)
+;; (global-set-key "\C-\M-r" 'isearch-backward)
+;; (global-set-key "\C-s" 'isearch-forward-regexp)
+;; (global-set-key "\C-r" 'isearch-backward-regexp)
 
 (require 'gnus-load)
 (require 'help-mode)
@@ -93,6 +93,8 @@
       enable-recursive-minibuffers t
       line-move-ignore-invisible t
       ring-bell-function 'ignore)
+
+;; (setq redisplay-dont-pause t)
 
 (setq truncate-partial-width-windows t
       sentence-end-double-space nil
@@ -212,7 +214,10 @@
       ange-ftp-generate-anonymous-password "user@cyber.net")
 
 (setq c-cleanup-list 
-      '(brace-else-brace brace-elseif-brace scope-operator))
+      '(brace-else-brace 
+	brace-elseif-brace 
+	scope-operator 
+	empty-defun-braces))
 
 (setq quack-default-program "guile"
       quack-fontify-style nil)
