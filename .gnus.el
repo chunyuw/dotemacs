@@ -3,7 +3,10 @@
 ;; Chunyu <chunyu@hit.edu.cn>
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml "private") (nntp "localhost") (nntp "news.newsfan.net")))
+      gnus-secondary-select-methods
+      '((nnml "private") 
+	(nntp "localhost") 
+	(nntp "news.newsfan.net")))
 
 (setq gnus-auto-select-subject 'first
       gnus-auto-select-first nil
