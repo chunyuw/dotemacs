@@ -73,7 +73,7 @@
       default-major-mode 'text-mode
       next-line-add-newlines nil
       require-final-newline t
-      resize-mini-windows nil
+      resize-mini-windows t
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
