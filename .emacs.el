@@ -13,7 +13,7 @@
 
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-j" 'dired-jump)
-(global-set-key "\C-xk" 'kill-buffer-directly)
+(global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
@@ -31,7 +31,7 @@
 (define-key ctl-x-m-map "s" 'dictionary-search)
 (define-key ctl-x-m-map "c" 'boxquote-shell-command)
 (define-key ctl-x-m-map "f" 'boxquote-describe-function)
-(define-key ctl-x-m-map "i" 'boxquote-insert-file)
+(define-key ctl-x-m-map "i" 'imenu)	; boxquote-insert-file
 (define-key ctl-x-m-map "k" 'boxquote-describe-key)
 (define-key ctl-x-m-map "p" 'boxquote-paragraph)
 (define-key ctl-x-m-map "r" 'boxquote-region)
@@ -124,7 +124,7 @@
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
-      backup-directory-alist '(("" . "~/var/tmp"))
+      backup-directory-alist '(("." . "~/var/tmp"))
       backup-by-copying t
 
       font-lock-maximum-decoration t
@@ -188,14 +188,17 @@
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
 
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (find-function-setup-keys)
 (file-name-shadow-mode 1)
 (minibuffer-electric-default-mode 1)
 (partial-completion-mode 1)
 (utf-translate-cjk-mode 1)
+(which-func-mode 1)
 (global-font-lock-mode 1)
 (menu-bar-mode -1)
+(column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
 (show-paren-mode 1)
@@ -298,8 +301,6 @@
 		;; ("\\.phtml\\'" . html-helper-mode)
 (setq auto-mode-alist
       (append '(("\\.py\\'" . python-mode)
-
-(defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
 (add-to-list 'load-path "~/.emacs.d/elisp/tramp")
