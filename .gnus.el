@@ -7,6 +7,7 @@
 	;; (nntp "news.individual.net")
 	;; (nntp "news.gmane.org")
 	;; (nntp "localhost")
+	(nntp "ds1")
 	(nntp "news.newsfan.net")))
 
 (setq gnus-default-charset 'cn-gb-2312
@@ -76,9 +77,9 @@
 	 (name "Wang Chunyu")
 	 (address "dddkk@sina.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nntp\\+localhost:.*"
+	("^nntp\\+ds1:.*"
 	 (signature-file "~/.sig/localnews")
-	 (name "Õı¥∫”Ó")
+	 (name "Chunyu")
 	 (address "chunyu@hit.edu.cn"))
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
