@@ -274,6 +274,10 @@
 
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
+;; (add-hook 'LaTeX-mode-hook 
+;; 	  (lambda ()
+;; 	    (setq fill-paragraph-function nil)))
+
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
   (interactive)
