@@ -63,84 +63,85 @@
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
-      confirm-kill-emacs nil            ; 'y-or-n-p
+      confirm-kill-emacs nil
       suggest-key-bindings 1
       line-number-display-limit 1000000
       kill-ring-max 200
-      ring-bell-function 'ignore
+      ring-bell-function 'ignore)
 
-      apropos-do-all nil
+(setq apropos-do-all nil)
 
-      bookmark-save-flag 1
-      bookmark-default-file "~/.emacs.d/.emacs.bmk"
+(setq bookmark-save-flag 1
+      bookmark-default-file "~/.emacs.d/.emacs.bmk")
 
-      ;; compilation-scroll-output t
-      ;; compile-command "make -k "
-
-      dired-listing-switches "-avl"     ; `C-u s'
+(setq dired-listing-switches "-avl"
       dired-recursive-copies t
       dired-recursive-deletes t
-      cvs-dired-use-hook 'always
+      cvs-dired-use-hook 'always)
 
-      abbrev-file-name "~/.emacs.d/.abbrev_defs"
-      custom-file "~/.emacs.d/.emacs_custom.el"
+(setq abbrev-file-name "~/.emacs.d/.abbrev_defs"
+      custom-file "~/.emacs.d/.emacs_custom.el")
 
-      display-time-24hr-format t
+(setq display-time-24hr-format t
       display-time-day-and-date t
       display-time-use-mail-icon t
-      display-time-interval 10
+      display-time-interval 10)
 
-      gnus-inhibit-startup-message t
-      gnus-init-file "~/.emacs.d/.gnus.el"
+(setq gnus-inhibit-startup-message t
+      gnus-init-file "~/.emacs.d/.gnus.el")
 
-      mail-signature-file "~/.sig/default"
+(setq mail-signature-file "~/.sig/default"
       mail-user-agent 'gnus-user-agent
       mail-alias-file "~/.mailrc"
       user-full-name "Chunyu Wang"
-      user-mail-address "chunyu@hit.edu.cn"
+      user-mail-address "chunyu@hit.edu.cn")
 
-      time-stamp-active t
+(setq time-stamp-active t
       time-stamp-warn-inactive t
-      ;;time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S %u on %s"
-      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu"
+      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
 
-      diary-file "~/.emacs.d/.diary"
+(setq diary-file "~/.emacs.d/.diary"
       calendar-latitude +45.75
       calendar-longitude +126.63
       calendar-location-name "Harbin"
       calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
+      chinese-calendar-celestial-stem
+      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ý" "ÐÁ" "ÈÉ" "¹ï"]
+      chinese-calendar-terrestrial-branch
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ðç" "º¥"]
+      general-holidays
+      '((holiday-fixed 1 1 "Ôªµ©")
+	(holiday-fixed 4 1 "ÓÞÈË½Ú")
+	(holiday-float 5 0 2 "Ä¸Ç×½Ú")
+	(holiday-float 6 0 3 "¸¸Ç×½Ú"))
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
-      solar-holidays nil
-      general-holidays '((holiday-fixed 1 1 "Ôªµ©")
-			 (holiday-fixed 4 1 "ÓÞÈË½Ú")
-			 (holiday-float 5 0 2 "Ä¸Ç×½Ú")
-			 (holiday-float 6 0 3 "¸¸Ç×½Ú"))
+      solar-holidays nil)
 
-      mark-diary-entries-in-calendar t
+(setq mark-diary-entries-in-calendar t
       appt-issue-message nil
       mark-holidays-in-calendar nil
-      view-calendar-holidays-initially nil
+      view-calendar-holidays-initially nil)
 
-      todo-file-do "~/.emacs.d/todo-do"
+(setq todo-file-do "~/.emacs.d/todo-do"
       todo-file-done "~/.emacs.d/todo-done"
-      todo-file-top "~/.emacs.d/todo-top"
+      todo-file-top "~/.emacs.d/todo-top")
 
-      version-control t
+(setq version-control t
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
       backup-directory-alist '(("." . "~/var/tmp"))
-      backup-by-copying t
+      backup-by-copying t)
 
-      font-lock-maximum-decoration t
+(setq font-lock-maximum-decoration t
       font-lock-global-modes '(not shell-mode text-mode)
       font-lock-verbose t
-      font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000))
+      font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000)))
 
-      hippie-expand-try-functions-list
+(setq hippie-expand-try-functions-list
       '(try-expand-line
         try-expand-line-all-buffers
         try-expand-list
@@ -153,24 +154,23 @@
         try-complete-file-name-partially
         try-complete-lisp-symbol
         try-complete-lisp-symbol-partially
-        try-expand-whole-kill)
+        try-expand-whole-kill))
 
-      ido-enable-tramp-completion t
-      ido-save-directory-list-file nil
+(setq ido-enable-tramp-completion t
+      ido-use-filename-at-point t
       ido-save-directory-list-file nil)
-      tramp-unified-filenames t
+
 (setq tramp-unified-filenames t
       ;; ange-ftp-local-host-regexp ".*$"
-      ange-ftp-default-user t
+      ange-ftp-generate-anonymous-password "user@cyber.net"
       ange-ftp-default-user t)
-      quack-default-program "guile"
-      quack-fontify-style nil
+
+(setq quack-default-program "guile"
       quack-fontify-style nil)
-      bbdb-file "~/.emacs.d/.bbdb"
+
 (setq bbdb-file "~/.emacs.d/.bbdb")
-      canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
-      dictionary-server "192.168.1.191"
-      )
+
+(setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
 
 
 (setq help-at-pt-display-when-idle 
@@ -181,19 +181,14 @@
 (set-register ?w '(file . "~/work/xmldb/loader"))
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
 (set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
-(set-language-environment 'Chinese-GB)
-(set-keyboard-coding-system 'chinese-iso-8bit)
-(set-terminal-coding-system 'chinese-iso-8bit)
+(set-register ?w '(file . "~/Wiki"))
+(set-register ?j '(file . "~/work/xmldb/loader"))
+(setenv "DISPLAY" "chunyu:0")
 
 (set-language-environment    'Chinese-GB)
 
 ;;(define-coding-system-alias 'gb18030 'gb2312)
 (set-clipboard-coding-system 'chinese-iso-8bit)
-(setq chinese-calendar-celestial-stem
-      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ý" "ÐÁ" "ÈÉ" "¹ï"])
-(setq chinese-calendar-terrestrial-branch
-      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ðç" "º¥"])
-
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
 
@@ -242,84 +237,33 @@
 	  (lambda ()
 	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
 
-(cond ((not window-system)
-       ;; text console
+  (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
-       (set-face-background 'region "blue")
-
-       (eval-after-load "log-view"
-	 '(progn
-	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
-	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
+       (set-face-background 'region "blue"))
        (setq frame-background-mode 'dark)
-       (eval-after-load "ediff-init"
-	 '(progn
-	    (set-face-attribute 'ediff-current-diff-face-A nil
-				:background "blue"	 :foreground "red"	:weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-B nil	
-				:background "blue"	 :foreground "yellow"	:weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-C nil
-				:background "blue"	 :foreground "magenta"	:weight 'bold)
-	    (set-face-attribute 'ediff-even-diff-face-A nil
-				:background "black"	 :foreground "red")
-	    (set-face-attribute 'ediff-even-diff-face-B nil
-				:background "black"	 :foreground "blue")
-	    (set-face-attribute 'ediff-even-diff-face-C nil
-				:background "black"	 :foreground "magenta")
-	    (set-face-attribute 'ediff-fine-diff-face-A nil
-				:background "cyan"	 :foreground "red")
-	    (set-face-attribute 'ediff-fine-diff-face-B nil
-				:background "cyan"	 :foreground "yellow"  :weight 'bold)
-	    (set-face-attribute 'ediff-fine-diff-face-C nil
-				:background "Turquoise"	 :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-A nil
-				:background "black"	 :foreground "red3"    :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-B nil
-				:background "black"	 :foreground "yellow"  :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-C nil
-				:background "black"	 :foreground "magenta" :weight 'bold))))
-	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil
-				:background "magenta"	 :foreground "black")
-	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil
-				:background "cyan"	 :foreground "black")
-	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil
-				:background "cyan"	 :foreground "black")
-	    (set-face-attribute 'ediff-odd-diff-face-Ancestor nil
-				:background "black"	 :foreground "green"   :weight 'bold)
+       (window-system ;; both X-Window and MS Windows systems
+	(global-set-key (kbd "C--") 'undo)
+	(setq x-stretch-cursor nil)
+	(scroll-bar-mode -1)
+	(tool-bar-mode -1)
 
-      (window-system
-       ;; both X-Window and MS Windows systems
-       (global-set-key (kbd "C--") 'undo)
-       (setq x-stretch-cursor nil)
-       (scroll-bar-mode -1)
-       (tool-bar-mode -1)
+	(setq default-frame-alist
+	      `((vertical-scroll-bars)
+		(background-color . "DarkSlateGrey")
+		(foreground-color . "Wheat")
+		(cursor-color . "gold1")
+		(mouse-color . "gold1")))
 
-       (setq default-frame-alist
-	     `((vertical-scroll-bars)
-	       (background-color . "DarkSlateGrey")
-	       (foreground-color . "Wheat")
-	       (cursor-color . "gold1")
-	       (mouse-color . "gold1")))
-
-       (cond ((eq window-system 'x)
-	      ;; for X-Window system
-	      (setq visible-bell t)
-	      (setq ring-bell-function t)
-	      (setq default-frame-alist
-		    (append '((top . 0) (left . 0) (width . 111) (height . 48)
-			      (font . "9x15"))
-			    default-frame-alist)))
-	     ((eq window-system 'w32)
-	      ;; for MS windows system
-	      ))
-       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
-       (set-face-attribute 'menu   nil :foreground "Wheat"     :background "DarkSlateGrey")
-       (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-       (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-       (set-face-attribute 'region   nil :background "grey21")
-       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
-       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
+	(cond ((eq window-system 'w32) ;; MS windows system
+	       )
+	      ((eq window-system 'x) ;; X-Window system
+	       (setq visible-bell t)
+	       (setq ring-bell-function t)
+	       (setq default-frame-alist
+		     (append '((top . 0) (left . 0)
+			       (width . 111) (height . 48)
+			       (font . "9x15"))
+			     default-frame-alist))))))
 	      (setq default-frame-alist
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
@@ -378,6 +322,42 @@
 ;; (load "xrefactory")
 
 ;; (setq semantic-load-turn-everything-on t)
+
+(cond ((not window-system)
+       (eval-after-load "log-view"
+	 '(progn
+	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
+	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
+
+       (eval-after-load "ediff-init"
+	 '(progn
+	    (set-face-attribute 'ediff-current-diff-face-A nil :background "blue" :foreground "red" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-face-B nil :background "blue" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-face-C nil :background "blue" :foreground "magenta"	:weight 'bold)
+	    (set-face-attribute 'ediff-even-diff-face-A nil :background "black" :foreground "red")
+	    (set-face-attribute 'ediff-even-diff-face-B nil :background "black" :foreground "blue")
+	    (set-face-attribute 'ediff-even-diff-face-C nil :background "black" :foreground "magenta")
+	    (set-face-attribute 'ediff-fine-diff-face-A nil :background "cyan" :foreground "red")
+	    (set-face-attribute 'ediff-fine-diff-face-B nil :background "cyan" :foreground "yellow"  :weight 'bold)
+	    (set-face-attribute 'ediff-fine-diff-face-C nil :background "cyan" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-A nil :background "black" :foreground "red3" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold))))
+
+      (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
+      (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
+      (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
+      (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold)
+       
+      (window-system
+       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+       (set-face-attribute 'menu   nil :foreground "Wheat"     :background "DarkSlateGrey")
+       (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+       (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+       (set-face-attribute 'region   nil :background "grey21")
+       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
+       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
