@@ -187,7 +187,9 @@
 
 (setq c-cleanup-list
       '(brace-else-brace brace-elseif-brace
-	scope-operator empty-defun-braces))
+	scope-operator empty-defun-braces)
+      c-electric-pound-behavior
+      '(alignleft))
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
@@ -216,7 +218,6 @@
 ;; (define-coding-system-alias 'gb18030 'gb2312)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(set-message-beep 'silent)
 (find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
@@ -295,6 +296,7 @@
        (auto-image-file-mode 1)
        (scroll-bar-mode -1)
        ;; (tool-bar-mode -1)
+       (set-message-beep 'silent)
 
        (create-fontset-from-fontset-spec
 	(concat
