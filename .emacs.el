@@ -26,7 +26,6 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
-(global-unset-key "\C-\M-[")
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
 (require 'gnus-load)
