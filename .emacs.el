@@ -54,6 +54,8 @@
 (define-key meta-m-map "\M-o" 'other-window)
 (define-key meta-m-map "\M-n" 'gnus)
 (define-key meta-m-map "\M-i" 'imenu)
+(define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
+(define-key meta-m-map "\M-p" 'emacs-wiki-publish)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -68,6 +70,8 @@
       line-number-display-limit 1000000
       kill-ring-max 200
       ring-bell-function 'ignore)
+
+(setq sentence-end-double-space nil)
 
 (setq apropos-do-all nil)
 
@@ -172,13 +176,16 @@
 
 (setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
 
+(setq frame-title-format "emacs@%b")
+      dictionary-server "192.168.1.191")
 
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
 
 (setq-default kill-whole-line t)
 
-(set-register ?w '(file . "~/work/xmldb/loader"))
+(set-register ?e '(file . "~/.emacs.d/.emacs.el"))
+(set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
 (set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
 (set-register ?w '(file . "~/Wiki"))
@@ -250,7 +257,7 @@
 	(auto-image-file-mode 1)
 	(scroll-bar-mode -1)
 	(tool-bar-mode -1)
-
+	
 	(setq default-frame-alist
 	      `((vertical-scroll-bars)
 		(background-color . "DarkSlateGrey")
@@ -259,7 +266,7 @@
 		(mouse-color . "gold1")))
 
 	(cond ((eq window-system 'w32) ;; MS windows system
-	        (defun net-message (recipient text)
+	       (defun net-message (recipient text)
 		  "Send a net message with Emacs.\nThis needs Windows/NT, I think."
 		  (interactive "s机器名(或IP): \ns消息内容: ")
 		  (shell-command (format "net send %s %s" recipient text))))
@@ -364,7 +371,7 @@
 ;; (load-file "~/.emacs.d/.emacs_erc.el")
 (load "~/.emacs.d/.emacs-records")
 (setq records-init-file"~/.emacs.d/.emacs-records")
-;; (load-file custom-file)
+(load-file custom-file)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
