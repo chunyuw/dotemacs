@@ -210,12 +210,12 @@
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
           (lambda ()
-            (load "dired-x")
-	    (setq dired-view-command-alist
-		  '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
-		    ("[.]pdf\\'" . "xpdf %s")
-		    ("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")
-		    ("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))))
+            (load "dired-x")))
+
+(add-hook 'diary-hook 'appt-make-list)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
+(add-hook 'write-file-hooks 'time-stamp)
 
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
@@ -239,11 +239,15 @@
 
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
-       (set-face-background 'region "blue"))
+       (set-face-background 'region "blue")
+    (previous-line lines)))
+
+(cond ((not window-system) ;; text console
        (setq frame-background-mode 'dark)
        (window-system ;; both X-Window and MS Windows systems
 	(global-set-key (kbd "C--") 'undo)
 	(setq x-stretch-cursor nil)
+	(auto-image-file-mode 1)
 	(scroll-bar-mode -1)
 	(tool-bar-mode -1)
 
@@ -255,7 +259,10 @@
 		(mouse-color . "gold1")))
 
 	(cond ((eq window-system 'w32) ;; MS windows system
-	       )
+	        (defun net-message (recipient text)
+		  "Send a net message with Emacs.\nThis needs Windows/NT, I think."
+		  (interactive "s机器名(或IP): \ns消息内容: ")
+		  (shell-command (format "net send %s %s" recipient text))))
 	      ((eq window-system 'x) ;; X-Window system
 	       (setq visible-bell t)
 	       (setq ring-bell-function t)
@@ -314,15 +321,9 @@
 
 ;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
 ;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
-;; (load-file "~/.emacs.d/.emacs_smtp.el")
-;; (load-file "~/.emacs.d/.emacs_erc.el")
-(load-file "~/.emacs.d/.emacs_bbdb.el")
-;; (load-file custom-file)
-
 ;; (load "xrefactory")
 
 ;; (setq semantic-load-turn-everything-on t)
-
 (cond ((not window-system)
        (eval-after-load "log-view"
 	 '(progn
@@ -342,12 +343,12 @@
 	    (set-face-attribute 'ediff-fine-diff-face-C nil :background "cyan" :foreground "magenta" :weight 'bold)
 	    (set-face-attribute 'ediff-odd-diff-face-A nil :background "black" :foreground "red3" :weight 'bold)
 	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold))))
+	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
+	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
 
-      (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
-      (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
-      (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
-      (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold)
        
       (window-system
        (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
@@ -358,6 +359,12 @@
        (set-face-attribute 'region   nil :background "grey21")
        (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
        (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
+
+;; (load-file "~/.emacs.d/.emacs_smtp.el")
+;; (load-file "~/.emacs.d/.emacs_erc.el")
+(load "~/.emacs.d/.emacs-records")
+(setq records-init-file"~/.emacs.d/.emacs-records")
+;; (load-file custom-file)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
