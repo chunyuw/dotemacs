@@ -29,12 +29,7 @@
       (regexp-opt '("dddkk@sina.com"
 		    "dddkk@163.net"
 		    "chunyu@hit.edu.cn"
-		    "chunyu@db.hit.edu.cn"
-		    "chunyu@db.cs.hit.edu.cn"
-		    "spr@db.hit.edu.cn"
-		    "spr@db.cs.hit.edu.cn"
 		    "emacs.bbs@bbs.hit.edu.cn" ; bbs.hit.edu.cn
-		    "emacs.bbs@bbs.nju.edu.cn" ; bbs.nju.edu.cn
 		    "dddkk@smth.edu.cn"	       ; bbs smth.edu.cn
 		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
 		    )))
