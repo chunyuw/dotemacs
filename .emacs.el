@@ -1,6 +1,5 @@
 ;; $Id$  -*- mode: emacs-lisp; coding: gb2312; -*-
-;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn.
-;; Chunyu <chunyu@hit.edu.cn>.
+;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)

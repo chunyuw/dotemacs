@@ -1,6 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs_custom.el is created on 2003/08/25 on db.cs.hit.edu.cn.
-;; Chunyu <chunyu@hit.edu.cn>.
+;; Chunyu <chunyu@hit.edu.cn>'s .emacs_custom.el, created on 2003/08/25 on db.cs.hit.edu.cn.
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
