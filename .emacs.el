@@ -10,6 +10,8 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
+(global-unset-key "\C-\\")
+
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
@@ -68,25 +70,28 @@
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
+      initial-major-mode 'lisp-interaction-mode ; 'text-mode
       next-line-add-newlines nil
       require-final-newline t
-      resize-mini-windows nil
+      resize-mini-windows nil		; 'grow-only
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil
       suggest-key-bindings 1
       line-number-display-limit 1000000
-      kill-ring-max 200
+      kill-ring-max 100
       vc-follow-symlinks t
       enable-recursive-minibuffers t
       ring-bell-function 'ignore)
 
-(setq Info-use-header-line nil)
-
-(setq sentence-end-double-space nil)
-
-(setq apropos-do-all nil)
+(setq truncate-partial-width-windows nil
+      Info-use-header-line nil
+      sentence-end-double-space nil
+      makefile-electric-keys t
+      compilation-window-height 10
+      scroll-preserve-screen-position t
+      apropos-do-all nil)
 
 (setq bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/.emacs.bmk")
@@ -179,6 +184,10 @@
       ido-save-directory-list-file nil)
 
 (setq tramp-unified-filenames t
+      tramp-auto-save-directory "~/var/tramp"
+      ;; ange-ftp-smart-gateway nil
+      ange-ftp-smart-gateway nil
+      ;; ange-ftp-gateway-ftp-program-name nil
       ;; ange-ftp-local-host-regexp ".*$"
       ange-ftp-generate-anonymous-password "user@cyber.net"
       ange-ftp-default-user t)
@@ -221,7 +230,7 @@
 (partial-completion-mode 1)
 (utf-translate-cjk-mode 1)
 (global-font-lock-mode 1)
-(menu-bar-mode -1)
+(auto-compression-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
@@ -229,11 +238,11 @@
 (menu-bar-mode (if window-system 1 -1))
 (icomplete-mode 1)
 (ido-mode 1)
-(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+;; (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
           (lambda ()
-	    ;; (define-key dired-mode-map "q" 'kill-this-buffer)
-            (load "dired-x")))
+	    (load "dired-x")
+	    (define-key dired-mode-map "b" 'dired-mark-extension)))
 
 (add-hook 'diary-hook 'appt-make-list)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -259,8 +268,8 @@
   '(progn (define-key help-mode-map "l" 'help-go-back)))
 
 (eval-after-load "view"
-  '(progn (define-key view-mode-map "j" 'View-scroll-line-forward)
-	  (define-key view-mode-map "k" 'View-scroll-line-backward)))
+  '(progn (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
+	  (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
 
 (defun mst-under-line ()
   (interactive)
@@ -277,6 +286,22 @@
 
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
+  (interactive)
+  (if (message-point-in-header-p)
+      (bbdb-complete-name arg)
+    (hippie-expand arg)))
+
+(defun chunyu-view-scroll-forward (&optional lines)
+  "Movie forward, default one line, with prefix number N, move N lines."
+  (interactive "p")
+  (let ((pos (point)))
+    (view-scroll-lines lines nil 1 t)
+    (goto-char pos)
+    (next-line lines)))
+
+(defun chunyu-view-scroll-backward (&optional lines)
+  "Movie backward, default one line, with prefix number N, move N lines."
+  (interactive "p")
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
        (set-face-background 'region "blue")
@@ -309,7 +334,7 @@
 		(interactive "s机器名(或IP): \ns消息内容: ")
 		(shell-command (format "net send %s %s" recipient text))))
 
-			      (width . 111) (height . 48)
+	     ((eq window-system 'x) ;; X-Window system
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)
 	      (setq default-frame-alist
@@ -374,7 +399,6 @@
 
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
-
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
