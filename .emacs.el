@@ -98,12 +98,14 @@
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil
       kill-ring-max 100
-      vc-follow-symlinks t
-      vc-suppress-confirm t
       enable-recursive-minibuffers t
       line-move-ignore-invisible t
       default-fill-column 78
       tooltip-gud-tips-p t)
+
+(setq vc-follow-symlinks t
+      vc-suppress-confirm t
+      vc-command-messages t)
 
 ;; (setq redisplay-dont-pause t)
 
