@@ -1,5 +1,6 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com>
+;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
+;; last modified at 2003-05-21 10:26:28
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
@@ -36,7 +37,7 @@
 (setq require-final-newline t)
 (setq user-mail-address "dddkk@sina.com")
 (setq dired-listing-switches "-avl")	; Set it by hand with `C-u s'.
-(setq user-full-name "Chunyu")
+(setq user-full-name "Chunyu Wang")
 (setq compile-command "make ")
 (setq diary-file "~/.diary")
 (setq bookmark-save-flag 1)
@@ -74,11 +75,14 @@
         try-complete-lisp-symbol-partially
         try-expand-whole-kill))
 
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
+(set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
 (setenv "DISPLAY" "chunyu:0")
 
+(ido-mode 1)
 (add-hook 'dired-load-hook (lambda () (load "dired-x")))
 
 (cond (window-system
@@ -110,6 +114,13 @@
 
 (setq canlock-password "f6d9e4eb8360cf2cd5db9d5d0f83f7f09ac74767")
 
+
+
+;; Local variables:
+;; time-stamp-start: "last modified at"
+;; time-stamp-format: " %:y-%02m-%02d %02H:%02M:%02S"
+;; time-stamp-end: "$"
+;; End:
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
