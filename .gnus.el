@@ -4,8 +4,8 @@
 
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
-      '((nnml "private") 
-	(nntp "localhost") 
+      '((nnml "private")
+	(nntp "localhost")
 	(nntp "news.newsfan.net")))
 
 (setq gnus-auto-select-subject 'first
@@ -28,6 +28,12 @@
 
       gnus-treat-display-smileys nil)
 
+(setq gnus-parameters
+      '(("list\\..*" (subscribed . t))
+	("misc\\..*" (auto-expire . t))
+	)
+      )
+
 (setq gnus-header-face-alist
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
@@ -49,7 +55,7 @@
 
 (define-coding-system-alias 'gb18030 'gb2312)
 
-(setq gnus-ignored-from-addresses 
+(setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com"
 		    "spr@db.hit.edu.cn"
 		    "spr@db.cs.hit.edu.cn"
@@ -60,7 +66,7 @@
 	    (concat "news." (format-time-string "%Y-%m"))
 	  (concat "mail." (format-time-string "%Y-%m")))))
 
-(setq chunyu-gnus-x-face 
+(setq chunyu-gnus-x-face
       (concat "$,MrC{\".#Of\"+5o4f&\"Y%BEXbu::2[3u0PK.G\\]'&Irj>a"
 	      "%BRPq%aA\"6f<Ywarj_/AR5<o9'<!\"9.\\ZqzkDv-OK0&Vx&D"
 	      "(0'5O(jx,]LgQk/J@P<F$X\\br>y\"[Eo8lEBloB*tfsz~]\\L"
@@ -130,7 +136,7 @@
       nnmail-crosspost nil
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy
-      '(| 
+      '(|
 	(from "sinamx.sina.com.cn" "misc.junk")
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile-user")
@@ -138,11 +144,12 @@
 	(any "ding@gnus.org" "list.ding")
 	(any "zope@zope.org" "list.zope")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
-	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db.cs.hit.edu.cn\\|spr@db.hit.edu.cn"
-	    (| (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo\\|xiaonan\\|however\\|jellycart" "classmate.misc")
+	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
+	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
+	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
+	       (from "xiaonan\\|however\\|jellycart" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil@yahoo.com.cn" "mail.friends")
-	       (from "bbs@bbs\\|@smth" "mail.bbs")
 	       "mail.misc"))
 	"misc.misc"))
 
