@@ -65,6 +65,7 @@
 ["邢宝林" nil nil nil nil nil ("xblbelive@163.com" "liujinjingg@sina.com") ((creation-date . "2003-10-10") (timestamp . "2004-08-04") (msn . "xblbelieve@hotmail.com")) nil]
 ["徐铭辉" nil nil "北京航信" (["dom" "010-64045734-2503"] ["Mobile" "13811374800"]) nil ("xmh@travelsky.com") ((creation-date . "2004-07-27") (timestamp . "2004-09-06")) nil]
 ["薛瑞尼" "" ("xrn") nil nil nil ("xrn03@mails.tsinghua.edu.cn" "xueruini@etang.com") ((creation-date . "2003-12-23") (timestamp . "2004-09-06") (notes . "emacs, smth")) nil]
+["杨艳" nil nil nil nil nil ("yangyan@mail.banner.com.cn") ((creation-date . "2004-09-16") (timestamp . "2004-09-16")) nil]
 ["杨筱林" nil ("Xiaolin Yang") nil (["Office" "86416485"] ["Mobile" "13936575961"]) nil ("yangxl@vilab.hit.edu.cn" "xlyang@hit.edu.cn") ((creation-date . "2004-09-10") (timestamp . "2004-09-10")) nil]
 ["姚丽" nil nil "中科院化物所" nil nil ("yaoli@dicp.ac.cn") ((creation-date . "2004-08-22") (timestamp . "2004-08-24") (www . "http://www.beam.dicp.ac.cn/groupmem/personal/YaoLi/yaoli.htm")) nil]
 ["袁永峰" nil ("Yuan YongFeng") nil (["Mobile" "89151505"]) nil ("knights@hit.edu.cn" "knights@biometrics.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2004-09-14") (msn . "yuanyongfeng@hotmail.com")) nil]
