@@ -42,12 +42,15 @@
   (interactive)
   (let ((file-name (dired-get-file-for-visit)))
     (if (file-exists-p file-name)
-	(start-process "dir" nil 
-		       "cmd.exe" "/c" "start" file-name))))
+	(w32-shell-execute "open" file-name nil 1))))
 
 (defun net-message (recipient text)
   "Send a net message with Emacs.\nThis needs Windows/NT, I think."
   (interactive "s机器名(或IP): \ns消息内容: ")
   (shell-command (format "net send %s %s" recipient text)))
+
+(defun chunyu-maxize-emacs ()
+  (interactive)
+  (w32-send-sys-command #xf030))
 
 ;; Chunyu's .emacs_func.el ends here.
