@@ -17,6 +17,7 @@
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
+(global-set-key "\C-l" 'chunyu-recenter)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
@@ -54,6 +55,7 @@
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil            ; 'y-or-n-p
+      suggest-key-bindings 1
 
       apropos-do-all nil
       x-stretch-cursor t
@@ -70,6 +72,7 @@
       cvs-dired-use-hook 'always
 
       abbrev-file-name "~/.emacs.d/.abbrev_defs"
+      custom-file "~/.emacs.d/.emacs_custom.el"
 
       display-time-24hr-format t
       display-time-day-and-date t
@@ -255,10 +258,20 @@
 (autoload 'todo-insert-item "todo-mode" "Add TODO item." t)
 (autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
 (autoload 'todo-show "todo-mode" "Show TODO items." t)
+;; (autoload 'folding-mode          "folding" "Folding mode" t)
+;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
+;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 		("\\.css\\'" . css-mode)) auto-mode-alist))
+
+(defun chunyu-recenter () "Recenter: once middle, twice top, thrice bottom"
+  (interactive)
+  (cond ((eq last-command 'cy-recenter-twice) (recenter -1))
+	((eq last-command 'cy-recenter-once) (recenter 0) 
+	 (setq this-command 'cy-recenter-twice))
+	(t (recenter) (setq this-command 'cy-recenter-once))))
 
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
@@ -284,7 +297,7 @@
 ;;(load-file "~/.emacs.d/.emacs_smtp.el")
 (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
-
+(load-file custom-file)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
