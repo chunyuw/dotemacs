@@ -67,8 +67,8 @@
       bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/.emacs.bmk"
 
-      compilation-scroll-output t
-      compile-command "make -k "
+      ;; compilation-scroll-output t
+      ;; compile-command "make -k "
 
       dired-listing-switches "-avl"     ; `C-u s'
       dired-recursive-copies t
