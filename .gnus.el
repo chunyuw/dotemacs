@@ -40,7 +40,7 @@
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
-	("list\\..*" (subscribed . t) (total-expire . t))
+	("list\\..*" (subscribed . t) (total-expire . nil))
 	("misc\\..*" (total-expire . t))
 	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
