@@ -34,7 +34,15 @@
   (interactive)
   (if (equal (buffer-name) "*scratch*")
       (progn (erase-buffer)
+	     (set-buffer-modified-p nil)
 	     (bury-buffer))
     (kill-buffer (current-buffer))))
+
+(defun chunyu-dired-open-explorer ()
+  (interactive)
+  (let ((file-name (dired-get-file-for-visit)))
+    (if (file-exists-p file-name)
+	(start-process "dir" nil 
+		       "cmd.exe" "/c" "start" file-name))))
 
 ;; Chunyu's .emacs_func.el ends here.

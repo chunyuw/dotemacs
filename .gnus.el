@@ -28,6 +28,9 @@
       gnus-activate-foreign-newsgroups 4
       gnus-interactive-exit nil)
 
+;; (setq gnus-thread-sort-functions
+;;       '(not gnus-thread-sort-by-date))
+
 ;;(setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
 
 ;;(setq gnus-agent-mark-unread-after-downloaded nil)

@@ -104,6 +104,9 @@
 
 ;; (setq redisplay-dont-pause t)
 
+;; (setq w32-pass-rwindow-to-system nil)
+;; (setq w32-rwindow-modifier 'hyper)
+
 (setq truncate-partial-width-windows t
       sentence-end-double-space nil
       makefile-electric-keys t
@@ -380,7 +383,10 @@
 	      ;; other things for win32
 	      ;; (setq-default cursor-type '(bar . 1))
 	      (setq Info-default-directory-list 
-		    '("d:/free_ware/TeXLive/info" "d:/usr/emacs-21.3.50/info/"))
+		    '("d:/usr/emacs-21.3.50/info/")
+		    Info-additional-directory-list
+		    '("d:/free_ware/TeXLive/info"))
+	      
 	      ;;;; ECB ;;;;
 	      ;; (setq ecb-options-version "2.23")
 	      (require 'ecb-autoloads)
