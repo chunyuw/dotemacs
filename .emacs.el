@@ -112,8 +112,8 @@
       bookmark-default-file "~/.emacs.d/.emacs.bmk")
 
 (setq dired-listing-switches "-avl"
-      dired-recursive-copies t
-      dired-recursive-deletes t
+      dired-recursive-copies 'top
+      dired-recursive-deletes 'top
       cvs-dired-use-hook 'always)
 
 (setq abbrev-file-name "~/.emacs.d/.abbrev_defs"
@@ -139,6 +139,7 @@
       time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
 
 (setq diary-file "~/.emacs.d/.diary"
+      view-diary-entries-initially t
       calendar-latitude +45.75
       calendar-longitude +126.63
       calendar-location-name "Harbin"
@@ -277,6 +278,7 @@
 (icomplete-mode 1)
 (ido-everywhere 1)
 (ido-mode 1)
+
 
 (add-hook 'diary-hook 'appt-make-list)
 (add-hook 'diary-display-hook 'fancy-diary-display)
