@@ -178,7 +178,30 @@
 
 (cond ((not window-system) 
        (set-background-color "black")
-       (set-foreground-color "white"))
+       (set-foreground-color "white")
+       (eval-after-load "log-view"
+	 '(progn
+	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
+	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
+       (setq frame-background-mode 'dark)
+       (eval-after-load "ediff-init"
+	 '(progn
+	    (set-face-attribute 'ediff-current-diff-face-A nil :background "blue" :foreground "red" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
+	    (set-face-attribute 'ediff-current-diff-face-B nil :background "blue" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-face-C nil :background "blue" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-even-diff-face-A nil :background "white" :foreground "red")
+	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-even-diff-face-B nil :background "white" :foreground "blue")
+	    (set-face-attribute 'ediff-even-diff-face-C nil :background "light grey" :foreground "magenta")
+	    (set-face-attribute 'ediff-fine-diff-face-A nil :background "cyan" :foreground "red")
+	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-fine-diff-face-B nil :background "cyan" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-fine-diff-face-C nil :background "Turquoise" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-A nil :background "black" :foreground "red3" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold))))
 
       ((eq window-system 'x)
        (global-set-key (kbd "C--") 'undo)
@@ -247,53 +270,6 @@
 ;;(load-file "~/.emacs.d/.emacs_smtp.el")
 (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
-
-;;; Customize setup.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ediff-current-diff-face-A ((((type tty)) (:background "blue" :foreground "red" :weight bold))))
- '(ediff-current-diff-face-Ancestor ((((type tty)) (:background "magenta" :foreground "black"))))
- '(ediff-current-diff-face-B ((((type tty)) (:background "blue" :foreground "yellow" :weight bold))))
- '(ediff-current-diff-face-C ((((type tty)) (:background "blue" :foreground "magenta" :weight bold))))
- '(ediff-even-diff-face-A ((((type tty)) (:background "white" :foreground "red"))))
- '(ediff-even-diff-face-Ancestor ((((type tty)) (:background "cyan" :foreground "black"))))
- '(ediff-even-diff-face-B ((((type tty)) (:background "white" :foreground "blue"))))
- '(ediff-even-diff-face-C ((((type tty)) (:background "light grey" :foreground "magenta"))))
- '(ediff-fine-diff-face-A ((((type tty)) (:background "cyan" :foreground "red"))))
- '(ediff-fine-diff-face-Ancestor ((((type tty)) (:background "cyan" :foreground "black"))))
- '(ediff-fine-diff-face-B ((((type tty)) (:background "cyan" :foreground "yellow" :weight bold))))
- '(ediff-fine-diff-face-C ((((type tty)) (:background "Turquoise" :foreground "magenta" :weight bold))))
- '(ediff-odd-diff-face-A ((((type tty)) (:background "black" :foreground "red3" :weight bold))))
- '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green" :weight bold))))
- '(ediff-odd-diff-face-B ((((type tty)) (:background "black" :foreground "yellow" :weight bold))))
- '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold))))
- '(gnus-cite-face-2 ((((class color) (background dark)) (:foreground "magenta"))))
- '(gnus-cite-face-3 ((((class color) (background dark)) (:foreground "yellow"))))
- '(gnus-cite-face-4 ((((class color) (background dark)) (:foreground "cyan"))))
- '(gnus-group-mail-1-empty-face ((((class color) (background dark)) (:foreground "magenta"))))
- '(gnus-group-mail-1-face ((t (:foreground "magenta" :weight bold))))
- '(gnus-group-mail-2-empty-face ((((class color) (background dark)) (:foreground "cyan"))))
- '(gnus-group-mail-2-face ((t (:foreground "cyan" :weight bold))))
- '(gnus-group-mail-3-empty-face ((((class color) (background dark)) (:foreground "green"))))
- '(gnus-group-mail-3-face ((t (:foreground "green" :weight bold))))
- '(gnus-group-news-1-empty-face ((((class color) (background dark)) (:foreground "magenta"))))
- '(gnus-group-news-1-face ((t (:foreground "magenta" :weight bold))))
- '(gnus-group-news-2-empty-face ((((class color) (background dark)) (:foreground "cyan"))))
- '(gnus-group-news-2-face ((t (:foreground "cyan" :weight bold))))
- '(gnus-group-news-3-empty-face ((((class color) (background dark)) (:foreground "green"))))
- '(gnus-group-news-3-face ((t (:foreground "green" :weight bold))))
- '(gnus-header-subject-face ((((class color) (background dark)) (:foreground "red" :weight bold))))
- '(log-view-file-face ((t (:foreground "blue" :weight bold))))
- '(log-view-message-face ((t (:foreground "yellow" :weight bold)))))
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
