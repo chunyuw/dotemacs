@@ -1,0 +1,55 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("gnus-charset"
+  ((filename . "/usr/local/info/gnus")
+   (front-context-string . "`gnus-group-name")
+   (rear-context-string . " empty or not.\n\n")
+   (position . 23382)
+   (info-node . "Misc Group Stuff")))
+ ("guile"
+  ((filename . "/usr/local/info/guile-tut")
+   (front-context-string . "     	(loop (- k")
+   (rear-context-string . "(if (zero? k) l\n")
+   (position . 4475)
+   (info-node . "Jump Start")))
+ ("xquery"
+  ((filename . "/home/spr/xquery")
+   (front-context-string . "   The   focus  ")
+   (rear-context-string . "   expression.\n\n")
+   (position . 25702)))
+ ("gnus-faq-cn"
+  ((filename . "/home/spr/work/gnus-doc/gnus-faq-cn.txt")
+   (front-context-string . "\n\n\n\nLocal Variab")
+   (rear-context-string . "子和邮件时为真。\n\n      ")
+   (position . 18793)))
+ ("gnus-faq-en"
+  ((filename . "/home/spr/work/gnus-doc/gnus-faq-en.txt")
+   (front-context-string . "\n      (setq gnu")
+   (rear-context-string . " at the bottom.\n")
+   (position . 43466)))
+ ("international"
+  ((filename . "/usr/local/info/emacs")
+   (front-context-string . "File: emacs,  No")
+   (rear-context-string)
+   (position . 35791)
+   (info-node . "International")))
+ ("abbrevs"
+  ((filename . "/usr/local/info/emacs")
+   (front-context-string . " to save abbrevs")
+   (rear-context-string . "Emacs will offer")
+   (position . 42784)
+   (info-node . "Saving Abbrevs")))
+ ("elisp"
+  ((filename . "/usr/local/info/elisp")
+   (front-context-string . "File: elisp,  No")
+   (rear-context-string)
+   (position . 14151)
+   (info-node . "Defining Advice")))
+ ("gnus"
+  ((filename . "/usr/local/info/gnus")
+   (front-context-string . "File: gnus,  Nod")
+   (rear-context-string)
+   (position . 34665)
+   (info-node . "Composing Messages"))))
