@@ -261,6 +261,7 @@
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
 			      (font . "9x15"))
+			    default-frame-alist))))))
 
 (autoload 'big5togb-region "big5togb" "Big5 to GB2312" t)
 (autoload 'todo-insert-item "todo-mode" "Add TODO item." t)

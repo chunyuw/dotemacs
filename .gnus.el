@@ -163,6 +163,7 @@
 	(any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
 	(any "cedet-semantic@lists.sourceforge.net" "list.cedet-semantic")
 	(any "tutor@python.org" "list.python.tutor")
+	(any "gdb@gnu.org" "list.gdb")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
