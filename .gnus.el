@@ -1,9 +1,9 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .gnus.el is created on 2003/02/24 on db.hit.edu.cn.
-;; Chunyu <chunyu@hit.edu.cn> 
+;; Chunyu <chunyu@hit.edu.cn>
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml "private") (nntp "localhost")))
+      gnus-secondary-select-methods '((nnml "private") (nntp "localhost") (nntp "news.newsfan.net")))
 
 (setq gnus-auto-select-subject 'first
       gnus-auto-select-first nil
@@ -13,7 +13,7 @@
       gnus-save-killed-list nil
       gnus-asynchronous t
       gnus-summary-display-while-building 50
-      
+
       gnus-always-read-dribble-file t
 
       gnus-treat-strip-trailing-blank-lines 'last
@@ -38,19 +38,19 @@
 	  (concat "mail." (format-time-string "%Y-%m")))))
 
 (setq gnus-posting-styles
-      '((".*" 
+      '((".*"
 	 (signature-file "~/.sig/default")
 	 (name "Wang Chunyu")
 	 (address "dddkk@sina.com"))
-	("^nntp\\+localhost.*"  
+	("^nntp\\+localhost:.*"
 	 (signature-file "~/.sig/localnews")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))
-	("^cn\\..*\\|^nntp.*"
+	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "进化的鱼")
 	 (address "dddkk@sina.com")) ;; o.oO@Oo.o
-	("^nnml\\+private.*\\|mail"
+	("^nnml\\+private:\\(985101\\|classmate\\|lab\\|wife\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))))
