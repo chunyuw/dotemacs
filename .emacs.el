@@ -106,7 +106,7 @@
       font-lock-maximum-decoration t)
 
 (setq bookmark-save-flag 1
-      bookmark-default-file 
+      bookmark-default-file
       (substitute-in-file-name "~/.emacs.d/emacs_$HOSTNAME.bmk"))
 
 (setq dired-listing-switches "-avl"
@@ -144,8 +144,8 @@
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
-      backup-directory-alist 
-      `(("." . "~/var/tmp") 
+      backup-directory-alist
+      `(("." . "~/var/tmp")
 	,(cons tramp-file-name-regexp nil))
       backup-by-copying t
       backup-by-copying-when-linked t
@@ -153,18 +153,18 @@
 
 (setq hippie-expand-try-functions-list
       '(try-expand-line
-        try-expand-line-all-buffers
-        try-expand-list
-        try-expand-list-all-buffers
-        try-expand-dabbrev
-        try-expand-dabbrev-visible
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-file-name
-        try-complete-file-name-partially
-        try-complete-lisp-symbol
-        try-complete-lisp-symbol-partially
-        try-expand-whole-kill))
+	try-expand-line-all-buffers
+	try-expand-list
+	try-expand-list-all-buffers
+	try-expand-dabbrev
+	try-expand-dabbrev-visible
+	try-expand-dabbrev-all-buffers
+	try-expand-dabbrev-from-kill
+	try-complete-file-name
+	try-complete-file-name-partially
+	try-complete-lisp-symbol
+	try-complete-lisp-symbol-partially
+	try-expand-whole-kill))
 
 (setq ido-max-prospects 8
       ido-show-dot-for-dired nil
@@ -178,8 +178,8 @@
       ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net")
 
-(setq c-cleanup-list 
-      '(brace-else-brace brace-elseif-brace 
+(setq c-cleanup-list
+      '(brace-else-brace brace-elseif-brace
 	scope-operator empty-defun-braces))
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -250,7 +250,7 @@
 	    (which-function-mode 1)))
 
 (eval-after-load "webjump"
-  '(progn 
+  '(progn
      (require 'webjump-plus)
      (setq webjump-sites webjump-plus-sites)))
 
@@ -274,19 +274,19 @@
 
 (add-to-list 'load-path "~/.emacs.d")
 
-(cond ((not window-system) 
+(cond ((not window-system)
        ;; Text-Only console
        (setq frame-background-mode 'dark)
        (setq Info-use-header-line nil))
 
-      (window-system 
+      (window-system
        ;; BOTH X-Window and MS-Windows
        (auto-image-file-mode 1)
        (scroll-bar-mode -1)
        ;; (tool-bar-mode -1)
 
        (create-fontset-from-fontset-spec
-	(concat 
+	(concat
 	 "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese,"
 	 "chinese-gb2312:-*-MS Song-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
        (create-fontset-from-fontset-spec
@@ -305,7 +305,7 @@
 	       (font . "fontset-chinese")
 	       . ,(if (eq window-system 'x) '((font . "9x15")))))
 
-       (cond ((eq window-system 'w32) 
+       (cond ((eq window-system 'w32)
 	      ;; MS-Windows
 	      (setq dired-view-command-alist
 		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")
@@ -322,7 +322,7 @@
 	      (setq Man-header-file-path '("d:/free_ware/MinGW/include"))
 	      (setq Info-default-directory-list '("d:/free_ware/TeXLive/info")
 		    Info-additional-directory-list '("d:/usr/emacs-21.3.50/info/"))
-	      
+
 	      (load ".emacs_w32_tex")
 
 	      ;;-- ECB --;;
