@@ -1,4 +1,4 @@
-; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
 (global-set-key [f1] 'cvs-examine) 
@@ -16,14 +16,15 @@
 
 (global-set-key "\C-x\C-b" 'electric-buffer-list) ; ibuffer
 (global-set-key "\C-x\C-j" 'dired-jump)
+(global-set-key "\C-xk" 'kill-buffer-directly)
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
-(global-set-key "\C-z"     'set-mark-command)
-(global-set-key [(home)]   'beginning-of-buffer)
-(global-set-key [(end)]    'end-of-buffer)
+(global-set-key "\C-z" 'set-mark-command)
+(global-set-key "\M-/" 'hippie-expand) ;;dabbrev-expand
+(global-set-key [(home)] 'beginning-of-buffer)
+(global-set-key [(end)] 'end-of-buffer)
 ;;(global-set-key [mouse-3]  'mouse-buffer-menu)
-
 
 ;;(setq text-mode-hook 'turn-on-auto-fill)
 ;;(setq inhibit-startup-message t)
@@ -39,36 +40,62 @@
 (setq compile-command "make ")
 (setq diary-file "~/.diary")
 ;;(setq scroll-step 0)
+(setq bookmark-save-flag 1)
+
+(setq version-control t)
+(setq kept-old-versions 2)
+(setq kept-new-versions 5)
+(setq delete-old-versions t)
+(setq backup-directory-alist '(("" . "~/tmp")))
 ;; (prefer-coding-system 'chinese-iso-8bit)
+(global-font-lock-mode t)
 (auto-compression-mode t)
 (column-number-mode t)
 (display-time-mode t)
 (show-paren-mode t)
 (menu-bar-mode nil)
-(global-font-lock-mode t)
+(iswitchb-mode)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
+(setenv "DISPLAY" "chunyu:0")
 
 (set-terminal-coding-system 'chinese-iso-8bit)
 ;;(set-keyboard-coding-system 'chinese-iso-8bit)
 (set-language-environment 'Chinese-GB)
 
+(setq hippie-expand-try-functions-list
+      '(try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-line
+        try-expand-line-all-buffers
+        try-complete-file-name
+        try-complete-file-name-partially
+	try-complete-lisp-symbol
+        try-complete-lisp-symbol-partially
+        try-expand-whole-kill))
+
 (cond ((if window-system  t nil)
-       ;;(set-background-color "DarkSlateGrey")
-       ;;(set-foreground-color "Wheat")
-       ;;(set-cursor-color "gold1")
+       (set-background-color "DarkSlateGrey")
+       (set-foreground-color "Wheat")
+       (set-cursor-color "gold1")
        (tool-bar-mode nil)
        ))
+
 (add-hook 'dired-load-hook
-          (lambda ()
+	  (lambda ()
             (load "dired-x")
             ;; Set dired-x global variables here.  For example:
             ;; (setq dired-guess-shell-gnutar "gtar")
             ))
 	      (setq default-frame-alist
-;;(require 'python-mode)
-;;(setq auto-mode-alist
-;;      (cons '("\\.py$" . python-mode) auto-mode-alist))
-;;(setq interpreter-mode-alist
-;;      (cons '("python" . python-mode) interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 
 (defun dos-unix () (interactive)
   (goto-char (point-min))
@@ -76,20 +103,29 @@
 (defun unix-dos () (interactive)
   (goto-char (point-min))
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
-(defun kill-buffer-directly () (interactive)
-  (kill-buffer nil))
-(defun load-python () (interactive)
-   (require 'python-mode)
-   (setq auto-mode-alist
-	 (cons '("\\.py$" . python-mode) auto-mode-alist))
-   (setq interpreter-mode-alist
-	 (cons '("python" . python-mode) interpreter-mode-alist)))
+(defun kill-buffer-directly () (interactive) (kill-buffer nil))
+		("\\.s?html?\\'" . html-helper-mode)
 (require 'jka-compr)
 (require 'dired-tar)
-;;(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|\\.pyo\\|\\.pyc$")
+(require 'iptables-save-mode)
+
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(canlock-password "f6d9e4eb8360cf2cd5db9d5d0f83f7f09ac74767"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
