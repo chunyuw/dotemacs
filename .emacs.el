@@ -210,6 +210,7 @@
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
 (set-register ?j '(file . "d:/usr/work/books/mybook/"))
 (set-register ?u '(file . "m:/"))
+(set-register ?M '(file . "e:/My Music/"))
 (setenv "DISPLAY" "chunyu:0")
 (setenv "SHELL" "sh.exe")
 
