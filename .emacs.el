@@ -362,8 +362,6 @@
 		(interactive "s机器名(或IP): \ns消息内容: ")
 		(shell-command (format "net send %s %s" recipient text)))
 
-	      ;; -> TeX-command-list <-
-	      ;;
 	      (setq preview-gs-command "GSWIN32C.EXE")
 	      (setq dired-view-command-alist
 		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")

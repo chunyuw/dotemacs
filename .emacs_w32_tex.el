@@ -7,8 +7,9 @@
 	  (lambda ()
 	    (setq fill-paragraph-function nil)))
 
-(cond ((eq window-system 'w32) 
-       (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)))
+;; (cond ((eq window-system 'w32) 
+;;        (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+;;        ))
 
 (require 'tex-site)
 
