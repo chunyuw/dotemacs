@@ -10,14 +10,13 @@
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
-(global-set-key [f13] '); (shift f1)
+(global-set-key [f13] ')		; (shift f1)
 
 (global-set-key [(control z)] 'set-mark-command)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 
-(setq text-mode-hook 'turn-on-auto-fill)
 (setq default-major-mode 'text-mode)
 (setq display-time-day-and-date t)
 (setq next-line-add-newlines nil)
@@ -45,7 +44,7 @@
 
 ;;(add-hook 'c-mode-common-hook
 ;;	  '(lambda () (c-toggle-auto-state t)))
-;;
+
 (require 'python-mode)
 (setq auto-mode-alist
 (cons '("\\.py$" . python-mode) auto-mode-alist))
@@ -68,8 +67,16 @@
 (custom-set-variables
  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
  ;; Your init file should contain only one such instance.
+ '(Info-enable-edit nil)
  '(diary-file "~/.diary")
  '(dired-listing-switches "-alhv")
+ '(mail-host-address "192.168.1.178")
+ '(rmail-pop-password "mypasswd")
+ '(rmail-pop-password-required t)
+ '(rmail-primary-inbox-list (quote ("po:dddkk@sina.com#pop3.sina.com.cn" "po:dddkk@263.net#263.net")) t)
+ '(rmail-user-mail-address-regexp nil t)
+ '(smtpmail-default-smtp-server "192.168.1.178")
+ '(smtpmail-smtp-service 2501)
  '(user-full-name "Chunyu W.")
  '(user-mail-address "dddkk@sina.com"))
 (custom-set-faces
@@ -77,7 +84,8 @@
  ;; Your init file should contain only one such instance.
  )
 
-(put 'downcase-region 'disabled nil)
+(setenv "MAILHOST" "192.168.1.178")
+
 
 (put 'upcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
