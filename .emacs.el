@@ -136,6 +136,7 @@
 (set-register ?g '(file . "~/.gnus.el"))
 (setq-default kill-whole-line t)
 
+(set-register ?v '(file . "/usr/local/cvsroot/sprcvs"))
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
 (set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
 (set-language-environment 'Chinese-GB)
