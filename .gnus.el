@@ -36,7 +36,8 @@
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images t
-      mm-inline-override-types '("text/html"))
+      mm-text-html-renderer (if (not (eq window-system 'w32)) 'lynx 'html2text)
+      mm-inline-override-types nil) ;; '("text/html")
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
@@ -133,9 +134,11 @@
       message-kill-buffer-on-exit t
       message-cite-function 'sc-cite-original
       message-elide-ellipsis "\n  [...]\n"
-      message-sendmail-envelope-from nil
+      message-sendmail-envelope-from 'header
+      ;; message-sendmail-envelope-from nil
       message-signature t
       message-signature-file "~/.sig/default"
+      message-mail-alias-type nil	; don't use ~/.mailrc aliases
       message-forward-ignored-headers
       (concat "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
 	      "\\|^Thread-\\|^[GB]cc:\\|^Reply-To:\\|^Received:\\|^User-Agent:"
@@ -190,6 +193,12 @@
 	    (footnote-mode)))
 
 (require 'message-x)
+
+(setq message-x-completion-alist
+      '(("\\([rR]esent-\\|[rR]eply-\\)?[tT]o:\\|[bB]?[cC][cC]:\\|[fF]rom:" . message-x-complete-name)
+	((if (boundp 'message-newgroups-header-regexp)
+	     message-newgroups-header-regexp message-newsgroups-header-regexp)
+	 . message-expand-group)))
 
 (when window-system
   (eval-after-load "gnus-art"

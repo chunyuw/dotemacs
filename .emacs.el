@@ -21,11 +21,12 @@
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
+(global-set-key "\C-Z" 'pop-global-mark)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
-(global-set-key "\C-\M-[" 'keyboard-escape-quit)
+(global-unset-key "\C-\M-[")
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
 (require 'gnus-load)
@@ -88,6 +89,7 @@
 (define-key meta-m-map "\M-j" 'webjump)
 
 (setq inhibit-startup-message t
+      report-emacs-bug-no-explanations t
       default-major-mode 'text-mode
       require-final-newline t
       resize-mini-windows t
