@@ -61,6 +61,7 @@
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
+(define-key global-map "\C-xve" 'cvs-examine)
 (define-key ctl-x-m-map "e" 'cvs-examine)
 (define-key ctl-x-m-map "m" 'man-follow)
 (define-key ctl-x-m-map "g" 'run-scheme)
