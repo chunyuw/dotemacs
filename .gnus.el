@@ -30,7 +30,8 @@
 (setq gnus-agent-mark-unread-after-downloaded nil)
 
 (setq gnus-parameters
-      '(("list\\..*" (subscribed . t) (total-expire . t))
+      '((".*" (agent-disable-undownloaded-faces t))
+	("list\\..*" (subscribed . t) (total-expire . t))
 	("misc\\..*" (total-expire . t))
 	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
@@ -86,10 +87,11 @@
 	 (name "进化的鱼")
 	 (address "user@cyber.net")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list\\..*\\|^nnml:mail\\.foreigner\\|^nntp\\+news\\.gmane\\.org:.*"
+	("^nnml:list\\..*\\|^nnml:mail\\.foreigner\\|^nntp\\+news\\.gmane\\.org:.*\\|^nntp\\+news\\.gnus\\.org:.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
-	 (address "spr@db.cs.hit.edu.cn"))
+	 (address "spr@db.cs.hit.edu.cn")
+	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
@@ -156,6 +158,7 @@
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei\\|liuqionline" "mail.friends")
 	       (from "chunyu@hit.edu.cn\\|\\(spr\\|chunyu\\)@db.\\(cs.\\)?hit.edu.cn\\|dddkk@sina.com" "mail.myself")
+	       (from "boldyrev" "mail.foreigner")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
