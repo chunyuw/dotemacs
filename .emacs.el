@@ -38,6 +38,7 @@
 ;; (require 'flyspell)
 ;; (require 're-builder)
 (require 'bs)
+(require 'ido)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
@@ -199,6 +200,7 @@
       ido-show-dot-for-dired nil
       ido-use-filename-at-point t
       ido-enable-tramp-completion t
+      ;; ido-enable-flex-matching t
       ido-save-directory-list-file nil)
 
 (setq tramp-unified-filenames t
@@ -225,7 +227,6 @@
 	("stardic" . gb2312)
 	("xdict" . gb2312)))
 
-(setq ecb-options-version "2.20")
 
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
@@ -264,6 +265,7 @@
 (show-paren-mode 1)
 (menu-bar-mode (if window-system 1 -1))
 (icomplete-mode 1)
+(ido-everywhere 1)
 (ido-mode 1)
 
 (add-hook 'diary-hook 'appt-make-list)
