@@ -62,13 +62,14 @@
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . gb2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1)
-      gnus-group-posting-charset-alist
-      '(("^\\(cn\\)\\.[^,]*\\(,[ 	\n]*\\(cn\\)\\.[^,]*\\)*$" gb2312 (gb2312))
-	("^\\(º∆À„ª˙\\|–›œ–”È¿÷\\).*" gb2312 (gb2312))
-	("^\\(Itr\\|db\\).*" gb2312 (gb2312))
-	(message-this-is-mail nil nil)
-	(message-this-is-news nil t)))
+      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
+
+;; (setq gnus-group-posting-charset-alist
+;;       '(("^\\(Itr\\|db\\).*" gb2312 (gb2312))
+;; 	("^\\(cn\\)\\.[^,]*\\(,[ 	\n]*\\(cn\\)\\.[^,]*\\)*$" gb2312 (gb2312))
+;; 	("^\\(º∆À„ª˙\\|–›œ–”È¿÷\\).*" gb2312 (gb2312))
+;; 	(message-this-is-mail nil nil)
+;; 	(message-this-is-news nil t)))
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "spr@db.hit.edu.cn"
