@@ -32,8 +32,8 @@
 		    "emacs@bbs.hit.edu.cn" "dddkk@smth.edu.cn"
 		    "cymacs@gmail.com")))
 
-(setq bbdb/gnus-score-default +20)
-(setq gnus-score-find-score-files-function
+(setq bbdb/gnus-score-default +20
+      gnus-score-find-score-files-function
       '(gnus-score-find-bnews bbdb/gnus-score))
 
 (setq bbdb-display-layout-alist
