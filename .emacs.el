@@ -43,18 +43,18 @@
 
 (cond ((if window-system  t nil)
        (set-background-color "gray29")
-       (set-foreground-color "Wheat")
-       (set-cursor-color "gold1")
+       (set-foreground-color  "Wheat")
+       (set-cursor-color      "gold1")
        (tool-bar-mode nil)))
 
 ;;(add-hook 'c-mode-common-hook
 ;;	  '(lambda () (c-toggle-auto-state t)))
 
-(require 'python-mode)
-(setq auto-mode-alist
-(cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist
-      (cons '("python" . python-mode) interpreter-mode-alist))
+;;(require 'python-mode)
+;;(setq auto-mode-alist
+;;      (cons '("\\.py$" . python-mode) auto-mode-alist))
+;;(setq interpreter-mode-alist
+;;      (cons '("python" . python-mode) interpreter-mode-alist))
 
 (defun dos-unix ()
   (interactive)
