@@ -65,8 +65,10 @@
 (define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
 (define-key meta-m-map "\M-p" 'calendar)
 (define-key meta-m-map "\M-l" 'dictionary-search)
+(define-key meta-m-map "\M-e" 're-builder)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
+
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
