@@ -332,6 +332,9 @@
 		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
 		(interactive "s机器名(或IP): \ns消息内容: ")
 		(shell-command (format "net send %s %s" recipient text)))
+	      (setq dired-guess-shell-alist-user
+		    (list (list "\\.pdf\\'" "explorer")
+			  (list "\\.dvi\\'" "dvipdfmx")))
 	      (setq default-frame-alist
 		    (append '((width . 80) (height . 43))
 			    default-frame-alist)))
