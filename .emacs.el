@@ -353,6 +353,7 @@
 (autoload 'htmlize-buffer "htmlize" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring" "Browse kill ring" t)
 (autoload 'flex-mode "flex-mode" "Flex mode" t)
+(autoload 'bhl-mode "bhl" "BHL Mode" t)
 ;; (autoload 'folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-on-folding-mode "folding" "Folding mode" t)
@@ -362,6 +363,7 @@
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
 		("\\.phtml\\'" . html-helper-mode)
+		("\\.bhl\\'" . bhl-mode)
 		("\\.css\\'" . css-mode))
 	      auto-mode-alist))
 
