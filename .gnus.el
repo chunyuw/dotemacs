@@ -90,25 +90,27 @@
 	 (name "Chunyu Wang")
 	 (address "chunyu@hit.edu.cn")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:\\(mail\\.\\(wife\\|lab\\|misc\\).*\\|classmate\\)"
+	("^nnml:mail.*"
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
-	 (address "chunyu@hit.edu.cn"))))
+	 (address "chunyu@hit.edu.cn"))	
+	("^nnml:classmate.985101"
+	 (signature-file "~/.sig/mail")
+	 (name "Chunyu Wang")
+	 (address "dddkk@sina.com"))))
 
 (setq sc-mail-glom-frame
-      '((begin                        (setq sc-mail-headers-start (point)))
-	("^x-attribution:[ \t]+.*$"   (sc-mail-fetch-field t) nil t)
-	("^\\S +:.*$"                 (sc-mail-fetch-field) nil t)
-	("^$"                         (progn (bbdb/sc-default)
-					     (list 'abort '(step . 0))))
-	("^[ \t]+"                    (sc-mail-append-field))
+      '((begin (setq sc-mail-headers-start (point)))
+	("^x-attribution:[ \t]+.*$" (sc-mail-fetch-field t) nil t)
+	("^\\S +:.*$" (sc-mail-fetch-field) nil t)
+	("^$" (progn (bbdb/sc-default) (list 'abort '(step . 0))))
+	("^[ \t]+" (sc-mail-append-field))
 	(sc-mail-warn-if-non-rfc822-p (sc-mail-error-in-mail-field))
-	(end                          (setq sc-mail-headers-end (point)))))
+	(end (setq sc-mail-headers-end (point)))))
 
 (setq sc-attrib-selection-list
       '(("sc-from-address"
-	 ((".*" . (bbdb/sc-consult-attr
-		   (sc-mail-field "sc-from-address"))))))
+	 ((".*" . (bbdb/sc-consult-attr (sc-mail-field "sc-from-address"))))))
       sc-auto-fill-region-p nil
       sc-blank-lines-after-headers 1
       sc-citation-leader "  "
@@ -120,8 +122,7 @@
       sc-nested-citation-p nil
       sc-preferred-header-style 4
       sc-preferred-attribution-list
-      '("sc-lastchoice" "x-attribution" "sc-consult"
-	"initials" "firstname" "lastname")
+      '("sc-lastchoice" "x-attribution" "sc-consult" "initials" "firstname" "lastname")
       sc-use-only-preference-p nil)
 
 (setq message-from-style 'angles
@@ -150,35 +151,23 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(|
-	;; (to "Dddkk <dddkk@sina\\.com>" junk)
-	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
-	;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
-	;; (any "scm@list.cn99.com" "list.cn99.scm")
-	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
-	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
-	(any "985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
-	(any "985101@googlegroups\\.com" "classmate.985101")
-	;; (any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
-	;; (any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
-	;; (any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
-	(any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
-	;; ("Subject" "dbworld" "list.db.dbworld")
-	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
-	(to "chunyu@hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
-	    (| (from "bbs@bbs\\|dddkk@smth" "mail.bbs")
-	       (from "xiaonan\\|xblbelive" "classmate.misc")
-	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-	       (from "chunyu@hit\\|dddkk@sina" "mail.myself")
-	       (from "applejelly326" "mail.lab")
-	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
-	       "mail.misc"))
-	"misc.junk"))
+      '(| (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
+	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
+	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
+	  (any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
+	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
+	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
+	  ;; ("Subject" "dbworld" "list.db.dbworld")
+	  (to "chunyu@hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
+	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
+		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth" "mail.myself")
+		 "mail.misc"))
+	  "misc.junk"))
 
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@cyber.net>"))
 
-;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
 	  (lambda ()
