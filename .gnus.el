@@ -96,7 +96,7 @@
        "\\|^Mail-Copies-To:\\|^Return-Receipt-To:\\|^NNTP-Posting-Date:"
        "\\|^NNTP-Posting-Host:\\|^Content-Transfer-Encoding:"
        "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
-       "\\|^Status:\\|^Errors-To:"))
+       "\\|^Status:\\|^Errors-To:\\|FL-Build:"))
 
 (setq nnmail-crosspost nil
       nnmail-split-methods
