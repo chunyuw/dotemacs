@@ -1,31 +1,34 @@
-;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs.el is created on ??.    Chunyu.<dddkk@sina.com> 
+; $Id$  -*- Emacs-Lisp -*-
+;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
 (global-set-key [f1] 'cvs-examine) 
 (global-set-key [f2] 'browse-url-lynx-emacs) 
 (global-set-key [f3] 'eshell) 
-(global-set-key [f4] 'kill-buffer)
+(global-set-key [f4]  'kill-buffer-directly)
 (global-set-key [f5] 'undo)
 (global-set-key [f6] 'ansi-term)
 (global-set-key [f7] 'calendar)
 (global-set-key [f8] 'other-window) 
-(global-set-key [f9] 'indent-region)
+(global-set-key [f9] 'py-shell)
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-c\C-o" 'occur)
+(global-set-key "\C-x\C-v" 'view-file)
+;;(global-set-key [mouse-3] 'mouse-buffer-menu)
 (global-set-key [(control z)] 'set-mark-command)
 (global-set-key [(home)]   'beginning-of-buffer)
 (global-set-key [(end)]     'end-of-buffer)
 (global-set-key [(select)]  'end-of-buffer)
-;;(global-set-key [kp-delete] 'delete-char)
-;;(global-set-key [delete]    'delete-char)
+(global-set-key [kp-delete] 'delete-char)
+(global-set-key [delete]    'delete-char)
 
 (setq-default transient-mark-mode nil)
 (setq-default truncate-lines nil)
 ;;(setq text-mode-hook 'turn-on-auto-fill)
+(setq eshell-ask-to-save-history 'always)
 (setq default-major-mode 'text-mode)
 (setq display-time-day-and-date t)
 (setq next-line-add-newlines nil)
@@ -96,6 +99,8 @@
 (defun unix-dos () (interactive)
   (goto-char (point-min))
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
+(defun kill-buffer-directly () (interactive)
+  (kill-buffer nil))
 (defun eshell-clears-buffer ()
   "Deletes the contents of eshell buffer, except the last prompt"
   (interactive)
@@ -119,6 +124,17 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+
+(setq completion-ignored-extensions (quote ("CVS/" ".o" "~" ".bin" ".lbin" ".fasl" ".ufsl" ".a" ".ln" ".blg" ".bbl" ".elc" ".lof" ".glo" ".idx" ".lot" ".dvi" ".fmt" ".tfm" ".class" ".fas" ".lib" ".x86f" ".sparcf" ".lo" ".la" ".toc" ".log" ".aux" ".cp" ".fn" ".ky" ".pg" ".tp" ".vr" ".cps" ".fns" ".kys" ".pgs" ".tps" ".vrs")))
+
+(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|\\.pyo\\|\\.pyc$")
+;; (setq dired-omit-files (concat dired-omit-files "\\|\\.pyo\\|\\.pyc$"))
+
+
+(add-hook 'comint-output-filter-functions
+          'comint-watch-for-password-prompt)
+
+(put 'dired-find-alternate-file 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'rmail 'disabled t)
