@@ -4,3 +4,7 @@
 
 &%%(diary-sunrise-sunset)
 
+&%%(diary-iso-date)
+
+&%%(diary-phases-of-moon)
+&%%(calendar-chinese-date-string date)
