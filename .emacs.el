@@ -11,7 +11,7 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
-(global-set-key "\C-x\C-b" 'electric-buffer-list)
+(global-set-key "\C-x\C-b" 'electric-buffer-list) ; ibuffer
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-buffer-directly)
 (global-set-key "\C-c\C-o" 'occur)
