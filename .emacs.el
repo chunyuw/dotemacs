@@ -1,15 +1,11 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
+;; Chunyu's .emacs.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com>
 
-(global-set-key [f1] 'cvs-examine) 
-(global-set-key [f2] 'browse-url-lynx-emacs) 
-(global-set-key [f3] 'eshell) 
-(global-set-key [f4] 'kill-buffer-directly)
+(global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
-(global-set-key [f6] 'ansi-term)
+(global-set-key [f6] 'eshell)
 (global-set-key [f7] 'calendar)
-(global-set-key [f8] 'other-window) 
-(global-set-key [f9] 'py-shell)
+(global-set-key [f8] 'other-window)
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
