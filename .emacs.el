@@ -107,7 +107,7 @@
 
 (setq bookmark-save-flag 1
       bookmark-default-file 
-      (substitute-in-file-name "~/.emacs.d/.emacs_$HOSTNAME.bmk"))
+      (substitute-in-file-name "~/.emacs.d/emacs_$HOSTNAME.bmk"))
 
 (setq dired-listing-switches "-avl"
       dired-recursive-copies 'top
