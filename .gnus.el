@@ -29,6 +29,7 @@
       gnus-treat-display-smileys nil
 
       gnus-auto-select-next 'quietly
+      gnus-activate-foreign-newsgroups 4
       )
 
 (setq gnus-parameters
