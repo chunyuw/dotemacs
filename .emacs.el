@@ -203,6 +203,9 @@
       ange-ftp-generate-anonymous-password "user@cyber.net"
       ange-ftp-default-user t)
 
+(setq c-cleanup-list 
+      '(brace-else-brace brace-elseif-brace scope-operator))
+
 (setq quack-default-program "guile"
       quack-fontify-style nil)
 
