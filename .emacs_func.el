@@ -46,11 +46,25 @@
 
 (defun net-message (recipient text)
   "Send a net message with Emacs.\nThis needs Windows/NT, I think."
-  (interactive "s机器名(或IP): \ns消息内容: ")
+  (interactive "sHost(or IP): \nsMessage: ")
   (shell-command (format "net send %s %s" recipient text)))
 
-(defun chunyu-maxize-emacs ()
+(defun chunyu-maxize-emacs (&optional arg)
+  "Maxize emacs and vice versa."
+  (interactive "p")
+  (if (eq arg 0)
+      (w32-send-sys-command #xf120)
+    (w32-send-sys-command #xf030)))
+
+(defun chunyu-insert-file-variable ()
+  "Insert file variable string \"-*- Major-Mode-Name -*-\" with
+comment char"
   (interactive)
-  (w32-send-sys-command #xf030))
+  (insert 
+   (concat comment-start " -*- "
+	   (capitalize
+	    (substring 
+	     (symbol-name (symbol-value 'major-mode)) 0 -5)) 
+	   " -*- " comment-end)))
 
 ;; Chunyu's .emacs_func.el ends here.
