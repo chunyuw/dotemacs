@@ -168,6 +168,7 @@
 (blink-cursor-mode -1)
 (display-time-mode 1)
 (ido-mode 1)
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
           (lambda ()
             (load "dired-x")
