@@ -317,6 +317,7 @@
 (require 'flyspell)
 ;;(require 'html-helper-mode)
 (require 'browse-kill-ring)
+(require 'flex-mode)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
