@@ -155,6 +155,7 @@
 
 (setq nnmail-treat-duplicates 'delete
       nnmail-crosspost nil
+      nnmail-mail-splitting-decodes t
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
@@ -170,7 +171,7 @@
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
 	  (from "dddkk@smth.edu.cn\\|\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
-	  ;; ("Subject" "OS" "mail.ta")
+	  ("Subject" "OS" "mail.ta")
 	  (to "202.118.224.153" "mail.misc")
 	  (: spam-split)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
