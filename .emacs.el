@@ -181,6 +181,7 @@
 (display-time-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode (if window-system 1 -1))
+(icomplete-mode 1)
 (ido-mode 1)
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 (add-hook 'dired-load-hook
