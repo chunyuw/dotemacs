@@ -52,7 +52,7 @@
 	("BibTeX" "bibtex %s" TeX-run-BibTeX nil t)
 	("Index" "makeindex %s" TeX-run-command nil t)
 	("Check" "lacheck %s" TeX-run-compile nil t)
-	("Clean" "rm -f *.pdf *.dvi *.ps *.toc *.aux *.log *.tui *.top *.tuo _region_.*" TeX-run-shell nil t)))
+	("Clean" "rm -f *.pdf *.dvi *.ps *.toc *.aux *.log *.tui *.top *.tuo *.bbl *.blg _region_.*" TeX-run-shell nil t)))
 
 (setq TeX-output-view-style
       '(("^ps$" "." "%f")

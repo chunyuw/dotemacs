@@ -36,6 +36,11 @@
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
+(setq cal-tex-diary t
+      cal-tex-24 t
+      cal-tex-daily-start 8
+      cal-tex-daily-end 22)
+
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
 (add-hook 'calendar-load-hook

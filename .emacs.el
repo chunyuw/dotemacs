@@ -76,7 +76,7 @@
 (define-key meta-m-map "b" 'browse-kill-ring)
 (define-key meta-m-map "a" 'chunyu-maxize-emacs)
 (define-key meta-m-map "f" 'chunyu-insert-file-variable)
-(define-key meta-m-map "j" 'webjump)
+(define-key meta-m-map "\M-j" 'webjump)
 
 ;; (setq gc-cons-threshold 2000000
 ;;       echo-keystrokes 0.1)
