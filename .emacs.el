@@ -296,7 +296,6 @@
        (auto-image-file-mode 1)
        (scroll-bar-mode -1)
        ;; (tool-bar-mode -1)
-       (set-message-beep 'silent)
 
        (create-fontset-from-fontset-spec
 	(concat
@@ -320,6 +319,7 @@
 
        (cond ((eq window-system 'w32)
 	      ;; MS-Windows
+	      (set-message-beep 'silent)
 	      (setq dired-view-command-alist
 		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")
 		      ("[.]pdf\\'" . "gsview32.exe %s")
