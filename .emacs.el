@@ -10,17 +10,22 @@
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
-(global-set-key [f13] ')		; (shift f1)
 
-(global-set-key [(control z)] 'set-mark-command)
+
+
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
+(global-set-key [(control z)]  'set-mark-command)
 (global-set-key [(home)] 'beginning-of-buffer)
-(global-set-key [(end)] 'end-of-buffer)
+(global-set-key [(end)]        'end-of-buffer)
+(global-set-key [kp-delete] 'delete-char)
+(global-set-key [delete]    'delete-char)
 
+(setq-default transient-mark-mode nil)
 (setq default-major-mode 'text-mode)
 (setq display-time-day-and-date t)
 (setq next-line-add-newlines nil)
 (setq display-time-24hr-format t)
+(setq require-final-newline t)
 (setq gdb-command-name "gdb ")
 (setq compile-command "make ")
 (setq scroll-step 0)
