@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("emacs-notes"
   ((filename . "/home/spr/work/notes/emacs-notes")
-   (front-context-string . "================")
-   (rear-context-string . "  not-modified\n\n")
-   (position . 1318)))
+   (front-context-string)
+   (rear-context-string . "===============\n")
+   (position . 5287)))
  ("emacscoding"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
