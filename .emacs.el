@@ -212,10 +212,7 @@
 
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
-(set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
 (cond ((eq window-system 'w32)
-       (set-register ?j '(file . "d:/usr/work/books/mybook/"))
-       (set-register ?u '(file . "m:/"))
        (set-register ?M '(file . "e:/My Music/"))
        (setenv "SHELL" "sh.exe")))
 (setenv "DISPLAY" "chunyu:0")
