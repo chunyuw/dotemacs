@@ -272,7 +272,9 @@
  '(ediff-odd-diff-face-A ((((type tty)) (:background "black" :foreground "red3" :weight bold))))
  '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green" :weight bold))))
  '(ediff-odd-diff-face-B ((((type tty)) (:background "black" :foreground "yellow" :weight bold))))
- '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold)))))
+ '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold))))
+ '(log-view-file-face ((t (:foreground "blue" :weight bold))))
+ '(log-view-message-face ((t (:foreground "yellow" :weight bold)))))
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
