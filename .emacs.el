@@ -10,7 +10,7 @@
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
-(global-set-key [f13] 'insert-date-or-time) ;; (shift f1)
+(global-set-key [f13] '); (shift f1)
 
 (global-set-key [(control z)] 'set-mark-command)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
@@ -43,12 +43,12 @@
        (set-cursor-color "gold1")
        (tool-bar-mode nil)))
 
-;(add-hook 'c-mode-common-hook
-;	  '(lambda () (c-toggle-auto-state t)))
-;
+;;(add-hook 'c-mode-common-hook
+;;	  '(lambda () (c-toggle-auto-state t)))
+;;
 (require 'python-mode)
 (setq auto-mode-alist
-      (cons '("\\.py$" . python-mode) auto-mode-alist))
+(cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist
       (cons '("python" . python-mode) interpreter-mode-alist))
 
@@ -66,15 +66,15 @@
 
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
+ ;; Your init file should contain only one such instance.
  '(diary-file "~/.diary")
  '(dired-listing-switches "-alhv")
  '(user-full-name "Chunyu W.")
  '(user-mail-address "dddkk@sina.com"))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
+ ;; Your init file should contain only one such instance.
  )
 
 (put 'downcase-region 'disabled nil)
