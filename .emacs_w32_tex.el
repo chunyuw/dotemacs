@@ -3,6 +3,17 @@
 
 (require 'tex-site)
 
+(setq TeX-macro-global 
+      '("d:/free_ware/TeXLive/texmf/tex/" 
+	"d:/free_ware/TeXLive/texmf/bibtex/bst/")
+      TeX-auto-global "d:/usr/emacs-21.3.50/var/auctex/")
+
+(setq TeX-electric-escape t	    ; `\' bound to TeX-electric-macro
+      TeX-insert-braces nil	    ; insert a macro without `{}' pair
+      TeX-parse-self t
+      TeX-auto-save t
+      TeX-auto-untabify t)
+
 (add-hook 'TeX-mode-hook 
 	  (lambda () 
 	    (setq reftex-plug-into-AUCTeX t)
@@ -10,9 +21,10 @@
 	    ;; (flyspell-mode)
 	    (auto-fill-mode)))
 
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    (setq fill-paragraph-function nil)))
+;; (add-hook 'LaTeX-mode-hook
+;; 	  (lambda ()
+;; 	    ;;(setq fill-paragraph-function nil)
+;; 	    ))
 
 (setq TeX-command-list 
       '(("TeX" "tex %S \\nonstopmode\\input %t" TeX-run-TeX nil (plain-tex-mode))
