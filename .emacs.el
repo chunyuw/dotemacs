@@ -74,7 +74,7 @@
 (define-key meta-m-map "j" 'webjump)
 
 (setq gc-cons-threshold 2000000
-      echo-keystrokes 0.5)
+      echo-keystrokes 0.1)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
