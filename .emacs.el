@@ -69,7 +69,6 @@
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 
-
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
       next-line-add-newlines nil
