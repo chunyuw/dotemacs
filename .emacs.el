@@ -259,8 +259,7 @@
 	       (foreground-color . "Wheat")
 	       (cursor-color     . "gold1")
 	       (mouse-color      . "gold1")
-	       (font . "9x15")
-	       ))
+	       (font . "9x15")))
 
        (if (facep 'mode-line)
 	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
@@ -294,11 +293,11 @@
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
-		("\\.css\\'" . css-mode)
 		;; ("\\.s?html?\\'" . html-helper-mode)
 		;; ("\\.asp\\'" . html-helper-mode)
 		;; ("\\.phtml\\'" . html-helper-mode)
-		) auto-mode-alist))
+(setq auto-mode-alist
+      (append '(("\\.py\\'" . python-mode)
 
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)

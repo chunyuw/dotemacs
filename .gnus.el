@@ -1,4 +1,4 @@
-;; $Id$  -*- Emacs-Lisp -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312; -*-
 ;; Chunyu's .gnus.el is created on 2003/02/24 on db.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>
 
@@ -48,8 +48,17 @@
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
-	("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
+;;	("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
+	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
 	("" gnus-header-name-face gnus-header-content-face)))
+
+(setq gnus-visible-headers 
+      (concat "^From:\\|^Newsgroups:\\|^Subject:\\|^Date:\\|^Followup-To:"
+	      "\\|^Reply-To:\\|^Summary:\\|^Keywords:\\|^To:\\|^[BGF]?Cc:"
+	      "\\|^Posted-To:\\|^Mail-Copies-To:\\|^Mail-Followup-To:"
+	      "\\|^Apparently-To:\\|^Gnus-Warning:\\|^Resent-From:\\|^X-Sent:"
+	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
+
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . gb2312))
