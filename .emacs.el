@@ -90,6 +90,8 @@
       resize-mini-windows t
       track-eol t
       Man-notify-method 'pushy
+      woman-cache-level 2
+      woman-cache-filename nil
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil
       kill-ring-max 100
@@ -274,7 +276,7 @@
 (minibuffer-electric-default-mode 1)
 (mouse-avoidance-mode 'exile)
 (partial-completion-mode 1)
-(utf-translate-cjk-mode -1)
+;; (utf-translate-cjk-mode -1)
 (global-font-lock-mode 1)
 (auto-compression-mode 1)
 (column-number-mode 1)
