@@ -105,7 +105,7 @@
 (setq truncate-partial-width-windows t
       sentence-end-double-space nil
       makefile-electric-keys t
-      compilation-window-height 10
+      compilation-window-height nil
       scroll-preserve-screen-position t
       ;;apropos-do-all t
       )
