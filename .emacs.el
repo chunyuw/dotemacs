@@ -58,7 +58,7 @@
       confirm-kill-emacs nil            ; 'y-or-n-p
       suggest-key-bindings 1
       line-number-display-limit 1000000
-      kill-ring-max 240
+      kill-ring-max 200
       ring-bell-function 'ignore
 
       apropos-do-all nil

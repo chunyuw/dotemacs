@@ -99,7 +99,7 @@
 	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
-	 (address "spr@db.cs.hit.edu.cn"))))
+	 (address "chunyu@hit.edu.cn"))))
 
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil
@@ -172,7 +172,7 @@
 	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
 	       (from "huahua1027000\\|sunhaiyang\\|xingbaolin" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-	       (from "m_pupil\\|zhoufei" "mail.friends")
+	       (from "m_pupil\\|zhoufei\\|liuqionline" "mail.friends")
 	       (from "chunyu@hit.edu.cn\\|\\(spr\\|chunyu\\)@db.\\(cs.\\)?hit.edu.cn\\|dddkk@sina.com" "mail.myself")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
