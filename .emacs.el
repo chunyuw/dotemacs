@@ -235,7 +235,7 @@
       ((eq window-system 'x)
        (global-set-key (kbd "C--") 'undo)
        (setq visible-bell t
-	     x-stretch-cursor t)
+	     x-stretch-cursor nil)
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
