@@ -160,6 +160,7 @@
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
 	(any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
+	("Subject:" "dbworld" "list.db.dbworld")
 	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
 	    (| (from "bbs@bbs\\|dddkk@smth" "mail.bbs")
