@@ -188,7 +188,7 @@
       ido-save-directory-list-file nil)
 
 (setq tramp-unified-filenames t
-      tramp-auto-save-directory "~/var/tramp"
+      tramp-auto-save-directory "~/.var/tramp"
       ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net")
 
