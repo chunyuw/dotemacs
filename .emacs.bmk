@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("emacscoding"
+(("gnus-faq-cn"
+  ((filename . "/home/spr/work/gnus-my-doc/gnus-faq-cn.texi")
+   (front-context-string . "\n例如在 gnu.emacs.g")
+   (rear-context-string . "的消息？\n\nAnswer: \n\n")
+   (position . 36602)))
+ ("emacscoding"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)

@@ -257,10 +257,6 @@
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
 		("\\.css\\'" . css-mode)) auto-mode-alist))
 
-(defun dos-unix () (interactive) (goto-char (point-min))
-  (while (search-forward "\r" nil t) (replace-match "")))
-(defun unix-dos () (interactive) (goto-char (point-min))
-  (while (search-forward "\n" nil t) (replace-match "\r\n")))
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)

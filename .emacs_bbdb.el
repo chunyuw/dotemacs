@@ -3,8 +3,10 @@
 ;; Chunyu <chunyu@hit.edu.cn>.
 
 (require 'bbdb)
-(bbdb-initialize)
-;;(bbdb-initialize 'gnus 'message 'sc)
+;;(bbdb-initialize)
+(require 'sc)
+(require 'message)
+(bbdb-initialize 'gnus 'message 'sc)
 
 ;;(add-to-list 'auto-coding-alist '("\\.bbdb\\'" . emacs-mule))
 
@@ -24,9 +26,9 @@
       bbdb-elided-display-fields '(net)
       bbdb-elided-display t
       bbdb-offer-save nil
-
+      bbdb-complete-name-allow-cycling t 
       bbdb-user-mail-names
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "spr@db.hit.edu.cn"))
-)
+      )
 
 ;; Chunyu's .emacs_bbdb.el ends here.

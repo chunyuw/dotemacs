@@ -26,7 +26,8 @@
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
 
-      gnus-treat-display-smileys nil)
+      gnus-treat-display-smileys nil
+      )
 
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t))
@@ -156,6 +157,9 @@
 	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       "mail.misc"))
 	"misc.misc"))
+
+;; (defun message-make-message-id()
+;;    (concat "<"(message-unique-id)"@@aabb.ccdd.eeff>"))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
