@@ -37,7 +37,7 @@
 
 (setq mm-inline-large-images t
       mm-text-html-renderer 'html2text
-      mm-inline-override-types nil) ;; '("text/html")
+      mm-inline-override-types '("text/html"));; nil) ;; '("text/html")
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
