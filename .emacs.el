@@ -388,6 +388,7 @@
 (load ".emacs_faces")
 (load ".emacs_bbdb")
 (load ".emacs_wiki")
+(load ".emacs_bhl")
 ;; (load custom-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
