@@ -226,6 +226,7 @@
 		("\\.asp\\'" . html-helper-mode)
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
+(require 'gnus-load)
 		("\\.css\\'" . css-mode))
 (require 'compile)
 	      auto-mode-alist))
