@@ -386,6 +386,7 @@
 	      ;;;; ECB ;;;;
 	      ;; (setq ecb-options-version "2.23")
 	      (require 'ecb-autoloads)
+	      (setq ecb-tip-of-the-day nil)
 	      (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
 
 	      ;; ispell
