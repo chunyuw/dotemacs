@@ -29,6 +29,10 @@
 (require 'info)
 (require 'dired)
 (require 'dired-x)
+(require 'compile)
+(require 'uniquify)
+(require 'generic-x)
+(require 'flyspell)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
@@ -58,28 +62,20 @@
 (define-key meta-m-map "\M-n" 'gnus)
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
-(define-key meta-m-map "\M-p" 'emacs-wiki-publish)
+(define-key meta-m-map "\M-p" 'calendar)
 (define-key meta-m-map "\M-l" 'dictionary-search)
-(define-key meta-m-map "c" 'calendar)
+(define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
-
-(require 'compile)
-(require 'uniquify)
-(require 'generic-x)
-(require 'flyspell)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
-      initial-major-mode 'lisp-interaction-mode ; 'text-mode
       next-line-add-newlines nil
       require-final-newline t
-      resize-mini-windows nil		; 'grow-only
+      resize-mini-windows nil
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil
-      suggest-key-bindings 1
-      line-number-display-limit 1000000
       kill-ring-max 100
       vc-follow-symlinks t
       enable-recursive-minibuffers t
@@ -221,8 +217,7 @@
 
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
-(set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
-(set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
+(set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
 (set-register ?w '(file . "~/Wiki"))
 (set-register ?j '(file . "~/work/xmldb/loader"))
 (setenv "DISPLAY" "chunyu:0")
@@ -238,6 +233,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (find-function-setup-keys)
+
 (minibuffer-electric-default-mode 1)
 (partial-completion-mode 1)
 (utf-translate-cjk-mode -1)
@@ -256,11 +252,6 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'write-file-hooks 'time-stamp)
-
-(setq dired-view-command-alist
-      '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
-	("[.]pdf\\'" . "xpdf %s")
-	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
 
 (add-hook 'message-setup-hook
 	  (lambda ()
@@ -300,14 +291,21 @@
     (goto-char pos)
     (previous-line lines)))
 
-(cond ((not window-system) ;; text console
+(setq dired-view-command-alist
+      '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
+	("[.]pdf\\'" . "xpdf %s")
+	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
+
+(cond ((not window-system) 
+       ;; Text-Only console
        (setq frame-background-mode 'dark)
        (setq Info-use-header-line nil)
        (setq dired-view-command-alist
 	     (append '(("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s"))
 		     dired-view-command-alist)))
 
-      (window-system ;; both X-Window and MS Windows systems
+      (window-system 
+       ;; BOTH X-Window and MS-Windows
        (global-set-key (kbd "C--") 'undo)
        (setq x-stretch-cursor nil)
        (auto-image-file-mode 1)
@@ -321,13 +319,15 @@
 	       (cursor-color . "gold1")
 	       (mouse-color . "gold1")))
 
-       (cond ((eq window-system 'w32) ;; MS windows system
+       (cond ((eq window-system 'w32) 
+	      ;; MS-Windows
 	      (defun net-message (recipient text)
 		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
 		(interactive "s机器名(或IP): \ns消息内容: ")
 		(shell-command (format "net send %s %s" recipient text))))
 
-	     ((eq window-system 'x) ;; X-Window system
+	     ((eq window-system 'x)
+	      ;; X-Window
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)
 	      (setq default-frame-alist
@@ -346,9 +346,9 @@
 (autoload 'htmlize-buffer "htmlize" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring" "Browse kill ring" t)
 (autoload 'flex-mode "flex-mode" "Flex mode" t)
-;; (autoload 'folding-mode          "folding" "Folding mode" t)
+;; (autoload 'folding-mode "folding" "Folding mode" t)
 ;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
-;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
+;; (autoload 'turn-on-folding-mode "folding" "Folding mode" t)
 
 (setq auto-mode-alist
       (append '(("\\.py\\'" . python-mode)
@@ -358,27 +358,28 @@
 		("\\.css\\'" . css-mode))
 	      auto-mode-alist))
 
+(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (require 'tex-site)
 (require 'boxquote)
 (require 'dired-tar)
 (require 'browse-kill-ring)
 
-;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
-;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
+;; (add-to-list 'load-path "/usr/local/share/xref/emacs")
+;; (add-to-list 'exec-path "/usr/local/share/xref")
 ;; (load "xrefactory")
 
 ;; (setq semantic-load-turn-everything-on t)
 ;; (require 'semantic-load)
 
-(load "~/.emacs.d/.emacs-records")
-(setq records-init-file"~/.emacs.d/.emacs-records")
+(load ".emacs-records")
+(setq records-init-file "~/.emacs.d/.emacs-records")
 
-(load-file "~/.emacs.d/.emacs_erc.el")
-(load-file "~/.emacs.d/.emacs_faces.el")
-(load-file "~/.emacs.d/.emacs_bbdb.el")
-(load-file "~/.emacs.d/.emacs_wiki.el")
-;; (load-file custom-file)
+;; (load ".emacs_erc")
+(load ".emacs_faces")
+(load ".emacs_bbdb")
+(load ".emacs_wiki")
+;; (load custom-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
