@@ -33,6 +33,7 @@
       gnus-activate-foreign-newsgroups 4
 
       gnus-interactive-exit nil
+      mm-text-html-renderer 'html2text
       )
 
 (setq gnus-parameters
@@ -154,7 +155,7 @@
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	(any "guile-user@gnu.org" "list.guile.user")
 	(any "guile-sources@gnu.org" "list.guile.sources")
-	(any "ding@gnus.org\\|ding@hpc.uh.edu" "list.gnus.ding")
+	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	(any "fetchmail-friends" "list.fetchmail")
 	(any "pgsql-general@postgresql.org" "list.pg-general")
 	(any "zope@zope.org" "list.zope")
@@ -180,7 +181,7 @@
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
 ;;	("Delivered-To" "dddkk@sina\\.com" junk)
-	(any "Microsoft\\|Corporation\\|Security" junk)
+	(any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
 	"misc.junk"))
 
 ;; (defun message-make-message-id()
@@ -201,10 +202,10 @@
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook (lambda () (setq fill-column 72) (turn-on-auto-fill)))
 
-(eval-after-load "mm-decode"
-  '(progn 
-     (setq mm-discouraged-alternatives '("text/html")
-	   mm-automatic-display (remove "text/html" mm-automatic-display))))
+;; (eval-after-load "mm-decode"
+;;   '(progn 
+;;      (setq mm-discouraged-alternatives '("text/html")
+;; 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
 ;;(gnus-demon-add-scanmail)
 ;;(gnus-demon-init)

@@ -154,6 +154,11 @@
       dictionary-server "192.168.1.191"
       )
 
+(setq chinese-calendar-celestial-stem
+      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"])
+(setq chinese-calendar-terrestrial-branch
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"])
+
 
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
@@ -306,6 +311,7 @@
 (require 'compile)
 	      auto-mode-alist))
 (require 'jka-compr)
+(require 'tex-site)
 (require 'uniquify)
 ;;(require 'tramp)
 (require 'flyspell)
