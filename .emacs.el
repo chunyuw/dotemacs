@@ -170,7 +170,6 @@
 
 (setq-default kill-whole-line t)
 
-(set-register ?v '(file . "/usr/local/cvsroot/sprcvs"))
 (set-register ?w '(file . "~/work/xmldb/loader"))
 (set-register ?q '(file . "/ftp:chunyu@itrb#8021:/"))
 (set-register ?z '(file . "/usr/local/share/zope/var/Z2.log"))
