@@ -196,8 +196,7 @@
       ange-ftp-smart-gateway nil
       ;; ange-ftp-gateway-ftp-program-name nil
       ;; ange-ftp-local-host-regexp ".*$"
-      ange-ftp-generate-anonymous-password "user@cyber.net"
-      ange-ftp-default-user t)
+      ange-ftp-generate-anonymous-password "user@cyber.net")
 
 (setq c-cleanup-list 
       '(brace-else-brace brace-elseif-brace scope-operator))
