@@ -7,7 +7,7 @@
 ;;(bbdb-initialize 'gnus 'message 'sc)
 
 (setq bbdb/gnus-summary-known-poster-mark "B")
-;;(setq gnus-summary-line-format "%ub %U%R%z%I%(%[%4L: %-20,20n%]%) %s\n")
+(setq gnus-summary-line-format "%ub %U%R%z%I%(%[%4L: %-20,20n%]%) %s\n")
 ;; gnus-summary-line-format's default value is "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n"
 
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
