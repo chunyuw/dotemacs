@@ -5,12 +5,13 @@
 (global-set-key [f5] 'undo)
 (global-set-key [f6] 'eshell)
 (global-set-key [f7] 'calendar)
+(global-set-key [f9] 'view-mode)
 (global-set-key [f8] 'other-window)
 (global-set-key [f10] 'man-follow)
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
-(global-set-key "\C-x\C-b" 'electric-buffer-list) ; ibuffer
+(global-set-key "\C-x\C-b" 'bs-show) ;; `ibuffer' or `electric-buffer-list' other choices
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-buffer-directly)
 (global-set-key "\C-c\C-o" 'occur)
@@ -20,23 +21,25 @@
 (global-set-key "\M-/" 'hippie-expand) ;;dabbrev-expand
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
-;;(global-set-key [mouse-3]  'mouse-buffer-menu)
 
 ;;(setq text-mode-hook 'turn-on-auto-fill)
 ;;(setq inhibit-startup-message t)
 ;;(setq default-major-mode 'text-mode)
+(setq uniquify-buffer-name-style 'forward)
+(setq bs-default-configuration 'all) ;; all, files or files-and-scratch
 (setq display-time-day-and-date t)
 (setq next-line-add-newlines nil)
 (setq display-time-24hr-format t)
 (setq require-final-newline t)
 (setq user-mail-address "dddkk@sina.com")
-(setq dired-listing-switches "-avl") ;;`C-u s'
+(setq dired-listing-switches "-avl")  ;;Set it by hand with `C-u s'.
 (setq user-full-name "Chunyu")
 ;;(setq gdb-command-name "gdb ")
 (setq compile-command "make ")
 (setq diary-file "~/.diary")
 ;;(setq scroll-step 0)
 (setq bookmark-save-flag 1)
+
 
 (setq version-control t)
 (setq kept-old-versions 2)
@@ -102,6 +105,7 @@
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
 (require 'jka-compr)
+(require 'uniquify)
 (require 'dired-tar)
 (require 'iptables-save-mode)
 
