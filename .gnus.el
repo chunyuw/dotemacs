@@ -37,6 +37,15 @@
 	    (concat "news." (format-time-string "%Y-%m"))
 	  (concat "mail." (format-time-string "%Y-%m")))))
 
+(setq chunyu-gnus-x-face 
+      (concat "$,MrC{\".#Of\"+5o4f&\"Y%BEXbu::2[3u0PK.G\\]'&Irj>a"
+	      "%BRPq%aA\"6f<Ywarj_/AR5<o9'<!\"9.\\ZqzkDv-OK0&Vx&D"
+	      "(0'5O(jx,]LgQk/J@P<F$X\\br>y\"[Eo8lEBloB*tfsz~]\\L"
+	      "l\\}&C{}ar^R\\Ic9shnEW?'8o-9%MQ03+izFFbQV&CUKVd>%V"
+	      "1sog)m1$L=Z(K!I5ID8nucdF}Bb(/r>b]7*t@GP%=VS_~:&~:F"
+	      "$?7,i1Wqj\\C(q)|@71421c2ynlCQ<u%\"'6|28Oww\":7N6=F"
+	      "s/?mUj&_^u&\\^yrrY{O"))
+
 (setq gnus-posting-styles
       '((".*"
 	 (signature-file "~/.sig/default")
@@ -49,7 +58,8 @@
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "进化的鱼")
-	 (address "dddkk@sina.com")) ;; o.oO@Oo.o
+	 (address "dddkk@sina.com")	; o.oO@Oo.o
+	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml\\+private:\\(985101\\|classmate\\|lab\\|wife\\).*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
