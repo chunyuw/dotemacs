@@ -171,7 +171,8 @@
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
-      solar-holidays nil)
+      solar-holidays nil
+      bahai-holidays nil)
 
 (setq mark-diary-entries-in-calendar t
       appt-issue-message nil
