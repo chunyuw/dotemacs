@@ -87,6 +87,7 @@
 (define-key meta-m-map "b" 'browse-kill-ring)
 (define-key meta-m-map "a" 'chunyu-maxize-emacs)
 (define-key meta-m-map "f" 'chunyu-insert-file-variable)
+(define-key meta-m-map "p" 'chunyu-plink)
 (define-key meta-m-map "\M-j" 'webjump)
 
 (setq inhibit-startup-message t

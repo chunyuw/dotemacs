@@ -1,6 +1,11 @@
 ;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_func.el, created on 2004/03/28 on ds1.db.hit.edu.cn.
 
+(defun chunyu-plink () 
+  "plink"
+  (interactive)
+  (w32-shell-execute nil "plink.exe" "runnat" 0))
+
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
   (interactive)
