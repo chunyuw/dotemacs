@@ -132,7 +132,7 @@
       chinese-calendar-celestial-stem
       ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"]
       chinese-calendar-terrestrial-branch
-      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îì" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"]
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îç" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"]
       general-holidays
       '((holiday-fixed 1 1 "Ôªµ©")
 	(holiday-fixed 4 1 "ÓŞÈË½Ú")
