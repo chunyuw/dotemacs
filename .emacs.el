@@ -108,6 +108,7 @@
       enable-recursive-minibuffers t
       line-move-ignore-invisible t
       default-fill-column 78
+      isearch-allow-scroll t
       tooltip-gud-tips-p t)
 
 
