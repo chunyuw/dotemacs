@@ -207,8 +207,13 @@
 
 (setq bbdb-file "~/.emacs.d/.bbdb")
 
-(setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
-      dictionary-server "192.168.1.191")
+(setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee")
+
+(setq dictionary-server "192.168.1.191"
+      dictionary-coding-systems-for-dictionaries
+      '(("cdict" . gb2312)
+	("stardic" . gb2312)
+	("xdict" . gb2312)))
 
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
