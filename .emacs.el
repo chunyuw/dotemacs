@@ -180,6 +180,9 @@
             (setq dired-view-command-alist
                   (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
                           dired-view-command-alist))))
+(add-hook 'ido-define-mode-map-hook 'ido-my-keys)
+(defun ido-my-keys () "Add my keybindings for ido."
+  (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir))
 
 (cond ((not window-system) 
     (view-scroll-lines lines t 1 t)
