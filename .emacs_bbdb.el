@@ -28,9 +28,9 @@
       bbdb-time-display-format "%Y-%m-%d")
 
 (setq bbdb-user-mail-names
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn"
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn" 
 		    "emacs@bbs.hit.edu.cn" "dddkk@smth.edu.cn"
-		    "cymacs@gmail.com")))
+		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
 
 (setq bbdb/gnus-score-default +20
       gnus-score-find-score-files-function

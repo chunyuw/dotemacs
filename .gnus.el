@@ -60,8 +60,9 @@
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
 
 (setq gnus-ignored-from-addresses
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn")))
-;; cymacs@gmail.com cyemacs@gmail.com chunyu@myrealbox.com dddkk@163.com
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
+		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
+;; dddkk@163.com
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -79,7 +80,7 @@
       '((".*"
 	 (signature-file "~/.sig/default")
 	 (name "Wang Chunyu")
-	 (address "dddkk@sina.com"))
+	 (address "cymacs@gmail.com"))
 	("^nntp\\+ds1:.*"
 	 (signature-file "~/.sig/localnews")
 	 (name "Chunyu")
@@ -92,13 +93,7 @@
 	("^nnml:list.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
-	 (address "dddkk@sina.com")
-	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list.zhdotemacs"
-	 (signature-file "~/.sig/cnnews")
-	 (name "进化的鱼")
-	 (address "cyw@db.cs.hit.edu.cn")
-	 ("X-Face" 'chunyu-gnus-x-face))
+	 (address "cymacs@gmail.com"))
 	("^nnml:mail.*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
@@ -165,6 +160,7 @@
       '(| (to ".*@db\\.hit\\.edu\\.cn\\|.*@itrc" - "\\(spr\\|chunyu\\)@db\\.hit\\.edu\\.cn" "logs.itrc")
 	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
+	  (any "python-chinese@lists.python.cn" "list.python-cn")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
