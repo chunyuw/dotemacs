@@ -151,6 +151,7 @@
       '(|
 	;; (to "Dddkk <dddkk@sina\\.com>" junk)
 	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
+	(any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	(any "scm@list.cn99.com" "list.cn99.scm")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
