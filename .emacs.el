@@ -111,9 +111,9 @@
 (setq bookmark-save-flag 1
       bookmark-default-file 
       (cond ((equal (getenv "HOSTNAME") "ds1") 
-	     "~/.emacs.d/.emacs_ds1.bmk")
+	     "~/.emacs.d/emacs_ds1.bmk")
 	    ((equal (getenv "HOSTNAME") "chunyu")
-	     "~/.emacs.d/.emacs_chunyu.bmk")))
+	     "~/.emacs.d/emacs_chunyu.bmk")))
 
 (setq dired-listing-switches "-avl"
       dired-recursive-copies 'top
