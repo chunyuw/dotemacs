@@ -17,7 +17,6 @@
 	("PDFLaTeX" "pdflatex %S \\nonstopmode\\input{%t}" TeX-run-TeX nil (latex-mode))
 	("ConTeXt" "texexec --once --nonstop --texutil %t" TeX-run-TeX nil (context-mode))
 	("ConTeXt PDF" "texexec --pdf %t" TeX-run-TeX nil (context-mode))
-	;; ("ConTeXt PDF" "texexec --pdf %t" TeX-run-command nil (context-mode))
 	("ConTeXt Interactive" "texexec --once --texutil %t" TeX-run-interactive t (context-mode))
 	("ConTeXt Full" "texexec %t" TeX-run-interactive nil (context-mode))
 	("ConTeXt Clean" "texutil --purgeall" TeX-run-interactive nil (context-mode))
