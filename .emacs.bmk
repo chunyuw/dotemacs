@@ -11,8 +11,8 @@
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)
-   (position . 23581)
-   (info-node . "Eval")))
+   (position . 40641)
+   (info-node . "Iteration")))
  ("elisp-notes"
   ((filename . "/home/spr/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")
