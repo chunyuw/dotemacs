@@ -5,6 +5,7 @@
 (global-set-key [f12] 'gdb)
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
+(global-set-key [(control tab)] 'bbdb-complete-name)
 (global-unset-key [(insert)])
 
 (global-set-key "\C-x\C-b" 'bs-show)
