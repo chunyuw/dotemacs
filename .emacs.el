@@ -180,6 +180,9 @@
   (set-foreground-color "Wheat")
   (set-cursor-color "gold1")
 
+  (setq default-left-fringe-width 4
+	default-right-fringe-width 4)
+
   (if (facep 'mode-line)
       (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
   (if (facep 'fringe)
@@ -233,6 +236,35 @@
 ;;(load-file "~/.emacs_smtp.el")
 (load-file "~/.emacs_erc.el")
 (load-file "~/.emacs_bbdb.el")
+
+;;; Customize setup.
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ediff-current-diff-face-A ((((type tty)) (:background "blue" :foreground "red" :weight bold))))
+ '(ediff-current-diff-face-Ancestor ((((type tty)) (:background "magenta" :foreground "black"))))
+ '(ediff-current-diff-face-B ((((type tty)) (:background "blue" :foreground "yellow" :weight bold))))
+ '(ediff-current-diff-face-C ((((type tty)) (:background "blue" :foreground "magenta" :weight bold))))
+ '(ediff-even-diff-face-A ((((type tty)) (:background "white" :foreground "red3"))))
+ '(ediff-even-diff-face-Ancestor ((((type tty)) (:background "cyan" :foreground "black"))))
+ '(ediff-even-diff-face-B ((((type tty)) (:background "white" :foreground "blue"))))
+ '(ediff-even-diff-face-C ((((type tty)) (:background "light grey" :foreground "magenta"))))
+ '(ediff-fine-diff-face-A ((((type tty)) (:background "cyan" :foreground "red"))))
+ '(ediff-fine-diff-face-Ancestor ((((type tty)) (:background "cyan" :foreground "black"))))
+ '(ediff-fine-diff-face-B ((((type tty)) (:background "cyan" :foreground "yellow" :weight bold))))
+ '(ediff-fine-diff-face-C ((((type tty)) (:background "Turquoise" :foreground "magenta" :weight bold))))
+ '(ediff-odd-diff-face-A ((((type tty)) (:background "black" :foreground "red3" :weight bold))))
+ '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green3" :weight bold))))
+ '(ediff-odd-diff-face-B ((((type tty)) (:background "black" :foreground "yellow" :weight bold))))
+ '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold)))))
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
