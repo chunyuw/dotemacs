@@ -51,8 +51,6 @@
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
-(setq dired-omit-extensions (delete ".pdf" dired-omit-extensions))
-
 (eval-after-load "apropos"
   '(progn
      (require 'view)
@@ -203,6 +201,7 @@
 (set-register ?j '(file . "d:/documents/tsimmis"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (set-register ?q '(file . "/ftp:chunyu@itrc#8021:/"))
+(set-register ?u '(file . "m:/"))
 (setenv "DISPLAY" "chunyu:0")
 
 ;; (set-locale-environment "en")

@@ -37,7 +37,8 @@
 	    (setq reftex-plug-into-AUCTeX t)
 	    (turn-on-reftex)
 	    ;; (flyspell-mode)
-	    (auto-fill-mode)))
+	    (abbrev-mode 1)
+	    (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
