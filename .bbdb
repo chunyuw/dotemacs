@@ -2,7 +2,7 @@
 ["Zhou" "Fei" ("figure") nil nil nil ("zhoufei@mail.siom.ac.cn") ((creation-date . "2003-08-14") (timestamp . "2003-08-23")) nil]
 ["Cheng" "Gao" nil nil nil nil ("goghs@yahoo.com" "chenggao@cyberhut.org") ((creation-date . "2003-09-12") (timestamp . "2003-09-24")) nil]
 ["marina" nil nil nil nil nil ("marina@hope.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-08-03")) nil]
-["NewBlue" nil nil nil nil nil ("phzgo@163.com") ((creation-date . "2003-09-24") (timestamp . "2003-09-24")) nil]
+["NewBlue" nil nil nil nil nil ("phzgo@163.com") ((creation-date . "2003-09-24") (timestamp . "2003-09-27") (mail-alias . "NewBlue@yaako.com")) nil]
 ["sd" "" nil nil nil nil ("sd44sd44@yeah.net") ((creation-date . "2003-09-05") (timestamp . "2003-09-06")) nil]
 ["³µÍòÏé" nil ("Carl Che") nil nil nil ("car@ir.hit.edu.cn" "car@hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-08-03")) nil]
 ["³ÂÎÄÓ¢" nil nil nil nil nil ("cwyhit@sina.com" "cwyhit@sohu.com") ((creation-date . "2003-07-30") (timestamp . "2003-08-13")) nil]
