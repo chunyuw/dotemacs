@@ -47,7 +47,6 @@
       next-line-add-newlines nil
       require-final-newline t
       resize-mini-windows nil
-      bookmark-save-flag 1
       track-eol t
       Man-notify-method 'pushy
       uniquify-buffer-name-style 'forward
@@ -55,6 +54,9 @@
 
       apropos-do-all nil
       x-stretch-cursor t
+
+      bookmark-save-flag 1
+      bookmark-default-file "~/.emacs.d/.emacs.bmk"
 
       compilation-scroll-output t
       compile-command "make "
