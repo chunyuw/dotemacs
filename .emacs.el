@@ -318,14 +318,13 @@
        (set-face-font 'bold "fontset-chinesebold")
 
        (setq default-frame-alist
-	     `((background-mode . dark)
+	     '((background-mode . dark)
 	       ;; (top . 0) (left . 0) (width . 80) (height . 44)
 	       (vertical-scroll-bars)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
 	       (cursor-color . "gold3")
-	       (font . "fontset-chinese")
-	       . ,(if (eq window-system 'x) '((font . "9x15")))))
+	       (font . "fontset-chinese")))
 
        (cond ((eq window-system 'w32)
 	      ;; MS-Windows

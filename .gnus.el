@@ -3,12 +3,14 @@
 
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
-      '((nnml "")
+      `((nnml "")
 	;; (nntp "news.individual.net")
 	;; (nntp "news.gmane.org")
 	;; (nntp "localhost")
-	(nntp "ds1")
-	(nntp "news.newsfan.net")))
+	(nntp "news.newsfan.net")
+	,@(if (equal (getenv "HOSTNAME") "ds1") 
+	      (list '(nntp "ds1")))
+	))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
