@@ -32,8 +32,8 @@
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)
-   (position . 162061)
-   (info-node . "Strings and Characters")))
+   (position . 198086)
+   (info-node . "Lists")))
  ("emacs-notes"
   ((filename . "/home/spr/work/notes/notes-emacs")
    (front-context-string . "\n</pre></p>\n<dtm")
