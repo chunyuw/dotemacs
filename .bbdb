@@ -61,7 +61,7 @@
 ["田英鑫" nil nil nil nil nil ("tyx@hit.edu.cn") ((creation-date . "2004-11-02") (timestamp . "2004-11-02") (notes . "Java，Web Service, etc.")) nil]
 ["汪冰" nil nil nil (["Mobile" "13723467900"]) nil ("hit_wangbing@sohu.com") ((creation-date . "2003-08-11") (timestamp . "2004-10-26")) nil]
 ["王波" nil nil nil (["Home" "0467-2330260"] ["Office" "0467-2330886"]) nil ("wangboxx3@163.com") ((creation-date . "2004-09-20") (timestamp . "2004-09-20")) nil]
-["王春宇" nil nil nil nil nil ("chunyu@hit.edu.cn" "dddkk@sina.com" "cymail@gmail.com") ((creation-date . "2004-08-04") (timestamp . "2004-08-04")) nil]
+["王春宇" nil nil nil nil nil ("chunyu@hit.edu.cn" "dddkk@sina.com" "cymail@gmail.com" "chunyu@db.hit.edu.cn") ((creation-date . "2004-08-04") (timestamp . "2005-01-12")) nil]
 ["王宏志" nil ("hongzhi") nil nil nil ("wangzh@hit.edu.cn" "whongzhi@mail.banner.com.cn" "whongzhi@0451.com" "whongzhi@sina.com" "hongzhiw@cse.unsw.edu.au") ((creation-date . "2003-08-21") (timestamp . "2004-08-04") (msn . "whongzhi@0451.com")) nil]
 ["王琳" nil nil nil nil nil ("lucywang_110@hotmail.com") ((creation-date . "2004-02-24") (timestamp . "2004-09-06") (notes . "Deep Forest") (qq . "24916838")) nil]
 ["王伟平" nil nil nil nil nil ("wpwang@hit.edu.cn") ((creation-date . "2004-06-11") (timestamp . "2004-06-11")) nil]
