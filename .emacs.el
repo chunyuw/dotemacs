@@ -376,7 +376,7 @@
 	      (setq Info-default-directory-list 
 		    (append Info-default-directory-list (list "d:/free_ware/TeXLive/info")))
 	      ;;;; ECB ;;;;
-	      (setq ecb-options-version "2.20")
+	      ;; (setq ecb-options-version "2.23")
 	      (require 'ecb-autoloads)
 	      (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
 
@@ -438,7 +438,7 @@
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
 ;; (load ".emacs_bhl")
-;; (load custom-file)
+(load custom-file)
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
