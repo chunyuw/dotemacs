@@ -2,10 +2,10 @@
 ;; Chunyu's .emacs_bbdb.el is created on 2003/07/26 on db.cs.hit.edu.cn. 
 ;; Chunyu <chunyu@hit.edu.cn>.
 
+(require 'supercite)
+(require 'message)
 (require 'bbdb)
 ;;(bbdb-initialize)
-(require 'sc)
-(require 'message)
 (bbdb-initialize 'gnus 'message 'sc)
 
 ;;(add-to-list 'auto-coding-alist '("\\.bbdb\\'" . emacs-mule))
