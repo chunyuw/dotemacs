@@ -17,7 +17,7 @@
 (global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-c\C-z" 'pop-global-mark)
-(global-set-key "\C-l" 'chunyu-recenter)
+;;(global-set-key "\C-l" 'chunyu-recenter)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
