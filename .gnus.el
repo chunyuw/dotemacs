@@ -31,7 +31,7 @@
       gnus-treat-display-smileys t
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
-      gnus-dribble-directory "~/var/"
+      gnus-dribble-directory "~/.var/"
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images t
