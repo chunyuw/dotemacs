@@ -18,6 +18,8 @@
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
+      gnus-check-new-newsgroups nil
+      gnus-backup-startup-file t
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
@@ -29,6 +31,7 @@
       gnus-treat-display-smileys t
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
+      gnus-dribble-directory "~/var/"
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images t
