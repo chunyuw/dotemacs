@@ -1,4 +1,4 @@
-;;-*-coding: emacs-mule;-*-
+;;-*-mode: emacs-lisp; coding: emacs-mule;-*-
 (define-abbrev-table 'mail-abbrevs '(
     ))
 
