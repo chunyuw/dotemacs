@@ -226,8 +226,8 @@
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
-       (setq default-left-fringe-width 4
-	     default-right-fringe-width 4)
+;;        (setq default-left-fringe-width 4
+;; 	     default-right-fringe-width 4)
 ;;        (set-background-color "DarkSlateGrey")
 ;;        (set-foreground-color "Wheat")
 ;;        (set-cursor-color "gold1")
@@ -247,9 +247,9 @@
        (if (facep 'mode-line)
 	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
        (if (facep 'fringe)
-	   (set-face-attribute 'fringe nil :foreground "lawngreen" :background "SteelBlue4"))
+	   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30"))
        (if (facep 'tool-bar)
-	   (set-face-background 'tool-bar "DarkSlateGrey"))
+ 	   (set-face-background 'tool-bar "DarkSlateGrey"))
        (if (facep 'menu)
 	   (face-spec-set 'menu '((t (:foreground "Wheat" :background "DarkSlateGrey")))))
        (if (facep 'trailing-whitespace)
@@ -292,6 +292,7 @@
 (require 'jka-compr)
 (require 'uniquify)
 (require 'tramp)
+(require 'flyspell)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -302,7 +303,7 @@
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
 ;;(load-file "~/.emacs.d/.emacs_smtp.el")
-(load-file "~/.emacs.d/.emacs_erc.el")
+;;(load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
 ;;(load-file custom-file)
 

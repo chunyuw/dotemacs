@@ -159,6 +159,7 @@
 	(any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(any "help-emacs-windows@gnu.org" "list.help-emacs-windows")
+	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
