@@ -186,8 +186,10 @@
         try-complete-lisp-symbol-partially
         try-expand-whole-kill))
 
-(setq ido-enable-tramp-completion t
+(setq ido-max-prospects 8
+      ido-show-dot-for-dired nil
       ido-use-filename-at-point t
+      ido-enable-tramp-completion t
       ido-save-directory-list-file nil)
 
 (setq tramp-unified-filenames t
@@ -278,7 +280,7 @@
     (hippie-expand arg)))
 
 (defun chunyu-view-scroll-forward (&optional lines)
-  "Movie forward, default one line, with prefix number N, move N lines."
+  "Move forward one line or LINES lines."
   (interactive "p")
   (let ((pos (point)))
     (view-scroll-lines lines nil 1 t)
@@ -286,7 +288,7 @@
     (next-line lines)))
 
 (defun chunyu-view-scroll-backward (&optional lines)
-  "Movie backward, default one line, with prefix number N, move N lines."
+  "Move backward one line or LINES lines."
   (interactive "p")
   (let ((pos (point)))
     (view-scroll-lines lines t 1 t)
