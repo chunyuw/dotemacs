@@ -9,6 +9,7 @@
 ["Meatball" "" nil nil nil nil ("babby_li@21cn.com") ((creation-date . "2004-08-22") (timestamp . "2004-09-06") (notes . "emacs, ccol")) nil]
 ["NewBlue" nil nil nil nil nil ("phzgo@163.com" "newblue@xinhuanet.com" "NewBlue@yaako.com") ((creation-date . "2003-09-24") (timestamp . "2004-09-06") (www . "http://linuxfire.dhis.org/~newblue") (notes . "emacs, ccol")) nil]
 ["WilliamX" "" nil nil nil nil ("fantast_xue@hotmail.com") ((creation-date . "2004-08-22") (timestamp . "2004-09-06") (notes . "emacs, ccol")) nil]
+["win" nil nil nil (["home" "010-88591129"] ["mobile" "010-81102978"]) nil nil ((creation-date . "2004-11-24") (timestamp . "2004-11-24")) nil]
 ["yuan" nil ("zhangyuan") nil (["mobile" "13001667396"] ["Office" "0532-5973998-123"]) nil ("zhangyuan@sbd.com.cn") ((creation-date . "2004-09-08") (timestamp . "2004-09-09")) nil]
 ["编辑部" nil nil "计算机工程与应用" (["Office" "010-51615542, 010-51616055"]) nil ("tjit@public2.bta.net.cn") ((creation-date . "2004-08-30") (timestamp . "2004-09-06") (www . "http://www.ceaj.org/")) nil]
 ["车万祥" nil ("Carl" "Wanxiang Che" "Carl Che") nil (["Mobile" "13936576968"]) nil ("car@ir.hit.edu.cn" "car@hit.edu.cn" "wanxiang@gmail.com") ((creation-date . "2003-07-30") (timestamp . "2004-10-11") (www . "http://ir.hit.edu.cn/~car") (msn . "chewanxiang@hotmail.com")) nil]
