@@ -32,6 +32,7 @@
 ["谭玲" nil nil nil nil nil ("tanling@ftcl.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["汪冰" nil nil nil nil nil ("hit_wangbing@sohu.com") ((creation-date . "2003-08-11") (timestamp . "2003-08-11")) nil]
 ["王春宇" nil ("Chunyu Wang" "进化的鱼" "Wang Chunyu") nil nil nil ("chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "dddkk@sina.com" "spr@db.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-08-06")) nil]
+["王宏志" nil nil nil nil nil ("wangzh@hit.edu.cn" "whongzhi@db.hit.edu.cn" "whongzhi@mail.banner.com.cn" "whongzhi@0451.com" "whongzhi@sina.com") ((creation-date . "2003-08-21") (timestamp . "2003-08-21")) nil]
 ["王怀威" nil nil nil nil nil ("alangawen@fescomail.net") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["魏溢" nil ("Toniwei") nil nil nil ("toniweiyi@hotmail.com" "toniweiyi@163.com") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["谢志国" nil nil nil nil nil ("boyxzg@263.net" "boyxzg@163.net") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
