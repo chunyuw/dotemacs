@@ -149,8 +149,7 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(|
-	(to "Dddkk <dddkk@sina\\.com>" junk)
-	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk)
+	;; (to "Dddkk <dddkk@sina\\.com>" junk)
 	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
 	(any "scm@list.cn99.com" "list.cn99.scm")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
@@ -159,6 +158,7 @@
 	(any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
+	(any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
 	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
 	    (| (from "bbs@bbs\\|dddkk@smth" "mail.bbs")
@@ -173,7 +173,7 @@
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
-	(any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
+	;; (any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
 	"misc.junk"))
 
 ;; (defun message-make-message-id()
