@@ -48,7 +48,7 @@
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
-;;	("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
+	;; ("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
 	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
 	("" gnus-header-name-face gnus-header-content-face)))
 
