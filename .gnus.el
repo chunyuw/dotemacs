@@ -162,7 +162,7 @@
 	"misc.misc"))
 
 ;; (defun message-make-message-id()
-;;    (concat "<"(message-unique-id)"@@aabb.ccdd.eeff>"))
+;;    (concat "<"(message-unique-id)"@aabb.ccdd.eeff>"))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
