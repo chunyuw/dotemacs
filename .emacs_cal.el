@@ -72,7 +72,7 @@ Returns nil if it is not visible in the current calendar window."
 	 (gy (caddr gdate)))
     (increment-calendar-month m y (- 11 gm))
     (if (> m 9)
-      (list (list (list gm gd gy) string)))))
+	(list (list (list gm gd gy) string)))))
 
 ;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
 ;;   ())

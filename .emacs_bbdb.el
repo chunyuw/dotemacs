@@ -1,9 +1,12 @@
 ;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_bbdb.el, created on 2003/07/26 on db.cs.hit.edu.cn.
 
+(global-set-key [(control tab)] 'bbdb-complete-name)
+
 (require 'supercite)
 (require 'message)
 (require 'bbdb)
+(require 'bbdb-snarf)
 ;;(require 'bbdb-gui)
 ;;(bbdb-initialize)
 (bbdb-initialize 'gnus 'message 'sc)

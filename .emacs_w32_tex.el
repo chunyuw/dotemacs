@@ -22,7 +22,7 @@
       bibtex-autokey-name-separator "-"
       bibtex-autokey-additional-names "-et.al."
       bibtex-autokey-name-case-convert 'identity
-      bibtex-autokey-name-year-separator "_"
+      bibtex-autokey-name-year-separator "-"
       bibtex-autokey-titlewords-stretch 0
       bibtex-autokey-titlewords 0
       bibtex-maintain-sorted-entries 'plain
