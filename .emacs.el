@@ -336,6 +336,9 @@
 ;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
 ;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
 ;; (load "xrefactory")
+
+;;(setq semantic-load-turn-everything-on t)
+;;(require 'semantic-load)
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
