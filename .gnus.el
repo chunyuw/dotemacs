@@ -168,14 +168,14 @@
 	(any "tutor@python.org" "list.python.tutor")
 	(any "gdb@gnu.org" "list.gdb")
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
-	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
+	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
 	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
 	       (from "huahua1027000\\|sunhaiyang\\|xingbaolin" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
-	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
+	       (from "chunyu@hit.edu.cn\\|\\(spr\\|chunyu\\)@db.\\(cs.\\)?hit.edu.cn\\|dddkk@sina.com" "mail.myself")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
