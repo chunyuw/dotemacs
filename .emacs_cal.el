@@ -28,6 +28,7 @@
 
 (setq mark-diary-entries-in-calendar t
       ;; appt-issue-message nil ; obsolete variable
+      appt-message-warning-time 30
       mark-holidays-in-calendar t
       view-calendar-holidays-initially nil)
 
