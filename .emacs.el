@@ -152,6 +152,8 @@
       ido-save-directory-list-file nil)
       tramp-unified-filenames t
 (setq tramp-unified-filenames t
+      ;; ange-ftp-local-host-regexp ".*$"
+      ange-ftp-default-user t
       ange-ftp-default-user t)
       quack-default-program "guile"
       quack-fontify-style nil
