@@ -48,8 +48,6 @@
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
-(if (eq window-system 'w32) 
-    (define-key dired-mode-map "o" 'chunyu-dired-open-explorer))
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (eval-after-load "apropos"
@@ -363,10 +361,7 @@
 
        (cond ((eq window-system 'w32) 
 	      ;; MS-Windows
-	      (defun net-message (recipient text)
-		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
-		(interactive "s机器名(或IP): \ns消息内容: ")
-		(shell-command (format "net send %s %s" recipient text)))
+	      (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 
 	      (setq preview-gs-command "GSWIN32C.EXE")
 	      (setq dired-view-command-alist
