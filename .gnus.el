@@ -6,7 +6,7 @@
       '((nnml "")
 	;; (nntp "bbs.52098.com")
 	;; (nntp "news.gmane.org")
-	(nntp "localhost")
+	;; (nntp "localhost")
 	(nntp "news.newsfan.net")))
 
 (setq gnus-asynchronous t
@@ -30,7 +30,8 @@
 
 (setq gnus-agent-mark-unread-after-downloaded nil)
 
-(setq mm-inline-large-images t)
+(setq mm-inline-large-images t
+      mm-inline-override-types '("text/html"))
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
@@ -95,7 +96,7 @@
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\).*\\|classmate\\)"
+	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\|misc\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
 	 (address "chunyu@hit.edu.cn"))
