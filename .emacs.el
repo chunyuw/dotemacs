@@ -331,7 +331,7 @@
 	      (setq ecb-tip-of-the-day nil)
 
 	      ;;-- ISPELL --;;
-	      (setenv "ISPELLDICTDIR" (concat (getenv "emacs_dir") "/site-lisp/EnglishDic"))
+	      (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/others/EnglishDic"))
 	      (setq ispell-dictionary-alist
 		    '((nil        "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 		      ("english"  "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
