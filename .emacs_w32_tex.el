@@ -14,6 +14,10 @@
       TeX-auto-save t
       TeX-auto-untabify t)
 
+(setq reftex-revisit-to-follow t
+      ;; reftex-auto-recenter-toc t
+      )
+
 (add-hook 'TeX-mode-hook 
 	  (lambda () 
 	    (setq reftex-plug-into-AUCTeX t)
