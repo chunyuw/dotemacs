@@ -48,6 +48,8 @@
 (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
+(delete ".pdf" dired-omit-extensions)
+
 (eval-after-load "apropos"
   '(progn
      (require 'view)
@@ -73,8 +75,8 @@
 (define-key meta-m-map "f" 'chunyu-insert-file-variable)
 (define-key meta-m-map "j" 'webjump)
 
-(setq gc-cons-threshold 2000000
-      echo-keystrokes 0.1)
+;; (setq gc-cons-threshold 2000000
+;;       echo-keystrokes 0.1)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -247,7 +249,7 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
-;; (desktop-save-mode 1)
+(desktop-save-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
