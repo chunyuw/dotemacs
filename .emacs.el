@@ -64,7 +64,6 @@
 (define-key meta-m-map "c" 'calendar)
 (define-key meta-m-map "i" 'ibuffer)
 
-
 (require 'compile)
 (require 'uniquify)
 (require 'generic-x)
@@ -201,8 +200,6 @@
 (setq bbdb-file "~/.emacs.d/.bbdb")
 
 (setq canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
-
-(setq frame-title-format "emacs@%b")
       dictionary-server "192.168.1.191")
 
 (setq help-at-pt-display-when-idle 
