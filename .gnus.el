@@ -13,7 +13,7 @@
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030))
+      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030 x-gbk))
 
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
