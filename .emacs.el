@@ -22,6 +22,7 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
+(global-set-key "\M-`" 'shell-command)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 (global-set-key [(insertchar)] 'overwrite-mode)
@@ -184,6 +185,7 @@
 (set-keyboard-coding-system 'chinese-iso-8bit)
 (set-terminal-coding-system 'chinese-iso-8bit)
 
+(set-language-environment    'Chinese-GB)
 
 ;;(define-coding-system-alias 'gb18030 'gb2312)
 (set-clipboard-coding-system 'chinese-iso-8bit)
@@ -220,7 +222,7 @@
 		    ("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")
 		    ("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))))
 
-(add-hook 'message-setup-hook 
+(setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
@@ -269,37 +271,42 @@
 	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
 	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold))))
 
-      ((eq window-system 'x)
+      (window-system
+
        (global-set-key (kbd "C--") 'undo)
-       (setq visible-bell t
-	     x-stretch-cursor nil)
+       (setq x-stretch-cursor nil)
        (scroll-bar-mode -1)
        (tool-bar-mode -1)
 
-       (set-face-background 'region "grey21")
-       
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
-	       (top . 0) (left . 0) (width . 111) (height . 48)
 	       (background-color . "DarkSlateGrey")
 	       (foreground-color . "Wheat")
-	       (cursor-color     . "gold1")
-	       (mouse-color      . "gold1")
-	       ;;(font . "9x15")
-	       ))
+	       (cursor-color . "gold1")
+	       (mouse-color . "gold1")))
 
-       (if (facep 'mode-line)
-	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
-       (if (facep 'fringe)
-	   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30"))
-       (if (facep 'tool-bar)
- 	   (set-face-background 'tool-bar "DarkSlateGrey"))
-       (if (facep 'menu)
-	   (face-spec-set 'menu '((t (:foreground "Wheat" :background "DarkSlateGrey")))))
-       (if (facep 'trailing-whitespace)
-	   (set-face-background 'trailing-whitespace "SeaGreen1"))
-       (if (facep 'minibuffer-prompt)
-	   (face-spec-set 'minibuffer-prompt '((t (:foreground "cyan")))))))
+       (cond ((eq window-system 'x)
+	      ;; for X-Window system
+	      (setq visible-bell t)
+	      (setq ring-bell-function t)
+	      (setq default-frame-alist
+		    (append '((top . 0) (left . 0)
+			      (width . 111) (height . 48)
+			      (font . "9x15")
+			      ) default-frame-alist)))
+	     ((eq window-system 'w32)
+	      ;; for MS windows system
+
+	      ))
+       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+       (set-face-attribute 'menu   nil :foreground "Wheat"     :background "DarkSlateGrey")
+       (set-face-attribute 'minibuffer-prompt   nil :foreground "chocolate1")
+       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+       (set-face-attribute 'mode-line-inactive  nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+       (set-face-attribute 'region   nil :background "grey21")
+       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
+       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+       ))
 	      (setq default-frame-alist
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
