@@ -91,7 +91,7 @@
       makefile-electric-keys t
       compilation-window-height 10
       scroll-preserve-screen-position t
-      apropos-do-all nil)
+      apropos-do-all t)
 
 (setq bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/.emacs.bmk")
