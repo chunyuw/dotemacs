@@ -3,21 +3,21 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("elisp-notes"
-  ((filename . "/home/spr/work/notes/elisp-notes")
+  ((filename . "/home/spr/work/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")
    (rear-context-string . "  两种数的类型：整数和浮点数。")
-   (position . 2784)))
+   (position . 2927)))
  ("elisp"
   ((filename . "/usr/local/info/elisp")
-   (front-context-string . "Numbers\n*******\n")
-   (rear-context-string . "ypes,  Up: Top\n\n")
-   (position . 128410)
-   (info-node . "Numbers")))
+   (front-context-string . "          (mod -")
+   (rear-context-string . "           => 1\n")
+   (position . 147671)
+   (info-node . "Arithmetic Operations")))
  ("emacs-notes"
-  ((filename . "/home/spr/work/notes/emacs-notes")
-   (front-context-string)
+  ((filename . "/home/spr/work/notes/notes-emacs")
+   (front-context-string . "\n</pre></p>\n<dtm")
    (rear-context-string . "===============\n")
-   (position . 5489)))
+   (position . 5765)))
  ("emacscoding"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
