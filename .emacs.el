@@ -310,12 +310,10 @@
        (create-fontset-from-fontset-spec
 	(concat 
 	 "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese,"
-	 "ascii:-*-Courier New-normal-r-*-*-13-*-*-*-c-*-iso8859-1,"
 	 "chinese-gb2312:-*-MS Song-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
        (create-fontset-from-fontset-spec
 	(concat
 	 "-*-Courier New-bold-r-*-*-13-*-*-*-c-*-fontset-chinesebold,"
-	 "ascii:-*-Courier New-bold-r-*-*-13-*-*-*-c-*-iso8859-1,"
 	 "chinese-gb2312:-*-MS Song-bold-r-*-*-14-*-*-*-c-*-gb2312*-*"))
        (set-face-font 'bold "fontset-chinesebold")
 
