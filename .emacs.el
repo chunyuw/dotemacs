@@ -198,9 +198,9 @@
       '(brace-else-brace brace-elseif-brace
 			 scope-operator empty-defun-braces
 			 defun-close-semi list-close-comma)
-      c-electric-pound-behavior
-      '(alignleft)
+      c-electric-pound-behavior '(alignleft)
       c-report-syntactic-errors t)
+
 (setq-default c-block-comment-prefix "* ")
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
