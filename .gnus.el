@@ -80,8 +80,8 @@
 (setq gnus-posting-styles
       '((".*"
 	 (signature-file "~/.sig/default")
-	 (name "Wang Chunyu")
-	 (address "cymacs@gmail.com"))
+	 (name "Íõ´ºÓî")
+	 (address "chunyu@hit.edu.cn"))
 	("^nntp\\+ds1:.*"
 	 (signature-file "~/.sig/localnews")
 	 (name "Chunyu")
