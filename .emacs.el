@@ -94,7 +94,7 @@
       line-move-ignore-invisible t
       ring-bell-function 'ignore)
 
-(setq truncate-partial-width-windows nil
+(setq truncate-partial-width-windows t
       sentence-end-double-space nil
       makefile-electric-keys t
       compilation-window-height 10
@@ -227,7 +227,6 @@
 	("stardic" . gb2312)
 	("xdict" . gb2312)))
 
-
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
 
@@ -263,7 +262,7 @@
 (blink-cursor-mode -1)
 (display-time-mode 1)
 (show-paren-mode 1)
-(menu-bar-mode (if window-system 1 -1))
+(menu-bar-mode -1)
 (icomplete-mode 1)
 (ido-everywhere 1)
 (ido-mode 1)
