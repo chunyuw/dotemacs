@@ -57,9 +57,7 @@
 	     (define-key calendar-mode-map "b" 'calendar-backward-day)
 	     (define-key calendar-mode-map "j" 'calendar-forward-week)
 	     (define-key calendar-mode-map "k" 'calendar-backward-week)
-	     (define-key calendar-mode-map "n" 'calendar-forward-month)
-	     ;;(define-key calendar-mode-map "p" 'calendar-backward-month)
-	     ;;(define-key calendar-mode-map "\C-z" 'calendar-set-mark)
+	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
 	     ))
 
 (autoload 'chinese-year "cal-china" "Chinese year data" t)
