@@ -73,6 +73,7 @@
       suggest-key-bindings 1
       line-number-display-limit 1000000
       kill-ring-max 200
+      vc-follow-symlinks t
       ring-bell-function 'ignore)
 
 (setq sentence-end-double-space nil)
