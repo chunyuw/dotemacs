@@ -80,7 +80,6 @@
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
-      next-line-add-newlines nil
       require-final-newline t
       resize-mini-windows t
       track-eol t
@@ -254,6 +253,7 @@
 (menu-bar-mode -1)
 (icomplete-mode 1)
 (ido-everywhere 1)
+(hi-lock-mode 1)
 (ido-mode 1)
 
 (add-hook 'diary-hook 'appt-make-list)
@@ -378,21 +378,12 @@
 
 (load ".emacs-records")
 (setq records-init-file "~/.emacs.d/.emacs-records")
-;; (define-key global-map [?\C-x ?n ?t] 'records-goto-today)
-;; (define-key global-map [?\C-x ?n ?r] 'records-insert-record-region)
-;; (define-key global-map [?\C-x ?n ?b] 'records-insert-record-buffer)
-;; (define-key global-map [?\C-x ?n ?l] 'records-insert-link)
 (add-hook 'calendar-load-hook
-	  (function
-	   (lambda ()
-	     (define-key calendar-mode-map "n"
-	       'records-calendar-to-record))))
+	  '(lambda ()
+	     (define-key calendar-mode-map "n" 'records-calendar-to-record)))
 (add-hook 'records-mode-hooks
-	  (function 
-	   (lambda ()
-	     ;; (abbrev-mode 1)
-	     (turn-on-auto-fill)
-	     (turn-on-filladapt-mode))))
+	  '(lambda ()
+	     (turn-on-auto-fill)))
 
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
