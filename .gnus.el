@@ -159,7 +159,7 @@
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       "mail.misc"))
-	"misc.misc"))
+	"misc.junk"))
 
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@aabb.ccdd.eeff>"))
