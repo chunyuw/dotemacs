@@ -259,7 +259,7 @@
  '(ediff-current-diff-face-Ancestor ((((type tty)) (:background "magenta" :foreground "black"))))
  '(ediff-current-diff-face-B ((((type tty)) (:background "blue" :foreground "yellow" :weight bold))))
  '(ediff-current-diff-face-C ((((type tty)) (:background "blue" :foreground "magenta" :weight bold))))
- '(ediff-even-diff-face-A ((((type tty)) (:background "white" :foreground "red3"))))
+ '(ediff-even-diff-face-A ((((type tty)) (:background "white" :foreground "red"))))
  '(ediff-even-diff-face-Ancestor ((((type tty)) (:background "cyan" :foreground "black"))))
  '(ediff-even-diff-face-B ((((type tty)) (:background "white" :foreground "blue"))))
  '(ediff-even-diff-face-C ((((type tty)) (:background "light grey" :foreground "magenta"))))
@@ -268,7 +268,7 @@
  '(ediff-fine-diff-face-B ((((type tty)) (:background "cyan" :foreground "yellow" :weight bold))))
  '(ediff-fine-diff-face-C ((((type tty)) (:background "Turquoise" :foreground "magenta" :weight bold))))
  '(ediff-odd-diff-face-A ((((type tty)) (:background "black" :foreground "red3" :weight bold))))
- '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green3" :weight bold))))
+ '(ediff-odd-diff-face-Ancestor ((((type tty)) (:background "black" :foreground "green" :weight bold))))
  '(ediff-odd-diff-face-B ((((type tty)) (:background "black" :foreground "yellow" :weight bold))))
  '(ediff-odd-diff-face-C ((((type tty)) (:background "black" :foreground "magenta" :weight bold)))))
 
