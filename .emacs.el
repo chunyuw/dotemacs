@@ -11,6 +11,7 @@
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'gdb)
 
+(global-set-key "\C-co" 'occur)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-c\C-b" 'login-bbs-by-name)
 (global-set-key [(control z)]  'set-mark-command)
@@ -20,7 +21,7 @@
 (global-set-key [delete]    'delete-char)
 
 (setq-default transient-mark-mode nil)
-(setq-default truncate-lines t)
+(setq-default truncate-lines nil)
 (setq-default save-place t)
 
 (setq text-mode-hook 'turn-on-auto-fill)
