@@ -5,14 +5,12 @@
       gnus-secondary-select-methods
       '((nnml "")
 	;; (nntp "news.individual.net")
-	;; (nntp "bbs.52098.com")
 	;; (nntp "news.gmane.org")
 	;; (nntp "localhost")
 	(nntp "news.newsfan.net")))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
-      ;; gnus-group-name-charset-method-alist '(((nntp "news.newsfan.net") . cn-gb-2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
@@ -30,8 +28,7 @@
       gnus-treat-display-smileys t
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
-      gnus-interactive-exit nil
-      )
+      gnus-interactive-exit nil)
 
 (setq mm-inline-large-images t
       mm-inline-override-types '("text/html"))
@@ -40,7 +37,6 @@
       '((".*" (agent-disable-undownloaded-faces t))
 	("list\\..*" (subscribed . t) (total-expire . nil))
 	("misc\\..*" (total-expire . t))
-	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
 	("mail\\..*\\|classmate\\..*" (gnus-use-scoring nil))))
 
@@ -60,8 +56,7 @@
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn")))
-;; cymacs@gmail.com cyemacs@gmail.com chunyu@myrealbox.com
-;; dddkk@163.com
+;; cymacs@gmail.com cyemacs@gmail.com chunyu@myrealbox.com dddkk@163.com
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
