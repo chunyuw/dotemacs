@@ -56,6 +56,7 @@
       uniquify-buffer-name-style 'forward
       confirm-kill-emacs nil            ; 'y-or-n-p
       suggest-key-bindings 1
+      line-number-display-limit 1000000
 
       apropos-do-all nil
       x-stretch-cursor t
@@ -298,6 +299,11 @@
 (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
 (load-file custom-file)
+
+;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
+;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
+;; (load "xrefactory")
+(put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
