@@ -1,6 +1,7 @@
 ;;; file-version: 6
 ;;; user-fields: (www attribution msn qq)
 ["985101" "" nil nil nil nil ("985101@googlegroups.com") ((creation-date . "2004-08-06") (timestamp . "2004-08-06") (www . "http://groups-beta.google.com/group/985101")) nil]
+["biAji" "" nil nil nil nil ("biajiAT@163.net") ((creation-date . "2004-08-13") (timestamp . "2004-08-13") (notes . "Emacsor @ newsfan")) nil]
 ["Zhou" "Fei" ("figure") nil nil nil ("zhoufei@mail.siom.ac.cn") ((creation-date . "2003-08-14") (timestamp . "2004-08-04") (msn . "afigure@msn.com")) nil]
 ["Cheng" "Gao" nil nil nil nil ("goghs@yahoo.com" "chenggao@cyberhut.org" "chenggao@cyberhut.orgremoveme" "chenggao@fastmail.cn" "goghs@harveymachinery.com" "chenggao@gmail.com") ((creation-date . "2003-09-12") (timestamp . "2004-08-03") (www . "http://www.devbeez.com")) nil]
 ["NewBlue" nil nil nil nil nil ("phzgo@163.com" "newblue@xinhuanet.com" "NewBlue@yaako.com") ((creation-date . "2003-09-24") (timestamp . "2004-08-03") (www . "http://linuxfire.dhis.org/~newblue")) nil]
