@@ -1,5 +1,5 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn. 
+;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn.
 ;; Chunyu <chunyu@hit.edu.cn>.
 
 (global-set-key [f1] 'cvs-examine)
@@ -100,9 +100,8 @@
       kept-new-versions 5
       delete-old-versions t
       backup-directory-alist '(("" . "~/var/tmp"))
-      backup-by-copying-when-linked t
-      backup-by-copying-when-mismatch t
-      
+      backup-by-copying t
+
       font-lock-maximum-decoration t
       font-lock-global-modes '(not shell-mode text-mode)
       font-lock-verbose t
@@ -115,11 +114,11 @@
         try-expand-list-all-buffers
         try-expand-dabbrev
         try-expand-dabbrev-visible
-        try-expand-dabbrev-all-buffers 
+        try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill
         try-complete-file-name
         try-complete-file-name-partially
-        try-complete-lisp-symbol 
+        try-complete-lisp-symbol
         try-complete-lisp-symbol-partially
         try-expand-whole-kill)
 
@@ -167,7 +166,7 @@
 (display-time-mode 1)
 (ido-mode 1)
 (add-hook 'dired-load-hook
-          (lambda () 
+          (lambda ()
             (load "dired-x")
             (setq dired-view-command-alist
                   (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee"))
@@ -212,7 +211,7 @@
 (autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
 (autoload 'todo-show "todo-mode" "Show TODO items." t)
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
-(setq auto-mode-alist 
+(autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
                 ("\\.css\\'" . css-mode)) auto-mode-alist))
 
