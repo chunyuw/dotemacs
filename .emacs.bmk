@@ -9,10 +9,10 @@
    (position . 1638)))
  ("elisp"
   ((filename . "/usr/local/info/elisp")
-   (front-context-string . "\n   However, a s")
-   (rear-context-string . "ve subr-object.\n")
-   (position . 152190)
-   (info-node . "Function Names")))
+   (front-context-string . "\n   When a macro")
+   (rear-context-string . "th\ncompilation.\n")
+   (position . 184619)
+   (info-node . "Compiling Macros")))
  ("elisp-notes"
   ((filename . "/home/spr/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")

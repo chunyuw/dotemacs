@@ -26,6 +26,8 @@
 
 ;; (setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
 
+;; (setq gnus-agent-mark-unread-after-downloaded nil)
+
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t) (total-expire . t))
 	("misc\\..*" (total-expire . t))
