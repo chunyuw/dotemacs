@@ -123,6 +123,8 @@
       ido-enable-tramp-completion t
       ido-save-directory-list-file nil
       ido-save-directory-list-file nil)
+      tramp-unified-filenames t
+      ange-ftp-default-user t)
       quack-default-program "guile"
       quack-fontify-style nil
       quack-fontify-style nil)
@@ -207,8 +209,7 @@
 (defun kill-buffer-directly () (interactive) (kill-buffer nil))
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
-(add-to-list 'backup-directory-alist
-	     (cons tramp-file-name-regexp nil))
+(add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
 		("\\.css\\'" . css-mode))
 (require 'compile)
