@@ -48,7 +48,8 @@
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
-(define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
+(if (eq window-system 'w32) 
+    (define-key dired-mode-map "o" 'chunyu-dired-open-explorer))
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (eval-after-load "apropos"
@@ -231,6 +232,8 @@
 	brace-elseif-brace 
 	scope-operator 
 	empty-defun-braces))
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (setq quack-default-program "guile"
       quack-fontify-style nil)

@@ -45,4 +45,9 @@
 	(start-process "dir" nil 
 		       "cmd.exe" "/c" "start" file-name))))
 
+(defun net-message (recipient text)
+  "Send a net message with Emacs.\nThis needs Windows/NT, I think."
+  (interactive "s机器名(或IP): \ns消息内容: ")
+  (shell-command (format "net send %s %s" recipient text)))
+
 ;; Chunyu's .emacs_func.el ends here.
