@@ -96,7 +96,7 @@
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
-      backup-directory-alist '(("" . "~/tmp"))
+      backup-directory-alist '(("" . "~/var/tmp"))
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t
       
