@@ -43,9 +43,10 @@
 (define-key ctl-xm-map "e" 'cvs-examine)
 (define-key ctl-xm-map "m" 'man-follow)
 (define-key ctl-xm-map "g" 'run-scheme)
-(define-key ctl-xm-map "b" 'ibuffer)
+(define-key ctl-xm-map "b" 'list-bookmarks)
 (define-key ctl-xm-map "l" 'browse-kill-ring)
 (define-key ctl-xm-map "a" 'align-current)
+(define-key ctl-xm-map "w" 'ibuffer)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode

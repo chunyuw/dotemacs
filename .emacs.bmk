@@ -2,38 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("socket-libc"
-  ((filename . "/usr/share/info/libc")
-   (front-context-string . "File: libc.info,")
-   (rear-context-string)
-   (position . 35374)
-   (info-node . "Socket Concepts")))
- ("notes-elisp"
-  ((filename . "/home/spr/work/notes/notes-elisp")
-   (front-context-string . "\n\n\nLocal Variabl")
-   (rear-context-string . "  两种数的类型：整数和浮点数。")
-   (position . 2932)))
- ("notes-emacs"
-  ((filename . "/home/spr/work/notes/notes-emacs")
-   (front-context-string . "\n\n</pre></p>\n<dt")
-   (rear-context-string . "===============\n")
-   (position . 5513)))
- ("notes-gnus"
-  ((filename . "/home/spr/work/notes/notes-gnus")
-   (front-context-string . "\n</pre></p>\n<dtm")
-   (rear-context-string . "===============\n")
-   (position . 943)))
- ("elisp-notes"
-  ((filename . "/home/spr/work/notes/notes-elisp")
-   (front-context-string . "\n\n\nLocal Variabl")
-   (rear-context-string . "  两种数的类型：整数和浮点数。")
-   (position . 2927)))
- ("elisp"
+(("elisp"
   ((filename . "/usr/local/info/elisp")
    (front-context-string . "File: elisp,  No")
    (rear-context-string)
    (position . 4899)
-   (info-node . "Evaluation")))
+   (info-node . "Evaluation")
+   (annotation . "")))
+ ("elisp-notes"
+  ((filename . "/home/spr/work/notes/notes-elisp")
+   (front-context-string . "\n\n\nLocal Variabl")
+   (rear-context-string . "  两种数的类型：整数和浮点数。")
+   (position . 2927)
+   (annotation . "Emacs Lisp 学习笔记:)")))
  ("emacs-notes"
   ((filename . "/home/spr/work/notes/notes-emacs")
    (front-context-string . "\n</pre></p>\n<dtm")
@@ -50,4 +31,25 @@
    (front-context-string . "     	(loop (- k")
    (rear-context-string . "(if (zero? k) l\n")
    (position . 4475)
-   (info-node . "Jump Start"))))
+   (info-node . "Jump Start")))
+ ("notes-elisp"
+  ((filename . "/home/spr/work/notes/notes-elisp")
+   (front-context-string . "\n\n\nLocal Variabl")
+   (rear-context-string . "  两种数的类型：整数和浮点数。")
+   (position . 2932)))
+ ("notes-emacs"
+  ((filename . "/home/spr/work/notes/notes-emacs")
+   (front-context-string . "\n\n</pre></p>\n<dt")
+   (rear-context-string . "===============\n")
+   (position . 5513)))
+ ("notes-gnus"
+  ((filename . "/home/spr/work/notes/notes-gnus")
+   (front-context-string . "\n</pre></p>\n<dtm")
+   (rear-context-string . "===============\n")
+   (position . 943)))
+ ("socket-libc"
+  ((filename . "/usr/share/info/libc")
+   (front-context-string . "File: libc.info,")
+   (rear-context-string)
+   (position . 35374)
+   (info-node . "Socket Concepts"))))
