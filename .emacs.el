@@ -198,7 +198,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (find-function-setup-keys)
-(file-name-shadow-mode 1)
 (minibuffer-electric-default-mode 1)
 (partial-completion-mode 1)
 (utf-translate-cjk-mode 1)
@@ -325,7 +324,6 @@
       (append '(("\\.py\\'" . python-mode)
 		("\\.s?html?\\'" . html-helper-mode)
 		("\\.asp\\'" . html-helper-mode)
-(add-to-list 'load-path "~/.emacs.d/elisp/tramp")
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
 (require 'gnus-load)
@@ -334,6 +332,7 @@
 (require 'compile)
 	      auto-mode-alist))
 (require 'uniquify)
+(require 'generic-x)
 ;; (require 'flyspell)
 
 (put 'dired-find-alternate-file 'disabled nil)
