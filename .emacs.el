@@ -179,6 +179,8 @@
   (set-foreground-color "white"))
 
 (when window-system
+  (global-set-key (kbd "C--") 'undo)
+
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
 
