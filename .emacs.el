@@ -52,8 +52,11 @@
 
 (eval-after-load "apropos"
   '(progn
+     (require 'view)
      (define-key apropos-mode-map "n" 'forward-button)
-     (define-key apropos-mode-map "p" 'backward-button)))
+     (define-key apropos-mode-map "p" 'backward-button)
+     (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
@@ -101,7 +104,8 @@
       makefile-electric-keys t
       compilation-window-height 10
       scroll-preserve-screen-position t
-      apropos-do-all t)
+      ;;apropos-do-all t
+      )
 
 (setq bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/.emacs.bmk")
