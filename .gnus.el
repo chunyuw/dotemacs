@@ -1,17 +1,21 @@
-;; -*- Emacs-lisp -*-
+;; $Id$  -*- Emacs-Lisp -*-
+;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
+
+;; nntp hosts: news.bentium.com, freenews.netfront.net,
+;;  news.zixia.com, news.webking.cn, news.newsfan.net
+;;国内: news.cnnb.net 国外: news.ind.mh.se
+
 
 (setq gnus-select-method '(nntp "news.cn99.com"))
+(setq gnus-secondary-select-methods '((nnml "private")))
+(add-to-list 'gnus-secondary-select-methods '(nntp "localhost"))
+
 (setq gnus-message-archive-group
       '((if (message-news-p) "misc-news"
           (concat "mail." (format-time-string "%Y-%m")))))
 (setq gnus-group-name-charset-group-alist
       '((".*" . gb2312)))
 
-(setq gnus-secondary-select-methods '((nnml "private")))
-(add-to-list 'gnus-secondary-select-methods '(nntp "localhost"))
-;; nntp hosts: news.bentium.com, freenews.netfront.net,
-;;  news.zixia.com, news.webking.cn, news.newsfan.net
-;;国内: news.cnnb.net 国外: news.ind.mh.se
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
