@@ -189,10 +189,10 @@
 	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
 	    (set-face-attribute 'ediff-current-diff-face-B nil :background "blue" :foreground "yellow" :weight 'bold)
 	    (set-face-attribute 'ediff-current-diff-face-C nil :background "blue" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-even-diff-face-A nil :background "white" :foreground "red")
+	    (set-face-attribute 'ediff-even-diff-face-A nil :background "black" :foreground "red")
 	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-even-diff-face-B nil :background "white" :foreground "blue")
-	    (set-face-attribute 'ediff-even-diff-face-C nil :background "light grey" :foreground "magenta")
+	    (set-face-attribute 'ediff-even-diff-face-B nil :background "black" :foreground "blue")
+	    (set-face-attribute 'ediff-even-diff-face-C nil :background "black" :foreground "magenta")
 	    (set-face-attribute 'ediff-fine-diff-face-A nil :background "cyan" :foreground "red")
 	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
 	    (set-face-attribute 'ediff-fine-diff-face-B nil :background "cyan" :foreground "yellow" :weight 'bold)
@@ -210,14 +210,12 @@
 
        (setq default-left-fringe-width 4
 	     default-right-fringe-width 4)
-
 ;;        (set-background-color "DarkSlateGrey")
 ;;        (set-foreground-color "Wheat")
 ;;        (set-cursor-color "gold1")
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
-	       (top . 1)
-
+	       (top . 20)
 	       (background-color . ,"DarkSlateGrey")
 	       (foreground-color . ,"Wheat")
 	       ,(cons 'width  (frame-width))
@@ -226,8 +224,6 @@
 	       (mouse-color      . "gold1")
 	       (font . "9x15")
 	       ))
-       (setq minibuffer-frame-alist
-	     nil )
 
        (if (facep 'mode-line)
 	   (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
