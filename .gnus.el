@@ -4,7 +4,9 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
       '((nnml "")
-	(nntp "news.gmane.org")
+	;; (nntp "news.gmane.org")
+	;; (nntp "bbs.52098.com")
+	;; (nntp "news.gmane.org")
 	(nntp "localhost")
 	(nntp "news.newsfan.net")))
 
@@ -95,7 +97,15 @@
 	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
-	 (address "chunyu@hit.edu.cn"))))
+	 (address "chunyu@hit.edu.cn"))
+	("cn.test"
+	 (name "abc")
+	 (address "xiaoludeche1980@eyou.com"))))
+;; xiaoludeche1980@eyou.com
+;; li_9888@hotmail.com
+;; xuery@126.com
+;; fj35@vip.sina.com
+
 
 (setq sc-attrib-selection-list nil
       sc-auto-fill-region-p nil

@@ -326,7 +326,10 @@
 	      (defun net-message (recipient text)
 		"Send a net message with Emacs.\nThis needs Windows/NT, I think."
 		(interactive "s机器名(或IP): \ns消息内容: ")
-		(shell-command (format "net send %s %s" recipient text))))
+		(shell-command (format "net send %s %s" recipient text)))
+	      (setq default-frame-alist
+		    (append '((width . 80) (height . 43))
+			    default-frame-alist)))
 
 	     ((eq window-system 'x)
 	      ;; X-Window

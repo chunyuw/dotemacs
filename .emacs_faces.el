@@ -2,12 +2,14 @@
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_faces.el, created on 2003/11/20 on db.cs.hit.edu.cn.
 
 (cond ((not window-system)
+       ;; Text-Only console
        (set-face-attribute 'highlight nil
 			   :foreground "white"
 			   :background "blue"
 			   :underline nil
 			   :weight 'normal)
        (set-face-attribute 'region nil :background "blue")
+
        (eval-after-load "log-view"
 	 '(progn
 	    (set-face-attribute 'log-view-file-face nil
@@ -16,6 +18,7 @@
 	    (set-face-attribute 'log-view-message-face nil
 				:foreground "yellow"
 				:weight 'bold)))
+
        (eval-after-load "ediff-init"
 	 '(progn
 	    (set-face-attribute 'ediff-current-diff-face-A nil
@@ -75,7 +78,9 @@
 				:background "black"
 				:foreground "green"
 				:weight 'bold))))
+
       (window-system
+       ;; BOTH X-Window and MS-Windows
        (set-face-attribute 'fringe nil
 			   :foreground "limegreen"
 			   :background "gray30")
