@@ -258,7 +258,7 @@
 (add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
-(add-hook 'write-file-hooks 'time-stamp)
+;; (add-hook 'write-file-hooks 'time-stamp)
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (add-hook 'message-setup-hook
 	  (lambda ()

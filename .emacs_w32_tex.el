@@ -3,7 +3,10 @@
 
 (require 'tex-site)
 
-(add-hook 'TeX-mode-hook 'turn-on-reftex)
+(add-hook 'TeX-mode-hook 
+	  (lambda () 
+	    (setq reftex-plug-into-AUCTeX t)
+	    (turn-on-reftex)))
 
 ;; (add-hook 'LaTeX-mode-hook
 ;; 	  (lambda ()
