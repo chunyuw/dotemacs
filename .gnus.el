@@ -28,7 +28,7 @@
       gnus-treat-strip-multiple-blank-lines 'last
 
       gnus-treat-display-smileys t
-
+      ;; gnus-treat-body-boundary 'head
       gnus-auto-select-next 'quietly
       gnus-activate-foreign-newsgroups 4
 
@@ -160,12 +160,14 @@
 	;; (any "cedet-semantic@lists.sourceforge.net" "list.emacs.cedet-semantic")
 	;; (any "tutor@python.org" "list.python.tutor")
 	;; (any "gdb@gnu.org" "list.gdb")
+	(any "scm@list.cn99.com" "list.cn99.scm")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
-	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
+	(any "985101@db.cs.hit.edu.cn" "classmate.985101")
 	(any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
 	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
 	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
+	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
@@ -184,16 +186,16 @@
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@aabb.ccdd.eeff>"))
 
-(setq gnus-use-trees t
-      gnus-generate-tree-function 'gnus-generate-horizontal-tree
-      gnus-tree-minimize-window nil
-      gnus-selected-tree-face 'underline
-      gnus-tree-line-format "%(%[%6,6n%]%)")
+;; (setq gnus-use-trees t
+;;       gnus-generate-tree-function 'gnus-generate-horizontal-tree
+;;       gnus-tree-minimize-window nil
+;;       gnus-selected-tree-face 'underline
+;;       gnus-tree-line-format "%(%[%6,6n%]%)")
 
-(gnus-add-configuration
- '(article (vertical 1.0
-		     (horizontal 0.25 (summary 0.7 point) (tree 1.0))
-		     (article 1.0))))
+;; (gnus-add-configuration
+;;  '(article (vertical 1.0
+;; 		     (horizontal 0.25 (summary 0.7 point) (tree 1.0))
+;; 		     (article 1.0))))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
