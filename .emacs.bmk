@@ -9,10 +9,10 @@
    (position . 1638)))
  ("elisp"
   ((filename . "/usr/local/info/elisp")
-   (front-context-string . "File: elisp,  No")
-   (rear-context-string)
-   (position . 40641)
-   (info-node . "Iteration")))
+   (front-context-string . "\n   However, a s")
+   (rear-context-string . "ve subr-object.\n")
+   (position . 152190)
+   (info-node . "Function Names")))
  ("elisp-notes"
   ((filename . "/home/spr/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")
