@@ -48,7 +48,6 @@
 	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
 	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)))
 
-
 (autoload 'chinese-year "cal-china" "Chinese year data" t)
 
 (defun holiday-chinese (cmonth cday string)
@@ -67,6 +66,9 @@ Returns nil if it is not visible in the current calendar window."
     (increment-calendar-month m y (- 11 gm))
     (if (> m 9)
       (list (list (list gm gd gy) string)))))
+
+;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
+;;   ())
 
 ;;;; records mode ;;;;
 (load ".emacs-records")
