@@ -135,6 +135,7 @@
 (setq nnmail-treat-duplicates 'delete
       nnmail-crosspost nil
       nnmail-split-methods 'nnmail-split-fancy
+      nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(|
 	(from "sinamx.sina.com.cn" "misc.junk")
@@ -166,27 +167,50 @@
 ;; (gnus-demon-add-disconnection)
 ;; (gnus-demon-add-scanmail)
 
-(require 'gnus-sum)
-(defface chunyu-gnus-own-posting-face nil
-  "Use this face to display own postings in Summary Buffer")
-(copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-own-posting-face)
-(set-face-foreground 'chunyu-gnus-own-posting-face "red")
+(unless window-system 
+  (require 'gnus-sum)
+  (defface chunyu-gnus-own-posting-face nil
+    "Use this face to display own postings in Summary Buffer")
+  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-own-posting-face)
+  (set-face-foreground 'chunyu-gnus-own-posting-face "red")
 
-(defface chunyu-gnus-direct-fup-face nil
-  "Use this face to display direct fups to my postings.")
-(copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-direct-fup-face)
-(set-face-foreground 'chunyu-gnus-direct-fup-face "blue")
+  (defface chunyu-gnus-direct-fup-face nil
+    "Use this face to display direct fups to my postings.")
+  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-direct-fup-face)
+  (set-face-foreground 'chunyu-gnus-direct-fup-face "blue")
 
-(defface chunyu-gnus-indirect-fup-face nil
-  "Use this face to display indirect fups to my postings")
-(copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-indirect-fup-face)
-(set-face-foreground 'chunyu-gnus-indirect-fup-face "blue")
+  (defface chunyu-gnus-indirect-fup-face nil
+    "Use this face to display indirect fups to my postings")
+  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-indirect-fup-face)
+  (set-face-foreground 'chunyu-gnus-indirect-fup-face "blue")
 
-(add-to-list 'gnus-summary-highlight
-             '((and (> score 8500) (eq mark gnus-unread-mark)) . chunyu-gnus-own-posting-face))
-(add-to-list 'gnus-summary-highlight
-             '((and (and (>= 8500 score) (>= score 7500)) (eq mark gnus-unread-mark)) . chunyu-gnus-direct-fup-face))
-(add-to-list 'gnus-summary-highlight
-             '((and (and (>= 7499 score) (>= score 6500)) (eq mark gnus-unread-mark)) . chunyu-gnus-indirect-fup-face))
+  (add-to-list 'gnus-summary-highlight
+	       '((and (> score 8500) (eq mark gnus-unread-mark)) . chunyu-gnus-own-posting-face))
+  (add-to-list 'gnus-summary-highlight
+	       '((and (and (>= 8500 score) (>= score 7500)) (eq mark gnus-unread-mark)) . chunyu-gnus-direct-fup-face))
+  (add-to-list 'gnus-summary-highlight
+	       '((and (and (>= 7499 score) (>= score 6500)) (eq mark gnus-unread-mark)) . chunyu-gnus-indirect-fup-face))
 
+  (eval-after-load "gnus-cite"
+    '(progn
+       (set-face-attribute 'gnus-cite-face-2 nil :foreground "magenta")
+       (set-face-attribute 'gnus-cite-face-3 nil :foreground "yellow")
+       (set-face-attribute 'gnus-cite-face-4 nil :foreground "cyan")))
+  (eval-after-load "gnus-art"
+    '(progn
+       (set-face-attribute 'gnus-header-subject-face nil :foreground "red" :weight 'bold)))
+
+  (set-face-attribute 'gnus-group-mail-1-empty-face nil :foreground "magenta")
+  (set-face-attribute 'gnus-group-mail-1-face nil :foreground "magenta" :weight 'bold)
+  (set-face-attribute 'gnus-group-mail-2-empty-face nil :foreground "cyan")
+  (set-face-attribute 'gnus-group-mail-2-face nil :foreground "cyan" :weight 'bold)
+  (set-face-attribute 'gnus-group-mail-3-empty-face nil :foreground "green")
+  (set-face-attribute 'gnus-group-mail-3-face nil :foreground "green" :weight 'bold)
+  (set-face-attribute 'gnus-group-news-1-empty-face nil :foreground "magenta")
+  (set-face-attribute 'gnus-group-news-1-face nil :foreground "magenta" :weight 'bold)
+  (set-face-attribute 'gnus-group-news-2-empty-face nil :foreground "cyan")
+  (set-face-attribute 'gnus-group-news-2-face nil :foreground "cyan" :weight 'bold)
+  (set-face-attribute 'gnus-group-news-3-empty-face nil :foreground "green")
+  (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold)
+  )
 ;; .gnus.el ends here.
