@@ -80,7 +80,8 @@
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 
-(setq gc-cons-threshold 2000000)
+(setq gc-cons-threshold 2000000
+      echo-keystrokes 0.5)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -263,6 +264,7 @@
 (find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
+(mouse-avoidance-mode 'exile)
 (partial-completion-mode 1)
 (utf-translate-cjk-mode -1)
 (global-font-lock-mode 1)
