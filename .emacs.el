@@ -304,7 +304,7 @@
 ;;(load-file "~/.emacs.d/.emacs_smtp.el")
 (load-file "~/.emacs.d/.emacs_erc.el")
 (load-file "~/.emacs.d/.emacs_bbdb.el")
-(load-file custom-file)
+;;(load-file custom-file)
 
 ;; (setq exec-path (cons "/usr/local/share/xref" exec-path))
 ;; (setq load-path (cons "/usr/local/share/xref/emacs" load-path))
