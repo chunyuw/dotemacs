@@ -3,12 +3,15 @@
 
 (require 'tex-site)
 
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    (setq fill-paragraph-function nil)))
+(add-hook 'TeX-mode-hook 'turn-on-reftex)
+
+;; (add-hook 'LaTeX-mode-hook
+;; 	  (lambda ()
+;; 	    (setq fill-paragraph-function nil)))
 
 ;; (cond ((eq window-system 'w32) 
 ;;        (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
+;;        (setq preview-scale-function 1.5)
 ;;        ))
 
 (setq TeX-command-list 

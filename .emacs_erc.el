@@ -12,6 +12,8 @@
 (setq erc-timestamp-format "[%H:%M] ")
 (setq erc-fill-prefix "      + ")
 (setq erc-current-nick-highlight-type 'nick)
+(setq erc-default-coding-system 'cn-gb-2312)
+
 (add-hook 'erc-insert-modify-hook 'erc-fill)
 (add-hook 'erc-send-modify-hook 'erc-fill)
 (add-hook 'erc-mode-hook
