@@ -27,8 +27,18 @@
       bbdb-offer-save nil
       bbdb-complete-name-allow-cycling t 
       bbdb-user-mail-names
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "spr@db.hit.edu.cn"))
-      )
+      (regexp-opt '("dddkk@sina.com" 
+		    "dddkk@163.net"
+		    "chunyu@hit.edu.cn" 
+		    "chunyu@db.hit.edu.cn"
+		    "chunyu@db.cs.hit.edu.cn"
+		    "spr@db.hit.edu.cn" 
+		    "spr@db.cs.hit.edu.cn" 
+		    "emacs.bbs@bbs.hit.edu.cn" ; bbs.hit.edu.cn
+		    "emacs.bbs@bbs.nju.edu.cn" ; bbs.nju.edu.cn
+		    "dddkk@smth.edu.cn"	       ; smth.org
+		    "python@bbs.ustc.edu.cn"   ; bbs.ustc.edu.cn
+		    )))
 
 ;; (cond ((not window-system) 
 ;;        (set-face-attribute 'bbdb-name nil  :foreground "yellow" :underline nil)
