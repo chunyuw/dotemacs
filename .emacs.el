@@ -65,6 +65,8 @@
       dired-guess-shell-gnutar t
       cvs-dired-use-hook 'always
 
+      abbrev-file-name "~/.emacs.d/.abbrev_defs"
+
       display-time-24hr-format t
       display-time-day-and-date t
       display-time-use-mail-icon t
