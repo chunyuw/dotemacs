@@ -31,7 +31,7 @@
 (define-key ctl-x-m-map "s" 'dictionary-search)
 (define-key ctl-x-m-map "c" 'boxquote-shell-command)
 (define-key ctl-x-m-map "f" 'boxquote-describe-function)
-(define-key ctl-x-m-map "i" 'imenu)	; boxquote-insert-file
+(define-key ctl-x-m-map "i" 'boxquote-insert-file)
 (define-key ctl-x-m-map "k" 'boxquote-describe-key)
 (define-key ctl-x-m-map "p" 'boxquote-paragraph)
 (define-key ctl-x-m-map "r" 'boxquote-region)
@@ -46,6 +46,13 @@
 (define-key ctl-x-m-map "l" 'browse-kill-ring)
 (define-key ctl-x-m-map "a" 'align-current)
 (define-key ctl-x-m-map "w" 'ibuffer)
+
+(define-prefix-command 'meta-m-map)
+(global-set-key "\M-m" 'meta-m-map)
+(define-key meta-m-map "\M-m" 'back-to-indentation)
+(define-key meta-m-map "\M-o" 'other-window)
+(define-key meta-m-map "\M-n" 'gnus)
+(define-key meta-m-map "\M-i" 'imenu)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -195,7 +202,6 @@
 (minibuffer-electric-default-mode 1)
 (partial-completion-mode 1)
 (utf-translate-cjk-mode 1)
-(which-func-mode 1)
 (global-font-lock-mode 1)
 (menu-bar-mode -1)
 (column-number-mode 1)
@@ -215,9 +221,25 @@
 		    ("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")
 		    ("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))))
 
-(add-hook 'ido-define-mode-map-hook 'ido-my-keys)
-(defun ido-my-keys () "Add my keybindings for ido."
-  (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir))
+(add-hook 'message-setup-hook 
+      '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
+	("[.]pdf\\'" . "xpdf %s")
+	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
+(defun chunyu-message-expand (&optional arg)
+  "message mode expand."
+  (interactive)
+  (if (message-point-in-header-p)
+      (bbdb-complete-name arg)
+    (hippie-expand arg)))
+
+
+(add-hook 'message-setup-hook
+	  (lambda ()
+	    (define-key message-mode-map "\M-/" 'chunyu-message-expand)))
+
+(add-hook 'ido-define-mode-map-hook
+	  (lambda ()
+	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
 
 (cond ((not window-system)
     (view-scroll-lines lines t 1 t)
@@ -296,9 +318,9 @@
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (autoload 'browse-kill-ring "browse-kill-ring.el" "Browse kill ring" t)
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
-		;; ("\\.s?html?\\'" . html-helper-mode)
-		;; ("\\.asp\\'" . html-helper-mode)
-		;; ("\\.phtml\\'" . html-helper-mode)
+;; (autoload 'turn-off-folding-mode "folding" "Folding mode" t)
+;; (autoload 'turn-on-folding-mode  "folding" "Folding mode" t)
+
 (setq auto-mode-alist
       (append '(("\\.py\\'" . python-mode)
 		("\\.s?html?\\'" . html-helper-mode)
