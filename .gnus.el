@@ -12,9 +12,9 @@
 (setq gnus-message-archive-group
       '((if (message-news-p) "misc-news"
           (concat "mail." (format-time-string "%Y-%m")))))
+
 (setq gnus-group-name-charset-group-alist
       '((".*" . gb2312)))
-
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
@@ -31,7 +31,7 @@
 	("classmate" "^Form:.*hit.edu.cn")
 	("lab" "^From:.*db.hit.edu.cn")
 	("misc" "^\\([Cc]c\\|To\\):.*\\(chunyu\\|spr\\|dddkk@sina.com\\)")
-	;;("junk" "^From:.*sinamx.sina.com.cn")
+	("junk" "^From:.*sinamx.sina.com.cn")
 	("junk" "")))
 
 (setq gnus-posting-styles
@@ -51,7 +51,6 @@
 	 (signature-file "~/.signature/mail")
 	 (name "Õı¥∫”Ó")
 	 (address "dddkk@sina.com"))))
-
 
 (eval-after-load "mm-decode"
   '(progn
