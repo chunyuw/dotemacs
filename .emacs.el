@@ -21,6 +21,8 @@
 (global-set-key "\M-o" 'other-window)
 (global-set-key "\M-n" 'gnus)
 (global-set-key "\M-`" 'next-error)
+;;(global-set-key [(control tab)] 'bury-buffer)
+
 ;; (global-set-key "\C-\M-s" 'isearch-forward)
 ;; (global-set-key "\C-\M-r" 'isearch-backward)
 ;; (global-set-key "\C-s" 'isearch-forward-regexp)
@@ -300,6 +302,7 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
+(desktop-save-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
