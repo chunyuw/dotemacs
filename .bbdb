@@ -7,6 +7,7 @@
 ["陆." "\x84\xc2" nil nil nil nil ("lujie_cn2003@yahoo.com.cn") ((creation-date . "2003-07-30") (timestamp . "2004-08-04") (msn . "lu_1_7@hotmail.com")) nil]
 ["车万祥" nil ("Carl Che") nil (["Mobile" "13936576968"]) nil ("car@ir.hit.edu.cn" "car@hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2004-08-04") (www . "http://ir.hit.edu.cn/~car") (msn . "chewanxiang@hotmail.com")) nil]
 ["陈文英" nil nil nil nil nil ("cwyhit@sina.com" "cwyhit@sohu.com") ((creation-date . "2003-07-30") (timestamp . "2003-08-13")) nil]
+["陈阳" "" ("Jancker Chen") nil nil nil ("chenyang@aspire-tech.com") ((creation-date . "2004-08-09") (timestamp . "2004-08-09") (notes . "Emacs fans")) nil]
 ["陈昀" nil ("However") nil (["Mobile" "13651392886"]) nil ("however2001@sina.com" "however2001@sina.com.cn") ((creation-date . "2003-08-03") (timestamp . "2004-07-01")) nil]
 ["戴君" nil nil nil (["Mobile" "13102625058"]) nil ("blood-hit@163.com") ((notes . "小灵通 03152080961") (creation-date . "2003-07-30") (timestamp . "2004-08-04") (msn . "blood_hit@hotmail.com")) nil]
 ["党天祥" nil nil "东软" (["Mobile" "13704010523"]) nil ("dangtx@neusoft.com") ((creation-date . "2003-07-30") (timestamp . "2004-07-01")) nil]

@@ -48,6 +48,7 @@
 (define-key Info-mode-map "w" 'Info-scroll-down)
 (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
+(define-key Info-mode-map "\M-n" 'gnus)
 (define-key dired-mode-map "b" 'dired-mark-extension)
 (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
 (define-key dired-mode-map "c" 'dired-up-directory)

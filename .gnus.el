@@ -154,13 +154,15 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
+      '(| (: gnus-registry-split-fancy-with-parent)
+	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
+	  (: spam-split)
 	  (to "chunyu@hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
 		 (from "chunyu@hit\\|dddkk@sina\\|@bbs\\|@smth" "mail.myself")
@@ -169,6 +171,14 @@
 
 ;; (defun message-make-message-id()
 ;;    (concat "<"(message-unique-id)"@cyber.net>"))
+
+;; (setq spam-use-stat t) ;; if needed
+(gnus-registry-initialize)
+(spam-initialize)
+     
+(setq spam-log-to-registry t
+      spam-use-BBDB t
+      spam-use-regex-headers t)
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
