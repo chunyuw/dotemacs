@@ -113,7 +113,8 @@
       (cond ((equal (getenv "HOSTNAME") "ds1") 
 	     "~/.emacs.d/emacs_ds1.bmk")
 	    ((equal (getenv "HOSTNAME") "chunyu")
-	     "~/.emacs.d/emacs_chunyu.bmk")))
+	     "~/.emacs.d/emacs_chunyu.bmk")
+	    (t "~/.emacs.d/emacs.bmk")))
 
 (setq dired-listing-switches "-avl"
       dired-recursive-copies 'top
