@@ -1,4 +1,6 @@
-;; -*- Emacs-lisp -*-
+;; $Id$  -*- Emacs-Lisp -*-
+;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
+
 
 (setq gnus-select-method '(nntp "news.cn99.com"))
 (setq gnus-secondary-select-methods '((nnml "private")))
