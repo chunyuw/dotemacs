@@ -37,9 +37,9 @@
    (position . 7919)))
  ("notes-gnus"
   ((filename . "/home/spr/notes/notes-gnus")
-   (front-context-string . "\n\n</pre></p>\n<dt")
+   (front-context-string . "\n\nLocal Variable")
    (rear-context-string . "===============\n")
-   (position . 3204)))
+   (position . 3578)))
  ("notes-linux"
   ((filename . "/home/spr/notes/notes-linux")
    (front-context-string . "\n\nLocal Variable")
