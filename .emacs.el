@@ -241,6 +241,13 @@
 (setq help-at-pt-display-when-idle 
       '(keymap local-map button kbd-help))
 
+(setq tooltip-gud-tips-p t)
+
+(eval-after-load "webjump"
+  '(progn 
+     (require 'webjump-plus)
+     (setq webjump-sites webjump-plus-sites)))
+
 (setq-default kill-whole-line t)
 
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
@@ -278,7 +285,6 @@
 (icomplete-mode 1)
 (ido-everywhere 1)
 (ido-mode 1)
-
 
 (add-hook 'diary-hook 'appt-make-list)
 (add-hook 'diary-display-hook 'fancy-diary-display)
@@ -399,15 +405,6 @@
 			      (width . 111) (height . 46)
 			      (font . "9x15"))
 			    default-frame-alist))))))
-
-(setq auto-mode-alist
-      (append '(("\\.py\\'" . python-mode)
-		;; ("\\.s?html?\\'" . html-helper-mode)
-		;; ("\\.asp\\'" . html-helper-mode)
-		;; ("\\.phtml\\'" . html-helper-mode)
-		("\\.bhl\\'" . bhl-mode)
-		("\\.css\\'" . css-mode))
-	      auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/elisp")
