@@ -252,7 +252,7 @@
        (setq default-frame-alist
 	     `((vertical-scroll-bars)
 	       (top . 0)
-	       (left . 1)
+	       (left . 0)
 	       (width . 111)
 	       (height . 48)
 	       (background-color . "DarkSlateGrey")
