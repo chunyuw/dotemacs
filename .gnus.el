@@ -4,49 +4,39 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods
       '((nnml "")
-	(nntp "aqua")
-	;; (nntp "news.gnus.org")	; gnus.org nntp server
-	(nntp "news.newsfan.net")))	; newsfan nntp server
+	(nntp "localhost")
+	(nntp "news.newsfan.net")))
 
 (setq gnus-asynchronous t
-      ;; gnus-auto-select-subject 'first
-      ;; gnus-auto-select-first t
       gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      ;; gnus-summary-display-while-building 50
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
       gnus-gcc-mark-as-read t
       gnus-gcc-externalize-attachments 'all
-
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
-
       gnus-treat-display-smileys t
-      ;; gnus-treat-body-boundary 'head
       gnus-auto-select-next 'quietly
       gnus-activate-foreign-newsgroups 4
+      gnus-interactive-exit nil)
 
-      gnus-interactive-exit nil
-      mm-text-html-renderer 'html2text
-      )
+;; (setq gnus-group-line-format "%M%S%p%P%5y:%B%(%g%)%l %O\n")
 
 (setq gnus-parameters
       '(("list\\..*" (subscribed . t) (total-expire . t))
 	("misc\\..*" (total-expire . t))
 	("Itr\\..*\\|db\\..*" (gnus-use-scoring nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
-	("mail\\..*\\|classmate\\..*" (gnus-use-scoring nil))
-	))
+	("mail\\..*\\|classmate\\..*" (gnus-use-scoring nil))))
 
 (setq gnus-header-face-alist
       '(("From" nil gnus-header-from-face)
 	("Subject" nil gnus-header-subject-face)
 	("Newsgroups" nil gnus-header-newsgroups-face)
-	;; ("User-Agent\\|X-Mailer\\|X-Newsreader" gnus-header-subject-face gnus-header-from-face)
 	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
 	("" gnus-header-name-face gnus-header-content-face)))
 
@@ -59,16 +49,9 @@
 
 
 (setq gnus-default-charset 'cn-gb-2312
-      gnus-group-name-charset-group-alist '((".*" . gb2312))
+      gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5))
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
-
-;; (setq gnus-group-posting-charset-alist
-;;       '(("^\\(Itr\\|db\\).*" gb2312 (gb2312))
-;; 	("^\\(cn\\)\\.[^,]*\\(,[ 	\n]*\\(cn\\)\\.[^,]*\\)*$" gb2312 (gb2312))
-;; 	("^\\(º∆À„ª˙\\|–›œ–”È¿÷\\).*" gb2312 (gb2312))
-;; 	(message-this-is-mail nil nil)
-;; 	(message-this-is-news nil t)))
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "spr@db.hit.edu.cn"
@@ -152,19 +135,8 @@
       nnmail-split-fancy
       '(|
 	(to "Dddkk <dddkk@sina\\.com>" junk)
-	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk) ; junk = delete
+	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk)
 	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
-	;; (any "guile-user@gnu.org" "list.guile.user")
-	;; (any "guile-sources@gnu.org" "list.guile.sources")
-	;; (any "fetchmail-friends" "list.fetchmail")
-	;; (any "pgsql-general@postgresql.org" "list.pg-general")
-	;; (any "zope@zope.org" "list.zope")
-	;; (any "xml-sig@python.org" "list.python.xml-sig")
-	;; (any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
-	;; (any "i18n-translation@lists.linux.net.cn" "list.i18n-translation")
-	;; (any "cedet-semantic@lists.sourceforge.net" "list.emacs.cedet-semantic")
-	;; (any "tutor@python.org" "list.python.tutor")
-	;; (any "gdb@gnu.org" "list.gdb")
 	(any "scm@list.cn99.com" "list.cn99.scm")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
@@ -184,23 +156,11 @@
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
 	(from "ccert\\.edu\\.cn" "mail.misc")
-	;; ("Delivered-To" "dddkk@sina\\.com" junk)
 	(any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
 	"misc.junk"))
 
 ;; (defun message-make-message-id()
-;;    (concat "<"(message-unique-id)"@aabb.ccdd.eeff>"))
-
-;; (setq gnus-use-trees t
-;;       gnus-generate-tree-function 'gnus-generate-horizontal-tree
-;;       gnus-tree-minimize-window nil
-;;       gnus-selected-tree-face 'underline
-;;       gnus-tree-line-format "%(%[%6,6n%]%)")
-
-;; (gnus-add-configuration
-;;  '(article (vertical 1.0
-;; 		     (horizontal 0.25 (summary 0.7 point) (tree 1.0))
-;; 		     (article 1.0))))
+;;    (concat "<"(message-unique-id)"@cyber.net>"))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
@@ -210,15 +170,7 @@
 	    (turn-on-auto-fill)
 	    (footnote-mode)))
 
-;; (eval-after-load "mm-decode"
-;;   '(progn
-;;      (setq mm-discouraged-alternatives '("text/html")
-;; 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
-
-;;(gnus-demon-add-scanmail)
-;;(gnus-demon-init)
-
-;;(require 'message-x)
+;; (require 'message-x)
 
 (unless window-system
   (require 'gnus-sum)
