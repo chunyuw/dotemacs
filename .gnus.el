@@ -143,7 +143,7 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(|
-	(to "Dddkk <dddkk@sina\\.com>" "misc.junk")
+	(to "Dddkk <dddkk@sina\\.com>" junk)
 	(from "Cheng Zhiguang\\|chengzhiguang@sohu.com" junk) ; junk = delete
 	;;(from "sinamx.sina.com.cn" "misc.junk")
 	(any "emacs-devel@gnu.org" "list.emacs-devel")
