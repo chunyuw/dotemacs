@@ -2,7 +2,7 @@
 ;;; user-fields: (MSN)
 ["Zhou" "Fei" ("figure") nil nil nil ("zhoufei@mail.siom.ac.cn") ((creation-date . "2003-08-14") (timestamp . "2003-08-23")) nil]
 ["Fredrick" "" nil nil nil nil ("fredricktoy@163.com") ((creation-date . "2003-11-23") (timestamp . "2003-11-23")) nil]
-["Cheng" "Gao" nil nil nil nil ("goghs@yahoo.com" "chenggao@cyberhut.org" "chenggao@cyberhut.orgremoveme" "chenggao@fastmail.cn") ((creation-date . "2003-09-12") (timestamp . "2004-06-10") (notes . "http://www.devbeez.com")) nil]
+["Cheng" "Gao" nil nil nil nil ("goghs@yahoo.com" "chenggao@cyberhut.org" "chenggao@cyberhut.orgremoveme" "chenggao@fastmail.cn" "goghs@harveymachinery.com" "chenggao@gmail.com") ((creation-date . "2003-09-12") (timestamp . "2004-07-05") (notes . "http://www.devbeez.com")) nil]
 ["hvj" nil nil nil nil nil ("joanphan@vip.163.com") ((creation-date . "2004-05-28") (timestamp . "2004-07-01") (notes . "hvj in www.linuxsir.org (关于Emacs的帖子)")) nil]
 ["NewBlue" nil nil nil nil nil ("phzgo@163.com" "newblue@xinhuanet.com" "NewBlue@yaako.com") ((creation-date . "2003-09-24") (timestamp . "2003-11-17")) nil]
 ["Liu" "Qi" ("liuqi") nil nil nil ("liuqi@mail.nwpu.edu.cn" "liuqionline@163.com") ((creation-date . "2003-11-04") (timestamp . "2004-07-01") (notes . "cn.comp.os.linux")) nil]
