@@ -124,6 +124,8 @@
       message-signature t
       message-signature-file "~/.sig/default"
       message-forward-as-mime nil
+      message-forward-show-mml t
+      message-forward-decoded-p nil
       message-forward-ignored-headers
       (concat
        "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
