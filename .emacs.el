@@ -227,12 +227,11 @@
 (blink-cursor-mode -1)
 (global-cwarn-mode 1)
 (display-time-mode 1)
-;; (desktop-save-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
 (ido-everywhere 1)
-;; (hi-lock-mode 1)
+(autoarg-mode 1)
 (ido-mode 1)
 
 (add-hook 'diary-hook 'appt-make-list)
