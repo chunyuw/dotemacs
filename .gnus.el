@@ -161,3 +161,5 @@
 ;; (gnus-demon-add-rescan)
 ;; (gnus-demon-add-disconnection)
 ;; (gnus-demon-add-scanmail)
+
+;; .gnus.el ends here.
