@@ -3,8 +3,4 @@
 %%(diary-anniversary 3 10 1979) 我的 %d 岁生日。
 
 &%%(diary-sunrise-sunset)
-
-&%%(diary-iso-date)
-
 &%%(diary-phases-of-moon)
-&%%(calendar-chinese-date-string date)
