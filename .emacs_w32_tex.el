@@ -47,7 +47,7 @@
 	    ))
 
 (setq TeX-command-list 
-      '(("TeX" "tex %S \\nonstopmode\\input %t" TeX-run-TeX nil (plain-tex-mode))
+      `(("TeX" "tex %S \\nonstopmode\\input %t" TeX-run-TeX nil (plain-tex-mode))
 	("LaTeX" "%l \\nonstopmode\\input{%t}" TeX-run-TeX nil (latex-mode))
 	("PDFLaTeX" "pdflatex %S \\nonstopmode\\input{%t}" TeX-run-TeX nil (latex-mode))
 	("ConTeXt" "texexec --once --nonstop --texutil %t" TeX-run-TeX nil (context-mode))
@@ -61,7 +61,9 @@
 	("BibTeX" "bibtex %s" TeX-run-BibTeX nil t)
 	("Index" "makeindex %s" TeX-run-command nil t)
 	("Check" "lacheck %s" TeX-run-compile nil t)
-	("Clean" "rm -f *.pdf *.dvi *.ps *.toc *.aux *.log *.tui *.top *.tuo *.bbl *.blg _region_.*" TeX-run-shell nil t)))
+	("Clean" ,(concat "rm -f " "*.pdf *.dvi *.ps"
+			  "*.tmp *.mpo *mpx *.toc *.aux *.log *.tui *.top *.tuo *.bbl *.blg"
+			  "_region_.*") TeX-run-shell nil t)))
 
 (setq TeX-output-view-style
       '(("^ps$" "." "%f")
