@@ -214,6 +214,8 @@
 ;;(gnus-demon-add-scanmail)
 ;;(gnus-demon-init)
 
+;;(require 'message-x)
+
 (unless window-system
   (require 'gnus-sum)
   (defface chunyu-gnus-own-related-posting-face nil "Postings by myself.")

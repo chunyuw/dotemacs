@@ -59,6 +59,7 @@
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'emacs-wiki-find-file)
 (define-key meta-m-map "\M-p" 'emacs-wiki-publish)
+(define-key meta-m-map "c"    'calendar)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode

@@ -22,4 +22,6 @@
 
 (add-hook 'emacs-wiki-mode-hook 'auto-fill-mode)
 
+;;<!-- Update: <lisp>(format-time-string emacs-wiki-footer-date-format (nth 5 (file-attributes buffer-file-name)))</lisp> -->
+
 ;; Chunyu's .emacs_wiki.el ends here.
