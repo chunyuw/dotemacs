@@ -36,7 +36,7 @@
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images t
-      mm-text-html-renderer html2text
+      mm-text-html-renderer 'html2text
       mm-inline-override-types nil) ;; '("text/html")
 
 (setq gnus-parameters
