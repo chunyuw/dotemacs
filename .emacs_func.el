@@ -66,4 +66,16 @@ comment char"
 	    (symbol-name (symbol-value 'major-mode)) 0 -5) 
 	   " -*- " comment-end)))
 
+(defun dired-execute-file (&optional arg)
+  (interactive "P")
+  (mapcar #'(lambda (file) (w32-shell-execute "open" file))
+          (dired-get-marked-files nil arg)))
+
+(defun dired-mouse-execute-file (event)
+  "In dired, execute the file or goto directory name you click on."
+  (interactive "e")
+  (set-buffer (window-buffer (posn-window (event-end event))))
+  (goto-char (posn-point (event-end event)))
+  (dired-execute-file))
+
 ;; Chunyu's .emacs_func.el ends here.
