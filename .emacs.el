@@ -235,6 +235,10 @@
 (autoarg-mode 1)
 (ido-mode 1)
 
+;; (desktop-save-mode 1)
+;; (hi-lock-mode 1)
+;; (allout-init t)
+
 (add-hook 'diary-hook 'appt-make-list)
 (add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
