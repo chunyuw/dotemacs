@@ -50,6 +50,9 @@
 	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")
 	    (set-face-attribute 'font-latex-title-2-face nil :height 1.0 :inherit nil :foreground "goldenrod")
 	    (set-face-attribute 'font-latex-title-3-face nil :height 1.0 :inherit nil :foreground "goldenrod3")
-	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))))
+	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))
+       (eval-after-load "which-func"
+	 '(progn
+	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
 
 ;; Chunyu's .emacs_faces.el ends here.
