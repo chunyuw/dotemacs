@@ -1,5 +1,5 @@
 ;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
-;; Chunyu <chunyu@hit.edu.cn>'s .emacs_tex.el, created on 2004/04/15 on db.cs.hit.edu.cn.
+;; Chunyu <chunyu@hit.edu.cn>'s .emacs_w32_tex.el, created on 2004/04/15 on db.cs.hit.edu.cn.
 
 (require 'tex-site)
 
