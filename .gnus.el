@@ -1,16 +1,6 @@
 ;; $Id$  -*- Emacs-Lisp -*-
 ;; Chunyu's .gnus.el is created on db.hit.edu.cn.    Chunyu.<dddkk@sina.com> 
 
-;; NNTP Hosts: 
-;;  news.yaako.com
-;;  news.so-net.com.hk
-;;  freenews.netfront.net, news.ind.mh.se
-;;  news.nuri.net pics
-;;  news.gmane.org, news.gnus.org, news.cis.dfn.de
-;;  news.freshmeat.net, news.uni-duisburg.de
-;;  news.webking.cn, news.newsfan.net, new.cnnb.net
-
-
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods '((nnml "private") (nntp "localhost")))
 
@@ -28,9 +18,7 @@
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
-
-      gnus-signature-separator
-      "^\\(--\\|--  \\|---\\|-- *\\|________\\========*\\)$")
+      )
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . gb2312))
