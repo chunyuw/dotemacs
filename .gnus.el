@@ -96,8 +96,8 @@
 	 (address "dddkk@sina.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:list.zhdotemacs"
-	 (signature-file "~/.sig/pubmail")
-	 (name "Chunyu Wang")
+	 (signature-file "~/.sig/cnnews")
+	 (name "½ø»¯µÄÓã")
 	 (address "cyw@db.cs.hit.edu.cn")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:mail.*"
