@@ -414,9 +414,9 @@
 
 (setq auto-mode-alist
       (append '(("\\.py\\'" . python-mode)
-		("\\.s?html?\\'" . html-helper-mode)
-		("\\.asp\\'" . html-helper-mode)
-		("\\.phtml\\'" . html-helper-mode)
+		;; ("\\.s?html?\\'" . html-helper-mode)
+		;; ("\\.asp\\'" . html-helper-mode)
+		;; ("\\.phtml\\'" . html-helper-mode)
 		("\\.bhl\\'" . bhl-mode)
 		("\\.css\\'" . css-mode))
 	      auto-mode-alist))
