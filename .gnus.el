@@ -164,7 +164,7 @@
 	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
 	       (from "xiaonan\\|however\\|jellycart" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-	       (from "m_pupil\\|zhoufei\\|unidevel@hotpop\\.com" "mail.friends")
+	       (from "m_pupil\\|zhoufei" "mail.friends")
 	       (from "chunyu@hit\\.edu\\.cn\\|dddkk@sina\\.com\\|spr@db\\.\\(?:\\(?:cs\\.\\)?hit\\.edu\\.cn\\)" "mail.myself")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
