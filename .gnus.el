@@ -198,4 +198,5 @@
   (set-face-attribute 'gnus-group-news-3-empty-face nil :foreground "green")
   (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold)
   )
+
 ;; Chunyu's .gnus.el ends here.
