@@ -151,6 +151,7 @@
 	(any "fetchmail-friends" "list.fetchmail")
 	(any "pgsql-general@postgresql.org" "list.pg-general")
 	(any "zope@zope.org" "list.zope")
+	(any "ctdp-dev@ctex.org" "list.ctex.ctdp-dev")
 	(any "985101.*@db.cs.hit.edu.cn" "classmate.985101")
 	(to "chunyu@hit.edu.cn\\|dddkk@sina.com\\|spr@db"
 	    (| (from "bbs@bbs\\|@smth" "mail.bbs")
