@@ -36,7 +36,7 @@
 
 (setq mm-inline-large-images t
       mm-text-html-renderer 'html2text
-      mm-inline-override-types '("text/html"));; nil) ;; '("text/html")
+      mm-inline-override-types '("text/html"));; nil)
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
@@ -165,10 +165,13 @@
 	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
 	  (any "cmbchina\\.com" "mail.cmbchina")
+
 	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  ;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
 	  ;; ("Subject" "dbworld" "list.db.dbworld")
 	  (from "dddkk@smth.edu.cn\\|\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
+	  ;; ("Subject" "OS" "mail.ta")
+	  (to "202.118.224.153" "mail.misc")
 	  (: spam-split)
 	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
 	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
