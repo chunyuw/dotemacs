@@ -59,8 +59,9 @@
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
 
 (setq gnus-ignored-from-addresses
-      (regexp-opt '("dddkk@sina.com" "spr@db.hit.edu.cn"
-		    "spr@db.cs.hit.edu.cn" "chunyu@hit.edu.cn")))
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn")))
+;; cymacs@gmail.com cyemacs@gmail.com chunyu@myrealbox.com
+;; dddkk@163.com
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -78,7 +79,7 @@
       '((".*"
 	 (signature-file "~/.sig/default")
 	 (name "Wang Chunyu")
-	 (address "chunyu@hit.edu.cn")
+	 (address "dddkk@sina.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nntp\\+localhost:.*"
 	 (signature-file "~/.sig/localnews")
@@ -89,12 +90,12 @@
 	 (name "进化的鱼")
 	 (address "user@cyber.net")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list\\..*\\|^nnml:mail\\.foreigner\\|^nntp\\+news\\.gmane\\.org:.*\\|^nntp\\+news\\.gnus\\.org:.*"
+	("^nnml:list.*"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "chunyu@hit.edu.cn")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:\\(mail\\.\\(wife\\|classmate\\|lab\\|friends\\|misc\\).*\\|classmate\\)"
+	("^nnml:\\(mail\\.\\(wife\\|lab\\|misc\\).*\\|classmate\\)"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))))
@@ -141,31 +142,25 @@
       '(|
 	;; (to "Dddkk <dddkk@sina\\.com>" junk)
 	(from "\\(root\\|news\\)@db\\.cs\\.hit\\.edu\\.cn" "misc.system")
-	(any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
-	(any "scm@list.cn99.com" "list.cn99.scm")
+	;; (any "\\(dbowner\\|dbworld\\|Majordomo\\)@cs.wisc.edu" "list.db.dbworld")
+	;; (any "scm@list.cn99.com" "list.cn99.scm")
 	(any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
 	(any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
 	(any "985101@db.cs.hit.edu.cn" "classmate.985101")
-	(any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
-	(any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
-	(any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
+	;; (any "help-emacs-windows@gnu.org" "list.emacs.help-emacs-windows")
+	;; (any "gnuwin32-users@lists.sourceforge.net" "list.gnuwin32-users")
+	;; (any "tramp-devel@nongnu.org\\|tramp-devel@mail.freesoftware.fsf.org" "list.emacs.tramp-devel")
 	(any "zhdotemacs@yahoogroups.com" "list.emacs.zhdotemacs")
-	("Subject" "dbworld" "list.db.dbworld")
+	;; ("Subject" "dbworld" "list.db.dbworld")
 	(from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
-	(to "chunyu@\\(db.\\|db.cs.\\)?hit.edu.cn\\|spr@db.\\(cs.\\)?hit.edu.cn\\|dddkk@\\(sina.com\\|163.net\\)"
+	(to "chunyu@hit.edu.cn\\|dddkk@\\(sina\\|163\\)"
 	    (| (from "bbs@bbs\\|dddkk@smth" "mail.bbs")
-	       (from "moomooo\\|beautifulbamboo\\|kexin\\|zjj259900\\|limoo" "classmate.misc")
-	       (from "xiaonan\\|however\\|jellycart\\|iris_leilei\\|wangyang" "classmate.misc")
-	       (from "huahua1027000\\|sunhaiyang\\|xingbaolin" "classmate.misc")
+	       (from "xiaonan\\|xblbelive" "classmate.misc")
 	       (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
-	       (from "m_pupil\\|zhoufei\\|liuqionline" "mail.friends")
-	       (from "chunyu@hit.edu.cn\\|\\(spr\\|chunyu\\)@db.\\(cs.\\)?hit.edu.cn\\|dddkk@sina.com" "mail.myself")
-	       (from "boldyrev" "mail.foreigner")
-	       (from "applejelly326@yahoo.com.cn" "mail.lab")
+	       (from "chunyu@hit\\|dddkk@sina" "mail.myself")
+	       (from "applejelly326" "mail.lab")
 	       ("X-Contactme" "chunyu-homepage" "mail.homepage")
 	       "mail.misc"))
-	(from "ccert\\.edu\\.cn" "mail.misc")
-	;; (any "Microsoft\\|Corporation\\|Security\\|MS Customer" junk)
 	"misc.junk"))
 
 ;; (defun message-make-message-id()
