@@ -285,12 +285,12 @@
 (setq auto-insert-directory "~/.emacs.d/insert/")
 ;; (setq auto-insert-query nil)
 ;; (setq auto-insert-alist
-;;       '(("\\.cpp$"	. ["cpp" auto-update-source-file])
-;; 	("\\.cc$"	. ["cc" auto-update-source-file])
-;; 	("\\.hpp$"	. ["hpp" auto-update-header-file])
-;; 	("\\.hh$"	. ["hh" auto-update-header-file])
-;; 	("\\.h$"	. ["h" auto-update-header-file])
-;; 	("\\.pro$"	. ["pro" auto-update-project-file])))
+;;       '(("\\.cpp$"      . ["cpp" auto-update-source-file])
+;;         ("\\.cc$"       . ["cc" auto-update-source-file])
+;;         ("\\.hpp$"      . ["hpp" auto-update-header-file])
+;;         ("\\.hh$"       . ["hh" auto-update-header-file])
+;;         ("\\.h$"        . ["h" auto-update-header-file])
+;;         ("\\.pro$"      . ["pro" auto-update-project-file])))
 
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
