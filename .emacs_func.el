@@ -51,7 +51,7 @@
 	(progn
 	  (message "Playing... %s" file-name)
 	  (w32-shell-execute nil "C:/Program Files/foobar2000/foobar2000.exe" 
-			   (format "\"%s\"" file-name) 3)))))
+			   (format "\"%s\"" file-name) 1)))))
 
 (defun net-message (recipient text)
   "Send a net message with Emacs.\nThis needs Windows/NT, I think."

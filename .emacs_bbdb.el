@@ -42,7 +42,7 @@
 		  (toggle . t))
 	(multi-line (indention . 14)
 		    (toggle . t)
-		    (omit creation-date timestamp notes))
+		    (omit creation-date timestamp))
 	(pop-up-multi-line  (indention . 14))))
 
 (cond (window-system
