@@ -59,6 +59,7 @@
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 (define-key dired-mode-map "/" 'dired-mark-directories)
 (define-key dired-mode-map "K" 'dired-kill-subdir)
+(define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)
 (define-key dired-mode-map [(control ?/)] 'dired-undo)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
 (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)

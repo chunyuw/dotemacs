@@ -44,6 +44,15 @@
     (if (file-exists-p file-name)
 	(w32-shell-execute "open" file-name nil 1))))
 
+(defun chunyu-dired-foobar2000-play ()
+  (interactive)
+  (let ((file-name (dired-get-filename 'no-dir)))
+    (if (file-exists-p file-name)
+	(progn
+	  (message "Playing... %s" file-name)
+	  (w32-shell-execute nil "C:/Program Files/foobar2000/foobar2000.exe" 
+			   (format "\"%s\"" file-name) 1)))))
+
 (defun net-message (recipient text)
   "Send a net message with Emacs.\nThis needs Windows/NT, I think."
   (interactive "sHost(or IP): \nsMessage: ")
