@@ -169,27 +169,10 @@
 
 (unless window-system 
   (require 'gnus-sum)
-  (defface chunyu-gnus-own-posting-face nil
-    "Use this face to display own postings in Summary Buffer")
-  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-own-posting-face)
-  (set-face-foreground 'chunyu-gnus-own-posting-face "red")
-
-  (defface chunyu-gnus-direct-fup-face nil
-    "Use this face to display direct fups to my postings.")
-  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-direct-fup-face)
-  (set-face-foreground 'chunyu-gnus-direct-fup-face "blue")
-
-  (defface chunyu-gnus-indirect-fup-face nil
-    "Use this face to display indirect fups to my postings")
-  (copy-face 'gnus-summary-high-unread-face 'chunyu-gnus-indirect-fup-face)
-  (set-face-foreground 'chunyu-gnus-indirect-fup-face "blue")
-
+  (defface chunyu-gnus-own-related-posting-face nil "Postings by myself.")
+  (set-face-attribute 'chunyu-gnus-own-related-posting-face nil :foreground "red" :weight 'bold)
   (add-to-list 'gnus-summary-highlight
-	       '((and (> score 8500) (eq mark gnus-unread-mark)) . chunyu-gnus-own-posting-face))
-  (add-to-list 'gnus-summary-highlight
-	       '((and (and (>= 8500 score) (>= score 7500)) (eq mark gnus-unread-mark)) . chunyu-gnus-direct-fup-face))
-  (add-to-list 'gnus-summary-highlight
-	       '((and (and (>= 7499 score) (>= score 6500)) (eq mark gnus-unread-mark)) . chunyu-gnus-indirect-fup-face))
+	       '((and (> score 6500) (eq mark gnus-unread-mark)) . chunyu-gnus-own-related-posting-face))
 
   (eval-after-load "gnus-cite"
     '(progn
