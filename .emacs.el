@@ -1,7 +1,8 @@
 ;; $Id$  -*- Emacs-Lisp -*-
-;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn. <dddkk@sina.com>
+;; Chunyu's .emacs.el is created on 2001/12/11 on db.hit.edu.cn. 
+;; Chunyu <chunyu@hit.edu.cn>.
 
-;; Time-stamp: <2003-06-15 Sun 13:52:31 spr on db.hit.edu.cn>.
+;; Time-stamp: <2003-07-26 Sat 09:24:03 spr on db.cs.hit.edu.cn>.
 
 (global-set-key [f1] 'cvs-examine)
 (global-set-key [f5] 'undo)
@@ -22,6 +23,7 @@
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)	; dabbrev-expand
 (global-set-key "\M-o" 'other-window)	; M-o
+(global-set-key "\M-n" 'gnus)
 (global-set-key [(home)] 'beginning-of-buffer)
 (global-set-key [(end)] 'end-of-buffer)
 
@@ -49,26 +51,32 @@
       resize-mini-windows nil
       bookmark-save-flag 1
       track-eol t
-      compile-command "make "
       Man-notify-method 'pushy
-      ido-save-directory-list-file nil
       uniquify-buffer-name-style 'forward
+      confirm-kill-emacs nil		; 'y-or-n-p
+
+      apropos-do-all nil
+      x-stretch-cursor t
+
+      compilation-scroll-output t
+      compile-command "make "
 
       dired-listing-switches "-avl"	;`C-u s'
       dired-recursive-copies t
       dired-recursive-deletes t
+      dired-guess-shell-gnutar t
+      cvs-dired-use-hook 'always
 
       display-time-24hr-format t
       display-time-day-and-date t
       display-time-use-mail-icon t
+      display-time-interval 10
 
       mail-signature-file "~/.sig/default"
-      mail-user-agent 'message-user-agent
+      mail-user-agent 'gnus-user-agent
+      mail-alias-file "~/.mailrc"
       user-full-name "Chunyu Wang"
-      user-mail-address "dddkk@sina.com"
-
-      quack-default-program "guile"
-      quack-fontify-style nil
+      user-mail-address "chunyu@hit.edu.cn"
 
       time-stamp-active t
       time-stamp-warn-inactive t
@@ -90,7 +98,9 @@
       kept-new-versions 5
       delete-old-versions t
       backup-directory-alist '(("" . "~/tmp"))
-
+      backup-by-copying-when-linked t
+      backup-by-copying-when-mismatch t
+      
       font-lock-maximum-decoration t
       font-lock-global-modes '(not shell-mode text-mode)
       font-lock-verbose t
@@ -111,8 +121,17 @@
 	try-complete-lisp-symbol-partially
 	try-expand-whole-kill)
 
-      dictionary-server "192.168.1.194"
-      canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee")
+      ido-enable-tramp-completion t
+      ido-save-directory-list-file nil
+      ido-save-directory-list-file nil)
+      quack-default-program "guile"
+      quack-fontify-style nil
+      quack-fontify-style nil)
+      dictionary-server "192.168.1.191"
+      canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee"
+      )
+
+
 (setq help-at-pt-display-when-idle 
 (set-register ?e '(file . "~/.emacs.el"))
 (set-register ?g '(file . "~/.gnus.el"))
@@ -127,22 +146,46 @@
 
 (set-selection-coding-system 'chinese-iso-8bit)
 ;; (prefer-coding-system 'chinese-iso-8bit)
-(global-font-lock-mode t)
-(auto-compression-mode t)
-(column-number-mode t)
-(display-time-mode t)
-(show-paren-mode t)
+
+
+(find-function-setup-keys)
+(file-name-shadow-mode 1)
+(minibuffer-electric-default-mode 1)
+(partial-completion-mode 1)
+(utf-translate-cjk-mode 1)
+(global-font-lock-mode 1)
 (menu-bar-mode -1)
-(tool-bar-mode -1)
-(ido-mode t)
+(blink-cursor-mode -1)
+(display-time-mode 1)
 
 (ido-mode 1)
-(add-hook 'dired-load-hook (lambda () (load "dired-x")))
+(add-hook 'dired-load-hook
+	  (lambda () 
+	    (load "dired-x")
+	    (setq dired-view-command-alist
+		  (append '(("[.]\\(jpg\\|gif\\|png\\)\\'" . "ee")
+			    ) dired-view-command-alist))))
 
-(if (not window-system) nil
+(when window-system
+  (scroll-bar-mode -1)
+  (tool-bar-mode 1)
+
   (set-background-color "DarkSlateGrey")
   (set-foreground-color "Wheat")
-  (set-cursor-color "gold1"))
+  (set-cursor-color "gold1")
+
+  (if (facep 'mode-line)
+      (set-face-attribute 'mode-line nil :foreground "DarkSlateGrey" :background "Wheat"))
+  (if (facep 'fringe)
+      (set-face-attribute 'fringe nil :foreground "lawngreen" :background "SteelBlue4"))
+  (if (facep 'tool-bar)
+      (set-face-background 'tool-bar "DarkSlateGrey"))
+  (if (facep 'menu)
+      (face-spec-set 'menu '((t (:foreground "Wheat" :background "DarkSlateGrey")))))
+  (if (facep 'trailing-whitespace)
+      (set-face-background 'trailing-whitespace "SeaGreen1"))
+  (if (facep 'minibuffer-prompt)
+      (face-spec-set 'minibuffer-prompt '((t (:foreground "cyan"))))))
 	      (setq default-frame-alist
 		    (append '((top . 0) (left . 0)
 			      (width . 111) (height . 46)
@@ -155,8 +198,7 @@
 (autoload 'htmlize-buffer "htmlize.el" "HTMLize mode" t)
 (setq auto-mode-alist 
 ;; (autoload 'folding-mode          "folding" "Folding mode" t)
-                ("\\.css\\'" . css-mode))
-              auto-mode-alist))
+                ("\\.css\\'" . css-mode)) auto-mode-alist))
 
 (defun dos-unix () (interactive) (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
@@ -169,6 +211,15 @@
 	      auto-mode-alist))
 (require 'jka-compr)
 (require 'uniquify)
+(require 'tramp)
+
+;;(require 'bbdb)
+;;(bbdb-initialize)
+;;(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+;;(bbdb-insinuate-message)
+
+(add-to-list 'backup-directory-alist
+	     (cons tramp-file-name-regexp nil))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -178,7 +229,27 @@
 (put 'upcase-region 'disabled nil)
 (put 'rmail 'disabled t)
 (add-to-list 'load-path "~/.emacs.d/elisp")
-(load-file "~/.emacs_smtp")
+;;(load-file "~/.emacs_smtp")
+
+;; ---------- ERC setup -----------
+;; irc.sunnet.org, irc.linuxfire.com
+;; irc.linuxfans.org, irc.pchome.net
+(require 'erc)
+(require 'erc-fill)
+(require 'erc-match)
+(require 'erc-notify)
+(require 'erc-track)
+(setq erc-auto-query t)
+(setq erc-timestamp-format "[%H:%M] ")
+(setq erc-fill-prefix "      + ")
+(setq erc-current-nick-highlight-type 'nick)
+(add-hook 'erc-insert-modify-hook 'erc-fill)
+(add-hook 'erc-send-modify-hook 'erc-fill)
+(add-hook 'erc-mode-hook
+	  '(lambda () (require 'erc-pcomplete)
+	     (pcomplete-erc-setup) (erc-completion-mode 1)))
+(erc-match-mode 1)
+(erc-track-mode 1)
 
 ;; .emacs.el ends here.
 (put 'upcase-region 'disabled nil)
