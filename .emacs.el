@@ -7,7 +7,8 @@
 (global-set-key [end] 'end-of-buffer)
 (global-unset-key [(insert)])
 
-(global-set-key "\C-x\C-b" 'bs-show) ; electric-buffer-list
+(global-set-key "\C-x\C-b" 'bs-show)
+;;(global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'chunyu-kill-this-buffer)
