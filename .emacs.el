@@ -388,6 +388,7 @@
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(put 'overwrite-mode 'disabled t)
 (put 'rmail 'disabled t)
 
 ;; Chunyu's .emacs.el ends here.
