@@ -21,7 +21,7 @@
 ["范婷宇" nil ("lorna") nil nil nil ("lorna3543@sina.com") ((creation-date . "2003-07-30") (timestamp . "2004-08-03")) nil]
 ["芳芳" nil nil nil nil nil ("ffcrystal@hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
 ["冯丽" nil ("fengli") "计算机系办" (["Office" "86413309"]) nil ("fl@hit.edu.cn") ((creation-date . "2004-03-09") (timestamp . "2004-09-06")) nil]
-["傅波" nil nil "毕业设计" (["mobile" "13633638857"]) nil nil ((notes . "No.59") (creation-date . "2005-03-04") (timestamp . "2005-03-04")) nil]
+["傅波" nil nil "毕业设计" (["mobile" "13633638857"]) nil ("robin_yes@126.com") ((notes . "No.59") (creation-date . "2005-03-04") (timestamp . "2005-03-11")) nil]
 ["高晶" nil ("Jing Gao") nil nil nil ("gaoj@hit.edu.cn") ((creation-date . "2003-11-15") (timestamp . "2004-07-05")) nil]
 ["葛鹏程" nil nil nil nil nil ("grey_hit@hit.edu.cn" "pengcheng.ge@gmail.com") ((creation-date . "2004-09-08") (timestamp . "2004-09-13")) nil]
 ["管威" nil nil nil nil nil ("qiaoxiaoyao@sina.com" "fancyway@gmail.com") ((creation-date . "2003-07-30") (timestamp . "2004-09-16")) nil]
