@@ -27,6 +27,7 @@
       solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
 
 (setq mark-diary-entries-in-calendar t
+      ;; appt-issue-message nil ; obsolete variable
       mark-holidays-in-calendar t
       view-calendar-holidays-initially nil)
 
