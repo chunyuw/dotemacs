@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("elisp-notes"
+(("notes-elisp"
+  ((filename . "/home/spr/work/notes/notes-elisp")
+   (front-context-string . "\n\n\nLocal Variabl")
+   (rear-context-string . "  两种数的类型：整数和浮点数。")
+   (position . 2932)))
+ ("notes-emacs"
+  ((filename . "/home/spr/work/notes/notes-emacs")
+   (front-context-string . "\n\n</pre></p>\n<dt")
+   (rear-context-string . "===============\n")
+   (position . 5513)))
+ ("notes-gnus"
+  ((filename . "/home/spr/work/notes/notes-gnus")
+   (front-context-string . "\n</pre></p>\n<dtm")
+   (rear-context-string . "===============\n")
+   (position . 943)))
+ ("elisp-notes"
   ((filename . "/home/spr/work/notes/notes-elisp")
    (front-context-string . "\n\n\nLocal Variabl")
    (rear-context-string . "  两种数的类型：整数和浮点数。")
