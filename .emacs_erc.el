@@ -21,3 +21,4 @@
 (erc-match-mode 1)
 (erc-track-mode 1)
 
+;; Chunyu's .emacs_erc.el ends here.

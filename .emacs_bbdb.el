@@ -28,3 +28,5 @@
       bbdb-user-mail-names
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "spr@db.hit.edu.cn"))
 )
+
+;; Chunyu's .emacs_bbdb.el ends here.

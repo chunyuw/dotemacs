@@ -17,3 +17,4 @@
 ;;(setq smtpmail-debug-info t)
 
 
+;; Chunyu's .emacs_smtp.el ends here.
