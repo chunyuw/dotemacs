@@ -5,6 +5,7 @@
 (require 'supercite)
 (require 'message)
 (require 'bbdb)
+(require 'bbdb-gui)
 ;;(bbdb-initialize)
 (bbdb-initialize 'gnus 'message 'sc)
 
@@ -28,5 +29,12 @@
       bbdb-user-mail-names
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "spr@db.cs.hit.edu.cn" "spr@db.hit.edu.cn"))
       )
+
+(cond ((not window-system) 
+       (set-face-attribute 'bbdb-name nil  :foreground "yellow" :underline nil)
+       ;;(set-face-attribute 'bbdb-company nil :foreground "blue" :weight 'bold)
+       (set-face-attribute 'bbdb-field-name nil :foreground "cyan")
+       ;;(set-face-attribute 'bbdb-field-value nil :foreground "red" :weight 'normal)
+       ))
 
 ;; Chunyu's .emacs_bbdb.el ends here.
