@@ -6,7 +6,7 @@
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
 
-(global-set-key "\C-x\C-b" 'bs-show)
+(global-set-key "\C-x\C-b" 'bs-show) ; electric-buffer-list
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
@@ -36,6 +36,7 @@
 (require 'generic-x)
 (require 'flyspell)
 (require 're-builder)
+(require 'bs)
 
 (define-key help-mode-map "l" 'help-go-back)
 (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
@@ -44,6 +45,7 @@
 (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
 (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
 (define-key dired-mode-map "b" 'dired-mark-extension)
+(define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
 
 (define-prefix-command 'ctl-x-m-map)
 (global-set-key "\C-xm" 'ctl-x-m-map)
@@ -228,6 +230,7 @@
 (set-register ?j '(file . "~/work/xmldb/loader"))
 (setenv "DISPLAY" "chunyu:0")
 
+;; (set-locale-environment "zh_CN")
 (set-language-environment    'Chinese-GB)
 (set-keyboard-coding-system  'chinese-iso-8bit)
 (set-terminal-coding-system  'chinese-iso-8bit)
@@ -301,10 +304,27 @@
     (goto-char pos)
     (previous-line lines)))
 
+(defun chunyu-bs-backup-unmark ()
+  (interactive)
+  (bs-up 1)
+  (bs-unmark-current 1)
+  (bs-up 1))
+
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")))
+
+(add-hook 'find-file-hooks 'auto-insert)
+(setq auto-insert-directory "~/.emacs.d/insert/")
+;; (setq auto-insert-query nil)
+;; (setq auto-insert-alist
+;;       '(("\\.cpp$"	. ["cpp" auto-update-source-file])
+;; 	("\\.cc$"	. ["cc" auto-update-source-file])
+;; 	("\\.hpp$"	. ["hpp" auto-update-header-file])
+;; 	("\\.hh$"	. ["hh" auto-update-header-file])
+;; 	("\\.h$"	. ["h" auto-update-header-file])
+;; 	("\\.pro$"	. ["pro" auto-update-project-file])))
 
 (cond ((not window-system) 
        ;; Text-Only console
