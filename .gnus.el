@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312; -*-
+;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
