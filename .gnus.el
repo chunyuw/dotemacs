@@ -161,7 +161,6 @@
      (setq mm-discouraged-alternatives '("text/html")
 	   mm-automatic-display (remove "text/html" mm-automatic-display))))
 
-(gnus-demon-add-nntp-close-connection)
 (gnus-demon-add-scanmail)
 (gnus-demon-init)
 
