@@ -92,7 +92,7 @@
 	 (name "½ø»¯µÄÓã")
 	 (address "dddkk@sina.com")	; o.oO@Oo.o
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list\\..*"
+	("^nnml:list\\..*\\|^nnml:mail\\.foreigner"
 	 (signature-file "~/.sig/pubmail")
 	 (name "Chunyu Wang")
 	 (address "spr@db.cs.hit.edu.cn"))
