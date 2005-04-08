@@ -31,52 +31,6 @@
 (require 'ido)
 (require 'uniquify)
 
-(eval-after-load "help-mode"
-'(progn
-   (define-key help-mode-map "l" 'help-go-back)))
-
-(eval-after-load "view"
-  '(progn
-     ;; (define-key view-mode-map "v" 'describe-variable)
-     ;; (define-key view-mode-map "f" 'describe-function)
-     (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
-
-(eval-after-load "info"
-  '(progn 
-     (define-key Info-mode-map "w" 'Info-scroll-down)
-     (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
-     (define-key Info-mode-map "\M-n" 'gnus)))
-
-(eval-after-load "dired"
-  `(progn
-     (require 'dired-x)
-     (define-key dired-mode-map "b" 'dired-mark-extension)
-     (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
-     (define-key dired-mode-map "c" 'dired-up-directory)
-     (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
-     (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
-     (define-key dired-mode-map "j" 'dired-mark-files-regexp)
-     (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
-     (define-key dired-mode-map "/" 'dired-mark-directories)
-     (define-key dired-mode-map "K" 'dired-kill-subdir)
-     (define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)
-     (define-key dired-mode-map [(control ?/)] 'dired-undo)
-     (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)))
-
-(eval-after-load "bs"
-  '(progn
-     (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)))
-
-(eval-after-load "apropos"
-  '(progn
-     (require 'view)
-     (define-key apropos-mode-map "n" 'forward-button)
-     (define-key apropos-mode-map "p" 'backward-button)
-     (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
-
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
 (define-key meta-m-map "\M-m" 'back-to-indentation)
@@ -231,8 +185,6 @@
 (set-terminal-coding-system  'chinese-iso-8bit)
 (set-clipboard-coding-system 'chinese-iso-8bit)
 (set-selection-coding-system 'chinese-iso-8bit)
-;; (prefer-coding-system 'chinese-iso-8bit)
-;; (define-coding-system-alias 'gb18030 'gb2312)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
@@ -257,22 +209,61 @@
 ;; (hi-lock-mode 1)
 ;; (allout-init t)
 
-(add-hook 'diary-hook 'appt-make-list)
-(add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
-;; (add-hook 'write-file-hooks 'time-stamp)
 (add-hook 'bs-mode-hook 'hl-line-mode)
-(add-hook 'ido-define-mode-map-hook
-	  (lambda ()
-	    (define-key ido-mode-map "\M-\d" 'ido-delete-backward-updir)))
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (which-function-mode 1)))
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    (c-toggle-auto-hungry-state 1)
 	    (which-function-mode 1)))
+
+(eval-after-load "help-mode"
+'(progn
+   (define-key help-mode-map "l" 'help-go-back)))
+
+(eval-after-load "view"
+  '(progn
+     (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
+
+(eval-after-load "info"
+  '(progn 
+     (define-key Info-mode-map "w" 'Info-scroll-down)
+     (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
+     (define-key Info-mode-map "\M-n" 'gnus)))
+
+(eval-after-load "dired"
+  `(progn
+     (require 'dired-x)
+     (define-key dired-mode-map "b" 'dired-mark-extension)
+     (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
+     (define-key dired-mode-map "c" 'dired-up-directory)
+     (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
+     (define-key dired-mode-map "j" 'dired-mark-files-regexp)
+     (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+     (define-key dired-mode-map "/" 'dired-mark-directories)
+     (define-key dired-mode-map "K" 'dired-kill-subdir)
+     (define-key dired-mode-map [(control ?/)] 'dired-undo)
+     (cond ((not window-system)
+	    (define-key dired-mode-map "o" 'dired-find-file)
+	    (define-key dired-mode-map "h" 'dired-show-file-type))
+	   (window-system
+	    (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
+	    (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
+	    (define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)))))
+
+(eval-after-load "bs"
+  '(progn
+     (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)))
+
+(eval-after-load "apropos"
+  '(progn
+     (require 'view)
+     (define-key apropos-mode-map "n" 'forward-button)
+     (define-key apropos-mode-map "p" 'backward-button)
+     (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
 
 (eval-after-load "meta-mode"
   '(progn
@@ -478,6 +469,8 @@
 
 ;;(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+(add-hook 'diary-hook 'appt-make-list)
+(add-hook 'diary-display-hook 'fancy-diary-display)
 
 (add-hook 'calendar-load-hook
 	  '(lambda ()
