@@ -27,6 +27,8 @@
       gnus-dribble-directory "~/.var/"
       gnus-interactive-exit nil)
 
+(setq gnus-auto-select-same t)
+
 (setq mm-inline-large-images t
       mm-text-html-renderer 'html2text
       mm-inline-override-types '("text/html")) ;; or nil
@@ -72,10 +74,6 @@
       '((".*"
 	 (signature-file "~/.sig/default")
 	 (name "王春宇")
-	 (address "chunyu@hit.edu.cn"))
-	("^nntp\\+ds1:.*"
-	 (signature-file "~/.sig/localnews")
-	 (name "Chunyu")
 	 (address "chunyu@hit.edu.cn"))
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
@@ -148,24 +146,21 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (to ".*@db\\.hit\\.edu\\.cn\\|.*@itrc" - "\\(spr\\|chunyu\\)@db\\.hit\\.edu\\.cn" "logs.itrc")
-	  (any "emacs-devel@gnu.org" "list.emacs.emacs-devel")
-	  (any "ding@\\(gnus.org\\|hpc.uh.edu\\|lists.math.uh.edu\\)" "list.gnus.ding")
-	  (any "python-chinese@lists.python.cn" "list.python-cn")
-	  (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
+      '(| (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
 	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
-	  (any "cmbchina\\.com" "mail.cmbchina")
-	  (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
-	  (from "dddkk@smth.edu.cn\\|\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
+	  ;; (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
 	  (to "202.118.224.153" "mail.misc")
 	  (: spam-stat-split-fancy)
-	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@\\(sina\\|163\\)\\|cye?macs@gmail"
-	      (| (from "pacz@sohu\\|pacz@pa18\\|tccz@sina" "mail.wife")
+	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@sina\\|cye?macs@gmail"
+	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
+		 (any "cmbchina\\.com" "mail.cmbchina")
 		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
+		 (from "\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk")
       nnmail-mail-splitting-decodes t)
 
+(require 'message-x)
 (require 'spam-stat)
 (spam-stat-load)
 (setq spam-use-stat t)
@@ -186,8 +181,6 @@
 	    (setq fill-column 72)
 	    (turn-on-auto-fill)
 	    (footnote-mode)))
-
-(require 'message-x)
 
 (setq message-x-completion-alist
       '(("\\([rR]esent-\\|[rR]eply-\\)?[tT]o:\\|[bB]?[cC][cC]:\\|[fF]rom:" . message-x-complete-name)
@@ -219,7 +212,6 @@
        (set-face-attribute 'gnus-header-subject-face nil :foreground "red" :weight 'bold)))
 
   (set-face-attribute 'gnus-splash-face nil :foreground "yellow")
-
   (set-face-attribute 'gnus-group-mail-1-empty-face nil :foreground "magenta")
   (set-face-attribute 'gnus-group-mail-1-face nil :foreground "magenta" :weight 'bold)
   (set-face-attribute 'gnus-group-mail-2-empty-face nil :foreground "cyan")
