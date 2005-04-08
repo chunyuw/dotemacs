@@ -28,41 +28,46 @@
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
 (require 'gnus-load)
-(require 'bs)
 (require 'ido)
-(require 'view)
-(require 'info)
-(require 'dired)
-(require 'dired-x)
 (require 'uniquify)
-(require 'help-mode)
-(require 'generic-x)
-;; (require 'compile)
-;; (require 'flyspell)
-;; (require 're-builder)
 
-(define-key help-mode-map "l" 'help-go-back)
-(define-key view-mode-map "j" 'chunyu-view-scroll-forward)
-(define-key view-mode-map "k" 'chunyu-view-scroll-backward)
-;; (define-key view-mode-map "v" 'describe-variable)
-;; (define-key view-mode-map "f" 'describe-function)
-(define-key Info-mode-map "w" 'Info-scroll-down)
-(define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
-(define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
-(define-key Info-mode-map "\M-n" 'gnus)
-(define-key dired-mode-map "b" 'dired-mark-extension)
-(define-key dired-mode-map "T" 'dired-tar-pack-unpack)
-(define-key dired-mode-map "c" 'dired-up-directory)
-(define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
-(define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
-(define-key dired-mode-map "j" 'dired-mark-files-regexp)
-(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
-(define-key dired-mode-map "/" 'dired-mark-directories)
-(define-key dired-mode-map "K" 'dired-kill-subdir)
-(define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)
-(define-key dired-mode-map [(control ?/)] 'dired-undo)
-(define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
-(define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)
+(eval-after-load "help-mode"
+'(progn
+   (define-key help-mode-map "l" 'help-go-back)))
+
+(eval-after-load "view"
+  '(progn
+     ;; (define-key view-mode-map "v" 'describe-variable)
+     ;; (define-key view-mode-map "f" 'describe-function)
+     (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
+
+(eval-after-load "info"
+  '(progn 
+     (define-key Info-mode-map "w" 'Info-scroll-down)
+     (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
+     (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
+     (define-key Info-mode-map "\M-n" 'gnus)))
+
+(eval-after-load "dired"
+  `(progn
+     (require 'dired-x)
+     (define-key dired-mode-map "b" 'dired-mark-extension)
+     (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
+     (define-key dired-mode-map "c" 'dired-up-directory)
+     (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
+     (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
+     (define-key dired-mode-map "j" 'dired-mark-files-regexp)
+     (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+     (define-key dired-mode-map "/" 'dired-mark-directories)
+     (define-key dired-mode-map "K" 'dired-kill-subdir)
+     (define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)
+     (define-key dired-mode-map [(control ?/)] 'dired-undo)
+     (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)))
+
+(eval-after-load "bs"
+  '(progn
+     (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)))
 
 (eval-after-load "apropos"
   '(progn
@@ -269,11 +274,6 @@
 	    (c-toggle-auto-hungry-state 1)
 	    (which-function-mode 1)))
 
-(eval-after-load "webjump"
-  '(progn
-     (require 'webjump-plus)
-     (setq webjump-sites webjump-plus-sites)))
-
 (eval-after-load "meta-mode"
   '(progn
      (define-key meta-mode-map "\C-c\C-c" 'chunyu-metapost-build-mp)))
@@ -375,25 +375,12 @@
 (autoload 'dired-tar-pack-unpack "dired-tar" "Dired tar" t)
 
 ;; (load ".emacs_erc")
-;; (load ".emacs_wiki")
-;; (load ".emacs_bhl")
-(load custom-file)
+;; (load custom-file)
 (load ".emacs_cal")
 (load ".emacs_func")
 (load ".emacs_faces")
 (load ".emacs_bbdb")
 (load ".emacs_smtp")
-
-;;-- SEMANTIC --;;
-;; (setq semantic-load-turn-everything-on t)
-;; (require 'semantic-load)
-
-;;-- XREF --;;
-;; (add-to-list 'load-path "/usr/local/share/xref/emacs")
-;; (add-to-list 'exec-path "/usr/local/share/xref")
-;; (defvar xref-current-project nil) ;; can be also "my_project_name"
-;; (defvar xref-key-binding 'global) ;; can be also 'local or 'none
-;; (load "xrefactory")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)

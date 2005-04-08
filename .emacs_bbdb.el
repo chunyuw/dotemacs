@@ -1,13 +1,12 @@
 ;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_bbdb.el, created on 2003/07/26 on db.cs.hit.edu.cn.
 
-(require 'supercite)
-(require 'message)
 (require 'bbdb)
-(require 'bbdb-snarf)
+;; (require 'supercite)
+;; (require 'message)
+;; (require 'bbdb-snarf)
 
 (bbdb-initialize 'gnus 'message 'sc)
-
 ;; (bbdb-define-all-aliases)
 
 (autoload 'bbdb-insinuate-sc "bbdb-sc" "bbdb sc init" nil)
