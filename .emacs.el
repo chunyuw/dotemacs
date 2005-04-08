@@ -374,13 +374,243 @@
 (autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
 (autoload 'dired-tar-pack-unpack "dired-tar" "Dired tar" t)
 
+;;;;;;;; bbdb ;;;;;;;;;;;;;;;;;;
+(require 'bbdb)
+;; (require 'supercite)
+;; (require 'message)
+;; (require 'bbdb-snarf)
+
+(bbdb-initialize 'gnus 'message 'sc)
+;; (bbdb-define-all-aliases)
+
+(autoload 'bbdb-insinuate-sc "bbdb-sc" "bbdb sc init" nil)
+
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
+
+(setq bbdb-file "~/.emacs.d/.bbdb")
+
+(setq bbdb-north-american-phone-numbers-p nil
+      bbdb-check-zip-codes-p nil
+      bbdb-electric-p t
+      bbdb-use-pop-up nil
+      bbdb-pop-up-target-lines 1
+      bbdb-elided-display '(creation-date timestamp)
+      bbdb-offer-save nil
+      bbdb-complete-name-allow-cycling t
+      bbdb-time-display-format "%Y-%m-%d")
+
+(setq bbdb-user-mail-names
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn" 
+		    "emacs@bbs.hit.edu.cn" "dddkk@smth.edu.cn"
+		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
+
+(setq bbdb/gnus-score-default +20
+      gnus-score-find-score-files-function
+      '(gnus-score-find-bnews bbdb/gnus-score))
+
+(setq bbdb-display-layout-alist
+      '((one-line (order phones net)
+		  (name-end . 24)
+		  (toggle . t))
+	(multi-line (indention . 14)
+		    (toggle . t)
+		    (omit creation-date timestamp))
+	(pop-up-multi-line  (indention . 14))))
+
+(cond (window-system
+       (eval-after-load "bbdb-gui"
+	 '(progn
+	    (set-face-attribute 'bbdb-name nil  :foreground "gold" :underline nil)
+	    (set-face-attribute 'bbdb-company nil :foreground "sandy brown")
+	    (set-face-attribute 'bbdb-field-name nil :foreground "slate blue")
+	    (set-face-attribute 'bbdb-field-value nil :foreground "deep sky blue" :weight 'normal)))))
+;;;; bbdb ends here ;;;;;;;;;;;;;;;;;;
+
+;;;; smtp ;;;;
+(setq message-send-mail-function 'smtpmail-send-it)
+(setq smtpmail-default-smtp-server "202.118.224.153")
+(setq smtpmail-smtp-server "202.118.224.153")
+(setq smtpmail-auth-credentials
+      '(("202.118.224.153" 25 "chunyu" "abcdefg")))
+;;;; smtp ends ;;;;
+
+;;;; calendar ;;;;
+(setq diary-file "~/.emacs.d/.diary"
+      view-diary-entries-initially t
+      calendar-latitude +45.75
+      calendar-longitude +126.63
+      calendar-location-name "Harbin"
+      calendar-remove-frame-by-deleting t
+      calendar-week-start-day 1
+      chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+      chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
+      general-holidays
+      '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
+	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
+	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
+      local-holidays
+      '((holiday-chinese 1 15 "元宵节 (正月十五)") (holiday-chinese 5 5 "端午节 (五月初五)")
+	(holiday-chinese 9 9 "重阳节 (九月初九)") (holiday-chinese 8 15 "中秋节 (八月十五)"))
+      christian-holidays nil
+      hebrew-holidays nil
+      islamic-holidays nil
+      ;; solar-holidays nil
+      bahai-holidays nil
+      solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
+
+(setq mark-diary-entries-in-calendar t
+      ;; appt-issue-message nil ; obsolete variable
+      appt-message-warning-time 30
+      mark-holidays-in-calendar t
+      view-calendar-holidays-initially nil)
+
+(setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
+      calendar-date-display-form '(year "/" month "/" day)
+      calendar-time-display-form
+      '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
+
+(setq cal-tex-diary t
+      cal-tex-24 t
+      cal-tex-daily-start 8
+      cal-tex-daily-end 22)
+
+;;(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
+(add-hook 'calendar-load-hook
+	  '(lambda ()
+	     (define-key calendar-mode-map "r" 'records-calendar-to-record)
+	     (define-key calendar-mode-map ">" 'scroll-calendar-left)
+	     (define-key calendar-mode-map "<" 'scroll-calendar-right)
+	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "f" 'calendar-forward-day)
+	     (define-key calendar-mode-map "b" 'calendar-backward-day)
+	     (define-key calendar-mode-map "j" 'calendar-forward-week)
+	     (define-key calendar-mode-map "k" 'calendar-backward-week)
+	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
+	     ))
+
+(autoload 'chinese-year "cal-china" "Chinese year data" t)
+
+(defun holiday-chinese (cmonth cday string)
+  "Chinese calendar holiday, month and day in Chinese calendar (CMONTH, CDAY).
+
+If corresponding MONTH and DAY in gregorian calendar is visible,
+the value returned is the list \(((MONTH DAY year) STRING)).
+Returns nil if it is not visible in the current calendar window."
+  (let* ((m displayed-month)
+	 (y displayed-year)
+	 (gdate (calendar-gregorian-from-absolute
+		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
+    (increment-calendar-month m y (- 11 (car gdate)))
+    (if (> m 9) (list (list gdate string)))))
+
+;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
+;;   ())
+
+;;;; records mode ;;;;
+(load ".emacs-records")
+(setq records-init-file "~/.emacs.d/.emacs-records")
+(add-hook 'records-mode-hooks
+	  '(lambda ()
+	     (turn-on-auto-fill)))
+(setq diary-file "~/.emacs.d/.diary"
+      view-diary-entries-initially t
+      calendar-latitude +45.75
+      calendar-longitude +126.63
+      calendar-location-name "Harbin"
+      calendar-remove-frame-by-deleting t
+      calendar-week-start-day 1
+      chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+      chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
+      general-holidays
+      '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
+	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
+	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
+      local-holidays
+      '((holiday-chinese 1 15 "元宵节 (正月十五)") (holiday-chinese 5 5 "端午节 (五月初五)")
+	(holiday-chinese 9 9 "重阳节 (九月初九)") (holiday-chinese 8 15 "中秋节 (八月十五)"))
+      christian-holidays nil
+      hebrew-holidays nil
+      islamic-holidays nil
+      ;; solar-holidays nil
+      bahai-holidays nil
+      solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
+
+(setq mark-diary-entries-in-calendar t
+      ;; appt-issue-message nil ; obsolete variable
+      appt-message-warning-time 30
+      mark-holidays-in-calendar t
+      view-calendar-holidays-initially nil)
+
+(setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
+      calendar-date-display-form '(year "/" month "/" day)
+      calendar-time-display-form
+      '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
+
+(setq cal-tex-diary t
+      cal-tex-24 t
+      cal-tex-daily-start 8
+      cal-tex-daily-end 22)
+
+;;(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
+(add-hook 'calendar-load-hook
+	  '(lambda ()
+	     (define-key calendar-mode-map "r" 'records-calendar-to-record)
+	     (define-key calendar-mode-map ">" 'scroll-calendar-left)
+	     (define-key calendar-mode-map "<" 'scroll-calendar-right)
+	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
+	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
+	     (define-key calendar-mode-map "f" 'calendar-forward-day)
+	     (define-key calendar-mode-map "b" 'calendar-backward-day)
+	     (define-key calendar-mode-map "j" 'calendar-forward-week)
+	     (define-key calendar-mode-map "k" 'calendar-backward-week)
+	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
+	     ))
+
+(autoload 'chinese-year "cal-china" "Chinese year data" t)
+
+(defun holiday-chinese (cmonth cday string)
+  "Chinese calendar holiday, month and day in Chinese calendar (CMONTH, CDAY).
+
+If corresponding MONTH and DAY in gregorian calendar is visible,
+the value returned is the list \(((MONTH DAY year) STRING)).
+Returns nil if it is not visible in the current calendar window."
+  (let* ((m displayed-month)
+	 (y displayed-year)
+	 (gdate (calendar-gregorian-from-absolute
+		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
+    (increment-calendar-month m y (- 11 (car gdate)))
+    (if (> m 9) (list (list gdate string)))))
+
+;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
+;;   ())
+
+;;;; records mode ;;;;
+(load ".emacs-records")
+(setq records-init-file "~/.emacs.d/.emacs-records")
+(add-hook 'records-mode-hooks
+	  '(lambda ()
+	     (turn-on-auto-fill)))
+
+;;;; calendar ends here ;;;;
+
 ;; (load ".emacs_erc")
 ;; (load custom-file)
-(load ".emacs_cal")
 (load ".emacs_func")
-(load ".emacs_faces")
-(load ".emacs_bbdb")
-(load ".emacs_smtp")
+;; (load ".emacs_faces")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
