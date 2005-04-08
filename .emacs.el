@@ -27,7 +27,7 @@
 (global-set-key "\M-`" 'next-error)
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
-;;(require 'gnus-load)
+(require 'gnus-load)
 (require 'bs)
 (require 'ido)
 (require 'view)
@@ -367,6 +367,12 @@
 	      ;; X-Window
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)))))
+
+
+(autoload 'dictionary-search "dictionary" "Ask for a word and search it in all dictionaries" t)
+(autoload 'dictionary-match-words "dictionary" "Ask for a word and search all matching words in the dictionaries" t)
+(autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
+(autoload 'dired-tar-pack-unpack "dired-tar" "Dired tar" t)
 
 ;; (load ".emacs_erc")
 ;; (load ".emacs_wiki")
