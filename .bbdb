@@ -55,7 +55,7 @@
 ["商超" nil nil nil (["Mobile" "13091444078"]) nil ("shangchao@dhu.edu.cn" "shinechar@163.com") ((creation-date . "2003-08-23") (timestamp . "2005-04-02") (notes . "机器密码159632") (msn . "shangchao@0451.com") (attribution . "shinechar")) nil]
 ["舒燕君" nil nil nil (["Mobile" "13115314394"] ["Office" "86413555-14"]) nil nil ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
 ["隋金鑫" nil nil "软件学院三楼实验室" nil nil ("suijinxin@hit.edu.cn") ((creation-date . "2005-04-07") (timestamp . "2005-04-07")) nil]
-["孙海阳" nil ("sun sea") nil (["Mobile" "13751008802"]) nil ("sunhaiyang@hotmail.com") ((creation-date . "2003-07-30") (timestamp . "2005-02-02") (msn . "sunhaiyang@hotmail.com") (attribution . "sea")) nil]
+["孙海阳" nil ("sun sea") nil (["Mobile" "13811410481"]) nil ("sunhaiyang@hotmail.com") ((creation-date . "2003-07-30") (timestamp . "2005-04-14") (msn . "sunhaiyang@hotmail.com") (attribution . "sea") (notes . "传真 010-62972929")) nil]
 ["孙力生" nil ("Lisheng" "Lisheng Sun") nil nil nil ("lisheng@cs.ualberta.ca" "lisheng_alberta@yahoo.ca") ((creation-date . "2003-07-30") (timestamp . "2005-02-02") (msn . "datasunny@hotmail.com") (www . "http://www.cs.ualberta.ca/~lisheng/") (attribution . "sunny")) nil]
 ["孙志岗" nil ("Sun Zhigang") nil (["Office" "86414495"] ["Mobile" "13604804426"]) nil ("sun@hit.edu.cn") ((creation-date . "2004-09-06") (timestamp . "2005-02-02") (www . "http://sunner.cn") (msn . "sunner_sun@hotmail.com") (attribution . "Sun")) nil]
 ["孙倩" "" nil nil (["Office" "0592-5391825"]) nil ("sunqian@china-channel.com") ((creation-date . "2005-03-30") (timestamp . "2005-03-30") (notes . "35互联(中国频道)") (msn . "sunqian@china-channel.com")) nil]
