@@ -95,6 +95,7 @@
 ["张硕" nil nil nil nil nil ("zhangshuocn@hit.edu.cn" "zhangshuocn@sina.com" "zhangshuocn@126.com") ((creation-date . "2003-08-23") (timestamp . "2005-02-28")) nil]
 ["张岩" nil nil "软件基础教研室" (["Mobile" "13936648412"] ["Office" "86415549"]) nil ("zhangy@hit.edu.cn") ((creation-date . "2004-08-30") (timestamp . "2005-04-07") (attribution . "张老师")) nil]
 ["张艳秋" nil ("yanqiu zhang") nil (["Mobile" "010-86928618"] ["Home" "010-58995814"] ["Office" "010-88577878-611"]) nil ("yanqiu.zhang@srcb.ricoh.com" "sarai@263.net") ((creation-date . "2004-08-04") (timestamp . "2005-04-12") (msn . "sarai_cn@hotmail.com") (qq . "65415686") (attribution . "sarai")) nil]
+["张振亚" "" ("zhhzhfya") nil nil nil ("zhhzhfya503@tom.com") ((creation-date . "2005-04-26") (timestamp . "2005-04-26")) nil]
 ["张炜" nil ("wzhang") nil nil nil ("wzhang74@hit.edu.cn") ((creation-date . "2004-09-09") (timestamp . "2004-12-09")) nil]
 ["赵娟娟" nil nil nil nil nil ("zjj259900@163.com" "bingyu.lucky@gmail.com") ((creation-date . "2003-08-03") (timestamp . "2004-09-13")) nil]
 ["赵森" nil ("luckyzs") nil nil nil ("luckyzs2000@sohu.com") ((creation-date . "2004-12-30") (timestamp . "2005-04-02") (attribution . "zs")) nil]
