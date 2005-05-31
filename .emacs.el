@@ -23,7 +23,7 @@
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
-(global-set-key "\M-n" 'gnus)
+(global-set-key "\M-n" 'gnus-no-server)
 (global-set-key "\M-`" 'next-error)
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
@@ -291,7 +291,8 @@
 (cond ((not window-system)
        ;; Text-Only console
        (setq frame-background-mode 'dark)
-       (setq Info-use-header-line nil))
+       (setq Info-use-header-line nil)
+       (copy-face 'font-lock-comment-delimiter-face 'font-lock-comment-face))
 
       (window-system
        ;; BOTH X-Window and MS-Windows
