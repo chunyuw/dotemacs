@@ -57,6 +57,7 @@
 ["舒燕君" nil nil nil (["Mobile" "13115314394"] ["Office" "86413555-14"]) nil nil ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
 ["宋巧红" "" nil nil nil nil ("jdxy@hit.edu.cn") ((creation-date . "2005-05-06") (timestamp . "2005-05-06")) nil]
 ["隋金鑫" nil nil "软件学院三楼实验室" nil nil ("suijinxin@hit.edu.cn") ((creation-date . "2005-04-07") (timestamp . "2005-04-07")) nil]
+["孙海洋" nil nil nil nil nil ("samuelsun@viatech.com.cn") ((creation-date . "2005-06-02") (timestamp . "2005-06-02")) nil]
 ["孙海阳" nil ("sun sea") nil (["Mobile" "13811410481"] ["FAX" "010-62972929"]) nil ("sunhaiyang@hotmail.com") ((creation-date . "2003-07-30") (timestamp . "2005-05-17") (msn . "sunhaiyang@hotmail.com") (attribution . "sea")) nil]
 ["孙力生" nil ("Lisheng" "Lisheng Sun") nil nil nil ("lisheng@cs.ualberta.ca" "lisheng_alberta@yahoo.ca") ((creation-date . "2003-07-30") (timestamp . "2005-02-02") (msn . "datasunny@hotmail.com") (www . "http://www.cs.ualberta.ca/~lisheng/") (attribution . "sunny")) nil]
 ["孙志岗" nil ("Sun Zhigang") nil (["Office" "86414495"] ["Mobile" "13604804426"]) nil ("sun@hit.edu.cn") ((creation-date . "2004-09-06") (timestamp . "2005-02-02") (www . "http://sunner.cn") (msn . "sunner_sun@hotmail.com") (attribution . "Sun")) nil]
