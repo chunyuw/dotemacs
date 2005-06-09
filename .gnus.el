@@ -12,7 +12,7 @@
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
-      gnus-backup-startup-file t
+      gnus-backup-startup-file nil
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
@@ -25,27 +25,20 @@
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
       gnus-dribble-directory "~/.var/"
-      gnus-interactive-exit nil)
+      gnus-interactive-exit nil
+      gnus-auto-select-same t)
 
-(setq gnus-auto-select-same t)
-
-(setq mm-inline-large-images t
+(setq mm-inline-large-images nil
       mm-text-html-renderer 'html2text
       mm-inline-override-types '("text/html")) ;; or nil
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
-	("list\\..*" (subscribed . t) (total-expire . nil))
-	("mail\\..*" (total-expire . nil))
+	("list\\..*" (subscribed . t) (total-expire . t))
+	("mail\\..*" (total-expire . nil) (gnus-use-scoring nil))
 	("misc\\..*" (total-expire . t))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
-	("mail\\..*\\|classmate\\..*" (gnus-use-scoring nil))))
-
-(setq gnus-header-face-alist
-      '(("From" nil gnus-header-from-face)
-	("Subject" nil gnus-header-subject-face)
-	("User-Agent\\|X-Mailer\\|X-Newsreader" nil gnus-header-subject-face)
-	("" gnus-header-name-face gnus-header-content-face)))
+	("classmate\\..*" (gnus-use-scoring nil))))
 
 (setq gnus-visible-headers 
       (concat "^From:\\|^Newsgroups:\\|^Subject:\\|^Date:\\|^Followup-To:"
@@ -56,7 +49,8 @@
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
-		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
+		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com"
+		    "chunyu@emacs.cn" "wangchunyu@emacs.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -80,10 +74,6 @@
 	 (name "进化的鱼")
 	 (address "cyemacs@gmail.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
-	("^nnml:list.*"
-	 (signature-file "~/.sig/pubmail")
-	 (name "Chunyu Wang")
-	 (address "cymacs@gmail.com"))
 	("^nnml:mail.*"
 	 (signature-file "~/.sig/mail")
 	 (name "王春宇")
@@ -137,7 +127,8 @@
 	      "\\|^Disposition-Notification-To:\\|^In-Reply-To:\\|^List-"
 	      "\\|^Status:\\|^Errors-To:\\|FL-Build:")
       message-make-forward-subject-function 'message-forward-subject-fwd
-      message-forward-as-mime nil)
+      message-forward-as-mime t
+      message-forward-show-mml nil)
 
 (setq nnml-use-compressed-files t)
 
@@ -146,16 +137,15 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (any "985101@googlegroups\\.com\\|985101@db\\.cs\\.hit\\.edu\\.cn" "classmate.985101")
-	  (any "zhdotemacs@yahoogroups.com" "list.zhdotemacs")
-	  ;; (from ".*-\\(request\\|owner\\|bounces\\)@.*" "list.misc-request")
+      '(| (any "985101@googlegroups" "classmate.985101")
 	  (to "202.118.224.153" "mail.misc")
 	  (: spam-stat-split-fancy)
-	  (to "chunyu@\\(hit\\|db.hit\\|myrealbox\\)\\|dddkk@sina\\|cye?macs@gmail"
+	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|cye?macs@gmail"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
 		 (any "cmbchina\\.com" "mail.cmbchina")
 		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
 		 (from "\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
+		 (from "cymacs@newsmth.org" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk")
       nnmail-mail-splitting-decodes t)
