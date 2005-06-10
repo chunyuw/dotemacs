@@ -8,7 +8,6 @@
 (global-unset-key [(insert)])
 
 (global-set-key "\C-x\C-b" 'bs-show)
-;;(global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-x\C-p" 'pop-global-mark)
 (global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
