@@ -50,7 +50,7 @@
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
 		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com"
-		    "chunyu@emacs.cn" "wangchunyu@emacs.cn")))
+		    "wchunyu@gmail.com" "chunyu@emacs.cn" "wangchunyu@emacs.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -140,7 +140,7 @@
       '(| (any "985101@googlegroups" "classmate.985101")
 	  (to "202.118.224.153" "mail.misc")
 	  (: spam-stat-split-fancy)
-	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|cye?macs@gmail"
+	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
 		 (any "cmbchina\\.com" "mail.cmbchina")
 		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
