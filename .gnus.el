@@ -9,7 +9,8 @@
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5) (3 . utf-8))
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030 x-gbk))
 
-(setq gnus-novice-user nil)
+(setq gnus-novice-user nil
+      gnus-expert-user t)
 
 (setq gnus-read-newsrc-file nil
       gnus-save-newsrc-file nil
@@ -139,15 +140,15 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (any "985101@googlegroups" "classmate.985101")
+      '(| (any "985101" "classmate.985101")
 	  (to "202.118.224.153" "mail.misc")
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
 		 (any "cmbchina\\.com" "mail.cmbchina")
 		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
-		 (from "\\(emacs\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
-		 (from "cymacs@newsmth.org" "mail.myself")
+		 (from "\\(metafun\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
+		 (from "cymacs@newsmth.net" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk")
       nnmail-mail-splitting-decodes t)
