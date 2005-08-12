@@ -1,8 +1,8 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
+;; $Id$ 
 ;; Chunyu <chunyu@hit.edu.cn>'s .gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods `((nnml "")))
+      gnus-secondary-select-methods '((nnml "")))
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
@@ -146,7 +146,7 @@
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
 		 (any "cmbchina\\.com" "mail.cmbchina")
-		 ("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
+		 ;;("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
 		 (from "\\(metafun\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
 		 (from "cymacs@newsmth.net" "mail.myself")
 		 "mail.misc"))

@@ -26,7 +26,6 @@
 (global-set-key "\M-`" 'next-error)
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
-(require 'gnus-load)
 (require 'ido)
 (require 'uniquify)
 
