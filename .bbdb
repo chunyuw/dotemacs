@@ -70,7 +70,7 @@
 ["王晓群" nil nil nil (["Mobile" "13704804719"]) nil ("wangxiaoqun@hit.edu.cn" "wxq@pact518.hit.edu.cn") ((creation-date . "2005-04-12") (timestamp . "2005-07-03")) nil]
 ["王杨" nil ("wangyang") nil nil nil ("wangyanggirl@163.com") ((creation-date . "2004-09-15") (timestamp . "2005-01-14") (notes . "yahoo:wangyangll2002") (msn . "wangyanggirl@hotmail.com")) nil]
 ["王永" nil ("Yong Wang") "中科院化物所" nil nil ("wangyong@dicp.ac.cn") ((creation-date . "2004-08-22") (timestamp . "2004-08-23") (www . "http://www.beam.dicp.ac.cn/groupmem/personal/ywang/ywang.htm")) nil]
-["王宇" nil ("王宇的") nil (["Mobile" "13945698721"]) nil ("wangyu1985@sina.com") ((creation-date . "2005-04-02") (timestamp . "2005-04-02") (attribution . "WY")) nil]
+["王宇" nil ("wangyu" "王宇的") nil (["Mobile" "13945698721"]) nil ("wangyu1985@sina.com") ((creation-date . "2005-04-02") (timestamp . "2005-08-24") (attribution . "WY")) nil]
 ["王志杰" nil nil nil nil nil ("wzjfrank@163.com") ((creation-date . "2005-06-08") (timestamp . "2005-06-08")) nil]
 ["王丕栋" nil nil nil nil nil ("wpd1hl@126.com") ((creation-date . "2005-06-10") (timestamp . "2005-06-10")) nil]
 ["王栩" nil nil nil nil nil ("vivid@hit.edu.cn") ((creation-date . "2003-09-21") (timestamp . "2003-09-21")) nil]
