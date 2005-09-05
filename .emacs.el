@@ -22,7 +22,7 @@
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-o" 'other-window)
-(global-set-key "\M-n" 'gnus-no-server)
+(global-set-key "\M-n" 'gnus)		; gnus-no-server
 (global-set-key "\M-`" 'next-error)
 (setq outline-minor-mode-prefix "\C-c\C-o")
 
@@ -165,7 +165,7 @@
 (setq quack-default-program "guile"
       quack-fontify-style nil)
 
-(setq dictionary-server "192.168.1.194"
+(setq dictionary-server "db.hit.edu.cn"
       dictionary-coding-systems-for-dictionaries
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
@@ -421,7 +421,7 @@
 (setq smtpmail-default-smtp-server "202.118.224.153")
 (setq smtpmail-smtp-server "202.118.224.153")
 (setq smtpmail-auth-credentials
-      '(("202.118.224.153" 25 "chunyu" "abcdefg")))
+      '(("202.118.224.153" 25 "chunyu" "xxxyxxx")))
 ;; (setq smtpmail-default-smtp-server nil)
 ;; (setq smtpmail-smtp-server "192.168.1.194")
 ;; (setq smtpmail-auth-credentials
