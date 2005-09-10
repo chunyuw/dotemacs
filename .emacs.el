@@ -362,6 +362,10 @@
 (autoload 'dictionary-match-words "dictionary" "Ask for a word and search all matching words in the dictionaries" t)
 (autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
 (autoload 'dired-tar-pack-unpack "dired-tar" "Dired tar" t)
+(autoload 'php-mode  "php-mode" "PHP mode" t)
+(setq auto-mode-alist
+      (append '(("\\.php\\'" . php-mode)
+                ("\\.inc\\'" . php-mode)) auto-mode-alist))
 
 ;;;;;;;; bbdb ;;;;;;;;;;;;;;;;;;
 (require 'bbdb)
