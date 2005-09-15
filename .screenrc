@@ -2,7 +2,7 @@
 
   startup_message off			# no startup message.
   nethack off	       			# nethack style message.
-  deflogin off				# д╛хо logoff.
+  deflogin on				# д╛хо logoff.
   defflow off				# 
   vbell off				# default: off.
   vbell_msg "   -- Ring, Ring!! --   "	# default: "Wuff,Wuff!!".
