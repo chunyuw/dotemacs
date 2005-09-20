@@ -141,10 +141,11 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
-	  (to "202.118.224.153" "mail.misc")
+	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  (: spam-stat-split-fancy)
-	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@emacs\\.cn"
+	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
+		 (from "@ssmail\\.hit\\.edu\\.cn" "misc.ta")
 		 (any "cmbchina\\.com" "mail.cmbchina")
 		 ;;("Subject" "OS\\|操作系统\\|实验\\|试验" "mail.ta")
 		 (from "\\(metafun\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")

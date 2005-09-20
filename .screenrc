@@ -18,7 +18,7 @@
   activity "Activity in %n (%t) [%w:%s]~"
   pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
-  caption always "%{rw}%n%f %t %{wk} | %?%-Lw%?%{wb}[%n*%f %t]%?(%u)%?%{wk}%?%+Lw%? %{wk} %= %{+b rk}[%{wk}%H%{rk}]%{gk} %c %{yk}%Y-%d-%m"
+  caption always "%{rw}%n%f %t %{wk} | %?%-Lw%?%{wb}[%n*%f %t]%?(%u)%?%{wk}%?%+Lw%? %{wk} %= %{+b rk}[%{wk}%H%{rk}]%{gk} %c %{yk}%Y-%m-%d"
 #  caption always "%Y/%m/%d/ %0c%{=b kW}  %l  %{=r kd}%-Lw%{= bd}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
 #  caption always "[%H] %{=r kd}%-Lw%{= bd}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"
 #  hardstatus alwayslastline "%{+b kr}host: %{kw}%H %{kg} | %c | %{ky}%d.%m.%Y | %{kr}(load: %l)%-0=%{kw}"
@@ -28,11 +28,11 @@
   bind E screen -t 'EMACS' 5 sudo emacs	# `E = sudo emacs
   bind b screen -t 'BBS' ssh bbs	# `b = ssh bbs
   bind t screen -t 'fetchmail' 9 fetchmail -d 0 -v #
+  bind f screen sshfix
 
   bind k
   bind ^k
   bind ^g
-  bind f
   bind 'K' kill
   bind 'I' login on
   bind 'O' login off
