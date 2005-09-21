@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
+v;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_faces.el, created on 2003/11/20 on db.cs.hit.edu.cn.
 
 (cond ((not window-system)
@@ -16,22 +16,22 @@
 
        (eval-after-load "ediff-init"
 	 '(progn
-	    (set-face-attribute 'ediff-current-diff-face-A nil :background "blue" :foreground "red" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-B nil :background "blue" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-C nil :background "blue" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-even-diff-face-A nil :background "black" :foreground "red")
-	    (set-face-attribute 'ediff-even-diff-face-B nil :background "black" :foreground "blue")
-	    (set-face-attribute 'ediff-even-diff-face-C nil :background "black" :foreground "magenta")
-	    (set-face-attribute 'ediff-fine-diff-face-A nil :background "cyan" :foreground "red")
-	    (set-face-attribute 'ediff-fine-diff-face-B nil :background "cyan" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-fine-diff-face-C nil :background "cyan" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-A nil :background "black" :foreground "red3" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-B nil :background "black" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-face-C nil :background "black" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-face-Ancestor nil :background "magenta" :foreground "black")
-	    (set-face-attribute 'ediff-even-diff-face-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-fine-diff-face-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-odd-diff-face-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
+	    (set-face-attribute 'ediff-current-diff-A nil :background "blue" :foreground "red" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-B nil :background "blue" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-C nil :background "blue" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-even-diff-A nil :background "black" :foreground "red")
+	    (set-face-attribute 'ediff-even-diff-B nil :background "black" :foreground "blue")
+	    (set-face-attribute 'ediff-even-diff-C nil :background "black" :foreground "magenta")
+	    (set-face-attribute 'ediff-fine-diff-A nil :background "cyan" :foreground "red")
+	    (set-face-attribute 'ediff-fine-diff-B nil :background "cyan" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-fine-diff-C nil :background "cyan" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-A nil :background "black" :foreground "red3" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-B nil :background "black" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-C nil :background "black" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-Ancestor nil :background "magenta" :foreground "black")
+	    (set-face-attribute 'ediff-even-diff-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-fine-diff-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-odd-diff-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
 
       (window-system
        ;; BOTH X-Window and MS-Windows
