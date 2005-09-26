@@ -142,6 +142,7 @@
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
+	  ("Subject" "siteadmin-discuss" "mail.gfcs")
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
