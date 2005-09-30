@@ -31,6 +31,9 @@
       gnus-interactive-exit nil
       gnus-auto-select-same t)
 
+(setq message-subscribed-address-functions
+      '(gnus-find-subscribed-addresses))
+
 (setq mm-inline-large-images nil
       mm-text-html-renderer 'html2text
       mm-inline-override-types '("text/html")) ;; or nil
@@ -81,10 +84,10 @@
 	 (signature-file "~/.sig/mail")
 	 (name "Õı¥∫”Ó")
 	 (address "chunyu@hit.edu.cn"))	
-	("^nnml:classmate.985101"
-	 (signature-file "~/.sig/mail")
+	("^nnml:lists.*"
+	 (signature-file "~/.sig/lists")
 	 (name "Chunyu Wang")
-	 (address "dddkk@sina.com"))))
+	 (address "chunyu@db.cs.hit.edu.cn"))))
 
 (setq sc-mail-glom-frame
       '((begin (setq sc-mail-headers-start (point)))
@@ -143,6 +146,9 @@
       '(| (any "985101" "classmate.985101")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  ("Subject" "siteadmin-discuss" "mail.gfcs")
+	  (to "emacs-devel@gnu.org" "lists.emacs.devel")
+	  (to "ding@gnus.org" "lists.emacs.gnus")
+	  ;;(to "emacs-devel@gnu.org" "lists.emacs.devel")
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
