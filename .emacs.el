@@ -574,8 +574,6 @@ Returns nil if it is not visible in the current calendar window."
 	 '(progn
 	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
 
-;; (load ".emacs_erc")
-;; (load custom-file)
 (load ".emacs_func")
 
 (put 'dired-find-alternate-file 'disabled nil)
