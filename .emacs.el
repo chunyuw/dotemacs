@@ -520,10 +520,63 @@ Returns nil if it is not visible in the current calendar window."
 
 ;;;; calendar ends here ;;;;
 
+(cond ((not window-system)
+       ;; Text-Only console
+       (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
+       (set-face-attribute 'region nil :background "blue")
+
+       (eval-after-load "log-view"
+	 '(progn
+	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
+	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
+       (eval-after-load "calendar"
+	 '(progn
+	    (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
+
+       (eval-after-load "ediff-init"
+	 '(progn
+	    (set-face-attribute 'ediff-current-diff-A nil :background "blue" :foreground "red" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-B nil :background "blue" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-C nil :background "blue" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-even-diff-A nil :background "black" :foreground "red")
+	    (set-face-attribute 'ediff-even-diff-B nil :background "black" :foreground "blue")
+	    (set-face-attribute 'ediff-even-diff-C nil :background "black" :foreground "magenta")
+	    (set-face-attribute 'ediff-fine-diff-A nil :background "cyan" :foreground "red")
+	    (set-face-attribute 'ediff-fine-diff-B nil :background "cyan" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-fine-diff-C nil :background "cyan" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-A nil :background "black" :foreground "red3" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-B nil :background "black" :foreground "yellow" :weight 'bold)
+	    (set-face-attribute 'ediff-odd-diff-C nil :background "black" :foreground "magenta" :weight 'bold)
+	    (set-face-attribute 'ediff-current-diff-Ancestor nil :background "magenta" :foreground "black")
+	    (set-face-attribute 'ediff-even-diff-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-fine-diff-Ancestor nil :background "cyan" :foreground "black")
+	    (set-face-attribute 'ediff-odd-diff-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
+
+      (window-system
+       ;; BOTH X-Window and MS-Windows
+       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+       (set-face-attribute 'menu nil :foreground "Wheat" :background "DarkSlateGrey")
+       (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+       (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+       (set-face-attribute 'region nil :background "grey21")
+       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
+       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+       (copy-face 'default 'font-lock-warning-face)
+       (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
+       (eval-after-load "font-latex"
+	 '(progn 
+	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")
+	    (set-face-attribute 'font-latex-title-2-face nil :height 1.0 :inherit nil :foreground "goldenrod")
+	    (set-face-attribute 'font-latex-title-3-face nil :height 1.0 :inherit nil :foreground "goldenrod3")
+	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))
+       (eval-after-load "which-func"
+	 '(progn
+	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
+
 ;; (load ".emacs_erc")
 ;; (load custom-file)
 (load ".emacs_func")
-(load ".emacs_faces")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
