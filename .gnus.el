@@ -153,6 +153,8 @@
 	  (any "screen-users.org" "lists.screen")
 	  (any "auc-?tex" "lists.auctex")
 	  (any "fetchmail" "lists.fetchmail")
+	  (any "mmixmasters-discussion" "lists.mmixmaster")
+	  (any "bug-mdk" "lists.mdk")
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
