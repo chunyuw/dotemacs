@@ -215,6 +215,11 @@
 	    (c-toggle-auto-hungry-state 1)
 	    (which-function-mode 1)))
 
+(eval-after-load "man"
+'(progn
+   (define-key Man-mode-map "j"  'chunyu-view-scroll-forward)
+   (define-key Man-mode-map "k"  'chunyu-view-scroll-backward)))
+
 (eval-after-load "help-mode"
 '(progn
    (define-key help-mode-map "l" 'help-go-back)))
@@ -358,6 +363,7 @@
 	      (setq ring-bell-function t)))))
 
 
+(autoload 'fetchmail-mode "fetchmail-mode.el" "Mode for editing .fetchmailrc files" t)
 (autoload 'dictionary-search "dictionary" "Ask for a word and search it in all dictionaries" t)
 (autoload 'dictionary-match-words "dictionary" "Ask for a word and search all matching words in the dictionaries" t)
 (autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
@@ -425,7 +431,7 @@
 (setq smtpmail-default-smtp-server "202.118.224.153")
 (setq smtpmail-smtp-server "202.118.224.153")
 (setq smtpmail-auth-credentials
-      '(("202.118.224.153" 25 "chunyu" "xxxyxxx")))
+      '(("202.118.224.153" 25 "chunyu" "asdasdf")))
 ;; (setq smtpmail-default-smtp-server nil)
 ;; (setq smtpmail-smtp-server "192.168.1.194")
 ;; (setq smtpmail-auth-credentials
@@ -517,7 +523,7 @@ Returns nil if it is not visible in the current calendar window."
 ;; (load ".emacs_erc")
 ;; (load custom-file)
 (load ".emacs_func")
-;; (load ".emacs_faces")
+(load ".emacs_faces")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)

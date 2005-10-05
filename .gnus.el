@@ -40,7 +40,7 @@
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
-	("list\\..*" (subscribed . t) (total-expire . t))
+	("lists\\..*" (subscribed . t) (total-expire . t))
 	("mail\\..*" (total-expire . nil) (gnus-use-scoring nil))
 	("misc\\..*" (total-expire . t))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
@@ -146,9 +146,13 @@
       '(| (any "985101" "classmate.985101")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  ("Subject" "siteadmin-discuss" "mail.gfcs")
-	  (to "emacs-devel@gnu.org" "lists.emacs.devel")
-	  (to "ding@gnus.org" "lists.emacs.gnus")
-	  ;;(to "emacs-devel@gnu.org" "lists.emacs.devel")
+	  (any "emacs-devel" "lists.emacs.devel")
+	  (any "ding\\|gnus" "lists.emacs.gnus")
+	  (any "openldap" "lists.openldap")
+	  (any "help-gnu-emacs" "lists.emacs.help")
+	  (any "screen-users.org" "lists.screen")
+	  (any "auc-?tex" "lists.auctex")
+	  (any "fetchmail" "lists.fetchmail")
 	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\(hit\\|db\\|emacs\\|myrealbox\\)\\|dddkk@sina\\|\\(wchunyu\\|cye?macs\\)@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
