@@ -432,10 +432,6 @@
 (setq smtpmail-smtp-server "202.118.224.153")
 (setq smtpmail-auth-credentials
       '(("202.118.224.153" 25 "chunyu" "asdasdf")))
-;; (setq smtpmail-default-smtp-server nil)
-;; (setq smtpmail-smtp-server "192.168.1.194")
-;; (setq smtpmail-auth-credentials
-;;       '(("192.168.1.191" 25 "chunyu" "mypass")))
 ;;;; smtp ends ;;;;
 
 ;;;; calendar ;;;;
