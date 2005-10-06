@@ -28,6 +28,7 @@
 
 (require 'ido)
 (require 'uniquify)
+;(require 'icicles)
 
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
@@ -202,6 +203,9 @@
 (ido-everywhere 1)
 (ido-mode 1)
 
+;(eldoc-mode 1)
+;(require 'thingatpt)
+
 ;; (desktop-save-mode 1)
 ;; (autoarg-mode 1)
 ;; (hi-lock-mode 1)
@@ -363,7 +367,8 @@
 	      (setq ring-bell-function t)))))
 
 
-(autoload 'fetchmail-mode "fetchmail-mode.el" "Mode for editing .fetchmailrc files" t)
+(autoload 'mixvm "mixvm" "mixvm/gud interaction" t)
+(autoload 'fetchmail-mode "fetchmail-mode" "Mode for editing .fetchmailrc files" t)
 (autoload 'dictionary-search "dictionary" "Ask for a word and search it in all dictionaries" t)
 (autoload 'dictionary-match-words "dictionary" "Ask for a word and search all matching words in the dictionaries" t)
 (autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
