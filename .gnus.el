@@ -42,6 +42,7 @@
       '((".*" (agent-disable-undownloaded-faces t))
 	("lists\\..*" (subscribed . t) (total-expire . t))
 	("mail\\..*" (total-expire . nil) (gnus-use-scoring nil))
+	("misc\\.ta" (total-expire . nil))
 	("misc\\..*" (total-expire . t))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
 	("classmate\\..*" (gnus-use-scoring nil))))
@@ -55,8 +56,7 @@
 
 (setq gnus-ignored-from-addresses
       (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
-		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com"
-		    "wchunyu@gmail.com" "chunyu@emacs.cn" "wangchunyu@emacs.cn")))
+		    "cymacs@gmail.com" "chunyu@myrealbox.com" "chunyu@emacs.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -78,7 +78,7 @@
 	("^cn\\..*\\|^nntp\\+news.*"
 	 (signature-file "~/.sig/cnnews")
 	 (name "½ø»¯µÄÓã")
-	 (address "cyemacs@gmail.com")
+	 (address "chunyu@myrealbox.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:mail.*"
 	 (signature-file "~/.sig/mail")
@@ -152,6 +152,7 @@
 	  (any "pamldap" "lists.pamldap")
 	  (any "help-gnu-emacs" "lists.emacs.help")
 	  (any "screen-users" "lists.screen")
+	  (any "pmwiki-users" "lists.pmwiki")
 	  (any "auc-?tex" "lists.auctex")
 	  (any "fetchmail" "lists.fetchmail")
 	  (any "mmixmasters-discussion" "lists.mmixmaster")
