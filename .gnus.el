@@ -87,7 +87,11 @@
 	("^nnml:lists.*"
 	 (signature-file "~/.sig/lists")
 	 (name "Chunyu Wang")
-	 (address "chunyu@db.cs.hit.edu.cn"))))
+	 (address "chunyu@db.cs.hit.edu.cn"))
+	("^nnml:lists.emacs.cn"
+	 (signature-file "~/.sig/lists")
+	 (name "Chunyu Wang")
+	 (address "chunyu@hit.edu.cn"))))
 
 (setq sc-mail-glom-frame
       '((begin (setq sc-mail-headers-start (point)))
@@ -146,6 +150,7 @@
       '(| (any "985101" "classmate.985101")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  ("Subject" "siteadmin-discuss" "mail.gfcs")
+	  (any "emacs-cn@googlegroups" "lists.emacs.cn")
 	  (any "emacs-devel" "lists.emacs.devel")
 	  (any "ding\\|gnus" "lists.emacs.gnus")
 	  (any "openldap" "lists.openldap")
