@@ -28,8 +28,7 @@
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
       gnus-dribble-directory "~/.var/"
-      gnus-interactive-exit nil
-      gnus-auto-select-same t)
+      gnus-interactive-exit nil)
 
 (setq message-subscribed-address-functions
       '(gnus-find-subscribed-addresses))
@@ -160,6 +159,10 @@
 	  (any "pmwiki-users" "lists.pmwiki")
 	  (any "auc-?tex" "lists.auctex")
 	  (any "fetchmail" "lists.fetchmail")
+	  (any "savane-dev-i18n" "lists.savane.dev-i18n")
+	  (any "savane-announce" "lists.savane.announce")
+	  (any "savane-dev" "lists.savane.dev")
+	  (any "savane-help" "lists.savane.help")
 	  (any "mmixmasters-discussion" "lists.mmixmaster")
 	  (any "bug-mdk" "lists.mdk")
 	  (: spam-stat-split-fancy)
