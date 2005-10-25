@@ -28,10 +28,9 @@
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
       gnus-dribble-directory "~/.var/"
+      gnus-ignored-from-addresses "chunyu\\|cymacs"
+      gnus-subscribe-newsgroup-method 'gnus-subscribe-interactively
       gnus-interactive-exit nil)
-
-(setq message-subscribed-address-functions
-      '(gnus-find-subscribed-addresses))
 
 (setq mm-inline-large-images nil
       mm-text-html-renderer 'html2text
@@ -52,10 +51,6 @@
 	      "\\|^Posted-To:\\|^Mail-Copies-To:\\|^Mail-Followup-To:"
 	      "\\|^Apparently-To:\\|^Gnus-Warning:\\|^Resent-From:\\|^X-Sent:"
 	      "\\|^User-Agent:\\|^X-Mailer:\\|^X-Newsreader:"))
-
-(setq gnus-ignored-from-addresses
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
-		    "cymacs@gmail.com" "chunyu@myrealbox.com" "chunyu@emacs.cn")))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -137,6 +132,11 @@
 	      "\\|^Status:\\|^Errors-To:\\|FL-Build:")
       message-make-forward-subject-function 'message-forward-subject-fwd
       message-forward-as-mime t
+      message-alternative-emails
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
+		    "cymacs@gmail.com" "chunyu@emacs.cn"))
+      message-dont-reply-to-names message-alternative-emails
+      message-subscribed-address-functions '(gnus-find-subscribed-addresses)
       message-forward-show-mml nil)
 
 (setq nnml-use-compressed-files t)
@@ -147,14 +147,17 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
+	  (: spam-stat-split-fancy)
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  ("Subject" "siteadmin-discuss" "mail.gfcs")
 	  (any "emacs-cn@googlegroups" "lists.emacs.cn")
 	  (any "emacs-devel" "lists.emacs.devel")
 	  (any "ding\\|gnus" "lists.emacs.gnus")
+	  (any "dbworld" "lists.dbworld")
 	  (any "openldap" "lists.openldap")
 	  (any "pamldap" "lists.pamldap")
 	  (any "help-gnu-emacs" "lists.emacs.help")
+	  (any "tex-live@tug.org" "list.tex-live")
 	  (any "screen-users" "lists.screen")
 	  (any "pmwiki-users" "lists.pmwiki")
 	  (any "auc-?tex" "lists.auctex")
@@ -165,7 +168,6 @@
 	  (any "savane-help" "lists.savane.help")
 	  (any "mmixmasters-discussion" "lists.mmixmaster")
 	  (any "bug-mdk" "lists.mdk")
-	  (: spam-stat-split-fancy)
 	  (to "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
 		 (from "@ssmail\\.hit\\.edu\\.cn" "misc.ta")
@@ -179,6 +181,7 @@
 (require 'message-x)
 (require 'spam-stat)
 (spam-stat-load)
+(setq spam-use-bogofilter t)
 (setq spam-use-stat t)
 (setq gnus-registry-max-entries 2500
       gnus-registry-use-long-group-names t)
@@ -188,8 +191,13 @@
 (setq spam-log-to-registry t
       spam-use-BBDB t
       spam-use-regex-headers t
-      spam-stat-split-fancy-spam-group "misc.junk")
-
+      spam-stat-split-fancy-spam-group "misc.junk"
+      gnus-spam-autodetect-methods 
+      '((".*" . (spam-use-blacklist
+                 ;;spam-use-BBDB
+                 spam-use-bogofilter
+                 spam-use-gmane-xref)))
+      )
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
@@ -203,6 +211,8 @@
 	((if (boundp 'message-newgroups-header-regexp)
 	     message-newgroups-header-regexp message-newsgroups-header-regexp)
 	 . message-expand-group)))
+
+(gnus-compile)
 
 (when window-system
   (eval-after-load "gnus-art"
