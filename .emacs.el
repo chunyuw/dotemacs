@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
+;; -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
 (global-set-key [f11] 'compile)
@@ -91,7 +91,6 @@
       cvs-dired-use-hook 'always)
 
 (setq abbrev-file-name "~/.emacs.d/.abbrev_defs"
-      custom-file "~/.emacs.d/.emacs_custom.el"
       custom-buffer-done-function 'kill-buffer)
 
 (setq display-time-24hr-format t
@@ -289,6 +288,7 @@
 	("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")))
 
 (add-to-list 'load-path "~/.emacs.d")
+(load ".emacs_func")
 
 (cond ((not window-system)
        ;; Text-Only console
@@ -588,9 +588,6 @@ Returns nil if it is not visible in the current calendar window."
        (eval-after-load "which-func"
 	 '(progn
 	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
-
-(load ".emacs_func")
-(load ".emacs_custom")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)

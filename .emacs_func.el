@@ -1,4 +1,4 @@
-;; $Id$  -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
+;; -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_func.el, created on 2004/03/28 on ds1.db.hit.edu.cn.
 
 (defun chunyu-plink () 
@@ -96,5 +96,11 @@ comment char"
   "build mp files"
   (interactive)
   (shell-command (format "mptopdf %s" (buffer-name))))
+
+(defun pmwiki-insert-directive (directive)
+  (interactive "sPlease input directive name: ")
+  (insert-string (format "(:%s:)[=\n\n=]\n" directive))
+  (previous-line 2)
+)
 
 ;; Chunyu's .emacs_func.el ends here.

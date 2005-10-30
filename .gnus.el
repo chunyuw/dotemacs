@@ -1,4 +1,3 @@
-;; $Id$ 
 ;; Chunyu <chunyu@hit.edu.cn>'s .gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
@@ -33,8 +32,9 @@
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images nil
-      mm-text-html-renderer 'html2text
-      mm-inline-override-types '("text/html")) ;; or nil
+      mm-text-html-renderer 'w3m
+)
+;;      mm-inline-override-types '("text/html")) ;; or nil
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
@@ -157,7 +157,7 @@
 	  (any "openldap" "lists.openldap")
 	  (any "pamldap" "lists.pamldap")
 	  (any "help-gnu-emacs" "lists.emacs.help")
-	  (any "tex-live@tug.org" "list.tex-live")
+	  (any "tex-live" "lists.tex-live")
 	  (any "screen-users" "lists.screen")
 	  (any "pmwiki-users" "lists.pmwiki")
 	  (any "auc-?tex" "lists.auctex")

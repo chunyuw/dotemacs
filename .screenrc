@@ -1,4 +1,4 @@
-# .screenrc file of Wang Chunyu <chunyu@hit.edu.cn>. -*- conf-unix -*-
+# Chunyu <chunyu@hit.edu.cn>'s .screenrc, created on 2005/08/05 on chunyu.hit.edu.cn. -*- conf-unix -*-
 
   startup_message off			# no startup message.
   nethack off	       			# nethack style message.
@@ -117,3 +117,5 @@
 # xterm-52 tweaks:
 # - uses background color for delete operations
   termcapinfo xterm* be
+
+# Chunyu's .screenrc ends here.
