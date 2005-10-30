@@ -270,25 +270,13 @@
   '(progn
      (define-key meta-mode-map "\C-c\C-c" 'chunyu-metapost-build-mp)))
 
-;; (add-hook 'find-file-hooks 'auto-insert)
-;; (setq auto-insert-directory "~/.emacs.d/insert/")
-;; (setq auto-insert-query nil)
-;; (setq auto-insert-alist
-;;       '(("\\.cpp$"      . ["cpp" auto-update-source-file])
-;;         ("\\.cc$"       . ["cc" auto-update-source-file])
-;;         ("\\.hpp$"      . ["hpp" auto-update-header-file])
-;;         ("\\.hh$"       . ["hh" auto-update-header-file])
-;;         ("\\.h$"        . ["h" auto-update-header-file])
-;;         ("\\.pro$"      . ["pro" auto-update-project-file])))
-
 (setq dired-view-command-alist
       '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
 	("[.]pdf\\'" . "xpdf %s")
 	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")
 	("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")))
 
-(add-to-list 'load-path "~/.emacs.d")
-(load ".emacs_func")
+(load-file "~/.emacs.d/.emacs_func.elc")
 
 (cond ((not window-system)
        ;; Text-Only console
@@ -340,8 +328,6 @@
 	      (setq Info-default-directory-list '("d:/free_ware/TeXLive/info")
 		    Info-additional-directory-list '("d:/usr/emacs-21.3.50/info/"))
 
-	      (load ".emacs_w32_tex")
-
 	      ;;-- ECB --;;
 	      ;; ;; (setq ecb-options-version "2.23")
 	      ;; (require 'ecb-autoloads)
@@ -373,7 +359,7 @@
       (append '(("\\.php\\'" . php-mode)
                 ("\\.inc\\'" . php-mode)) auto-mode-alist))
 
-;;;;;;;; bbdb ;;;;;;;;;;;;;;;;;;
+;;;; bbdb ;;;;
 (require 'bbdb)
 ;; (require 'supercite)
 ;; (require 'message)
@@ -424,15 +410,15 @@
 	    (set-face-attribute 'bbdb-company nil :foreground "sandy brown")
 	    (set-face-attribute 'bbdb-field-name nil :foreground "slate blue")
 	    (set-face-attribute 'bbdb-field-value nil :foreground "deep sky blue" :weight 'normal)))))
-;;;; bbdb ends here ;;;;;;;;;;;;;;;;;;
+;;;; bbdb ends here ;;;;
 
 ;;;; smtp ;;;;
 (setq message-send-mail-function 'smtpmail-send-it)
-(setq smtpmail-default-smtp-server "202.118.224.153")
-(setq smtpmail-smtp-server "202.118.224.153")
+(setq smtpmail-default-smtp-server "mx.hit.edu.cn")
+(setq smtpmail-smtp-server "mx.hit.edu.cn")
 (setq smtpmail-auth-credentials
-      '(("202.118.224.153" 25 "chunyu" "asdfasdf")))
-;;;; smtp ends ;;;;
+      '(("mx.hit.edu.cn" 25 "chunyu" "asdfasdf")))
+;;;; smtp ends here ;;;;
 
 ;;;; calendar ;;;;
 (setq diary-file "~/.emacs.d/.diary"
@@ -510,12 +496,9 @@ Returns nil if it is not visible in the current calendar window."
 		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
     (increment-calendar-month m y (- 11 (car gdate)))
     (if (> m 9) (list (list gdate string)))))
-
-;; (defun diary-anniversary-chinese (cmonth cday year &optional mark)
-;;   ())
-
 ;;;; calendar ends here ;;;;
 
+;;;; pmwiki ;;;;
 (autoload 'pmwiki-open "pmwiki-mode" "PmWiki online edit." t)
 (setq pmwiki-wikiword-pattern "[A-Z][A-Za-z0-9]+"
       pmwiki-page-uri "http://www.emacs.cn/Main/WikiSandbox"
@@ -526,7 +509,8 @@ Returns nil if it is not visible in the current calendar window."
               "http://www.emacs.cn/index.php")
 	    '("http://www.emacs.cn/index.php"
               "http://www.emacs.cn"
-              "http://chunyu:xxx@www.emacs.cn"))
+              "http://chunyu:xxx@www.emacs.cn")))
+
 (eval-after-load "pmwiki-mode"
   '(progn
      (define-key pmwiki-mode-map "\M-s" 'pmwiki-insert-directive)))
@@ -534,7 +518,9 @@ Returns nil if it is not visible in the current calendar window."
 ;; (add-hook 'pmwiki-mode-hooks
 ;;           'pmwiki-delayed-hook-longlines-mode-on)
 ;; (add-hook 'pmwiki-save-before-hooks 'longlines-mode-off)
+;;;; pmwiki ends here ;;;;
 
+;; ;;;; tex ;;;;
 ;; (require 'tex-site)
 
 ;; (setq TeX-macro-global 
@@ -624,6 +610,7 @@ Returns nil if it is not visible in the current calendar window."
 ;; ;;-- LaTeX-Preview --;;
 ;; ;; (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
 ;; ;; (setq preview-scale-function 1.5)
+;; ;;;; tex ends here ;;;
 
 (cond ((not window-system)
        ;; Text-Only console
@@ -669,12 +656,12 @@ Returns nil if it is not visible in the current calendar window."
        (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
        (copy-face 'default 'font-lock-warning-face)
        (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
-       (eval-after-load "font-latex"
-	 '(progn 
-	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")
-	    (set-face-attribute 'font-latex-title-2-face nil :height 1.0 :inherit nil :foreground "goldenrod")
-	    (set-face-attribute 'font-latex-title-3-face nil :height 1.0 :inherit nil :foreground "goldenrod3")
-	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))
+;;        (eval-after-load "font-latex"
+;; 	 '(progn 
+;; 	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")
+;; 	    (set-face-attribute 'font-latex-title-2-face nil :height 1.0 :inherit nil :foreground "goldenrod")
+;; 	    (set-face-attribute 'font-latex-title-3-face nil :height 1.0 :inherit nil :foreground "goldenrod3")
+;; 	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))
        (eval-after-load "which-func"
 	 '(progn
 	    (set-face-attribute 'which-func-face nil :foreground "blue")))))

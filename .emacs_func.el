@@ -1,10 +1,10 @@
 ;; -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s .emacs_func.el, created on 2004/03/28 on ds1.db.hit.edu.cn.
 
-(defun chunyu-plink () 
-  "run plink for proxy in background."
-  (interactive)
-  (w32-shell-execute nil "plink.exe" "runnat" 0))
+;; (defun chunyu-plink () 
+;;   "run plink for proxy in background."
+;;   (interactive)
+;;   (w32-shell-execute nil "plink.exe" "proxy" 0))
 
 (defun chunyu-message-expand (&optional arg)
   "message mode expand."
@@ -50,6 +50,7 @@
 	(w32-shell-execute "open" file-name nil 1))))
 
 (defun chunyu-dired-foobar2000-play ()
+  "Open dir of .mp3 files with foobar2000."
   (interactive)
   (let ((file-name (dired-get-filename 'no-dir)))
     (if (file-exists-p file-name)
@@ -98,6 +99,7 @@ comment char"
   (shell-command (format "mptopdf %s" (buffer-name))))
 
 (defun pmwiki-insert-directive (directive)
+  "Insert (:DIRECTIVE:) [= ... =] in PmWiki buffers."
   (interactive "sPlease input directive name: ")
   (insert-string (format "(:%s:)[=\n\n=]\n" directive))
   (previous-line 2)
