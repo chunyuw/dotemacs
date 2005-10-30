@@ -11,6 +11,7 @@
 (global-set-key "\C-x\C-p" 'pop-global-mark)
 (global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
+(global-set-key "\M-k" 'chunyu-kill-this-buffer)
 (global-set-key "\C-xk" 'chunyu-kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
@@ -46,7 +47,7 @@
 (define-key meta-m-map "a" 'chunyu-maxize-emacs)
 (define-key meta-m-map "f" 'chunyu-insert-file-variable)
 (define-key meta-m-map "p" 'chunyu-plink)
-(define-key meta-m-map "\M-j" 'webjump)
+(define-key meta-m-map "\M-j" 'pmwiki-open)
 
 (setq inhibit-startup-message t
       report-emacs-bug-no-explanations t
@@ -110,10 +111,6 @@
       time-stamp-warn-inactive t
       time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
 
-(setq todo-file-do "~/.emacs.d/todo-do"
-      todo-file-done "~/.emacs.d/todo-done"
-      todo-file-top "~/.emacs.d/todo-top")
-
 (setq version-control t
       kept-old-versions 2
       kept-new-versions 5
@@ -173,9 +170,7 @@
 (set-register ?e '(file . "~/.emacs.d/.emacs.el"))
 (set-register ?g '(file . "~/.emacs.d/.gnus.el"))
 (cond ((eq window-system 'w32)
-       (set-register ?M '(file . "e:/My Music/"))
-       (setenv "SHELL" "sh.exe")))
-(setenv "DISPLAY" "chunyu:0")
+       (set-register ?M '(file . "D:/music/"))))
 
 ;; (set-locale-environment "en")
 ;; (set-locale-environment "zh_CN")
@@ -366,7 +361,7 @@
 	      (setq visible-bell t)
 	      (setq ring-bell-function t)))))
 
-
+(autoload 'svn-status "psvn" nil t)
 (autoload 'mixvm "mixvm" "mixvm/gud interaction" t)
 (autoload 'fetchmail-mode "fetchmail-mode" "Mode for editing .fetchmailrc files" t)
 (autoload 'dictionary-search "dictionary" "Ask for a word and search it in all dictionaries" t)
@@ -436,7 +431,7 @@
 (setq smtpmail-default-smtp-server "202.118.224.153")
 (setq smtpmail-smtp-server "202.118.224.153")
 (setq smtpmail-auth-credentials
-      '(("202.118.224.153" 25 "chunyu" "asdasdf")))
+      '(("202.118.224.153" 25 "chunyu" "asdfasdf")))
 ;;;; smtp ends ;;;;
 
 ;;;; calendar ;;;;
@@ -521,6 +516,25 @@ Returns nil if it is not visible in the current calendar window."
 
 ;;;; calendar ends here ;;;;
 
+(autoload 'pmwiki-open "pmwiki-mode" "PmWiki online edit." t)
+(setq pmwiki-wikiword-pattern "[A-Z][A-Za-z0-9]+"
+      pmwiki-page-uri "http://www.emacs.cn/Main/WikiSandbox"
+      pmwiki-author "Chunyu Wang"
+      pmwiki-uri-transforms
+      (list '("http://www.emacs.cn\\(/[A-Z]\\|/?\\?\\)"
+              "http://www.emacs.cn"
+              "http://www.emacs.cn/index.php")
+	    '("http://www.emacs.cn/index.php"
+              "http://www.emacs.cn"
+              "http://chunyu:xxx@www.emacs.cn"))
+(eval-after-load "pmwiki-mode"
+  '(progn
+     (define-key pmwiki-mode-map "\M-s" 'pmwiki-insert-directive)))
+;; (add-hook 'pmwiki-mode-hooks 'turn-off-auto-fill)
+;; (add-hook 'pmwiki-mode-hooks
+;;           'pmwiki-delayed-hook-longlines-mode-on)
+;; (add-hook 'pmwiki-save-before-hooks 'longlines-mode-off)
+
 (cond ((not window-system)
        ;; Text-Only console
        (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
@@ -576,6 +590,7 @@ Returns nil if it is not visible in the current calendar window."
 	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
 
 (load ".emacs_func")
+(load ".emacs_custom")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
