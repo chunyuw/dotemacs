@@ -1,7 +1,0 @@
-
-%%(diary-anniversary 1 24 1980) 老婆的 %d 岁生日。
-%%(diary-anniversary 3 10 1979) 我的 %d 岁生日。
-%%(diary-anniversary 9 26 2004) 结婚 %d 周年纪念。
-
-&%%(diary-sunrise-sunset)
-&%%(diary-phases-of-moon)
