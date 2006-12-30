@@ -1,7 +1,7 @@
-;; Chunyu <chunyu@hit.edu.cn>'s .gnus.el, created on 2003/02/24 on db.hit.edu.cn.
+;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml "")))
+      gnus-secondary-select-methods '((nnml ""))) ; (nntp "news.happynet.org")
 
 (setq gnus-default-charset 'cn-gb-2312
       gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
@@ -26,22 +26,21 @@
       gnus-treat-display-smileys t
       gnus-treat-display-x-face 'head
       gnus-auto-select-next 'quietly
-      gnus-dribble-directory "~/.var/"
       gnus-ignored-from-addresses "chunyu\\|cymacs"
-      gnus-subscribe-newsgroup-method 'gnus-subscribe-interactively
+      gnus-subscribe-newsgroup-method 'gnus-subscribe-killed
       gnus-interactive-exit nil)
 
 (setq mm-inline-large-images nil
-      mm-text-html-renderer 'w3m
-)
-;;      mm-inline-override-types '("text/html")) ;; or nil
+      mm-text-html-renderer 'w3m)
+
+(defalias 'mail-header-encode-parameter 'rfc2047-encode-parameter)
 
 (setq gnus-parameters
       '((".*" (agent-disable-undownloaded-faces t))
-	("lists\\..*" (subscribed . t) (total-expire . t))
+	("list\\..*" (subscribed . t) (total-expire . t))
 	("mail\\..*" (total-expire . nil) (gnus-use-scoring nil))
 	("misc\\.ta" (total-expire . nil))
-	("misc\\..*" (total-expire . t))
+	("misc\\..*" (total-expire . nil))
 	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
 	("classmate\\..*" (gnus-use-scoring nil))))
 
@@ -66,35 +65,26 @@
 
 (setq gnus-posting-styles
       '((".*"
-	 (signature-file "~/.sig/default")
+	 (signature-file "~/.emacs.d/sig/default")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))
 	("^cn\\..*\\|^nntp\\+news.*"
-	 (signature-file "~/.sig/cnnews")
+	 (signature-file "~/.emacs.d/sig/cnnews")
 	 (name "进化的鱼")
 	 (address "chunyu@myrealbox.com")
 	 ("X-Face" 'chunyu-gnus-x-face))
 	("^nnml:mail.*"
-	 (signature-file "~/.sig/mail")
+	 (signature-file "~/.emacs.d/sig/mail")
 	 (name "王春宇")
 	 (address "chunyu@hit.edu.cn"))	
-	("^nnml:lists.*"
-	 (signature-file "~/.sig/lists")
+	("^nnml:list.*"
+	 (signature-file "~/.emacs.d/sig/lists")
 	 (name "Chunyu Wang")
-	 (address "chunyu@db.cs.hit.edu.cn"))
-	("^nnml:lists.emacs.cn"
-	 (signature-file "~/.sig/lists")
+	 (address "cymacs@gmail.com"))
+	("^nnml:list.sfsearch"
+	 (signature-file "~/.emacs.d/sig/lists")
 	 (name "Chunyu Wang")
 	 (address "chunyu@hit.edu.cn"))))
-
-(setq sc-mail-glom-frame
-      '((begin (setq sc-mail-headers-start (point)))
-	("^x-attribution:[ \t]+.*$" (sc-mail-fetch-field t) nil t)
-	("^\\S +:.*$" (sc-mail-fetch-field) nil t)
-	("^$" (progn (bbdb/sc-default) (list 'abort '(step . 0))))
-	("^[ \t]+" (sc-mail-append-field))
-	(sc-mail-warn-if-non-rfc822-p (sc-mail-error-in-mail-field))
-	(end (setq sc-mail-headers-end (point)))))
 
 (setq sc-attrib-selection-list
       '(("sc-from-address"
@@ -119,7 +109,7 @@
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
       message-signature t
-      message-signature-file "~/.sig/default"
+      message-signature-file "~/.emacs.d/sig/default"
       message-mail-alias-type nil
       message-forward-ignored-headers
       (concat "^X-\\|^Old-\\|^Xref:\\|^Path:\\|^[Cc]c:\\|^Lines:\\|^Sender:"
@@ -133,7 +123,7 @@
       message-make-forward-subject-function 'message-forward-subject-fwd
       message-forward-as-mime t
       message-alternative-emails
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn"
+      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.cs.hit.edu.cn"
 		    "cymacs@gmail.com" "chunyu@emacs.cn"))
       message-dont-reply-to-names message-alternative-emails
       message-subscribed-address-functions '(gnus-find-subscribed-addresses)
@@ -147,29 +137,17 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
-	  (: spam-stat-split-fancy)
+	  ;;(: spam-stat-split-fancy)
+	  (any "emacs-devel" "list.emacs-devel")
+	  (any "emacs-cn" "list.emacs-cn")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
+	  (any "otwg\\|footoo\\|sf-search" "list.otwg")
+	  (any "sfdev" "list.sfsearch")
 	  ("Subject" "siteadmin-discuss" "mail.gfcs")
-	  (any "emacs-cn@googlegroups" "lists.emacs.cn")
-	  (any "emacs-devel" "lists.emacs.devel")
-	  (any "ding\\|gnus" "lists.emacs.gnus")
-	  (any "dbworld" "lists.dbworld")
-	  (any "openldap" "lists.openldap")
-	  (any "pamldap" "lists.pamldap")
-	  (any "help-gnu-emacs" "lists.emacs.help")
-	  (any "tex-live" "lists.tex-live")
-	  (any "screen-users" "lists.screen")
-	  (any "pmwiki-users" "lists.pmwiki")
-	  (any "auc-?tex" "lists.auctex")
-	  (any "fetchmail" "lists.fetchmail")
-	  (any "savane-dev-i18n" "lists.savane.dev-i18n")
-	  (any "savane-announce" "lists.savane.announce")
-	  (any "savane-dev" "lists.savane.dev")
-	  (any "savane-help" "lists.savane.help")
-	  (any "mmixmasters-discussion" "lists.mmixmaster")
-	  (any "bug-mdk" "lists.mdk")
-	  (to "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
+	  (to "@202.118.224.153" "mail.misc")
+	  (any "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
+		 (from "semengmeng@eyou.com\\|nancycm712@yahoo.com.cn\\|zysy33@163.com" "mail.remote")
 		 (from "@ssmail\\.hit\\.edu\\.cn" "misc.ta")
 		 (any "cmbchina\\.com" "mail.cmbchina")
 		 (from "\\(metafun\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
@@ -179,32 +157,33 @@
       nnmail-mail-splitting-decodes t)
 
 (require 'message-x)
-(require 'spam-stat)
-(spam-stat-load)
-(setq spam-use-bogofilter t)
-(setq spam-use-stat t)
 (setq gnus-registry-max-entries 2500
       gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
-(spam-initialize)
-     
-(setq spam-log-to-registry t
-      spam-use-BBDB t
-      spam-use-regex-headers t
-      spam-stat-split-fancy-spam-group "misc.junk"
-      gnus-spam-autodetect-methods 
-      '((".*" . (spam-use-blacklist
-                 ;;spam-use-BBDB
-                 spam-use-bogofilter
-                 spam-use-gmane-xref)))
-      )
-(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+
+;; (require 'spam-stat)
+;; (setq spam-stat-file "~/.emacs.d/spam-stat.el")
+;; (setq spam-use-bogofilter t)
+;; (setq spam-use-stat t)
+;; (spam-stat-load)
+;; (spam-initialize)
+;; (setq spam-log-to-registry t
+;;       spam-use-BBDB t
+;;       spam-use-regex-headers t
+;;       spam-stat-split-fancy-spam-group "misc.junk"
+;;       gnus-spam-autodetect-methods 
+;;       '((".*" . (spam-use-blacklist
+;; 		 ;;spam-use-BBDB
+;; 		 spam-use-bogofilter
+;; 		 spam-use-gmane-xref))))
+
+;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
 	  (lambda ()
 	    (setq fill-column 72)
-	    (turn-on-auto-fill)
-	    (footnote-mode)))
+	    ;;(turn-on-orgtbl)
+	    (turn-on-auto-fill)))
 
 (setq message-x-completion-alist
       '(("\\([rR]esent-\\|[rR]eply-\\)?[tT]o:\\|[bB]?[cC][cC]:\\|[fF]rom:" . message-x-complete-name)
@@ -251,4 +230,4 @@
   (set-face-attribute 'gnus-group-news-3-empty-face nil :foreground "green")
   (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold))
 
-;; Chunyu's .gnus.el ends here.
+;; Chunyu's .emacs.d/gnus.el ends here.

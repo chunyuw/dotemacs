@@ -1,53 +1,46 @@
+;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs, created on 2001/12/11 on db.hit.edu.cn.
 ;; -*- mode: Emacs-Lisp; coding: gb2312-unix; -*-
-;; Chunyu <chunyu@hit.edu.cn>'s .emacs.el, created on 2001/12/11 on db.hit.edu.cn.
 
-(global-set-key [f11] 'compile)
-(global-set-key [f12] 'gdb)
-(global-set-key [home] 'beginning-of-buffer)
-(global-set-key [end] 'end-of-buffer)
 (global-unset-key [(insert)])
-
+(global-unset-key [(insertchar)])
 (global-set-key "\C-x\C-b" 'bs-show)
-(global-set-key "\C-x\C-p" 'pop-global-mark)
-(global-set-key "\C-x\C-v" 'view-file)
 (global-set-key "\C-x\C-j" 'dired-jump)
-(global-set-key "\M-k" 'chunyu-kill-this-buffer)
-(global-set-key "\C-xk" 'chunyu-kill-this-buffer)
+(global-set-key "\M-k" 'chunyu/kill-this-buffer)
+(global-set-key "\C-xk" 'chunyu/kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-xve" 'cvs-examine)
 (global-set-key "\C-c\C-o" 'occur)
+;(global-set-key "\C-c\C-p" 'pop-global-mark)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
+(global-set-key "\M-#" 'calc-dispatch)
+(global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
-(global-set-key "\M-o" 'other-window)
-(global-set-key "\M-n" 'gnus)		; gnus-no-server
+;(global-set-key "\M-r" 'other-window)
 (global-set-key "\M-`" 'next-error)
-(setq outline-minor-mode-prefix "\C-c\C-o")
-
-(require 'ido)
-(require 'uniquify)
-;(require 'icicles)
 
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
 (define-key meta-m-map "\M-m" 'back-to-indentation)
-(define-key meta-m-map "\M-o" 'other-window)
-(define-key meta-m-map "\M-n" 'gnus)
+(define-key meta-m-map "\M-o" 'chunyu/title-bar-w32)
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
 (define-key meta-m-map "\M-l" 'dictionary-search)
-(define-key meta-m-map "\M-e" 're-builder)
+(define-key meta-m-map "\M-u" 'chunyu/update-src)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
-(define-key meta-m-map "b" 'browse-kill-ring)
-(define-key meta-m-map "a" 'chunyu-maxize-emacs)
-(define-key meta-m-map "f" 'chunyu-insert-file-variable)
-(define-key meta-m-map "p" 'chunyu-plink)
+(define-key meta-m-map "f" 'chunyu/insert-file-variable)
 (define-key meta-m-map "\M-j" 'pmwiki-open)
+(define-key meta-m-map "v" 'newsticker-show-news)
+(define-key meta-m-map "n" 'toggle-save-place)
+(define-key meta-m-map "\M-n" 'toggle-save-place)
+(define-key meta-m-map "s" 'org-store-link)
+(define-key meta-m-map "a" 'org-agenda)
+(define-key meta-m-map "t" 'org-todo-list)
 
 (setq inhibit-startup-message t
       report-emacs-bug-no-explanations t
@@ -59,45 +52,35 @@
       Man-notify-method 'pushy
       woman-cache-level 2
       woman-cache-filename nil
-      uniquify-buffer-name-style 'forward
-      confirm-kill-emacs nil
+      ;;confirm-kill-emacs nil
       kill-ring-max 100
       vc-follow-symlinks t
       vc-suppress-confirm t
       enable-recursive-minibuffers t
-      line-move-ignore-invisible t
       default-fill-column 78
       isearch-allow-scroll t
       tooltip-gud-tips-p t)
 
-
-;; (setq redisplay-dont-pause t)
-
 (setq makefile-electric-keys t
       ;; truncate-partial-width-windows t
-      ;; apropos-do-all t
+      apropos-do-all t
       sentence-end-double-space nil
       compilation-window-height nil
-      scroll-preserve-screen-position t
+      scroll-preserve-screen-position 'keep
+      comment-style 'extra-line
       font-lock-maximum-decoration t)
 
 (setq bookmark-save-flag 1
-      bookmark-default-file
-      (substitute-in-file-name "~/.emacs.d/emacs_$HOSTNAME.bmk"))
+      bookmark-default-file "~/.emacs.d/bookmark")
 
-(setq dired-listing-switches "-avl"
-      dired-recursive-copies 'top
-      dired-recursive-deletes 'top
-      cvs-dired-use-hook 'always)
-
-(setq abbrev-file-name "~/.emacs.d/.abbrev_defs"
+(setq abbrev-file-name "~/.emacs.d/abbrev_defs"
       custom-buffer-done-function 'kill-buffer)
 
 (setq display-time-24hr-format t
       display-time-day-and-date t)
 
 (setq gnus-inhibit-startup-message t
-      gnus-init-file "~/.emacs.d/.gnus.el"
+      gnus-init-file "~/.emacs.d/gnus.el"
       canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee")
 
 (setq mail-signature-file "~/.sig/default"
@@ -106,20 +89,17 @@
       user-full-name "Chunyu Wang"
       user-mail-address "chunyu@hit.edu.cn")
 
-(setq time-stamp-active t
-      time-stamp-warn-inactive t
-      time-stamp-format "%:y-%02m-%02d %3a %02H:%02M:%02S chunyu")
-
 (setq version-control t
       kept-old-versions 2
       kept-new-versions 5
       delete-old-versions t
-      backup-directory-alist
-      `(("." . "~/.var/tmp")
-	,(cons tramp-file-name-regexp nil))
+      backup-directory-alist '(("." . "~/.tmp"))
       backup-by-copying t
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
+
+(setq org-startup-folded 'nofold
+      org-log-done t)
 
 (setq hippie-expand-try-functions-list
       '(try-expand-line
@@ -136,48 +116,42 @@
 	try-complete-lisp-symbol-partially
 	try-expand-whole-kill))
 
-(setq ido-max-prospects 8
-      ido-show-dot-for-dired nil
-      ido-use-filename-at-point t
-      ido-enable-tramp-completion t
-      ;; ido-enable-flex-matching t
-      ido-save-directory-list-file nil)
-
-(setq tramp-unified-filenames t
-      tramp-auto-save-directory "~/.var/tramp"
-      ange-ftp-smart-gateway nil
+(setq ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net")
-
-(setq c-cleanup-list
-      '(brace-else-brace brace-elseif-brace
-			 scope-operator empty-defun-braces
-			 defun-close-semi list-close-comma)
-      c-electric-pound-behavior '(alignleft)
-      c-report-syntactic-errors t)
-
-(setq-default c-block-comment-prefix "* ")
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(setq quack-default-program "guile"
-      quack-fontify-style nil)
-
-(setq dictionary-server "db.hit.edu.cn"
+(setq dictionary-server "202.118.228.177"
       dictionary-coding-systems-for-dictionaries
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
-(set-register ?e '(file . "~/.emacs.d/.emacs.el"))
-(set-register ?g '(file . "~/.emacs.d/.gnus.el"))
-(cond ((eq window-system 'w32)
-       (set-register ?M '(file . "D:/music/"))))
+(setq reb-blink-delay 1
+      reb-re-syntax 'string
+      wdired-use-dired-vertical-movement t)
+
+(setq save-place-file "~/.emacs.d/places"
+      save-place-limit 50)
+(setq-default save-place t)
+(require 'saveplace)
+
+(set-register ?e '(file . "~/.emacs.d/init.el"))
+;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
 ;; (set-locale-environment "en")
 ;; (set-locale-environment "zh_CN")
-(set-language-environment    'Chinese-GB)
-(set-keyboard-coding-system  'chinese-iso-8bit)
-(set-terminal-coding-system  'chinese-iso-8bit)
-(set-clipboard-coding-system 'chinese-iso-8bit)
-(set-selection-coding-system 'chinese-iso-8bit)
+(cond
+ ((eq emacs-major-version 22) 
+  (set-language-environment    'Chinese-GB)
+  (set-keyboard-coding-system  'chinese-iso-8bit)
+  (set-terminal-coding-system  'chinese-iso-8bit)
+  (set-clipboard-coding-system 'chinese-iso-8bit)
+  (set-selection-coding-system 'chinese-iso-8bit))
+ ((eq emacs-major-version 23)
+  (set-language-environment    'Chinese-GBK)
+  (set-keyboard-coding-system  'chinese-gbk)
+  (set-terminal-coding-system  'chinese-gbk)
+  (set-clipboard-coding-system 'chinese-gbk)
+  (set-selection-coding-system 'chinese-gbk)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
@@ -194,51 +168,80 @@
 (show-paren-mode 1)
 (menu-bar-mode -1)
 (icomplete-mode 1)
-(ido-everywhere 1)
-(ido-mode 1)
+(savehist-mode 1)
 
-;(eldoc-mode 1)
-;(require 'thingatpt)
-
-;; (desktop-save-mode 1)
-;; (autoarg-mode 1)
-;; (hi-lock-mode 1)
-;; (allout-init t)
+(setq auto-mode-alist
+      (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
+		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode)
+		("\\.bat\\'" . cmd-mode) ("\\.7z\\'" . archive-mode)
+		("\\.csproj\\'" . xml-mode) ("\\.org\\'" . org-mode)
+		("\\.asy\\'" . asy-mode))
+	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
+(add-hook 'savehist-save-hook
+	  (lambda ()
+	    (setq savehist-minibuffer-history-variables
+		  '(regexp-history
+		    search-ring file-name-history shell-command-history
+		    minibuffer-history extended-command-history compile-history
+		    LaTeX-environment-history
+		    query-replace-history))))
+(add-hook 'icomplete-minibuffer-setup-hook
+	  (lambda ()
+	    (make-local-variable 'max-mini-window-height)
+	    (setq max-mini-window-height 1)))
+
+;; CC-Mode ;;
+(setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (c-toggle-auto-hungry-state 1)
-	    (which-function-mode 1)))
+	    (c-subword-mode 1)
+	    (c-toggle-auto-hungry-state 1)))
+;; CC-Mode ends here ;;
 
-(eval-after-load "man"
-'(progn
-   (define-key Man-mode-map "j"  'chunyu-view-scroll-forward)
-   (define-key Man-mode-map "k"  'chunyu-view-scroll-backward)))
-
-(eval-after-load "help-mode"
-'(progn
-   (define-key help-mode-map "l" 'help-go-back)))
-
-(eval-after-load "view"
+(eval-after-load 'man
   '(progn
-     (define-key view-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key view-mode-map "k" 'chunyu-view-scroll-backward)))
+     (define-key Man-mode-map "j"  'chunyu/view-scroll-forward)
+     (define-key Man-mode-map "k"  'chunyu/view-scroll-backward)))
 
-(eval-after-load "info"
-  '(progn 
+(eval-after-load 'help-mode
+  '(progn
+     (define-key help-mode-map "b" 'help-go-back)
+     (define-key help-mode-map "h" 'backward-char)))
+
+(eval-after-load 'view
+  '(progn
+     (define-key view-mode-map "j" 'chunyu/view-scroll-forward)
+     (define-key view-mode-map "k" 'chunyu/view-scroll-backward)
+     (define-key view-mode-map " " 'scroll-up)
+     (define-key view-mode-map "h" 'backward-char)
+     (define-key view-mode-map "l" 'forward-char)))
+
+(eval-after-load 'info
+  '(progn
      (define-key Info-mode-map "w" 'Info-scroll-down)
-     (define-key Info-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key Info-mode-map "k" 'chunyu-view-scroll-backward)
+     (define-key Info-mode-map "j" 'chunyu/view-scroll-forward)
+     (define-key Info-mode-map "k" 'chunyu/view-scroll-backward)
      (define-key Info-mode-map "\M-n" 'gnus)))
 
-(eval-after-load "dired"
-  `(progn
+(eval-after-load 'diff-mode
+  '(progn
+     (define-key diff-mode-map "\M-q" 'delete-window)))
+
+;; Dired ;;
+(eval-after-load 'dired
+  '(progn
      (require 'dired-x)
+     (setq dired-recursive-copies 'top
+	   dired-recursive-deletes 'top
+	   dired-listing-switches "-avl"
+	   cvs-dired-use-hook 'always
+	   dired-omit-extensions (remove ".pdf" dired-omit-extensions))
+
      (define-key dired-mode-map "b" 'dired-mark-extension)
-     (define-key dired-mode-map "T" 'dired-tar-pack-unpack)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
      (define-key dired-mode-map "j" 'dired-mark-files-regexp)
@@ -246,182 +249,101 @@
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
      (define-key dired-mode-map [(control ?/)] 'dired-undo)
-     (cond ((not window-system)
-	    (define-key dired-mode-map "o" 'dired-find-file)
-	    (define-key dired-mode-map "h" 'dired-show-file-type))
-	   (window-system
-	    (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
-	    (define-key dired-mode-map "o" 'chunyu-dired-open-explorer)
-	    (define-key dired-mode-map "h" 'chunyu-dired-foobar2000-play)))))
 
-(eval-after-load "bs"
-  '(progn
-     (define-key bs-mode-map "\d" 'chunyu-bs-backup-unmark)))
+     (when window-system
+       (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
+       (define-key dired-mode-map "o" 'chunyu/dired-open-explorer)
+       (define-key dired-mode-map "h" 'chunyu/dired-foobar2000-play)
 
-(eval-after-load "apropos"
+       (defun dired-mouse-execute-file (event)
+	 "In dired, execute the file or goto directory name you click on."
+	 (interactive "e")
+	 (set-buffer (window-buffer (posn-window (event-end event))))
+	 (goto-char (posn-point (event-end event)))
+	 (dired-execute-file))
+
+       (defun chunyu/dired-open-explorer ()
+	 (interactive)
+	 (let ((file-name (dired-get-file-for-visit)))
+	   (if (file-exists-p file-name)
+	       (w32-shell-execute "open" file-name nil 1))))
+
+       (defun dired-execute-file (&optional arg)
+	 (interactive "P")
+	 (mapcar (lambda (file) (w32-shell-execute "open" file))
+		 (dired-get-marked-files nil arg)))
+
+       (defun chunyu/dired-foobar2000-play ()
+	 "Open dir of .mp3 files with foobar2000."
+	 (interactive)
+	 (let ((file-name (dired-get-filename 'no-dir))
+	       (fb2k "C:/Program Files/foobar2000/foobar2000.exe"))
+	   (if (file-exists-p file-name)
+	       (w32-shell-execute nil fb2k (format "\"%s\"" file-name) 1)))))))
+
+(eval-after-load 'apropos
   '(progn
      (require 'view)
      (define-key apropos-mode-map "n" 'forward-button)
      (define-key apropos-mode-map "p" 'backward-button)
-     (define-key apropos-mode-map "j" 'chunyu-view-scroll-forward)
-     (define-key apropos-mode-map "k" 'chunyu-view-scroll-backward)))
+     (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
+     (define-key apropos-mode-map "k" 'chunyu/view-scroll-backward)))
 
-(eval-after-load "meta-mode"
+(eval-after-load 'meta-mode
   '(progn
-     (define-key meta-mode-map "\C-c\C-c" 'chunyu-metapost-build-mp)))
+     (define-key meta-mode-map "\C-c\C-c" 'chunyu/metapost-build-mp)
 
-(setq dired-view-command-alist
-      '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gv -spartan -color -watch %s")
-	("[.]pdf\\'" . "xpdf %s")
-	("[.]dvi\\'" . "xdvi -sidemargin 0.5 -topmargin 1 %s")
-	("[.]\\(jpe?g\\|gif\\|png\\)\\'" . "ee %s")))
+     (defun chunyu/metapost-build-mp ()
+       "build mp files"
+       (interactive)
+       (shell-command (format "mptopdf %s" (buffer-name))))))
+;; Dired ends here ;;
 
-(load-file "~/.emacs.d/.emacs_func.elc")
+;; uniquify ;;
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+;; uniquify ends here ;;
 
-(cond ((not window-system)
-       ;; Text-Only console
-       (setq frame-background-mode 'dark)
-       (setq Info-use-header-line nil)
-       (copy-face 'font-lock-comment-delimiter-face 'font-lock-comment-face))
+;; Ido ;;
+(setq ido-max-prospects 8
+      ido-save-directory-list-file "~/.emacs.d/ido.last"
+      ido-auto-merge-delay-time 2
+      ido-show-dot-for-dired nil
+      ido-use-filename-at-point t
+      ido-enable-tramp-completion t)
+(require 'ido)
+(ido-everywhere 1)
+(ido-mode 1)
+;; Ido ends here ;;
 
-      (window-system
-       ;; BOTH X-Window and MS-Windows
-       (auto-image-file-mode 1)
-       (scroll-bar-mode -1)
-       ;; (tool-bar-mode -1)
+;; BBDB ;;
+(cond
+ ((load "bbdb-autoloads.el" t nil t)
+  (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+  (add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
+  (setq bbdb-file "~/.emacs.d/bbdb"
+	bbdb-north-american-phone-numbers-p nil
+	bbdb-check-zip-codes-p nil
+	bbdb-electric-p t
+	bbdb-use-pop-up nil
+	bbdb-pop-up-target-lines 1
+	bbdb-display-layout 'multi-line
+	bbdb-offer-save nil
+	bbdb-complete-name-allow-cycling t
+	bbdb-time-display-format "%Y-%m-%d"
+	bbdb-user-mail-names "chunyu\\|cymacs\\|dddkk"
+	bbdb/gnus-score-default +20
+	gnus-score-find-score-files-function '(gnus-score-find-bnews bbdb/gnus-score)
+	bbdb-display-layout-alist
+	'((one-line (order phones net) (name-end . 24) (toggle . t))
+	  (multi-line (indention . 14) (toggle . t) (omit creation-date timestamp))
+	  (pop-up-multi-line (indention . 14))))
+  (eval-after-load "gnus"
+    '(progn (bbdb-initialize 'gnus 'message 'sc)))))
+;; BBDB ends here ;;
 
-       (create-fontset-from-fontset-spec
-	(concat
-	 "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese,"
-	 "chinese-gb2312:-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
-       (create-fontset-from-fontset-spec
-	(concat
-	 "-*-Courier New-bold-r-*-*-13-*-*-*-c-*-fontset-chinesebold,"
-	 "chinese-gb2312:-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
-       (set-face-font 'bold "fontset-chinesebold")
-
-       (setq default-frame-alist
-	     '((background-mode . dark)
-	       ;; (top . 0) (left . 0) (width . 80) (height . 44)
-	       (vertical-scroll-bars)
-	       (background-color . "DarkSlateGrey")
-	       (foreground-color . "Wheat")
-	       (cursor-color . "gold3")
-	       (font . "fontset-chinese")))
-
-       (cond ((eq window-system 'w32)
-	      ;; MS-Windows
-	      (set-message-beep 'silent)
-	      (setq dired-view-command-alist
-		    '(("[.]\\(ps\\|ps_pages\\|eps\\)\\'" . "gsview32.exe %s")
-		      ("[.]pdf\\'" . "gsview32.exe %s")
-		      ("[.]dvi\\'" . "windvi %s")))
-
-	      (setq dired-guess-shell-alist-user
-		    (list (list "\\.dvi\\'" "dvipdfmx")
-			  (list "\\.rar\\'" "rar l")
-			  (list "\\.mp\\'" "mptopdf")
-			  (list "\\.[0-9]+\\'" "epstopdf")
-			  (list "\\.pdf\\'" "explorer")))
-
-	      (setq Man-header-file-path '("d:/free_ware/MinGW/include"))
-	      (setq Info-default-directory-list '("d:/free_ware/TeXLive/info")
-		    Info-additional-directory-list '("d:/usr/emacs-21.3.50/info/"))
-
-	      ;;-- ECB --;;
-	      ;; ;; (setq ecb-options-version "2.23")
-	      ;; (require 'ecb-autoloads)
-	      ;; (setq ecb-tip-of-the-day nil)
-
-	      ;;-- ISPELL --;;
-	      (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/others/EnglishDic"))
-	      (setq ispell-dictionary-alist
-		    '((nil        "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-		      ("english"  "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-		      ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
-		      ("UK-xlg"   "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
-		      ("US-xlg"   "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1))))
-
-	     ((eq window-system 'x)
-	      ;; X-Window
-	      (setq visible-bell t)
-	      (setq ring-bell-function t)))))
-
-(autoload 'svn-status "psvn" nil t)
-(autoload 'mixvm "mixvm" "mixvm/gud interaction" t)
-(autoload 'fetchmail-mode "fetchmail-mode" "Mode for editing .fetchmailrc files" t)
-(autoload 'dictionary-search "dictionary" "Ask for a word and search it in all dictionaries" t)
-(autoload 'dictionary-match-words "dictionary" "Ask for a word and search all matching words in the dictionaries" t)
-(autoload 'dictionary "dictionary" "Create a new dictionary buffer" t)
-(autoload 'dired-tar-pack-unpack "dired-tar" "Dired tar" t)
-(autoload 'php-mode  "php-mode" "PHP mode" t)
-(setq auto-mode-alist
-      (append '(("\\.php\\'" . php-mode)
-                ("\\.inc\\'" . php-mode)) auto-mode-alist))
-
-;;;; bbdb ;;;;
-(require 'bbdb)
-;; (require 'supercite)
-;; (require 'message)
-;; (require 'bbdb-snarf)
-
-(bbdb-initialize 'gnus 'message 'sc)
-;; (bbdb-define-all-aliases)
-
-(autoload 'bbdb-insinuate-sc "bbdb-sc" "bbdb sc init" nil)
-
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
-
-(setq bbdb-file "~/.emacs.d/.bbdb")
-
-(setq bbdb-north-american-phone-numbers-p nil
-      bbdb-check-zip-codes-p nil
-      bbdb-electric-p t
-      bbdb-use-pop-up nil
-      bbdb-pop-up-target-lines 1
-      bbdb-elided-display '(creation-date timestamp)
-      bbdb-offer-save nil
-      bbdb-complete-name-allow-cycling t
-      bbdb-time-display-format "%Y-%m-%d")
-
-(setq bbdb-user-mail-names
-      (regexp-opt '("dddkk@sina.com" "chunyu@hit.edu.cn" "chunyu@db.hit.edu.cn" 
-		    "emacs@bbs.hit.edu.cn" "dddkk@smth.edu.cn"
-		    "cymacs@gmail.com" "cyemacs@gmail.com" "chunyu@myrealbox.com")))
-
-(setq bbdb/gnus-score-default +20
-      gnus-score-find-score-files-function
-      '(gnus-score-find-bnews bbdb/gnus-score))
-
-(setq bbdb-display-layout-alist
-      '((one-line (order phones net)
-		  (name-end . 24)
-		  (toggle . t))
-	(multi-line (indention . 14)
-		    (toggle . t)
-		    (omit creation-date timestamp))
-	(pop-up-multi-line  (indention . 14))))
-
-(cond (window-system
-       (eval-after-load "bbdb-gui"
-	 '(progn
-	    (set-face-attribute 'bbdb-name nil  :foreground "gold" :underline nil)
-	    (set-face-attribute 'bbdb-company nil :foreground "sandy brown")
-	    (set-face-attribute 'bbdb-field-name nil :foreground "slate blue")
-	    (set-face-attribute 'bbdb-field-value nil :foreground "deep sky blue" :weight 'normal)))))
-;;;; bbdb ends here ;;;;
-
-;;;; smtp ;;;;
-(setq message-send-mail-function 'smtpmail-send-it)
-(setq smtpmail-default-smtp-server "mx.hit.edu.cn")
-(setq smtpmail-smtp-server "mx.hit.edu.cn")
-(setq smtpmail-auth-credentials
-      '(("mx.hit.edu.cn" 25 "chunyu" "asdfasdf")))
-;;;; smtp ends here ;;;;
-
-;;;; calendar ;;;;
-(setq diary-file "~/.emacs.d/.diary"
+;; Calendar ;;
+(setq diary-file "~/.emacs.d/diary"
       view-diary-entries-initially t
       calendar-latitude +45.75
       calendar-longitude +126.63
@@ -437,8 +359,12 @@
 	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
 	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
       local-holidays
-      '((holiday-chinese 1 15 "元宵节 (正月十五)") (holiday-chinese 5 5 "端午节 (五月初五)")
-	(holiday-chinese 9 9 "重阳节 (九月初九)") (holiday-chinese 8 15 "中秋节 (八月十五)"))
+      '((holiday-chinese 1 15 "元宵节 (正月十五)")
+	(holiday-chinese 5 5 "端午节 (五月初五)")
+	(holiday-chinese 7 7 "七月七 (七月初七)")
+	(holiday-chinese 9 9 "重阳节 (九月初九)")
+	(holiday-chinese 8 15 "中秋节 (八月十五)")
+	(holiday-chinese 12 7 "老婆生日"))
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
@@ -457,224 +383,395 @@
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
-(setq cal-tex-diary t
-      cal-tex-24 t
-      cal-tex-daily-start 8
-      cal-tex-daily-end 22)
+(eval-after-load 'calendar
+  '(progn
+     ;; (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+     (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+     (add-hook 'diary-hook 'appt-make-list)
+     (add-hook 'diary-display-hook 'fancy-diary-display)
 
-;;(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
-(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
-(add-hook 'diary-hook 'appt-make-list)
-(add-hook 'diary-display-hook 'fancy-diary-display)
+     (add-hook 'calendar-load-hook
+	       (lambda ()
+		 (define-key calendar-mode-map ">" 'scroll-calendar-left)
+		 (define-key calendar-mode-map "<" 'scroll-calendar-right)
+		 (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
+		 (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
+		 (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
+		 (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
+		 (define-key calendar-mode-map "f" 'calendar-forward-day)
+		 (define-key calendar-mode-map "b" 'calendar-backward-day)
+		 (define-key calendar-mode-map "j" 'calendar-forward-week)
+		 (define-key calendar-mode-map "k" 'calendar-backward-week)
+		 (define-key calendar-mode-map "\C-z" 'calendar-set-mark)))
 
-(add-hook 'calendar-load-hook
-	  '(lambda ()
-	     (define-key calendar-mode-map ">" 'scroll-calendar-left)
-	     (define-key calendar-mode-map "<" 'scroll-calendar-right)
-	     (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
-	     (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
-	     (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
-	     (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
-	     (define-key calendar-mode-map "f" 'calendar-forward-day)
-	     (define-key calendar-mode-map "b" 'calendar-backward-day)
-	     (define-key calendar-mode-map "j" 'calendar-forward-week)
-	     (define-key calendar-mode-map "k" 'calendar-backward-week)
-	     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
-	     ))
+     (autoload 'chinese-year "cal-china" "Chinese year data" t)
 
-(autoload 'chinese-year "cal-china" "Chinese year data" t)
-
-(defun holiday-chinese (cmonth cday string)
-  "Chinese calendar holiday, month and day in Chinese calendar (CMONTH, CDAY).
-
+     (defun holiday-chinese (cmonth cday string)
+       "Chinese calendar holiday, month and day in Chinese calendar (CMONTH, CDAY).
 If corresponding MONTH and DAY in gregorian calendar is visible,
 the value returned is the list \(((MONTH DAY year) STRING)).
 Returns nil if it is not visible in the current calendar window."
-  (let* ((m displayed-month)
-	 (y displayed-year)
-	 (gdate (calendar-gregorian-from-absolute
-		 (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
-    (increment-calendar-month m y (- 11 (car gdate)))
-    (if (> m 9) (list (list gdate string)))))
-;;;; calendar ends here ;;;;
+       (let* ((m displayed-month)
+	      (y displayed-year)
+	      (gdate (calendar-gregorian-from-absolute
+		      (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
+	 (increment-calendar-month m y (- 11 (car gdate)))
+	 (if (> m 9) (list (list gdate string)))))))
+;; Calendar ends here ;;
 
-;;;; pmwiki ;;;;
+;; Load credentials ;;
+(set (make-local-variable 'my-smtp-pass) "")
+(set (make-local-variable 'my-pmwiki-pass) "")
+(load "~/.emacs.d/mypass" t t t)
+;; Loaded ;;
+
+;; SMTP ;;
+(setq message-send-mail-function 'smtpmail-send-it)
+(setq smtpmail-smtp-server "mx.hit.edu.cn")
+(setq smtpmail-auth-credentials
+      `(("mx.hit.edu.cn" 25 "chunyu" ,my-smtp-pass)))
+;; SMTP ends here ;;
+
+;; PmWiki ;;
 (autoload 'pmwiki-open "pmwiki-mode" "PmWiki online edit." t)
 (setq pmwiki-wikiword-pattern "[A-Z][A-Za-z0-9]+"
       pmwiki-page-uri "http://www.emacs.cn/Main/WikiSandbox"
-      pmwiki-author "Chunyu Wang"
+      pmwiki-author user-full-name
       pmwiki-uri-transforms
       (list '("http://www.emacs.cn\\(/[A-Z]\\|/?\\?\\)"
-              "http://www.emacs.cn"
-              "http://www.emacs.cn/index.php")
-	    '("http://www.emacs.cn/index.php"
-              "http://www.emacs.cn"
-              "http://chunyu:xxx@www.emacs.cn")))
+	      "http://www.emacs.cn"
+	      "http://www.emacs.cn/index.php")
+	    `("http://www.emacs.cn/index.php"
+	      "http://www.emacs.cn"
+	      ,(format "http://chunyu:%s@www.emacs.cn" my-pmwiki-pass))))
 
-(eval-after-load "pmwiki-mode"
+(eval-after-load 'pmwiki-mode
   '(progn
-     (define-key pmwiki-mode-map "\M-s" 'pmwiki-insert-directive)))
-;; (add-hook 'pmwiki-mode-hooks 'turn-off-auto-fill)
-;; (add-hook 'pmwiki-mode-hooks
-;;           'pmwiki-delayed-hook-longlines-mode-on)
-;; (add-hook 'pmwiki-save-before-hooks 'longlines-mode-off)
-;;;; pmwiki ends here ;;;;
+     (define-key pmwiki-mode-map "\M-s" 'pmwiki-insert-directive)
 
-;; ;;;; tex ;;;;
-;; (require 'tex-site)
+     (defun pmwiki-insert-directive (directive)
+       "Insert (:DIRECTIVE:) [= ... =] in PmWiki buffers."
+       (interactive "sPlease input directive name: ")
+       (insert-string (format "(:%s:)[=\n\n=]\n" directive))
+       (previous-line 2))))
+;; PmWiki ends here ;;
 
-;; (setq TeX-macro-global 
-;;       '("d:/free_ware/TeXLive/texmf/tex/" 
-;; 	"d:/free_ware/TeXLive/texmf/bibtex/bst/")
-;;       TeX-auto-global "d:/usr/emacs-21.3.50/var/auctex/")
+;; AUCTeX ;;
+(load "auctex.el" t nil t)
+(load "preview-latex.el" t nil t)
 
-;; (setq TeX-electric-escape t	    ; `\' bound to TeX-electric-macro
-;;       TeX-insert-braces nil	    ; insert a macro without `{}' pair
-;;       TeX-parse-self t
-;;       ;; TeX-auto-save t
-;;       TeX-auto-untabify t)
+(setq TeX-auto-save t
+      ;;TeX-electric-escape t
+      ;;TeX-insert-braces nil
+      TeX-parse-self t
+      TeX-auto-untabify t
+      TeX-region "z_region"
+      LaTeX-enable-toolbar nil
+      LaTeX-document-regexp "document\\|CJK\\*?\\|frame"
+      tool-bar-mode nil)
 
-;; (setq LaTeX-top-caption-list 
-;;       '("table" "table*"))
+(setq bibtex-autokey-names 1
+      bibtex-autokey-names-stretch 1
+      bibtex-autokey-name-separator "-"
+      bibtex-autokey-additional-names "-et.al."
+      bibtex-autokey-name-case-convert 'identity
+      bibtex-autokey-name-year-separator "-"
+      bibtex-autokey-titlewords-stretch 0
+      bibtex-autokey-titlewords 0
+      bibtex-maintain-sorted-entries 'plain
+      bibtex-entry-format '(opts-or-alts numerical-fields))
 
-;; (setq bibtex-autokey-names 1
-;;       bibtex-autokey-names-stretch 1
-;;       bibtex-autokey-name-separator "-"
-;;       bibtex-autokey-additional-names "-et.al."
-;;       bibtex-autokey-name-case-convert 'identity
-;;       bibtex-autokey-name-year-separator "-"
-;;       bibtex-autokey-titlewords-stretch 0
-;;       bibtex-autokey-titlewords 0
-;;       bibtex-maintain-sorted-entries 'plain
-;;       bibtex-entry-format '(opts-or-alts numerical-fields))
+(setq reftex-revisit-to-follow t
+      reftex-enable-partial-scans t
+      reftex-save-parse-info nil
+      reftex-use-multiple-selection-buffers t
+      reftex-auto-recenter-toc t
+      reftex-plug-into-AUCTeX t
+      reftex-section-levels 
+      '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
+	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
+	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
-;; (setq reftex-revisit-to-follow t
-;;       ;; reftex-auto-recenter-toc t
-;;       )
+(setq font-latex-fontify-script nil
+      font-latex-fontify-sectioning 1
+      font-latex-match-slide-title-keywords '("frametitle"))
 
-;; (add-hook 'TeX-mode-hook 
-;; 	  (lambda () 
-;; 	    (setq reftex-plug-into-AUCTeX t)
-;; 	    (turn-on-reftex)
-;; 	    ;; (flyspell-mode)
-;; 	    (abbrev-mode 1)
-;; 	    (auto-fill-mode 1)))
+(setq cdlatex-math-modify-prefix [(super ?')]
+      cdlatex-math-symbol-prefix [(super ?`)]
+      cdlatex-env-alist
+      '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
+	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
+	("lstlisting" "\\begin{lstlisting}\n?\n\\end{lstlisting}" nil)
+	("alertblock" "\\begin{alertblock}{?}\n\n\\end{alertblock}\n" nil)
+	("exampleblock" "\\begin{exampleblock}{?}\n\n\\end{exampleblock}\n" nil))
+      cdlatex-command-alist
+      '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
+	("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
+	("lst" "lstlisting" "" cdlatex-environment ("lstlisting") t nil)
+	("lsti" "lstinline" "\\lstinline|?|" cdlatex-position-cursor nil t nil)
+	("blk" "block" "" cdlatex-environment ("block") t nil)
+	("exb" "exampleblock" "" cdlatex-environment ("exampleblock") t nil)
+	("alb" "alertblock" "" cdlatex-environment ("alertblock") t nil)))
 
-;; (add-hook 'LaTeX-mode-hook
-;; 	  (lambda ()
-;; 	    (turn-on-cdlatex)
-;; 	    ;;(setq fill-paragraph-function nil)
-;; 	    ))
+(add-hook 'TeX-mode-hook
+	  (lambda () ;; (flyspell-mode) (abbrev-mode 1)
+	    (turn-on-reftex) (auto-fill-mode 1)))
 
-;; (setq TeX-command-list 
-;;       `(("TeX" "tex %S \\nonstopmode\\input %t" TeX-run-TeX nil (plain-tex-mode))
-;; 	("LaTeX" "%l \\nonstopmode\\input{%t}" TeX-run-TeX nil (latex-mode))
-;; 	("PDFLaTeX" "pdflatex %S \\nonstopmode\\input{%t}" TeX-run-TeX nil (latex-mode))
-;; 	("ConTeXt" "texexec --once --nonstop --texutil %t" TeX-run-TeX nil (context-mode))
-;; 	("ConTeXt PDF" "texexec --pdf %t" TeX-run-TeX nil (context-mode))
-;; 	;; ("ConTeXt Interactive" "texexec --once --texutil %t" TeX-run-interactive t (context-mode))
-;; 	;; ("ConTeXt Full" "texexec %t" TeX-run-interactive nil (context-mode))
-;; 	("ConTeXt Clean" "texutil --purgeall" TeX-run-interactive nil (context-mode))
-;; 	("View" "%V" TeX-run-w32-explorer nil t) ;TeX-run-discard
-;; 	("PsView" "gsview32 %f" TeX-run-command t t)
-;; 	("Dvips" "dvips %d -o %f " TeX-run-command t t)
-;; 	("BibTeX" "bibtex %s" TeX-run-BibTeX nil t)
-;; 	("Index" "makeindex %s" TeX-run-command nil t)
-;; 	("Check" "lacheck %s" TeX-run-compile nil t)
-;; 	("Clean" ,(concat "rm -f " 
-;; 			  "*.tmp *.mpo *mpx *.toc *.log *.tui *.top *.tuo *.bbl *.blg "
-;; 			  "_region_.* ") TeX-run-shell nil t)
-;; 	("Clean Bin" ,(concat "rm -f " "*.pdf *.dvi *.ps ") TeX-run-shell nil t)))
+(add-hook 'LaTeX-mode-hook 
+	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode) (TeX-fold-mode 1)
+	    (turn-on-cdlatex)))
 
-;; (setq TeX-output-view-style
-;;       '(("^ps$" "." "%f")
-;; 	("^pdf$" "." "%o")
-;; 	("^html?$" "." "%o") 
-;; 	("^dvi$" "^pstricks$\\|^pst-\\|^psfrag$" "dvips %d -o && gv %f")
-;; 	("^dvi$" ("^landscape$" "^pstricks$\\|^psfrag$") "dvips -t landscape %d -o && gv %f")
-;; 	;; ("^dvi$" "^a4\\(?:dutch\\|paper\\|wide\\)?\\|sem-a4$" "xdvi %d -paper a4")
-;; 	;; ("^dvi$" ("^a5\\(?:comb\\|paper\\)?$" "^landscape$") "xdvi %d -paper a5r -s 0")
-;; 	;; ("^dvi$" "^a5\\(?:comb\\|paper\\)?$" "xdvi %d -paper a5")
-;; 	;; ("^dvi$" "^b5paper$" "xdvi %d -paper b5")
-;; 	;; ("^dvi$" "^letterpaper$" "xdvi %d -paper us")
-;; 	;; ("^dvi$" "^legalpaper$" "xdvi %d -paper legal")
-;; 	;; ("^dvi$" "^executivepaper$" "xdvi %d -paper 7.25x10.5in")
-;; 	;; ("^dvi$" "^landscape$" "xdvi %d -paper a4r -s 0")
-;; 	("^dvi$" "." "%d")))
+(eval-after-load "tex"
+  '(progn
+     (setq TeX-output-view-style 
+	   (cons '("^pdf$" "." "start %o") TeX-output-view-style))
+     (TeX-global-PDF-mode t)))
 
-;; (defun TeX-run-w32-explorer (name command file)
-;;   "TeX-command-list function."
-;;   (let ((default-directory (TeX-master-directory)))
-;;     (w32-shell-execute "open" command nil 3)))
+;; (cond (eq window-system 'w32)
+;;       (setq TeX-queue-command nil
+;; 	    TeX-printer-list nil
+;; 	    TeX-print-command "start %f"))
 
-;; ;;-- LaTeX-Preview --;;
-;; ;; (add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
-;; ;; (setq preview-scale-function 1.5)
-;; ;;;; tex ends here ;;;
+;; AUCTeX ends here ;;
 
-(cond ((not window-system)
-       ;; Text-Only console
-       (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
-       (set-face-attribute 'region nil :background "blue")
+;; (load "color-theme-autoloads.el" t nil t)
 
-       (eval-after-load "log-view"
-	 '(progn
-	    (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
-	    (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
-       (eval-after-load "calendar"
-	 '(progn
-	    (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
+(cond ;; Different Platform
+ ;; Text-Only console
+ ((not window-system)
+  (setq frame-background-mode 'dark)
+  (setq Info-use-header-line nil))
 
-       (eval-after-load "ediff-init"
-	 '(progn
-	    (set-face-attribute 'ediff-current-diff-A nil :background "blue" :foreground "red" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-B nil :background "blue" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-C nil :background "blue" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-even-diff-A nil :background "black" :foreground "red")
-	    (set-face-attribute 'ediff-even-diff-B nil :background "black" :foreground "blue")
-	    (set-face-attribute 'ediff-even-diff-C nil :background "black" :foreground "magenta")
-	    (set-face-attribute 'ediff-fine-diff-A nil :background "cyan" :foreground "red")
-	    (set-face-attribute 'ediff-fine-diff-B nil :background "cyan" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-fine-diff-C nil :background "cyan" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-A nil :background "black" :foreground "red3" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-B nil :background "black" :foreground "yellow" :weight 'bold)
-	    (set-face-attribute 'ediff-odd-diff-C nil :background "black" :foreground "magenta" :weight 'bold)
-	    (set-face-attribute 'ediff-current-diff-Ancestor nil :background "magenta" :foreground "black")
-	    (set-face-attribute 'ediff-even-diff-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-fine-diff-Ancestor nil :background "cyan" :foreground "black")
-	    (set-face-attribute 'ediff-odd-diff-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
+ ;; BOTH X-Window and MS-Windows
+ (window-system
+  (auto-image-file-mode 1)
+  (scroll-bar-mode -1)
 
-      (window-system
-       ;; BOTH X-Window and MS-Windows
-       (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
-       (set-face-attribute 'menu nil :foreground "Wheat" :background "DarkSlateGrey")
-       (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-       (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-       (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-       (set-face-attribute 'region nil :background "grey21")
-       (set-face-attribute 'tool-bar nil :background "DarkSlateGrey")
-       (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-       (copy-face 'default 'font-lock-warning-face)
-       (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
-;;        (eval-after-load "font-latex"
-;; 	 '(progn 
-;; 	    (set-face-attribute 'font-latex-title-1-face nil :height 1.0 :inherit nil :foreground "yellow2")
-;; 	    (set-face-attribute 'font-latex-title-2-face nil :height 1.0 :inherit nil :foreground "goldenrod")
-;; 	    (set-face-attribute 'font-latex-title-3-face nil :height 1.0 :inherit nil :foreground "goldenrod3")
-;; 	    (set-face-attribute 'font-latex-title-4-face nil :height 1.0 :inherit nil :foreground "dark goldenrod")))
-       (eval-after-load "which-func"
-	 '(progn
-	    (set-face-attribute 'which-func-face nil :foreground "blue")))))
+  (setq default-frame-alist
+	'((background-mode . dark)
+	  ;; (top . 0) (left . 0) (width . 80) (height . 44)
+	  (vertical-scroll-bars)
+	  (background-color . "DarkSlateGrey")
+	  (foreground-color . "Wheat")
+	  (cursor-color . "gold3")
+	  (font . "fontset-chinese")))
 
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'set-goal-column 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'erase-buffer 'disabled nil)
-(put 'overwrite-mode 'disabled t)
-(put 'rmail 'disabled t)
-(put 'LaTeX-hide-environment 'disabled nil)
+  (create-fontset-from-fontset-spec 
+   "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
+  (cond
+   ((eq emacs-major-version 22)
+    (set-fontset-font
+     "fontset-chinese" 'chinese-gb2312 "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
 
-;; Chunyu's .emacs.el ends here.
+   ((eq emacs-major-version 23)
+    (setq w32-charset-info-alist
+	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
+    (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-iso10646-1"))
+      (set-fontset-font "fontset-chinese" nil       fstr nil 'prepend)
+      (set-fontset-font "fontset-chinese" 'kana     fstr nil 'prepend)
+      (set-fontset-font "fontset-chinese" 'han      fstr nil 'prepend)
+      (set-fontset-font "fontset-chinese" 'cjk-misc fstr nil 'prepend)
+      (set-fontset-font "fontset-chinese" 'symbol   fstr nil 'prepend))))
+
+  (set-default-font "fontset-chinese")
+
+  (modify-coding-system-alist 'file "\\.nfo\\'" 'cp437)
+
+  (cond
+   ;; MS-Windows
+   ((eq window-system 'w32)
+    (global-unset-key "\C-x\C-z")
+    (global-unset-key [(wheel-down)])
+    (global-unset-key [(wheel-up)])
+    (global-set-key [(control return)] [(return)])
+    (set-message-beep 'silent)
+    (setq dired-guess-shell-alist-user
+	  '(("\\.nsi\\'" "makensis") ("\\.ps\\'"  "gsview32")
+	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
+	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")
+	    ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")))
+
+    (setq find-program "gfind")
+    ;; (setq grep-find-command (cons "gfind . -type f -exec grep -nH -e  {} NUL ;" 35))
+
+    ;; ISpell on win32 ;;
+    (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
+    (setq ispell-dictionary-alist
+	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
+	    ("UK-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
+	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
+
+    (server-start)
+
+    (eval-after-load 'browse-url
+      '(progn
+	 (defun browse-url-default-windows-browser (url &optional new-window)
+	   (interactive (browse-url-interactive-arg "URL: "))
+	   (if (eq system-type 'ms-dos)
+	       (if dos-windows-version
+		   (shell-command (concat "start " (shell-quote-argument url)))
+		 (error "Browsing URLs is not supported on this system"))
+	     (w32-shell-execute nil "C:/Program Files/Mozilla Firefox/firefox.exe" url 1)))))))))
+
+(defun chunyu/view-scroll-forward (&optional lines)
+  "Move forward one line or LINES lines."
+  (interactive "p")
+  (scroll-up lines)
+  (if (not (eq scroll-preserve-screen-position 'keep)) 
+      (next-line lines)))
+
+(defun chunyu/view-scroll-backward (&optional lines)
+  "Move backward one line or LINES lines."
+  (interactive "p")
+  (scroll-down lines)
+  (if (not (eq scroll-preserve-screen-position 'keep)) 
+      (previous-line lines)))
+
+(defun chunyu/kill-this-buffer ()
+  (interactive)
+  (if (equal (buffer-name) "*scratch*")
+      (progn (erase-buffer)
+	     (set-buffer-modified-p nil)
+	     (bury-buffer))
+    (kill-buffer (current-buffer))))
+
+(defun chunyu/update-src ()
+  (interactive)
+  (cond ((file-exists-p ".svn")
+	 (message "svn update current dir")
+	 (shell-command "svn update ."))
+	((file-exists-p "CVS")
+	 (message "cvs update current dir")
+	 (shell-command "cvs update ."))
+	(t (message "Update What?"))))
+
+(defun chunyu/title-bar-w32 (arg)
+  (interactive "p")
+  (let ((pp (if (< arg 0) "+" "-"))
+	(tt (frame-parameter nil 'name)))
+    (w32-shell-execute 
+     "open" "nircmd"
+     (format "win %sstyle title \"%s\" 0x00C00000" pp tt) 1)))
+
+(defun chunyu/insert-file-variable ()
+  "Insert file variable string \"-*- Major-Mode-Name -*-\" with
+comment char"
+  (interactive)
+  (insert
+   (concat comment-start " -*- "
+	   (substring
+	    (symbol-name (symbol-value 'major-mode)) 0 -5)
+	   " -*- " comment-end)))
+
+(define-generic-mode nsi-generic-mode
+  '(?\; ?# ("/*" . "*/"))
+  (list "Section" "SectionEnd" "Function" "FunctionEnd" "Page" "UninstPage" "PageEx"
+	"Goto" "goto" "Call" "call")
+  '(("\\('.*'\\)" 1 font-lock-doc-face)
+    ("\\(\".*\"\\)" 1 font-lock-doc-face)
+    ("\\(![a-zA-Z]+\\)" 1 font-lock-preprocessor-face)
+    ("\\([a-zA-Z0-9_]+::[a-zA-Z0-9_]+\\)" 1 font-lock-builtin-face)
+    ("\\([a-zA-Z0-9_]+:\\)" 1 font-lock-constant-face)
+    ("Goto[ \t]+\\(.*\\)$" 1 font-lock-constant-face)
+    ("\\($[a-zA-Z0-9_]+\\)" 1 font-lock-variable-name-face)
+    ("\\(${[a-zA-Z0-9_]+}\\)" 1 font-lock-builtin-face)
+    ("\\(Var\\)" 1 font-lock-type-face))
+  '("\\.[nN][sS][iIhH]\\'")
+  (list
+   #'(lambda ()
+       (setq imenu-generic-expression
+	     '(("*Section*" "^Section[ \t]+\"\\(.*\\)\"" 1)
+	       ("*Function*" "^Function[ \t]+\\(.*\\)" 1)))))
+  "Generic mode for NSIS Script files.")
+
+(cond ;; only faces
+ ((not (or window-system (equal (getenv "TERM") "xterm-256color")))
+  ;; Text-Only console
+  (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
+  (set-face-attribute 'region nil :background "blue")
+  (set-face-attribute 'font-lock-comment-face nil :foreground "red")
+
+  (eval-after-load 'log-view
+    '(progn
+       (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
+       (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
+  (eval-after-load 'calendar
+    '(progn
+       (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
+
+  (eval-after-load 'ediff-init
+    '(progn
+       (set-face-attribute 'ediff-current-diff-A nil :background "blue" :foreground "red" :weight 'bold)
+       (set-face-attribute 'ediff-current-diff-B nil :background "blue" :foreground "yellow" :weight 'bold)
+       (set-face-attribute 'ediff-current-diff-C nil :background "blue" :foreground "magenta" :weight 'bold)
+       (set-face-attribute 'ediff-even-diff-A nil :background "black" :foreground "red")
+       (set-face-attribute 'ediff-even-diff-B nil :background "black" :foreground "blue")
+       (set-face-attribute 'ediff-even-diff-C nil :background "black" :foreground "magenta")
+       (set-face-attribute 'ediff-fine-diff-A nil :background "cyan" :foreground "red")
+       (set-face-attribute 'ediff-fine-diff-B nil :background "cyan" :foreground "yellow" :weight 'bold)
+       (set-face-attribute 'ediff-fine-diff-C nil :background "cyan" :foreground "magenta" :weight 'bold)
+       (set-face-attribute 'ediff-odd-diff-A nil :background "black" :foreground "red3" :weight 'bold)
+       (set-face-attribute 'ediff-odd-diff-B nil :background "black" :foreground "yellow" :weight 'bold)
+       (set-face-attribute 'ediff-odd-diff-C nil :background "black" :foreground "magenta" :weight 'bold)
+       (set-face-attribute 'ediff-current-diff-Ancestor nil :background "magenta" :foreground "black")
+       (set-face-attribute 'ediff-even-diff-Ancestor nil :background "cyan" :foreground "black")
+       (set-face-attribute 'ediff-fine-diff-Ancestor nil :background "cyan" :foreground "black")
+       (set-face-attribute 'ediff-odd-diff-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
+
+ (window-system
+  ;; BOTH X-Window and MS-Windows
+  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+  (set-face-attribute 'region nil :background "grey21")
+  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+  (copy-face 'default 'font-lock-warning-face)
+  (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")))
+
+(when (eq window-system 'w32) (w32-send-sys-command #xf030))
+
+(mapc (lambda (func) (put func 'disabled t))
+      '(overwrite-mode rmail iconify-or-deiconify-frame))
+
+(mapc (lambda (func) (put func 'disabled nil))
+      '(dired-find-alternate-file
+	downcase-region narrow-to-page narrow-to-region set-goal-column
+	scroll-left 
+	upcase-region erase-buffer LaTeX-hide-environment))
+
+(mapc (lambda (vrb) (put vrb 'safe-local-variable 'string-or-null-p))
+      '(dired-omit-files
+	org-export-html-style org-export-publishing-directory
+	TeX-header-end TeX-trailer-start))
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace empty-defun-braces defun-close-semi list-close-comma scope-operator space-before-funcall compact-empty-funcall comment-close-slash)))
+ '(c-offsets-alist (quote ((substatement-open . 0))))
+ '(newsticker-url-list (quote (("工大新闻" "http://today.hit.edu.cn/rss.xml" nil nil nil))))
+ '(preview-scale-function 1.5)
+ '(safe-local-variable-values (quote ((dired-omit-mode . t)))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+;; Haskell ;;
+;; (load "haskell-site-file.el" t nil t)
+;; (eval-after-load 'haskell
+;;   '(progn
+;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
+;; Haskell ends here ;;
+
+;; Chunyu's .emacs.d/init.el ends here.
