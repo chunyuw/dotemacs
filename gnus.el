@@ -139,6 +139,7 @@
       '(| (any "985101" "classmate.985101")
 	  ;;(: spam-stat-split-fancy)
 	  (any "emacs-devel" "list.emacs-devel")
+	  (any "pgf-users" "list.pgf-users")
 	  (any "emacs-cn" "list.emacs-cn")
 	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
 	  (any "otwg\\|footoo\\|sf-search" "list.otwg")
