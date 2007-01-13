@@ -525,7 +525,7 @@ Returns nil if it is not visible in the current calendar window."
 (eval-after-load "tex"
   '(progn
      (setq TeX-output-view-style 
-	   (cons '("^pdf$" "." "start %o") TeX-output-view-style))
+     	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
      (TeX-global-PDF-mode t)))
 
 ;; (cond (eq window-system 'w32)
