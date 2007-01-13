@@ -444,16 +444,6 @@ Returns nil if it is not visible in the current calendar window."
 	    `("http://www.emacs.cn/index.php"
 	      "http://www.emacs.cn"
 	      ,(format "http://chunyu:%s@www.emacs.cn" my-pmwiki-pass))))
-
-(eval-after-load 'pmwiki-mode
-  '(progn
-     (define-key pmwiki-mode-map "\M-s" 'pmwiki-insert-directive)
-
-     (defun pmwiki-insert-directive (directive)
-       "Insert (:DIRECTIVE:) [= ... =] in PmWiki buffers."
-       (interactive "sPlease input directive name: ")
-       (insert-string (format "(:%s:)[=\n\n=]\n" directive))
-       (previous-line 2))))
 ;; PmWiki ends here ;;
 
 ;; AUCTeX ;;
