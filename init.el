@@ -166,8 +166,8 @@
 (global-cwarn-mode 1)
 (display-time-mode 1)
 (show-paren-mode 1)
-(menu-bar-mode -1)
 (icomplete-mode 1)
+(menu-bar-mode -1)
 (savehist-mode 1)
 
 (setq auto-mode-alist
@@ -458,6 +458,7 @@ Returns nil if it is not visible in the current calendar window."
       TeX-region "z_region"
       LaTeX-enable-toolbar nil
       LaTeX-document-regexp "document\\|CJK\\*?\\|frame"
+      preview-scale-function 1.5
       tool-bar-mode nil)
 
 (setq bibtex-autokey-names 1
@@ -748,7 +749,6 @@ comment char"
   ;; If there is more than one, they won't work right.
  '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace empty-defun-braces defun-close-semi list-close-comma scope-operator space-before-funcall compact-empty-funcall comment-close-slash)))
  '(c-offsets-alist (quote ((substatement-open . 0))))
- '(preview-scale-function 1.5)
  '(safe-local-variable-values (quote ((dired-omit-mode . t)))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
