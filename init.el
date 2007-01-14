@@ -548,7 +548,7 @@ Returns nil if it is not visible in the current calendar window."
 	  (vertical-scroll-bars)
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
-	  (cursor-color . "gold3")
+	  (cursor-color . "coral")
 	  (font . "fontset-chinese")))
 
   (create-fontset-from-fontset-spec 
