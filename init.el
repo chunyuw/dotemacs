@@ -537,7 +537,7 @@ Returns nil if it is not visible in the current calendar window."
  (window-system
   (auto-image-file-mode 1)
   (scroll-bar-mode -1)
-  (setq default-indicate-empty-lines t
+  (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
   (setq default-frame-alist
@@ -748,7 +748,6 @@ comment char"
   ;; If there is more than one, they won't work right.
  '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace empty-defun-braces defun-close-semi list-close-comma scope-operator space-before-funcall compact-empty-funcall comment-close-slash)))
  '(c-offsets-alist (quote ((substatement-open . 0))))
- '(newsticker-url-list (quote (("工大新闻" "http://today.hit.edu.cn/rss.xml" nil nil nil))))
  '(preview-scale-function 1.5)
  '(safe-local-variable-values (quote ((dired-omit-mode . t)))))
 (custom-set-faces
