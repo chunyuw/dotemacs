@@ -719,6 +719,7 @@ comment char"
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
   (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
   (copy-face 'default 'font-lock-warning-face)
