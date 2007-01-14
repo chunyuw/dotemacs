@@ -116,7 +116,8 @@
 	try-complete-lisp-symbol-partially
 	try-expand-whole-kill))
 
-(setq ange-ftp-smart-gateway nil
+(setq ange-ftp-ftp-program-name "gftp"
+      ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net")
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
