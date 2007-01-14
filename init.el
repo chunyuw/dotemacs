@@ -536,8 +536,8 @@ Returns nil if it is not visible in the current calendar window."
 
  ;; BOTH X-Window and MS-Windows
  (window-system
-  (auto-image-file-mode 1)
-  (scroll-bar-mode -1)
+  ;; (auto-image-file-mode 1)
+  ;; (scroll-bar-mode -1)
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
