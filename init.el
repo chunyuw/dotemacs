@@ -138,8 +138,6 @@
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
-;; (set-locale-environment "en")
-;; (set-locale-environment "zh_CN")
 (cond
  ((eq emacs-major-version 22) 
   (set-language-environment    'Chinese-GB)
