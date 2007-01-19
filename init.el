@@ -12,14 +12,12 @@
 (global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-xve" 'cvs-examine)
 (global-set-key "\C-c\C-o" 'occur)
-;(global-set-key "\C-c\C-p" 'pop-global-mark)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-#" 'calc-dispatch)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
-;(global-set-key "\M-r" 'other-window)
 (global-set-key "\M-`" 'next-error)
 
 (define-prefix-command 'meta-m-map)
@@ -52,7 +50,6 @@
       Man-notify-method 'pushy
       woman-cache-level 2
       woman-cache-filename nil
-      ;;confirm-kill-emacs nil
       kill-ring-max 100
       vc-follow-symlinks t
       vc-suppress-confirm t
@@ -62,7 +59,6 @@
       tooltip-gud-tips-p t)
 
 (setq makefile-electric-keys t
-      ;; truncate-partial-width-windows t
       apropos-do-all t
       sentence-end-double-space nil
       compilation-window-height nil
