@@ -158,8 +158,6 @@
 (minibuffer-electric-default-mode 1)
 (mouse-avoidance-mode 'exile)
 (partial-completion-mode 1)
-(global-font-lock-mode 1)
-(auto-compression-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (global-cwarn-mode 1)
