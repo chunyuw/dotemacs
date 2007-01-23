@@ -64,6 +64,7 @@
       compilation-window-height nil
       scroll-preserve-screen-position 'keep
       comment-style 'extra-line
+      outline-minor-mode-prefix "\C-c\C-o"
       font-lock-maximum-decoration t)
 
 (setq bookmark-save-flag 1

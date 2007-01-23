@@ -137,7 +137,6 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
-	  ;;(: spam-stat-split-fancy)
 	  (any "emacs-devel" "list.emacs-devel")
 	  (any "pgf-users" "list.pgf-users")
 	  (any "emacs-cn" "list.emacs-cn")
@@ -161,22 +160,6 @@
 (setq gnus-registry-max-entries 2500
       gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
-
-;; (require 'spam-stat)
-;; (setq spam-stat-file "~/.emacs.d/spam-stat.el")
-;; (setq spam-use-bogofilter t)
-;; (setq spam-use-stat t)
-;; (spam-stat-load)
-;; (spam-initialize)
-;; (setq spam-log-to-registry t
-;;       spam-use-BBDB t
-;;       spam-use-regex-headers t
-;;       spam-stat-split-fancy-spam-group "misc.junk"
-;;       gnus-spam-autodetect-methods 
-;;       '((".*" . (spam-use-blacklist
-;; 		 ;;spam-use-BBDB
-;; 		 spam-use-bogofilter
-;; 		 spam-use-gmane-xref))))
 
 ;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
