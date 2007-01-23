@@ -11,7 +11,7 @@
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-xve" 'cvs-examine)
-(global-set-key "\C-c\C-o" 'occur)
+;(global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
@@ -22,8 +22,8 @@
 
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
-(define-key meta-m-map "\M-m" 'back-to-indentation)
-(define-key meta-m-map "\M-o" 'chunyu/title-bar-w32)
+(define-key meta-m-map "\M-m\M-m" 'back-to-indentation)
+(define-key meta-m-map "\M-o" 'occur)
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
@@ -571,6 +571,8 @@ Returns nil if it is not visible in the current calendar window."
     (global-unset-key [(wheel-down)])
     (global-unset-key [(wheel-up)])
     (global-set-key [(control return)] [(return)])
+    (define-key meta-m-map "\M-m\M-o" 'chunyu/title-bar-w32)
+
     (set-message-beep 'silent)
     (setq dired-guess-shell-alist-user
 	  '(("\\.nsi\\'" "makensis") ("\\.ps\\'"  "gsview32")
