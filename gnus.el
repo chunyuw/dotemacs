@@ -86,26 +86,26 @@
 	 (name "Chunyu Wang")
 	 (address "chunyu@hit.edu.cn"))))
 
-(setq sc-attrib-selection-list
-      '(("sc-from-address"
-	 ((".*" . (bbdb/sc-consult-attr (sc-mail-field "sc-from-address"))))))
-      sc-auto-fill-region-p nil
-      sc-blank-lines-after-headers 1
-      sc-citation-leader "  "
-      sc-citation-delimiter-regexp "[>]+\\|\\(: \\)+"
-      sc-cite-blank-lines-p nil
-      sc-confirm-always-p nil
-      sc-electric-references-p nil
-      sc-fixup-whitespace-p t
-      sc-nested-citation-p nil
-      sc-preferred-header-style 4
-      sc-preferred-attribution-list
-      '("sc-lastchoice" "x-attribution" "sc-consult" "initials" "firstname" "lastname")
-      sc-use-only-preference-p nil)
+;; (setq sc-attrib-selection-list
+;;       '(("sc-from-address"
+;; 	 ((".*" . (bbdb/sc-consult-attr (sc-mail-field "sc-from-address"))))))
+;;       sc-auto-fill-region-p nil
+;;       sc-blank-lines-after-headers 1
+;;       sc-citation-leader "  "
+;;       sc-citation-delimiter-regexp "[>]+\\|\\(: \\)+"
+;;       sc-cite-blank-lines-p nil
+;;       sc-confirm-always-p nil
+;;       sc-electric-references-p nil
+;;       sc-fixup-whitespace-p t
+;;       sc-nested-citation-p nil
+;;       sc-preferred-header-style 4
+;;       sc-preferred-attribution-list
+;;       '("sc-lastchoice" "x-attribution" "sc-consult" "initials" "firstname" "lastname")
+;;       sc-use-only-preference-p nil)
 
 (setq message-from-style 'angles
       message-kill-buffer-on-exit t
-      message-cite-function 'sc-cite-original
+      ;; message-cite-function 'sc-cite-original
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
       message-signature t
@@ -179,7 +179,8 @@
 ;; 		 spam-use-gmane-xref))))
 
 ;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
-(add-hook 'mail-citation-hook 'sc-cite-original)
+
+;;(add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
 	  (lambda ()
 	    (setq fill-column 72)
