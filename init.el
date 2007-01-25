@@ -551,7 +551,6 @@ Returns nil if it is not visible in the current calendar window."
      "fontset-chinese" 'chinese-gb2312 "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
 
    ((eq emacs-major-version 23)
-    (setq ange-ftp-ftp-program-name "gftp")
     (setq w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
     (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-iso10646-1"))
@@ -575,6 +574,7 @@ Returns nil if it is not visible in the current calendar window."
     (define-key meta-m-map "\M-m\M-o" 'chunyu/title-bar-w32)
 
     (set-message-beep 'silent)
+    (setq ange-ftp-ftp-program-name "gftp")
     (setq dired-guess-shell-alist-user
 	  '(("\\.nsi\\'" "makensis") ("\\.ps\\'"  "gsview32")
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
