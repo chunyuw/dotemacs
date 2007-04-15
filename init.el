@@ -195,6 +195,11 @@
 	    (c-toggle-auto-hungry-state 1)))
 ;; CC-Mode ends here ;;
 
+(eval-after-load 'dictionary
+  '(progn
+     (define-key dictionary-mode-map "j"  'chunyu/view-scroll-forward)
+     (define-key dictionary-mode-map "k"  'chunyu/view-scroll-backward)))
+
 (eval-after-load 'man
   '(progn
      (define-key Man-mode-map "j"  'chunyu/view-scroll-forward)
