@@ -77,7 +77,7 @@
 ["袁永峰" nil ("Yongfeng Yuan" "Yuan YongFeng") nil (["Mobile" "89151505"]) nil ("knights@hit.edu.cn" "knights@biometrics.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2004-12-17") (msn . "yuanyongfeng@hotmail.com")) nil]
 ["詹欣" nil ("Joyce") nil nil nil ("zhanxin83@163.com" "applejelly326@yahoo.com.cn") ((creation-date . "2003-12-19") (timestamp . "2004-12-09")) nil]
 ["张浩" nil nil nil nil nil ("zhanghao@ict.ac.cn") ((creation-date . "2004-10-31") (timestamp . "2004-10-31")) nil]
-["张金龙" "" nil nil nil nil ("zjl@hitce.net") ((creation-date . "2007-04-17") (timestamp . "2007-04-17")) nil]
+["张金龙" nil nil "成教学院" nil nil ("zjl@hitce.net") ((creation-date . "2007-04-17") (timestamp . "2007-04-17")) nil]
 ["张军" nil ("Jun Zhang" "jzhang") nil (["Mobile" "13069712035"]) nil ("jzhang@frdc.fujitsu.com" "jzhang533@gmail.com" "jzhang533@263.net" "v-jzhang@msrchina.research.microsoft.com") ((creation-date . "2003-07-30") (timestamp . "2005-07-13") (msn . "jzhang533@263.net")) nil]
 ["张丽杰" nil ("zhanglijie") "软件学院" nil nil ("zlj@hit.edu.cn") ((creation-date . "2005-03-16") (timestamp . "2007-01-23")) nil]
 ["张明华" nil nil "外事办" nil nil ("marina@hit.edu.cn" "marina@hope.hit.edu.cn") ((creation-date . "2003-07-30") (timestamp . "2005-03-16")) nil]
