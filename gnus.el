@@ -8,6 +8,8 @@
       gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5) (3 . utf-8))
       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030 x-gbk))
 
+(define-coding-system-alias 'gbk 'cn-gb-2312)
+
 (setq gnus-novice-user nil
       gnus-expert-user t)
 
@@ -137,21 +139,13 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
-	  (any "emacs-devel" "list.emacs-devel")
 	  (any "pgf-users" "list.pgf-users")
 	  (any "emacs-cn" "list.emacs-cn")
-	  (any "@.*gf\\.cs\\.hit\\.edu\\.cn" "mail.gfcs")
-	  (any "otwg\\|footoo\\|sf-search" "list.otwg")
-	  (any "sfdev" "list.sfsearch")
-	  ("Subject" "siteadmin-discuss" "mail.gfcs")
 	  (to "@202.118.224.153" "mail.misc")
 	  (any "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
 	      (| (from "pacz@\\(sohu\\|pa18\\)\\|tccz@sina" "mail.wife")
-		 (from "semengmeng@eyou.com\\|nancycm712@yahoo.com.cn\\|zysy33@163.com" "mail.remote")
 		 (from "@ssmail\\.hit\\.edu\\.cn" "misc.ta")
 		 (any "cmbchina\\.com" "mail.cmbchina")
-		 (from "\\(metafun\\|chunyu\\)@bbs.hit.edu.cn" "mail.myself")
-		 (from "cymacs@newsmth.net" "mail.myself")
 		 "mail.misc"))
 	  "misc.junk")
       nnmail-mail-splitting-decodes t)
