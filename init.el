@@ -595,8 +595,6 @@ Returns nil if it is not visible in the current calendar window."
 	    ("UK-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
 
-    (server-start)
-
     (eval-after-load 'browse-url
       '(progn
 	 (defun browse-url-default-windows-browser (url &optional new-window)
@@ -739,6 +737,8 @@ comment char"
       '(dired-omit-files
 	org-export-html-style org-export-publishing-directory
 	TeX-header-end TeX-trailer-start))
+
+(server-start)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
