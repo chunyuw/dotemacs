@@ -32,8 +32,8 @@
       gnus-subscribe-newsgroup-method 'gnus-subscribe-killed
       gnus-interactive-exit nil)
 
-(setq mm-inline-large-images nil
-      mm-text-html-renderer 'w3m)
+;; (setq mm-inline-large-images nil
+;;       mm-text-html-renderer 'w3m)
 
 (defalias 'mail-header-encode-parameter 'rfc2047-encode-parameter)
 
