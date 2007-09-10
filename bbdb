@@ -33,7 +33,7 @@
 ["李秀坤" nil nil nil nil nil ("lixiukun@hit.edu.cn") ((creation-date . "2005-03-30") (timestamp . "2006-09-09")) nil]
 ["李治军" nil ("lizhijun os") nil nil nil ("lizhijun_os@hit.edu.cn") ((creation-date . "2006-08-26") (timestamp . "2006-09-10")) nil]
 ["刘宝良" nil ("Baoliang Liu") "Actuate Software (Shanghai) Co., Ltd." (["Office" "021-50270900 ext 215"] ["FAX" "021-50270901"]) nil ("bliu@actuate.com" "liubl@hit.edu.cn") ((creation-date . "2005-05-17") (timestamp . "2007-01-23")) nil]
-["刘国军" "" ("GuoJun Liu") nil (["Mobile" "13633601373"] ["Office" "86417602"]) nil ("hitliu@hit.edu.cn") ((creation-date . "2004-09-10") (timestamp . "2006-03-11")) nil]
+["刘国军" "" ("Liu GuoJun" "GuoJun Liu") nil (["Mobile" "13633601373"] ["Office" "86417602"]) nil ("hitliu@hit.edu.cn") ((creation-date . "2004-09-10") (timestamp . "2007-09-10")) nil]
 ["刘凯钥" nil nil nil nil nil ("kaiyue@hit.edu.cn") ((creation-date . "2005-07-05") (timestamp . "2005-07-05")) nil]
 ["刘晓燕" nil ("xiaoyan liu") nil nil nil ("lxy0451@yahoo.com.cn") ((creation-date . "2006-04-17") (timestamp . "2006-10-16")) nil]
 ["刘颖" nil ("留影") nil nil nil ("yarley@sohu.com" "xiaoniulovely@sina.com") ((creation-date . "2003-07-30") (timestamp . "2007-01-23") (qq . "16105488")) nil]
