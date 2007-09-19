@@ -148,6 +148,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
 
+(minibuffer-indicate-depth-mode 1)
 (minibuffer-electric-default-mode 1)
 (mouse-avoidance-mode 'exile)
 (partial-completion-mode 1)
