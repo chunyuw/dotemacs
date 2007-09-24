@@ -84,7 +84,7 @@
       mail-user-agent 'gnus-user-agent
       mail-alias-file "~/.mailrc"
       user-full-name "Chunyu Wang"
-      user-mail-address "chunyu@hit.edu.cn")
+      user-mail-address "cymacs@gmail.com")
 
 (setq version-control t
       kept-old-versions 2
