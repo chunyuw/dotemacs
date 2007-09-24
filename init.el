@@ -428,20 +428,6 @@ Returns nil if it is not visible in the current calendar window."
       `(("mx.hit.edu.cn" 25 "chunyu" ,my-smtp-pass)))
 ;; SMTP ends here ;;
 
-;; PmWiki ;;
-(autoload 'pmwiki-open "pmwiki-mode" "PmWiki online edit." t)
-(setq pmwiki-wikiword-pattern "[A-Z][A-Za-z0-9]+"
-      pmwiki-page-uri "http://www.emacs.cn/Main/WikiSandbox"
-      pmwiki-author user-full-name
-      pmwiki-uri-transforms
-      (list '("http://www.emacs.cn\\(/[A-Z]\\|/?\\?\\)"
-	      "http://www.emacs.cn"
-	      "http://www.emacs.cn/index.php")
-	    `("http://www.emacs.cn/index.php"
-	      "http://www.emacs.cn"
-	      ,(format "http://chunyu:%s@www.emacs.cn" my-pmwiki-pass))))
-;; PmWiki ends here ;;
-
 ;; AUCTeX ;;
 (load "auctex.el" t nil t)
 (load "preview-latex.el" t nil t)
@@ -521,6 +507,8 @@ Returns nil if it is not visible in the current calendar window."
 ;; 	    TeX-print-command "start %f"))
 
 ;; AUCTeX ends here ;;
+
+(require 'doc-view)
 
 ;; (load "color-theme-autoloads.el" t nil t)
 
