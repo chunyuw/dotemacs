@@ -64,8 +64,7 @@
       compilation-window-height nil
       scroll-preserve-screen-position 'keep
       comment-style 'extra-line
-      outline-minor-mode-prefix "\C-c\C-o"
-      font-lock-maximum-decoration t)
+      outline-minor-mode-prefix "\C-c\C-o")
 
 (setq bookmark-save-flag 1
       bookmark-default-file "~/.emacs.d/bookmark")
@@ -152,6 +151,7 @@
 (minibuffer-electric-default-mode 1)
 (mouse-avoidance-mode 'exile)
 (partial-completion-mode 1)
+(global-font-lock-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (global-cwarn-mode 1)
