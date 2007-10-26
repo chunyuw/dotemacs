@@ -159,6 +159,7 @@
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 (savehist-mode 1)
 
 (setq auto-mode-alist
@@ -537,21 +538,21 @@ Returns nil if it is not visible in the current calendar window."
   (create-fontset-from-fontset-spec 
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
-  ;; (cond
-  ;;  ((eq emacs-major-version 22)
-  ;;   (set-fontset-font
-  ;;    "fontset-chinese" 'chinese-gb2312 "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
-
-  ;;  ((eq emacs-major-version 23)
-  ;;   (setq w32-charset-info-alist
-  ;; 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
-  ;;   (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-iso10646-1"))
-  ;;     (set-fontset-font "fontset-chinese" nil       fstr)
-  ;;     (set-fontset-font "fontset-chinese" 'kana     fstr)
-  ;;     (set-fontset-font "fontset-chinese" 'han      fstr)
-  ;;     (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
-  ;;     (set-fontset-font "fontset-chinese" 'symbol   fstr))))
-
+  (cond
+   ((eq emacs-major-version 22)
+    (set-fontset-font
+     "fontset-chinese" 'chinese-gb2312 "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
+   
+   ((eq emacs-major-version 23)
+    (setq w32-charset-info-alist
+  	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
+    (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-iso10646-1"))
+      (set-fontset-font "fontset-chinese" nil       fstr)
+      (set-fontset-font "fontset-chinese" 'kana     fstr)
+      (set-fontset-font "fontset-chinese" 'han      fstr)
+      (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
+      (set-fontset-font "fontset-chinese" 'symbol   fstr))))
+  
   (set-default-font "fontset-chinese")
 
   (modify-coding-system-alist 'file "\\.nfo\\'" 'cp437)
