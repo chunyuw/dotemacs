@@ -159,7 +159,6 @@
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
-(tool-bar-mode -1)
 (savehist-mode 1)
 
 (setq auto-mode-alist
@@ -523,6 +522,7 @@ Returns nil if it is not visible in the current calendar window."
  (window-system
   ;; (auto-image-file-mode 1)
   ;; (scroll-bar-mode -1)
+  (tool-bar-mode -1)
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
