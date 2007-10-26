@@ -32,7 +32,6 @@
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "f" 'chunyu/insert-file-variable)
-(define-key meta-m-map "\M-j" 'pmwiki-open)
 (define-key meta-m-map "v" 'newsticker-show-news)
 (define-key meta-m-map "n" 'toggle-save-place)
 (define-key meta-m-map "\M-n" 'toggle-save-place)
@@ -417,7 +416,6 @@ Returns nil if it is not visible in the current calendar window."
 
 ;; Load credentials ;;
 (set (make-local-variable 'my-smtp-pass) "")
-(set (make-local-variable 'my-pmwiki-pass) "")
 (load "~/.emacs.d/mypass" t t t)
 ;; Loaded ;;
 
