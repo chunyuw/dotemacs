@@ -40,36 +40,29 @@
 (define-key meta-m-map "t" 'org-todo-list)
 
 (setq inhibit-startup-message t
-      report-emacs-bug-no-explanations t
       default-major-mode 'text-mode
       require-final-newline t
       resize-mini-windows t
       track-eol t
       kill-whole-line t
       Man-notify-method 'pushy
-      woman-cache-level 2
-      woman-cache-filename nil
       kill-ring-max 100
       vc-follow-symlinks t
       vc-suppress-confirm t
       enable-recursive-minibuffers t
       default-fill-column 78
-      isearch-allow-scroll t
-      tooltip-gud-tips-p t)
+      isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
       apropos-do-all t
       sentence-end-double-space nil
-      compilation-window-height nil
       scroll-preserve-screen-position 'keep
       comment-style 'extra-line
       outline-minor-mode-prefix "\C-c\C-o")
 
 (setq bookmark-save-flag 1
-      bookmark-default-file "~/.emacs.d/bookmark")
-
-(setq abbrev-file-name "~/.emacs.d/abbrev_defs"
-      custom-buffer-done-function 'kill-buffer)
+      bookmark-default-file "~/.emacs.d/bookmark"
+      abbrev-file-name "~/.emacs.d/abbrev_defs")
 
 (setq display-time-24hr-format t
       display-time-day-and-date t)
@@ -132,11 +125,6 @@
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
-;; (set-language-environment    'Chinese-GB)
-;; (set-keyboard-coding-system  'chinese-iso-8bit)
-;; (set-terminal-coding-system  'chinese-iso-8bit)
-;; (set-clipboard-coding-system 'chinese-iso-8bit)
-;; (set-selection-coding-system 'chinese-iso-8bit)
 (set-language-environment    'Chinese-GB18030)
 (set-keyboard-coding-system  'chinese-gb18030)
 (set-terminal-coding-system  'chinese-gb18030)
@@ -230,11 +218,8 @@
 (eval-after-load 'dired
   '(progn
      (require 'dired-x)
-     (setq dired-recursive-copies 'top
-	   dired-recursive-deletes 'top
-	   dired-listing-switches "-avl"
-	   cvs-dired-use-hook 'always
-	   dired-omit-extensions (remove ".pdf" dired-omit-extensions))
+     (setq dired-listing-switches "-avl"
+	   cvs-dired-use-hook 'always)
 
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
@@ -303,9 +288,7 @@
 (setq ido-max-prospects 8
       ido-save-directory-list-file "~/.emacs.d/ido.last"
       ido-auto-merge-delay-time 2
-      ido-show-dot-for-dired nil
-      ido-use-filename-at-point t
-      ido-enable-tramp-completion t)
+      ido-use-filename-at-point t)
 (require 'ido)
 (ido-everywhere 1)
 (ido-mode 1)
@@ -368,10 +351,8 @@
       solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
 
 (setq mark-diary-entries-in-calendar t
-      ;; appt-issue-message nil ; obsolete variable
       appt-message-warning-time 30
-      mark-holidays-in-calendar t
-      view-calendar-holidays-initially nil)
+      mark-holidays-in-calendar t)
 
 (setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
       calendar-date-display-form '(year "/" month "/" day)
@@ -743,14 +724,5 @@ comment char"
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
-;; Haskell ;;
-;; (load "haskell-site-file.el" t nil t)
-;; (eval-after-load 'haskell
-;;   '(progn
-;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;      (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
-;; Haskell ends here ;;
 
 ;; Chunyu's .emacs.d/init.el ends here.
