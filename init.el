@@ -540,8 +540,8 @@ Returns nil if it is not visible in the current calendar window."
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
-    (global-unset-key [(wheel-down)])
-    (global-unset-key [(wheel-up)])
+    (global-set-key [(wheel-down)] 'ignore)
+    (global-set-key [(wheel-up)] 'ignore)
     (global-set-key [(control return)] [(return)])
     (define-key meta-m-map "\M-m\M-o" 'chunyu/title-bar-w32)
 
