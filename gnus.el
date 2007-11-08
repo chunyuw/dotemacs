@@ -30,9 +30,6 @@
       gnus-subscribe-newsgroup-method 'gnus-subscribe-killed
       gnus-interactive-exit nil)
 
-;; (setq mm-inline-large-images nil
-;;       mm-text-html-renderer 'w3m)
-
 (defalias 'mail-header-encode-parameter 'rfc2047-encode-parameter)
 
 (setq gnus-parameters
@@ -86,26 +83,8 @@
 	 (name "Chunyu Wang")
 	 (address "chunyu@hit.edu.cn"))))
 
-;; (setq sc-attrib-selection-list
-;;       '(("sc-from-address"
-;; 	 ((".*" . (bbdb/sc-consult-attr (sc-mail-field "sc-from-address"))))))
-;;       sc-auto-fill-region-p nil
-;;       sc-blank-lines-after-headers 1
-;;       sc-citation-leader "  "
-;;       sc-citation-delimiter-regexp "[>]+\\|\\(: \\)+"
-;;       sc-cite-blank-lines-p nil
-;;       sc-confirm-always-p nil
-;;       sc-electric-references-p nil
-;;       sc-fixup-whitespace-p t
-;;       sc-nested-citation-p nil
-;;       sc-preferred-header-style 4
-;;       sc-preferred-attribution-list
-;;       '("sc-lastchoice" "x-attribution" "sc-consult" "initials" "firstname" "lastname")
-;;       sc-use-only-preference-p nil)
-
 (setq message-from-style 'angles
       message-kill-buffer-on-exit t
-      ;; message-cite-function 'sc-cite-original
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
       message-signature t
@@ -153,13 +132,9 @@
       gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
 
-;;(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
-
-;;(add-hook 'mail-citation-hook 'sc-cite-original)
 (add-hook 'message-mode-hook 
 	  (lambda ()
 	    (setq fill-column 72)
-	    ;;(turn-on-orgtbl)
 	    (turn-on-auto-fill)))
 
 (setq message-x-completion-alist
