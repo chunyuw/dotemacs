@@ -3,12 +3,10 @@
 (setq gnus-select-method '(nntp "news.yaako.com")
       gnus-secondary-select-methods '((nnml ""))) ; (nntp "news.happynet.org")
 
-(setq gnus-default-charset 'cn-gb-2312
-      gnus-group-name-charset-group-alist '((".*" . cn-gb-2312))
-      gnus-summary-show-article-charset-alist '((1 . cn-gb-2312) (2 . big5) (3 . utf-8))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1 gbk gb18030 x-gbk))
-
-(define-coding-system-alias 'gbk 'cn-gb-2312)
+(setq gnus-default-charset 'gbk
+      gnus-group-name-charset-group-alist '((".*" . gbk))
+      gnus-summary-show-article-charset-alist '((1 . gbk) (2 . big5) (3 . utf-8))
+      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
 (setq gnus-novice-user nil
       gnus-expert-user t)
