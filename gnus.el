@@ -1,7 +1,7 @@
 ;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/gnus.el, created on 2003/02/24 on db.hit.edu.cn.
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml ""))) ; (nntp "news.happynet.org")
+      gnus-secondary-select-methods '((nnml ""))) ; (nntp "news.happynet.org") (nntp "news.delegate.org")
 
 (setq gnus-default-charset 'gbk
       gnus-group-name-charset-group-alist '((".*" . gbk))
