@@ -540,6 +540,8 @@ Returns nil if it is not visible in the current calendar window."
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
+    ;(global-set-key [(nil) (wheel-down)] '(lambda () (interactive) (scroll-down 1)))
+    ;(global-set-key [(nil) (wheel-up)]   '(lambda () (interactive) (scroll-up 1)))
     ;(global-set-key [(wheel-down)] 'ignore)
     ;(global-set-key [(wheel-up)] 'ignore)
     (global-set-key [(control return)] [(return)])
