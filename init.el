@@ -627,27 +627,6 @@ comment char"
 	    (symbol-name (symbol-value 'major-mode)) 0 -5)
 	   " -*- " comment-end)))
 
-(define-generic-mode nsi-generic-mode
-  '(?\; ?# ("/*" . "*/"))
-  (list "Section" "SectionEnd" "Function" "FunctionEnd" "Page" "UninstPage" "PageEx"
-	"Goto" "goto" "Call" "call")
-  '(("\\('.*'\\)" 1 font-lock-doc-face)
-    ("\\(\".*\"\\)" 1 font-lock-doc-face)
-    ("\\(![a-zA-Z]+\\)" 1 font-lock-preprocessor-face)
-    ("\\([a-zA-Z0-9_]+::[a-zA-Z0-9_]+\\)" 1 font-lock-builtin-face)
-    ("\\([a-zA-Z0-9_]+:\\)" 1 font-lock-constant-face)
-    ("Goto[ \t]+\\(.*\\)$" 1 font-lock-constant-face)
-    ("\\($[a-zA-Z0-9_]+\\)" 1 font-lock-variable-name-face)
-    ("\\(${[a-zA-Z0-9_]+}\\)" 1 font-lock-builtin-face)
-    ("\\(Var\\)" 1 font-lock-type-face))
-  '("\\.[nN][sS][iIhH]\\'")
-  (list
-   #'(lambda ()
-       (setq imenu-generic-expression
-	     '(("*Section*" "^Section[ \t]+\"\\(.*\\)\"" 1)
-	       ("*Function*" "^Function[ \t]+\\(.*\\)" 1)))))
-  "Generic mode for NSIS Script files.")
-
 (cond ;; only faces
  ((not (or window-system (equal (getenv "TERM") "xterm-256color")))
   ;; Text-Only console
