@@ -550,10 +550,9 @@ Returns nil if it is not visible in the current calendar window."
     (set-message-beep 'silent)
     (setq ange-ftp-ftp-program-name "gftp")
     (setq dired-guess-shell-alist-user
-	  '(("\\.nsi\\'" "makensis") ("\\.ps\\'"  "gsview32")
+	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
-	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")
-	    ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")))
+	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
 
     (setq find-program "gfind")
     ;; (setq grep-find-command (cons "gfind . -type f -exec grep -nH -e  {} NUL ;" 35))
