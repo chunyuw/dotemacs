@@ -419,7 +419,7 @@ Returns nil if it is not visible in the current calendar window."
       TeX-region "z_region"
       LaTeX-enable-toolbar nil
       LaTeX-document-regexp "document\\|CJK\\*?\\|frame"
-      preview-scale-function 1.5
+      preview-scale-function 1.44
       tool-bar-mode nil)
 
 (setq bibtex-autokey-names 1
