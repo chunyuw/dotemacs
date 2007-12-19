@@ -416,11 +416,13 @@ Returns nil if it is not visible in the current calendar window."
       ;;TeX-insert-braces nil
       TeX-parse-self t
       TeX-auto-untabify t
-      TeX-region "z_region"
+      TeX-region "z_region")
+
+(setq preview-scale-function 1.44)
+
+(setq tool-bar-mode nil
       LaTeX-enable-toolbar nil
-      LaTeX-document-regexp "document\\|CJK\\*?\\|frame"
-      preview-scale-function 1.44
-      tool-bar-mode nil)
+      LaTeX-document-regexp "document\\|CJK\\*?\\|frame")
 
 (setq bibtex-autokey-names 1
       bibtex-autokey-names-stretch 1
@@ -449,7 +451,7 @@ Returns nil if it is not visible in the current calendar window."
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
-      cdlatex-math-symbol-prefix [(super ?`)]
+      ;cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-env-alist
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
