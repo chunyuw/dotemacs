@@ -407,18 +407,18 @@ Returns nil if it is not visible in the current calendar window."
       `(("mx.hit.edu.cn" 25 "chunyu" ,my-smtp-pass)))
 ;; SMTP ends here ;;
 
-;; AUCTeX ;;
+;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (load "auctex.el" t nil t)
 (load "preview-latex.el" t nil t)
 
 (setq TeX-auto-save t
-      ;;TeX-electric-escape t
-      ;;TeX-insert-braces nil
       TeX-parse-self t
       TeX-auto-untabify t
       TeX-region "z_region")
 
-(setq preview-scale-function 1.44)
+(setq preview-scale-function 1.44
+      preview-image-type 'dvipng
+      preview-auto-cache-preamble nil)
 
 (setq tool-bar-mode nil
       LaTeX-enable-toolbar nil
@@ -487,7 +487,7 @@ Returns nil if it is not visible in the current calendar window."
 ;; 	    TeX-printer-list nil
 ;; 	    TeX-print-command "start %f"))
 
-;; AUCTeX ends here ;;
+;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 (require 'doc-view)
 
@@ -501,9 +501,10 @@ Returns nil if it is not visible in the current calendar window."
 
  ;; BOTH X-Window and MS-Windows
  (window-system
-  ;; (auto-image-file-mode 1)
-  ;; (scroll-bar-mode -1)
   (tool-bar-mode -1)
+
+  (setq-default mouse-yank-at-point t)
+
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
@@ -677,7 +678,7 @@ comment char"
   (copy-face 'default 'font-lock-warning-face)
   (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")))
 
-(when (eq window-system 'w32) (w32-send-sys-command #xf030))
+;; (when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
