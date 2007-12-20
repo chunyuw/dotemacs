@@ -11,7 +11,6 @@
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-xve" 'cvs-examine)
-;(global-set-key "\C-c\C-o" 'occur)
 (global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
@@ -482,11 +481,6 @@ Returns nil if it is not visible in the current calendar window."
      	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
      (TeX-global-PDF-mode t)))
 
-;; (cond (eq window-system 'w32)
-;;       (setq TeX-queue-command nil
-;; 	    TeX-printer-list nil
-;; 	    TeX-print-command "start %f"))
-
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 (require 'doc-view)
@@ -543,10 +537,6 @@ Returns nil if it is not visible in the current calendar window."
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
-    ;(global-set-key [(nil) (wheel-down)] '(lambda () (interactive) (scroll-down 1)))
-    ;(global-set-key [(nil) (wheel-up)]   '(lambda () (interactive) (scroll-up 1)))
-    ;(global-set-key [(wheel-down)] 'ignore)
-    ;(global-set-key [(wheel-up)] 'ignore)
     (global-set-key [(control return)] [(return)])
     (define-key meta-m-map "\M-m\M-o" 'chunyu/title-bar-w32)
 
