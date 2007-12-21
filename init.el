@@ -18,6 +18,7 @@
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-`" 'next-error)
+(global-set-key "\C-ca" 'org-agenda)
 
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
@@ -34,9 +35,6 @@
 (define-key meta-m-map "v" 'newsticker-show-news)
 (define-key meta-m-map "n" 'toggle-save-place)
 (define-key meta-m-map "\M-n" 'toggle-save-place)
-(define-key meta-m-map "s" 'org-store-link)
-(define-key meta-m-map "a" 'org-agenda)
-(define-key meta-m-map "t" 'org-todo-list)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
