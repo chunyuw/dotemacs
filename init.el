@@ -18,6 +18,9 @@
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-`" 'next-error)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cL" 'org-insert-link-global)
+(global-set-key "\C-co" 'org-open-at-point-global)
 (global-set-key "\C-ca" 'org-agenda)
 
 (define-prefix-command 'meta-m-map)
@@ -293,7 +296,7 @@
 
 ;; BBDB ;;
 (cond
- ((load "bbdb-autoloads.el" t nil t)
+ ((load "bbdb-autoloads.el" t t t)
   (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
   (add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
   (setq bbdb-file "~/.emacs.d/bbdb"
@@ -351,8 +354,8 @@
       appt-message-warning-time 30
       mark-holidays-in-calendar t)
 
-(setq diary-date-forms '((year "/" month "/" day "[^/0-9]"))
-      calendar-date-display-form '(year "/" month "/" day)
+(setq diary-date-forms '((year "-" month "-" day "[^/0-9]"))
+      calendar-date-display-form '(year "-" month "-" day)
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
@@ -405,8 +408,8 @@ Returns nil if it is not visible in the current calendar window."
 ;; SMTP ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
-(load "auctex.el" t nil t)
-(load "preview-latex.el" t nil t)
+(load "auctex.el" t t t)
+(load "preview-latex.el" t t t)
 
 (setq TeX-auto-save t
       TeX-parse-self t
