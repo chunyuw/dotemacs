@@ -125,11 +125,11 @@
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
-(set-language-environment    'Chinese-GB18030)
-(set-keyboard-coding-system  'chinese-gb18030)
-(set-terminal-coding-system  'chinese-gb18030)
-(set-clipboard-coding-system 'chinese-gb18030)
-(set-selection-coding-system 'chinese-gb18030)
+(set-language-environment    'Chinese-GBK)
+(set-keyboard-coding-system  'chinese-gbk)
+(set-terminal-coding-system  'chinese-gbk)
+(set-clipboard-coding-system 'chinese-gbk)
+(set-selection-coding-system 'chinese-gbk)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
@@ -516,20 +516,15 @@ Returns nil if it is not visible in the current calendar window."
   (create-fontset-from-fontset-spec 
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
-  (cond
-   ((eq emacs-major-version 22)
-    (set-fontset-font
-     "fontset-chinese" 'chinese-gb2312 "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-gb2312*-*"))
-   
-   ((eq emacs-major-version 23)
-    (setq w32-charset-info-alist
-  	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
-    (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-c-*-iso10646-1"))
-      (set-fontset-font "fontset-chinese" nil       fstr)
-      (set-fontset-font "fontset-chinese" 'kana     fstr)
-      (set-fontset-font "fontset-chinese" 'han      fstr)
-      (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
-      (set-fontset-font "fontset-chinese" 'symbol   fstr))))
+  (setq w32-charset-info-alist
+	(cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
+
+  (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-*-*-iso10646-1"))
+    (set-fontset-font "fontset-chinese" nil       fstr)
+    (set-fontset-font "fontset-chinese" 'kana     fstr)
+    (set-fontset-font "fontset-chinese" 'han      fstr)
+    (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
+    (set-fontset-font "fontset-chinese" 'symbol   fstr))
   
   (set-default-font "fontset-chinese")
 
