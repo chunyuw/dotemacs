@@ -331,24 +331,7 @@
       chinese-calendar-celestial-stem
       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
       chinese-calendar-terrestrial-branch
-      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
-      general-holidays
-      '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
-	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
-	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
-      local-holidays
-      '((holiday-chinese 1 15 "元宵节 (正月十五)")
-	(holiday-chinese 5 5 "端午节 (五月初五)")
-	(holiday-chinese 7 7 "七月七 (七月初七)")
-	(holiday-chinese 9 9 "重阳节 (九月初九)")
-	(holiday-chinese 8 15 "中秋节 (八月十五)")
-	(holiday-chinese 12 7 "老婆生日"))
-      christian-holidays nil
-      hebrew-holidays nil
-      islamic-holidays nil
-      ;; solar-holidays nil
-      bahai-holidays nil
-      solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
 
 (setq mark-diary-entries-in-calendar t
       appt-message-warning-time 30
@@ -392,7 +375,25 @@ Returns nil if it is not visible in the current calendar window."
 	      (gdate (calendar-gregorian-from-absolute
 		      (+ (cadr (assoc cmonth (chinese-year y))) (1- cday)))))
 	 (increment-calendar-month m y (- 11 (car gdate)))
-	 (if (> m 9) (list (list gdate string)))))))
+	 (if (> m 9) (list (list gdate string)))))
+
+     (setq general-holidays
+	   '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
+	     (holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
+	     (holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
+	   local-holidays
+	   '((holiday-chinese 1 15 "元宵节 (正月十五)")
+	     (holiday-chinese 5 5 "端午节 (五月初五)")
+	     (holiday-chinese 7 7 "七月七 (七月初七)")
+	     (holiday-chinese 9 9 "重阳节 (九月初九)")
+	     (holiday-chinese 8 15 "中秋节 (八月十五)")
+	     (holiday-chinese 12 7 "老婆生日"))
+	   christian-holidays nil
+	   hebrew-holidays nil
+	   islamic-holidays nil
+	   ;; solar-holidays nil
+	   bahai-holidays nil
+	   solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))))
 ;; Calendar ends here ;;
 
 ;; Load credentials ;;
@@ -451,7 +452,7 @@ Returns nil if it is not visible in the current calendar window."
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
-      ;cdlatex-math-symbol-prefix [(super ?`)]
+      ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-env-alist
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
@@ -669,7 +670,7 @@ comment char"
   (copy-face 'default 'font-lock-warning-face)
   (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")))
 
-;; (when (eq window-system 'w32) (w32-send-sys-command #xf030))
+(when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
