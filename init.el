@@ -117,10 +117,12 @@
       reb-re-syntax 'string
       wdired-use-dired-vertical-movement t)
 
+;; SavePlace ;; 
 (setq save-place-file "~/.emacs.d/places"
       save-place-limit 50)
 (setq-default save-place t)
 (require 'saveplace)
+;; SavePlace ends here ;;
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
@@ -279,10 +281,10 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 ;; Dired ends here ;;
 
-;; uniquify ;;
+;; Uniquify ;;
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-;; uniquify ends here ;;
+;; Uniquify ends here ;;
 
 ;; Ido ;;
 (setq ido-max-prospects 8
@@ -490,9 +492,9 @@ Returns nil if it is not visible in the current calendar window."
 	   (template-initialize)))
 ;; Template ends here ;;
 
+;; MISC Packages ;;
 (require 'doc-view)
-
-;; (load "color-theme-autoloads.el" t nil t)
+;; MISC Packages end here ;;
 
 (cond ;; Different Platform
  ;; Text-Only console
@@ -563,6 +565,7 @@ Returns nil if it is not visible in the current calendar window."
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
 	    ("UK-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
+    ;; ISpell on win32 end here ;;
 
     (eval-after-load 'browse-url
       '(progn
