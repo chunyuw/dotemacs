@@ -117,6 +117,7 @@
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
 	  (any "pgf-users" "list.pgf-users")
+	  (any "luatex" "list.tex")
 	  (any "emacs-cn" "list.emacs-cn")
 	  (to "@202.118.224.153" "mail.misc")
 	  (any "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
