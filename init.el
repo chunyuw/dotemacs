@@ -484,6 +484,10 @@ Returns nil if it is not visible in the current calendar window."
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
+;; Template ;;
+(if (and (file-exists-p "~/.emacs.d/tmpls") (load "template" t)) (template-initialize))
+;; Template ends here ;;
+
 (require 'doc-view)
 
 ;; (load "color-theme-autoloads.el" t nil t)
