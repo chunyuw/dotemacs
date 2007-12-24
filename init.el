@@ -485,7 +485,9 @@ Returns nil if it is not visible in the current calendar window."
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; Template ;;
-(if (and (file-exists-p "~/.emacs.d/tmpls") (load "template" t)) (template-initialize))
+(if (and (file-exists-p "~/.emacs.d/tmpls") (load "template" t)) 
+    (progn (define-key meta-m-map "t" 'template-expand-template)
+	   (template-initialize)))
 ;; Template ends here ;;
 
 (require 'doc-view)
