@@ -344,7 +344,6 @@
 	(holiday-chinese 7 7 "七月七 (七月初七)")
 	(holiday-chinese 9 9 "重阳节 (九月初九)")
 	(holiday-chinese 8 15 "中秋节 (八月十五)")
-	(holiday-chinese 12 -1 "除夕")
 	(holiday-chinese 12 7 "老婆生日"))
       christian-holidays nil
       hebrew-holidays nil
