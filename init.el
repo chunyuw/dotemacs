@@ -356,8 +356,10 @@
       appt-message-warning-time 30
       mark-holidays-in-calendar t)
 
-(setq diary-date-forms '((year "-" month "-" day "[^/0-9]"))
-      calendar-date-display-form '(year "-" month "-" day)
+(setq diary-date-forms '((year "-" month "-" day "[^/0-9]") (month "/" day "[^/0-9]")
+			 (month "/" day "/" year "[^0-9]") (monthname " *" day "[^,0-9]")
+			 (monthname " *" day ", *" year "[^0-9]") (dayname "\\W"))
+      ;;calendar-date-display-form '(year "-" month "-" day)
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
