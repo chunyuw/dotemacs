@@ -318,7 +318,7 @@
 	'((one-line (order phones net) (name-end . 24) (toggle . t))
 	  (multi-line (indention . 14) (toggle . t) (omit creation-date timestamp))
 	  (pop-up-multi-line (indention . 14))))
-  (eval-after-load "gnus"
+  (eval-after-load 'gnus
     '(progn (bbdb-initialize 'gnus 'message 'sc)))))
 ;; BBDB ends here ;;
 
@@ -478,7 +478,7 @@ Returns nil if it is not visible in the current calendar window."
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode) (TeX-fold-mode 1)
 	    (turn-on-cdlatex)))
 
-(eval-after-load "tex"
+(eval-after-load 'tex
   '(progn
      (setq TeX-output-view-style 
      	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
