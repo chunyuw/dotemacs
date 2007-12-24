@@ -340,9 +340,9 @@
 	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
       local-holidays
       '((holiday-chinese 1 15 "元宵节 (正月十五)")
-	(holiday-chinese 5 5 "端午节 (五月初五)")
-	(holiday-chinese 7 7 "七月七 (七月初七)")
-	(holiday-chinese 9 9 "重阳节 (九月初九)")
+	(holiday-chinese 5  5 "端午节 (五月初五)")
+	(holiday-chinese 7  7 "七月七 (七月初七)")
+	(holiday-chinese 9  9 "重阳节 (九月初九)")
 	(holiday-chinese 8 15 "中秋节 (八月十五)")
 	(holiday-chinese 12 7 "老婆生日"))
       christian-holidays nil
