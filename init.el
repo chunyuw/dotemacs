@@ -480,7 +480,7 @@ Returns nil if it is not visible in the current calendar window."
 (eval-after-load 'tex
   '(progn
      (setq TeX-output-view-style 
-     	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
+	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
@@ -671,7 +671,7 @@ comment char"
   (copy-face 'default 'font-lock-warning-face)
   (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
   (eval-after-load 'table
-  '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
+    '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
 (when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
