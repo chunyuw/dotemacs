@@ -13,17 +13,14 @@ else
   DATE    = date
 endif
 
-tt:
-	@echo "$(AUTOCSTR)"
-
+up:;	svn update .
 ci:;    svn commit . -m "$(AUTOCSTR)"
-
+st:;	svn status .
 ps:
 	svn propset svn:eol-style LF $(ALLFILES)
 	svn propset Author $(Author) $(ALLFILES)
 	svn propset Copyright $(Copyright) $(ALLFILES)
 
-st:;	svn status .
 
 clean:;	-$(RM) server/{ido.last,places} auto-save-list/*
 
