@@ -13,7 +13,6 @@ else
   DATE    = date
 endif
 
-up:;	svn update .
 ci:;    svn commit . -m "$(AUTOCSTR)"
 st:;	svn status .
 ps:
