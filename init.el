@@ -34,7 +34,7 @@
 (define-key meta-m-map "\M-u" 'chunyu/update-src)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
-(define-key meta-m-map "f" 'chunyu/insert-file-variable)
+(define-key meta-m-map "m" 'chunyu/insert-file-variable)
 (define-key meta-m-map "v" 'newsticker-show-news)
 (define-key meta-m-map "n" 'toggle-save-place)
 (define-key meta-m-map "\M-n" 'toggle-save-place)
@@ -477,8 +477,8 @@ Returns nil if it is not visible in the current calendar window."
 	    (turn-on-reftex) (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook 
-	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode) (TeX-fold-mode 1)
-	    (turn-on-cdlatex)))
+	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode)
+	    (TeX-fold-mode 1) (turn-on-cdlatex)))
 
 (eval-after-load 'tex
   '(progn
@@ -489,7 +489,7 @@ Returns nil if it is not visible in the current calendar window."
 
 ;; Template ;;
 (if (and (file-exists-p "~/.emacs.d/tmpls") (load "template" t)) 
-    (progn (define-key meta-m-map "t" 'template-expand-template)
+    (progn (define-key meta-m-map "f" 'template-expand-template)
 	   (template-initialize)))
 ;; Template ends here ;;
 
