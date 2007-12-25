@@ -147,7 +147,7 @@
 (gnus-compile)
 
 (when window-system
-  (eval-after-load "gnus-art"
+  (eval-after-load 'gnus-art
     '(progn 
        (copy-face 'gnus-header-from-face 'gnus-x-face)
        (set-face-attribute 'gnus-x-face nil :foreground "blue")))
@@ -160,12 +160,12 @@
   (add-to-list 'gnus-summary-highlight
 	       '((and (> score 6500) (eq mark gnus-unread-mark)) . chunyu-gnus-own-related-posting-face))
 
-  (eval-after-load "gnus-cite"
+  (eval-after-load 'gnus-cite
     '(progn
        (set-face-attribute 'gnus-cite-face-2 nil :foreground "magenta")
        (set-face-attribute 'gnus-cite-face-3 nil :foreground "yellow")
        (set-face-attribute 'gnus-cite-face-4 nil :foreground "cyan")))
-  (eval-after-load "gnus-art"
+  (eval-after-load 'gnus-art
     '(progn
        (set-face-attribute 'gnus-header-subject-face nil :foreground "red" :weight 'bold)))
 
