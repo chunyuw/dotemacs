@@ -1,4 +1,4 @@
-;;-*-coding: emacs-mule;-*-
+;;-*-coding: emacs-mule-unix;-*-
 (define-abbrev-table 'awk-mode-abbrev-table '(
     ))
 
