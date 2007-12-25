@@ -19,11 +19,13 @@ tt:
 ci:;    svn commit . -m "$(AUTOCSTR)"
 
 ps:
-	svn ps svn:eol-style LF $(ALLFILES)
-	svn ps Author $(Author) $(ALLFILES)
-	svn ps Copyright $(Copyright) $(ALLFILES)
+	svn propset svn:eol-style LF $(ALLFILES)
+	svn propset Author $(Author) $(ALLFILES)
+	svn propset Copyright $(Copyright) $(ALLFILES)
 
-st:;	svn st .
+st:;	svn status .
+
+clean:;	-$(RM) server/{ido.last,places} auto-save-list/*
 
 # Local Variables:
 # mode: makefile-gmake
