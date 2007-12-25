@@ -543,7 +543,6 @@ Returns nil if it is not visible in the current calendar window."
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
-    (define-key meta-m-map "\M-m\M-o" 'chunyu/title-bar-w32)
 
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system nil)
