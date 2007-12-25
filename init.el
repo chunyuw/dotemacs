@@ -118,7 +118,7 @@
       wdired-use-dired-vertical-movement t)
 
 ;; SavePlace ;; 
-(setq save-place-file "~/.emacs.d/dat/places"
+(setq save-place-file "~/.emacs.d/server/places"
       save-place-limit 50)
 (setq-default save-place t)
 (require 'saveplace)
@@ -288,7 +288,7 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/dat/ido.last"
+      ido-save-directory-list-file "~/.emacs.d/server/ido.last"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point t)
 (require 'ido)
