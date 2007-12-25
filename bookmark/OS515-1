@@ -1,0 +1,24 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("notes-emacs"
+  ((filename . "~/notes/notes-emacs")
+   (front-context-string . "----\n[lisp] dup-")
+   (rear-context-string)
+   (position . 1)))
+ ("TODO"
+  ((filename . "~/TODO")
+   (front-context-string . "* TODO misc\n  - ")
+   (rear-context-string . "# -*- org -*- \n\n")
+   (position . 17)))
+ ("proxy.pac"
+  ((filename . "c:/free_ware/misc/proxy.pac")
+   (front-context-string . "/* -*- javascrip")
+   (rear-context-string)
+   (position . 1)))
+ ("hosts"
+  ((filename . "c:/WINDOWS/system32/drivers/etc/hosts")
+   (front-context-string)
+   (rear-context-string . " www.biketo.com\n")
+   (position . 1077))))

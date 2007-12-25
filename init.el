@@ -61,7 +61,7 @@
       outline-minor-mode-prefix "\C-c\C-o")
 
 (setq bookmark-save-flag 1
-      bookmark-default-file "~/.emacs.d/bookmark"
+      bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
       abbrev-file-name "~/.emacs.d/abbrev_defs")
 
 (setq display-time-24hr-format t
@@ -118,7 +118,7 @@
       wdired-use-dired-vertical-movement t)
 
 ;; SavePlace ;; 
-(setq save-place-file "~/.emacs.d/places"
+(setq save-place-file "~/.emacs.d/dat/places"
       save-place-limit 50)
 (setq-default save-place t)
 (require 'saveplace)
@@ -288,7 +288,7 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/ido.last"
+      ido-save-directory-list-file "~/.emacs.d/dat/ido.last"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point t)
 (require 'ido)
