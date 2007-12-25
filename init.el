@@ -465,6 +465,7 @@ Returns nil if it is not visible in the current calendar window."
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
+	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("lst" "lstlisting" "" cdlatex-environment ("lstlisting") t nil)
 	("lsti" "lstinline" "\\lstinline|?|" cdlatex-position-cursor nil t nil)
 	("blk" "block" "" cdlatex-environment ("block") t nil)
