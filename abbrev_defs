@@ -1,4 +1,4 @@
-;;-*-coding: emacs-mule-unix;-*-
+;;-*-coding: emacs-mule;-*-
 (define-abbrev-table 'awk-mode-abbrev-table '(
     ))
 
@@ -31,6 +31,7 @@
 
 (define-abbrev-table 'global-abbrev-table '(
     ("auctex" "AUCTeX" nil 3)
+    ("context" "ConTeXt" nil 2)
     ("latex" "LaTeX" nil 0)
     ("tex" "TeX" nil 2)
     ))
