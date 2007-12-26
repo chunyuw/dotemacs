@@ -62,6 +62,7 @@
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
+      savehist-file "~/.emacs.d/server/history"
       save-abbrevs 'silently
       abbrev-file-name "~/.emacs.d/abbrev_defs")
 
@@ -507,6 +508,7 @@ Returns nil if it is not visible in the current calendar window."
 	   ;; (setq msf-abbrev-verbose t)
 	   (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
+	   (global-set-key [(super ?n)] 'fld-next)
 	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
