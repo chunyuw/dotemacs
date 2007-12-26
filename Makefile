@@ -2,8 +2,8 @@
 
 ALLFILES  = init.el gnus.el bbdb abbrev_defs diary bookmark/* sig/* tmpls/*.tpl msf/*-mode/*
 
-Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
-Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
+Author    = Chunyu Wang <chunyu@hit.edu.cn>
+Copyright = Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) $(Author).
 
 AUTOCSTR  = Batch checkin for .emacs.d ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n)).
 
@@ -13,16 +13,20 @@ else
   DATE    = date
 endif
 
+all:
+	@echo "Usage:"
+	@echo "    make ci/up/st/ps | clean"
+
 up:;	svn update .
-ci:;    svn commit . -m "$(AUTOCSTR)"
+ci:;    svn commit diary Makefile -m "$(AUTOCSTR)"
 st:;	svn status .
 ps:
-	svn propset svn:eol-style LF $(ALLFILES)
-	svn propset Author $(Author) $(ALLFILES)
-	svn propset Copyright $(Copyright) $(ALLFILES)
+	svn -q propset svn:eol-style LF $(ALLFILES)
+	svn -q propset Author "$(Author)" $(ALLFILES)
+	svn -q propset Copyright "$(Copyright)" $(ALLFILES)
 
 
-clean:;	-$(RM) server/{ido.last,places} auto-save-list/*
+clean:;	-$(RM) var/{ido.last,places,history} auto-save-list/.*~
 
 # Local Variables:
 # mode: makefile-gmake
