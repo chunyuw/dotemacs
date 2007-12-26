@@ -490,18 +490,21 @@ Returns nil if it is not visible in the current calendar window."
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; Template ;;
-(if (and (file-exists-p "~/.emacs.d/tmpls") (load "template" t)) 
+(if (require 'template nil t)
     (progn (define-key meta-m-map "f" 'template-expand-template)
 	   (template-initialize)))
 ;; Template ends here ;;
 
+;; msf-abbrev ;;
+(if (require 'msf-abbrev nil t)
+    (progn (setq msf-abbrev-root "~/.emacs.d/msf")
+	   (define-key meta-m-map "r" 'msf-abbrev-goto-root)
+	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
+	   (msf-abbrev-load)))
+;; msf-abbrev ends here ;;
+
 ;; MISC Packages ;;
 (require 'doc-view)
-(require 'msf-abbrev)
-(setq msf-abbrev-root "~/.emacs.d/msf")
-(msf-abbrev-load)
-;; (global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
-;; (global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
 ;; MISC Packages end here ;;
 
 (cond ;; Different Platform
