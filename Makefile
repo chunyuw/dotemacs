@@ -18,7 +18,7 @@ all:
 	@echo "    make ci/up/st/ps | clean"
 
 up:;	svn update .
-ci:;    svn commit diary Makefile -m "$(AUTOCSTR)"
+ci:;    svn commit . -m "$(AUTOCSTR)"
 st:;	svn status .
 ps:
 	svn -q propset svn:eol-style LF $(ALLFILES)
