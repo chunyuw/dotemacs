@@ -1,6 +1,6 @@
 ### Makefile for .emacs.d by Chunyu Wang <chunyu@hit.edu.cn>
 
-ALLFILES  = init.el gnus.el bbdb abbrev_defs diary bookmark/* sig/* tmpls/*.tpl
+ALLFILES  = init.el gnus.el bbdb abbrev_defs diary bookmark/* sig/* tmpls/*.tpl msf/*-mode/*
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."

@@ -62,6 +62,7 @@
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
+      save-abbrevs 'silently
       abbrev-file-name "~/.emacs.d/abbrev_defs")
 
 (setq display-time-24hr-format t
@@ -158,6 +159,7 @@
 		("\\.asy\\'" . asy-mode))
 	      auto-mode-alist))
 
+(add-hook 'text-mode-hook 'abbrev-mode)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
@@ -178,7 +180,7 @@
 (setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (c-subword-mode 1)
+	    (abbrev-mode 1) (c-subword-mode 1)
 	    (c-toggle-auto-hungry-state 1)))
 ;; CC-Mode ends here ;;
 
@@ -473,8 +475,8 @@ Returns nil if it is not visible in the current calendar window."
 	("alb" "alertblock" "" cdlatex-environment ("alertblock") t nil)))
 
 (add-hook 'TeX-mode-hook
-	  (lambda () ;; (flyspell-mode) (abbrev-mode 1)
-	    (turn-on-reftex) (auto-fill-mode 1)))
+	  (lambda () ;; (flyspell-mode)
+	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook 
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode)
@@ -495,6 +497,11 @@ Returns nil if it is not visible in the current calendar window."
 
 ;; MISC Packages ;;
 (require 'doc-view)
+(require 'msf-abbrev)
+(setq msf-abbrev-root "~/.emacs.d/msf")
+(msf-abbrev-load)
+;; (global-set-key (kbd "C-c l") 'msf-abbrev-goto-root)
+;; (global-set-key (kbd "C-c a") 'msf-abbrev-define-new-abbrev-this-mode)
 ;; MISC Packages end here ;;
 
 (cond ;; Different Platform
