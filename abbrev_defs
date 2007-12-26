@@ -763,9 +763,6 @@
     ("writex" "" msf-abbrev-generatedfunc-c-mode-writex 0)
     ))
 
-(define-abbrev-table 'change-log-mode-abbrev-table '(
-    ))
-
 (define-abbrev-table 'comint-mode-abbrev-table '(
     ))
 
@@ -775,36 +772,14 @@
 (define-abbrev-table 'doc-view-mode-abbrev-table '(
     ))
 
-(define-abbrev-table 'docTeX-mode-abbrev-table '(
-    ))
-
 (define-abbrev-table 'fundamental-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'global-abbrev-table '(
-    ("argcx" "" msf-abbrev-generatedfunc-global-argcx 0)
-    ("argvx" "" msf-abbrev-generatedfunc-global-argvx 0)
     ("auctex" "AUCTeX" nil 3)
-    ("boolandx" "" msf-abbrev-generatedfunc-global-boolandx 0)
-    ("booleqx" "" msf-abbrev-generatedfunc-global-booleqx 0)
-    ("boolnotx" "" msf-abbrev-generatedfunc-global-boolnotx 0)
-    ("boolorx" "" msf-abbrev-generatedfunc-global-boolorx 0)
-    ("choicex" "" msf-abbrev-generatedfunc-global-choicex 0)
     ("context" "ConTeXt" nil 2)
-    ("crontabx" "" msf-abbrev-generatedfunc-global-crontabx 0)
-    ("errx" "" msf-abbrev-generatedfunc-global-errx 0)
     ("hrefx" "" msf-abbrev-generatedfunc-global-hrefx 0)
-    ("hrulex" "" msf-abbrev-generatedfunc-global-hrulex 0)
-    ("htmlclosex" "" msf-abbrev-generatedfunc-global-htmlclosex 0)
-    ("htmlformx" "" msf-abbrev-generatedfunc-global-htmlformx 0)
-    ("htmlinputx" "" msf-abbrev-generatedfunc-global-htmlinputx 0)
-    ("htmlopenx" "" msf-abbrev-generatedfunc-global-htmlopenx 0)
-    ("htmlselectx" "" msf-abbrev-generatedfunc-global-htmlselectx 0)
-    ("htmltablex" "" msf-abbrev-generatedfunc-global-htmltablex 0)
     ("latex" "LaTeX" nil 0)
-    ("shebangpy" "" msf-abbrev-generatedfunc-global-shebangpy 0)
-    ("shebangsh" "" msf-abbrev-generatedfunc-global-shebangsh 0)
-    ("svnignorex" "" msf-abbrev-generatedfunc-global-svnignorex 0)
     ("tex" "TeX" nil 2)
     ))
 
@@ -820,15 +795,11 @@
     ("base64x" "" msf-abbrev-generatedfunc-java-mode-base64x 0)
     ("basenamex" "" msf-abbrev-generatedfunc-java-mode-basenamex 0)
     ("bisx" "" msf-abbrev-generatedfunc-java-mode-bisx 0)
-    ("boolx" "" msf-abbrev-generatedfunc-java-mode-boolx 0)
     ("bosx" "" msf-abbrev-generatedfunc-java-mode-bosx 0)
     ("catchx" "" msf-abbrev-generatedfunc-java-mode-catchx 0)
     ("classx" "" msf-abbrev-generatedfunc-java-mode-classx 0)
-    ("commentx" "" msf-abbrev-generatedfunc-java-mode-commentx 0)
     ("csnumx" "" msf-abbrev-generatedfunc-java-mode-csnumx 0)
     ("dirnamex" "" msf-abbrev-generatedfunc-java-mode-dirnamex 0)
-    ("elseifx" "" msf-abbrev-generatedfunc-java-mode-elseifx 0)
-    ("elsex" "" msf-abbrev-generatedfunc-java-mode-elsex 0)
     ("errx" "" msf-abbrev-generatedfunc-java-mode-errx 0)
     ("errxit" "" msf-abbrev-generatedfunc-java-mode-errxit 0)
     ("exitx" "" msf-abbrev-generatedfunc-java-mode-exitx 0)
@@ -841,16 +812,13 @@
     ("fisx" "" msf-abbrev-generatedfunc-java-mode-fisx 0)
     ("flushx" "" msf-abbrev-generatedfunc-java-mode-flushx 0)
     ("fopenx" "" msf-abbrev-generatedfunc-java-mode-fopenx 0)
-    ("forx" "" msf-abbrev-generatedfunc-java-mode-forx 0)
     ("fosx" "" msf-abbrev-generatedfunc-java-mode-fosx 0)
     ("funcx" "" msf-abbrev-generatedfunc-java-mode-funcx 0)
     ("fwritex" "" msf-abbrev-generatedfunc-java-mode-fwritex 0)
     ("getenvx" "" msf-abbrev-generatedfunc-java-mode-getenvx 0)
     ("hostnamex" "" msf-abbrev-generatedfunc-java-mode-hostnamex 0)
-    ("ifx" "" msf-abbrev-generatedfunc-java-mode-ifx 0)
     ("importx" "" msf-abbrev-generatedfunc-java-mode-importx 0)
     ("mainx" "" msf-abbrev-generatedfunc-java-mode-mainx 0)
-    ("nullx" "" msf-abbrev-generatedfunc-java-mode-nullx 0)
     ("printx" "" msf-abbrev-generatedfunc-java-mode-printx 0)
     ("sep" "" msf-abbrev-generatedfunc-java-mode-sep 0)
     ("sleepx" "" msf-abbrev-generatedfunc-java-mode-sleepx 0)
@@ -862,17 +830,14 @@
     ("tryx" "" msf-abbrev-generatedfunc-java-mode-tryx 0)
     ("usagex" "" msf-abbrev-generatedfunc-java-mode-usagex 0)
     ("vecx" "" msf-abbrev-generatedfunc-java-mode-vecx 0)
-    ("whilex" "" msf-abbrev-generatedfunc-java-mode-whilex 0)
     ))
 
 (define-abbrev-table 'jython-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'lisp-mode-abbrev-table '(
-    ("choosex" "" msf-abbrev-generatedfunc-lisp-interaction-mode-choosex 0)
     ("defadvicex" "" msf-abbrev-generatedfunc-emacs-lisp-mode-defadvicex 0)
     ("defunx" "" msf-abbrev-generatedfunc-emacs-lisp-mode-defunx 0)
-    ("foo" "" msf-abbrev-generatedfunc-lisp-interaction-mode-foo 0)
     ("funcx" "" msf-abbrev-generatedfunc-emacs-lisp-mode-funcx 0)
     ("ifx" "" msf-abbrev-generatedfunc-emacs-lisp-mode-ifx 0)
     ("matchx" "" msf-abbrev-generatedfunc-emacs-lisp-mode-matchx 0)
@@ -881,39 +846,7 @@
     ("whilex" "" msf-abbrev-generatedfunc-emacs-lisp-mode-whilex 0)
     ))
 
-(define-abbrev-table 'log-edit-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-automake-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-bsdmake-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-gmake-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-imake-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-makepp-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'makefile-mode-abbrev-table '(
-    ))
-
 (define-abbrev-table 'objc-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'org-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'outline-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'perl-mode-abbrev-table '(
-    ("mainx" "" msf-abbrev-generatedfunc-perl-mode-mainx 1)
-    ("pf" "" msf-abbrev-generatedfunc-perl-mode-pf 0)
     ))
 
 (define-abbrev-table 'pike-mode-abbrev-table '(
@@ -930,7 +863,6 @@
     ("buttonx" "" msf-abbrev-generatedfunc-python-mode-buttonx 0)
     ("chdirx" "" msf-abbrev-generatedfunc-python-mode-chdirx 0)
     ("classx" "" msf-abbrev-generatedfunc-python-mode-classx 0)
-    ("cmdx" "" msf-abbrev-generatedfunc-python-mode-cmdx 0)
     ("commandthreadx" "" msf-abbrev-generatedfunc-python-mode-commandthreadx 0)
     ("commandx" "" msf-abbrev-generatedfunc-python-mode-commandx 0)
     ("commentx" "" msf-abbrev-generatedfunc-python-mode-commentx 0)
@@ -942,7 +874,6 @@
     ("elsex" "" msf-abbrev-generatedfunc-python-mode-elsex 0)
     ("errx" "" msf-abbrev-generatedfunc-python-mode-errx 0)
     ("exceptx" "" msf-abbrev-generatedfunc-python-mode-exceptx 0)
-    ("execx" "" msf-abbrev-generatedfunc-python-mode-execx 0)
     ("exitx" "" msf-abbrev-generatedfunc-python-mode-exitx 0)
     ("fclosex" "" msf-abbrev-generatedfunc-python-mode-fclosex 0)
     ("fileexistsx" "" msf-abbrev-generatedfunc-python-mode-fileexistsx 0)
@@ -951,11 +882,11 @@
     ("findx" "" msf-abbrev-generatedfunc-python-mode-findx 0)
     ("flusherrx" "" msf-abbrev-generatedfunc-python-mode-flusherrx 0)
     ("flushoutx" "" msf-abbrev-generatedfunc-python-mode-flushoutx 0)
-    ("fopenx" "" msf-abbrev-generatedfunc-python-mode-fopenx 0)
+    ("fopenx" "" msf-abbrev-generatedfunc-python-mode-fopenx 1)
     ("forkx" "" msf-abbrev-generatedfunc-python-mode-forkx 0)
     ("forx" "" msf-abbrev-generatedfunc-python-mode-forx 0)
     ("framex" "" msf-abbrev-generatedfunc-python-mode-framex 0)
-    ("funcx" "" msf-abbrev-generatedfunc-python-mode-funcx 1)
+    ("funcx" "" msf-abbrev-generatedfunc-python-mode-funcx 0)
     ("fwritex" "" msf-abbrev-generatedfunc-python-mode-fwritex 0)
     ("getcwdx" "" msf-abbrev-generatedfunc-python-mode-getcwdx 0)
     ("getenvx" "" msf-abbrev-generatedfunc-python-mode-getenvx 0)
@@ -1036,50 +967,10 @@
     ("whilex" "" msf-abbrev-generatedfunc-python-mode-whilex 0)
     ))
 
-(define-abbrev-table 'select-tags-table-mode-abbrev-table '(
-    ))
-
-(define-abbrev-table 'sh-mode-abbrev-table '(
-    ("argsx" "" msf-abbrev-generatedfunc-sh-mode-argsx 0)
-    ("bashsubstx" "" msf-abbrev-generatedfunc-sh-mode-bashsubstx 0)
-    ("bunzipx" "" msf-abbrev-generatedfunc-sh-mode-bunzipx 0)
-    ("echonnx" "" msf-abbrev-generatedfunc-sh-mode-echonnx 0)
-    ("elseifx" "" msf-abbrev-generatedfunc-sh-mode-elseifx 0)
-    ("elsex" "" msf-abbrev-generatedfunc-sh-mode-elsex 0)
-    ("errx" "" msf-abbrev-generatedfunc-sh-mode-errx 0)
-    ("fileexistsx" "" msf-abbrev-generatedfunc-sh-mode-fileexistsx 0)
-    ("filesizex" "" msf-abbrev-generatedfunc-sh-mode-filesizex 0)
-    ("forx" "" msf-abbrev-generatedfunc-sh-mode-forx 1)
-    ("funcx" "" msf-abbrev-generatedfunc-sh-mode-funcx 0)
-    ("gunzipx" "" msf-abbrev-generatedfunc-sh-mode-gunzipx 0)
-    ("ifx" "" msf-abbrev-generatedfunc-sh-mode-ifx 0)
-    ("instx" "" msf-abbrev-generatedfunc-sh-mode-instx 0)
-    ("passthrux" "" msf-abbrev-generatedfunc-sh-mode-passthrux 0)
-    ("pyinstx" "" msf-abbrev-generatedfunc-sh-mode-pyinstx 0)
-    ("pyverx" "" msf-abbrev-generatedfunc-sh-mode-pyverx 0)
-    ("requireutilx" "" msf-abbrev-generatedfunc-sh-mode-requireutilx 0)
-    ("safetmpdirx" "" msf-abbrev-generatedfunc-sh-mode-safetmpdirx 0)
-    ("safetmpx" "" msf-abbrev-generatedfunc-sh-mode-safetmpx 0)
-    ("tempfilex" "" msf-abbrev-generatedfunc-sh-mode-tempfilex 0)
-    ("trapx" "" msf-abbrev-generatedfunc-sh-mode-trapx 0)
-    ("usagex" "" msf-abbrev-generatedfunc-sh-mode-usagex 0)
-    ("whilex" "" msf-abbrev-generatedfunc-sh-mode-whilex 0)
-    ("xformx" "" msf-abbrev-generatedfunc-sh-mode-xformx 0)
-    ))
-
 (define-abbrev-table 'shell-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'text-mode-abbrev-table '(
-    ("articlex" "" msf-abbrev-generatedfunc-LaTeX-mode-articlex 0)
-    ("emphx" "" msf-abbrev-generatedfunc-LaTeX-mode-emphx 0)
-    ("fig2x" "" msf-abbrev-generatedfunc-LaTeX-mode-fig2x 0)
-    ("figx" "" msf-abbrev-generatedfunc-LaTeX-mode-figx 0)
-    ("fracx" "" msf-abbrev-generatedfunc-LaTeX-mode-fracx 0)
-    ("framex" "" msf-abbrev-generatedfunc-LaTeX-mode-framex 0)
-    ("secx" "" msf-abbrev-generatedfunc-LaTeX-mode-secx 0)
-    ("ssecx" "" msf-abbrev-generatedfunc-LaTeX-mode-ssecx 0)
-    ("sssecx" "" msf-abbrev-generatedfunc-LaTeX-mode-sssecx 0)
     ))
 
 (define-abbrev-table 'vc-annotate-mode-abbrev-table '(

@@ -36,7 +36,6 @@
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "m" 'chunyu/insert-file-variable)
 (define-key meta-m-map "v" 'newsticker-show-news)
-(define-key meta-m-map "n" 'toggle-save-place)
 (define-key meta-m-map "\M-n" 'toggle-save-place)
 
 (setq inhibit-startup-message t
@@ -62,7 +61,7 @@
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
-      savehist-file "~/.emacs.d/server/history"
+      savehist-file "~/.emacs.d/var/history"
       save-abbrevs 'silently
       abbrev-file-name "~/.emacs.d/abbrev_defs")
 
@@ -120,7 +119,7 @@
       wdired-use-dired-vertical-movement t)
 
 ;; SavePlace ;; 
-(setq save-place-file "~/.emacs.d/server/places"
+(setq save-place-file "~/.emacs.d/var/places"
       save-place-limit 50)
 (setq-default save-place t)
 (require 'saveplace)
@@ -160,11 +159,12 @@
 		("\\.asy\\'" . asy-mode))
 	      auto-mode-alist))
 
-(add-hook 'text-mode-hook 'abbrev-mode)
-(add-hook 'python-mode-hook 'abbrev-mode)
-(add-hook 'sh-mode-hook 'abbrev-mode)
-(add-hook 'perl-mode-hook 'abbrev-mode)
-(add-hook 'cperl-mode-hook 'abbrev-mode)
+
+(mapc (lambda (hook) (add-hook hook 'abbrev-mode))
+      '(sh-mode-hook
+	text-mode-hook perl-mode-hook cperl-mode-hook
+	csharp-mode-hook python-mode-hook))
+
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
@@ -295,7 +295,7 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/server/ido.last"
+      ido-save-directory-list-file "~/.emacs.d/var/ido.last"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point t
       completion-ignored-extensions
