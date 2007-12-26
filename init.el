@@ -292,7 +292,9 @@
 (setq ido-max-prospects 8
       ido-save-directory-list-file "~/.emacs.d/server/ido.last"
       ido-auto-merge-delay-time 2
-      ido-use-filename-at-point t)
+      ido-use-filename-at-point t
+      completion-ignored-extensions
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm") completion-ignored-extensions))
 (require 'ido)
 (ido-everywhere 1)
 (ido-mode 1)
@@ -489,22 +491,21 @@ Returns nil if it is not visible in the current calendar window."
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
-;; Template ;;
-(if (require 'template nil t)
-    (progn (define-key meta-m-map "f" 'template-expand-template)
-	   (template-initialize)))
-;; Template ends here ;;
 
-;; msf-abbrev ;;
-(if (require 'msf-abbrev nil t)
-    (progn (setq msf-abbrev-root "~/.emacs.d/msf")
-	   (define-key meta-m-map "r" 'msf-abbrev-goto-root)
-	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
-	   (msf-abbrev-load)))
-;; msf-abbrev ends here ;;
 
 ;; MISC Packages ;;
 (require 'doc-view)
+
+(cond 
+ ((require 'template nil t)		; Template
+  (define-key meta-m-map "f" 'template-expand-template)
+  (template-initialize))
+
+ ((require 'msf-abbrev nil t)		; Msf-Abbrev 
+  (setq msf-abbrev-root "~/.emacs.d/msf")
+  (define-key meta-m-map "r" 'msf-abbrev-goto-root)
+  (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
+  (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
 (cond ;; Different Platform

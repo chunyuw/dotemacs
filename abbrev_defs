@@ -521,6 +521,15 @@
     ))
 
 (define-abbrev-table 'text-mode-abbrev-table '(
+    ("articlex" "" msf-abbrev-generatedfunc-LaTeX-mode-articlex 0)
+    ("emphx" "" msf-abbrev-generatedfunc-LaTeX-mode-emphx 0)
+    ("fig2x" "" msf-abbrev-generatedfunc-LaTeX-mode-fig2x 0)
+    ("figx" "" msf-abbrev-generatedfunc-LaTeX-mode-figx 0)
+    ("fracx" "" msf-abbrev-generatedfunc-LaTeX-mode-fracx 0)
+    ("framex" "" msf-abbrev-generatedfunc-LaTeX-mode-framex 0)
+    ("secx" "" msf-abbrev-generatedfunc-LaTeX-mode-secx 0)
+    ("ssecx" "" msf-abbrev-generatedfunc-LaTeX-mode-ssecx 0)
+    ("sssecx" "" msf-abbrev-generatedfunc-LaTeX-mode-sssecx 0)
     ))
 
 (define-abbrev-table 'vc-annotate-mode-abbrev-table '(
