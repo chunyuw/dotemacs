@@ -160,6 +160,10 @@
 	      auto-mode-alist))
 
 (add-hook 'text-mode-hook 'abbrev-mode)
+(add-hook 'python-mode-hook 'abbrev-mode)
+(add-hook 'sh-mode-hook 'abbrev-mode)
+(add-hook 'perl-mode-hook 'abbrev-mode)
+(add-hook 'cperl-mode-hook 'abbrev-mode)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
@@ -491,21 +495,19 @@ Returns nil if it is not visible in the current calendar window."
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
-
-
 ;; MISC Packages ;;
 (require 'doc-view)
 
-(cond 
- ((require 'template nil t)		; Template
-  (define-key meta-m-map "f" 'template-expand-template)
-  (template-initialize))
+(if (require 'template nil t)
+    (progn (define-key meta-m-map "f" 'template-expand-template)
+	   (template-initialize)))
 
- ((require 'msf-abbrev nil t)		; Msf-Abbrev 
-  (setq msf-abbrev-root "~/.emacs.d/msf")
-  (define-key meta-m-map "r" 'msf-abbrev-goto-root)
-  (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
-  (msf-abbrev-load)))
+(if (require 'msf-abbrev nil t)
+    (progn (setq msf-abbrev-root "~/.emacs.d/msf")
+	   ;; (setq msf-abbrev-verbose t)
+	   (define-key meta-m-map "r" 'msf-abbrev-goto-root)
+	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
+	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
 (cond ;; Different Platform
