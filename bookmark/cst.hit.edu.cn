@@ -1,0 +1,14 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("emacssite"
+  ((filename . "/var/www/emacssite/www/wiki.d/")
+   (front-context-string . ".flock\n  -rw-rw-")
+   (rear-context-string . "007-12-25 23:00 ")
+   (position . 220)))
+ ("public_html"
+  ((filename . "~/public_html/")
+   (front-context-string)
+   (rear-context-string . "007-12-17 21:33 ")
+   (position . 514))))
