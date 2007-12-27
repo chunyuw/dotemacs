@@ -1,4 +1,4 @@
 Local Variables:
-dired-omit-files: "^\\(\\.svn\\|\\.dired\\|var\\|sig\\|mypass\\|auto-save-list\\|server\\|bookmark\\)$"
+dired-omit-files: "^\\(\\.svn\\|\\.dired\\|var\\|sig\\|mypass\\|auto-save-list\\|server\\|bookmark\\|abbrev_defs\\)$"
 dired-omit-files-p: t
 End:
