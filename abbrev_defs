@@ -2,6 +2,9 @@
 (define-abbrev-table 'awk-mode-abbrev-table '(
     ))
 
+(define-abbrev-table 'bibtex-style-mode-abbrev-table '(
+    ))
+
 (define-abbrev-table 'bs-mode-abbrev-table '(
     ))
 
@@ -789,11 +792,11 @@
     ))
 
 (define-abbrev-table 'global-abbrev-table '(
-    ("auctex" "AUCTeX" nil 3)
+    ("auctex" "AUCTeX" nil 4)
     ("context" "ConTeXt" nil 2)
     ("hrefx" "" msf-abbrev-generatedfunc-global-hrefx 0)
-    ("latex" "LaTeX" nil 0)
-    ("tex" "TeX" nil 2)
+    ("latex" "LaTeX" nil 3)
+    ("tex" "TeX" nil 5)
     ))
 
 (define-abbrev-table 'html-mode-abbrev-table '(
@@ -901,6 +904,12 @@
     ))
 
 (define-abbrev-table 'pike-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'ps-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'ps-run-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'python-mode-abbrev-table '(
@@ -1031,13 +1040,13 @@
     ))
 
 (define-abbrev-table 'text-mode-abbrev-table '(
-    ("articlex" "" msf-abbrev-generatedfunc-LaTeX-mode-articlex 0)
-    ("beamerx" "" msf-abbrev-generatedfunc-LaTeX-mode-beamerx 0)
-    ("contextx" "" msf-abbrev-generatedfunc-LaTeX-mode-contextx 0)
-    ("fig2x" "" msf-abbrev-generatedfunc-LaTeX-mode-fig2x 0)
-    ("figx" "" msf-abbrev-generatedfunc-LaTeX-mode-figx 0)
-    ("fracx" "" msf-abbrev-generatedfunc-LaTeX-mode-fracx 0)
-    ("framex" "" msf-abbrev-generatedfunc-LaTeX-mode-framex 0)
+    ("articlex" "" msf-abbrev-generatedfunc-TeX-mode-articlex 0)
+    ("beamerx" "" msf-abbrev-generatedfunc-TeX-mode-beamerx 0)
+    ("contextx" "" msf-abbrev-generatedfunc-TeX-mode-contextx 0)
+    ("fig2x" "" msf-abbrev-generatedfunc-TeX-mode-fig2x 0)
+    ("figx" "" msf-abbrev-generatedfunc-TeX-mode-figx 0)
+    ("fracx" "" msf-abbrev-generatedfunc-TeX-mode-fracx 0)
+    ("framex" "" msf-abbrev-generatedfunc-TeX-mode-framex 0)
     ))
 
 (define-abbrev-table 'vc-annotate-mode-abbrev-table '(

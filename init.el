@@ -116,7 +116,7 @@
       reb-re-syntax 'string
       wdired-use-dired-vertical-movement t)
 
-;; SavePlace ;; 
+;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/var/places"
       save-place-limit 50)
 (setq-default save-place t)
@@ -178,6 +178,11 @@
 	    (setq max-mini-window-height 1)))
 
 ;; CC-Mode ;;
+(setq c-offsets-alist '((substatement-open . 0))
+      c-cleanup-list
+      '(brace-else-brace compact-empty-funcall comment-close-slash
+	brace-elseif-brace empty-defun-braces defun-close-semi
+	list-close-comma scope-operator space-before-funcall))
 (setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
@@ -449,7 +454,7 @@ Returns nil if it is not visible in the current calendar window."
       reftex-use-multiple-selection-buffers t
       reftex-auto-recenter-toc t
       reftex-plug-into-AUCTeX t
-      reftex-section-levels 
+      reftex-section-levels
       '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
 	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
 	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
@@ -478,16 +483,16 @@ Returns nil if it is not visible in the current calendar window."
 	("alb" "alertblock" "" cdlatex-environment ("alertblock") t nil)))
 
 (add-hook 'TeX-mode-hook
-	  (lambda () ;; (flyspell-mode)
+	  (lambda () ;; (flyspell-mode 1)
 	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
 
-(add-hook 'LaTeX-mode-hook 
-	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode)
+(add-hook 'LaTeX-mode-hook
+	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
 	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
 
 (eval-after-load 'tex
   '(progn
-     (setq TeX-output-view-style 
+     (setq TeX-output-view-style
 	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
@@ -536,7 +541,7 @@ Returns nil if it is not visible in the current calendar window."
 	  (cursor-color . "coral")
 	  (font . "fontset-chinese")))
 
-  (create-fontset-from-fontset-spec 
+  (create-fontset-from-fontset-spec
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
   (setq w32-charset-info-alist
@@ -548,7 +553,7 @@ Returns nil if it is not visible in the current calendar window."
     (set-fontset-font "fontset-chinese" 'han      fstr)
     (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
     (set-fontset-font "fontset-chinese" 'symbol   fstr))
-  
+
   (set-default-font "fontset-chinese")
 
   (modify-coding-system-alist 'file "\\.nfo\\'" 'cp437)
@@ -597,14 +602,14 @@ Returns nil if it is not visible in the current calendar window."
   "Move forward one line or LINES lines."
   (interactive "p")
   (scroll-up lines)
-  (if (not (eq scroll-preserve-screen-position 'keep)) 
+  (if (not (eq scroll-preserve-screen-position 'keep))
       (next-line lines)))
 
 (defun chunyu/view-scroll-backward (&optional lines)
   "Move backward one line or LINES lines."
   (interactive "p")
   (scroll-down lines)
-  (if (not (eq scroll-preserve-screen-position 'keep)) 
+  (if (not (eq scroll-preserve-screen-position 'keep))
       (previous-line lines)))
 
 (defun chunyu/kill-this-buffer ()
@@ -629,7 +634,7 @@ Returns nil if it is not visible in the current calendar window."
   (interactive "p")
   (let ((pp (if (< arg 0) "+" "-"))
 	(tt (frame-parameter nil 'name)))
-    (w32-shell-execute 
+    (w32-shell-execute
      "open" "nircmd"
      (format "win %sstyle title \"%s\" 0x00C00000" pp tt) 1)))
 
@@ -699,7 +704,7 @@ comment char"
 (mapc (lambda (func) (put func 'disabled nil))
       '(dired-find-alternate-file
 	downcase-region narrow-to-page narrow-to-region set-goal-column
-	scroll-left 
+	scroll-left
 	upcase-region erase-buffer LaTeX-hide-environment))
 
 (mapc (lambda (vrb) (put vrb 'safe-local-variable 'string-or-null-p))
@@ -714,9 +719,8 @@ comment char"
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace empty-defun-braces defun-close-semi list-close-comma scope-operator space-before-funcall compact-empty-funcall comment-close-slash)))
- '(c-offsets-alist (quote ((substatement-open . 0))))
- '(safe-local-variable-values (quote ((dired-omit-mode . t)))))
+ '(safe-local-variable-values (quote ((dired-omit-mode . t))))
+)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
