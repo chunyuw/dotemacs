@@ -772,6 +772,27 @@
 (define-abbrev-table 'comint-mode-abbrev-table '(
     ))
 
+(define-abbrev-table 'conf-colon-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-javaprop-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-ppd-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-space-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-unix-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-windows-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'conf-xdefaults-mode-abbrev-table '(
+    ))
+
 (define-abbrev-table 'csharp-mode-abbrev-table '(
     ("mainx" "" msf-abbrev-generatedfunc-csharp-mode-mainx 0)
     ))
@@ -786,6 +807,13 @@
     ))
 
 (define-abbrev-table 'docTeX-mode-abbrev-table '(
+    ("articlex" "" msf-abbrev-generatedfunc-LaTeX-mode-articlex 0)
+    ("beamerx" "" msf-abbrev-generatedfunc-LaTeX-mode-beamerx 0)
+    ("contextx" "" msf-abbrev-generatedfunc-LaTeX-mode-contextx 0)
+    ("fig2x" "" msf-abbrev-generatedfunc-LaTeX-mode-fig2x 0)
+    ("figx" "" msf-abbrev-generatedfunc-LaTeX-mode-figx 0)
+    ("fracx" "" msf-abbrev-generatedfunc-LaTeX-mode-fracx 0)
+    ("framex" "" msf-abbrev-generatedfunc-LaTeX-mode-framex 0)
     ))
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '(

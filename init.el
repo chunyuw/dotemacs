@@ -403,7 +403,7 @@ Returns nil if it is not visible in the current calendar window."
        (let* ((m displayed-month)
 	      (y displayed-year)
 	      (gdate (calendar-gregorian-from-absolute
-		      (+ (cadr (assoc cmonth (chinese-year (+ y (/ cmonth 12))))) (1- cday)))))
+		      (+ (cadr (assoc cmonth (chinese-year (+ y (/ (min m cmonth) 12))))) (1- cday)))))
 	 (increment-calendar-month m y (- 11 (car gdate)))
 	 (if (> m 9) (list (list gdate string)))))))
 ;; Calendar ends here ;;
