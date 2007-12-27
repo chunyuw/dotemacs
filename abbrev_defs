@@ -763,13 +763,26 @@
     ("writex" "" msf-abbrev-generatedfunc-c-mode-writex 0)
     ))
 
+(define-abbrev-table 'change-log-mode-abbrev-table '(
+    ))
+
 (define-abbrev-table 'comint-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'csharp-mode-abbrev-table '(
+    ("mainx" "" msf-abbrev-generatedfunc-csharp-mode-mainx 0)
+    ))
+
+(define-abbrev-table 'css-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'diff-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'doc-view-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'docTeX-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '(
@@ -781,6 +794,9 @@
     ("hrefx" "" msf-abbrev-generatedfunc-global-hrefx 0)
     ("latex" "LaTeX" nil 0)
     ("tex" "TeX" nil 2)
+    ))
+
+(define-abbrev-table 'html-mode-abbrev-table '(
     ))
 
 (define-abbrev-table 'idl-mode-abbrev-table '(
@@ -846,7 +862,42 @@
     ("whilex" "" msf-abbrev-generatedfunc-emacs-lisp-mode-whilex 0)
     ))
 
+(define-abbrev-table 'log-edit-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-automake-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-bsdmake-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-gmake-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-imake-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-makepp-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'makefile-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'meta-mode-abbrev-table '(
+    ))
+
 (define-abbrev-table 'objc-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'org-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'outline-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'perl-mode-abbrev-table '(
+    ("mainx" "" msf-abbrev-generatedfunc-perl-mode-mainx 0)
+    ("pf" "" msf-abbrev-generatedfunc-perl-mode-pf 0)
     ))
 
 (define-abbrev-table 'pike-mode-abbrev-table '(
@@ -882,7 +933,7 @@
     ("findx" "" msf-abbrev-generatedfunc-python-mode-findx 0)
     ("flusherrx" "" msf-abbrev-generatedfunc-python-mode-flusherrx 0)
     ("flushoutx" "" msf-abbrev-generatedfunc-python-mode-flushoutx 0)
-    ("fopenx" "" msf-abbrev-generatedfunc-python-mode-fopenx 1)
+    ("fopenx" "" msf-abbrev-generatedfunc-python-mode-fopenx 0)
     ("forkx" "" msf-abbrev-generatedfunc-python-mode-forkx 0)
     ("forx" "" msf-abbrev-generatedfunc-python-mode-forx 0)
     ("framex" "" msf-abbrev-generatedfunc-python-mode-framex 0)
@@ -967,10 +1018,26 @@
     ("whilex" "" msf-abbrev-generatedfunc-python-mode-whilex 0)
     ))
 
+(define-abbrev-table 'select-tags-table-mode-abbrev-table '(
+    ))
+
+(define-abbrev-table 'sgml-mode-abbrev-table '(
+    ))
+
 (define-abbrev-table 'shell-mode-abbrev-table '(
+    ("forx" "" msf-abbrev-generatedfunc-shell-mode-forx 0)
+    ("hg" "" msf-abbrev-generatedfunc-shell-mode-hg 0)
+    ("whilex" "" msf-abbrev-generatedfunc-shell-mode-whilex 0)
     ))
 
 (define-abbrev-table 'text-mode-abbrev-table '(
+    ("articlex" "" msf-abbrev-generatedfunc-LaTeX-mode-articlex 0)
+    ("beamerx" "" msf-abbrev-generatedfunc-LaTeX-mode-beamerx 0)
+    ("contextx" "" msf-abbrev-generatedfunc-LaTeX-mode-contextx 0)
+    ("fig2x" "" msf-abbrev-generatedfunc-LaTeX-mode-fig2x 0)
+    ("figx" "" msf-abbrev-generatedfunc-LaTeX-mode-figx 0)
+    ("fracx" "" msf-abbrev-generatedfunc-LaTeX-mode-fracx 0)
+    ("framex" "" msf-abbrev-generatedfunc-LaTeX-mode-framex 0)
     ))
 
 (define-abbrev-table 'vc-annotate-mode-abbrev-table '(

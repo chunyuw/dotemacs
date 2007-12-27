@@ -35,8 +35,6 @@
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "m" 'chunyu/insert-file-variable)
-(define-key meta-m-map "v" 'newsticker-show-news)
-(define-key meta-m-map "\M-n" 'toggle-save-place)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -161,9 +159,7 @@
 
 
 (mapc (lambda (hook) (add-hook hook 'abbrev-mode))
-      '(sh-mode-hook
-	text-mode-hook perl-mode-hook cperl-mode-hook
-	csharp-mode-hook python-mode-hook))
+      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook python-mode-hook))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
@@ -299,7 +295,7 @@
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point t
       completion-ignored-extensions
-      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm") completion-ignored-extensions))
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out") completion-ignored-extensions))
 (require 'ido)
 (ido-everywhere 1)
 (ido-mode 1)
@@ -487,7 +483,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (add-hook 'LaTeX-mode-hook 
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode)
-	    (TeX-fold-mode 1) (turn-on-cdlatex)))
+	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
 
 (eval-after-load 'tex
   '(progn
@@ -499,16 +495,20 @@ Returns nil if it is not visible in the current calendar window."
 ;; MISC Packages ;;
 (require 'doc-view)
 
+(setq template-auto-update nil
+      template-auto-insert nil
+      template-initialize '(menus))
 (if (require 'template nil t)
     (progn (define-key meta-m-map "f" 'template-expand-template)
 	   (template-initialize)))
 
+(setq msf-abbrev-root "~/.emacs.d/msf")
+;(setq msf-abbrev-verbose t)
 (if (require 'msf-abbrev nil t)
-    (progn (setq msf-abbrev-root "~/.emacs.d/msf")
-	   ;; (setq msf-abbrev-verbose t)
-	   (define-key meta-m-map "r" 'msf-abbrev-goto-root)
+    (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
 	   (global-set-key [(super ?n)] 'fld-next)
+	   (setq csharp-mode-hook nil)
 	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
@@ -558,6 +558,7 @@ Returns nil if it is not visible in the current calendar window."
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
+    (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
 
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system nil)
@@ -580,7 +581,7 @@ Returns nil if it is not visible in the current calendar window."
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
 	    ("UK-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
-    ;; ISpell on win32 end here ;;
+    ;; ISpell on win32 ends here ;;
 
     (eval-after-load 'browse-url
       '(progn
