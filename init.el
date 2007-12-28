@@ -486,6 +486,7 @@ Returns nil if it is not visible in the current calendar window."
 	  (lambda () ;; (flyspell-mode 1)
 	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
 
+(setq TeX-fold-type-list '(env macro))
 (add-hook 'LaTeX-mode-hook
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
 	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))

@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("site-lisp"
+(("todo"
+  ((filename . "~/00todo.txt")
+   (front-context-string . "\n** TODO LaTeX нд")
+   (rear-context-string . "tranx, IEEEtran\n")
+   (position . 151)))
+ ("site-lisp"
   ((filename . "d:/free_ware/emacs-23/site-lisp/")
    (front-context-string . "misc\n  -rw-rw-rw")
    (rear-context-string . "  0 12-26 15:38 ")
