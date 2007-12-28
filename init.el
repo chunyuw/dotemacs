@@ -513,6 +513,7 @@ Returns nil if it is not visible in the current calendar window."
 (if (require 'msf-abbrev nil t)
     (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
+	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (global-set-key [(super ?n)] 'fld-next)
 	   (setq csharp-mode-hook nil)
 	   (msf-abbrev-load)))

@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("notes-emacs"
+(("site-lisp"
+  ((filename . "c:/free_ware/emacs-23/site-lisp/")
+   (front-context-string . "misc\n  -rw-rw-rw")
+   (rear-context-string . "  0 12-17 22:17 ")
+   (position . 520)))
+ ("notes-emacs"
   ((filename . "~/notes/notes-emacs")
    (front-context-string . "----")
    (rear-context-string)
