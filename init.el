@@ -120,7 +120,7 @@
   (if (not (file-exists-p var)) (make-directory var)))
 (setq savehist-file "~/.emacs.d/var/history")
 (setq save-place-file "~/.emacs.d/var/places"
-      save-place-limit 50)
+      save-place-limit 20)
 (setq-default save-place t)
 (require 'saveplace)
 ;; SavePlace ends here ;;
