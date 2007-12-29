@@ -59,7 +59,6 @@
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
-      savehist-file "~/.emacs.d/var/history"
       save-abbrevs 'silently
       abbrev-file-name "~/.emacs.d/abbrev_defs")
 
@@ -117,6 +116,9 @@
       wdired-use-dired-vertical-movement t)
 
 ;; SavePlace ;;
+(let ((var "~/.emacs.d/var"))
+  (if (not (file-exists-p var)) (make-directory var)))
+(setq savehist-file "~/.emacs.d/var/history")
 (setq save-place-file "~/.emacs.d/var/places"
       save-place-limit 50)
 (setq-default save-place t)
