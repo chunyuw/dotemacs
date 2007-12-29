@@ -28,6 +28,8 @@ ps:
 
 clean:;	-$(RM) var/{ido.last,places,history} auto-save-list/.*~
 
+.PHONY:	all up ci st ps clean
+
 # Local Variables:
 # mode: makefile-gmake
 # End:
