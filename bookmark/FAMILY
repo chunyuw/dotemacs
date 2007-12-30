@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("todo"
+(("TheTeXBook"
+  ((filename . "e:/Books/Computer/TeX/The TeXbook.tex")
+   (front-context-string . "% All rights are")
+   (rear-context-string . "atical Society.\n")
+   (position . 75)))
+ ("todo"
   ((filename . "~/00todo.txt")
    (front-context-string . "\n** TODO LaTeX нд")
    (rear-context-string . "tranx, IEEEtran\n")
