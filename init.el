@@ -243,7 +243,7 @@
      (define-key dired-mode-map [(control ?/)] 'dired-undo)
 
      (when window-system
-       (define-key dired-mode-map [mouse-2] 'dired-mouse-execute-file)
+       (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
        (define-key dired-mode-map "o" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "h" 'chunyu/dired-foobar2000-play)
 
@@ -571,7 +571,7 @@ Returns nil if it is not visible in the current calendar window."
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
-    (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
+    (global-set-key [down-mouse-3] 'mouse-popup-menubar-stuff)
 
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system nil)
