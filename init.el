@@ -161,7 +161,8 @@
 
 
 (mapc (lambda (hook) (add-hook hook 'abbrev-mode))
-      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook python-mode-hook))
+      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook 
+		     shell-mode-hook python-mode-hook))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
@@ -244,8 +245,9 @@
 
      (when window-system
        (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
-       (define-key dired-mode-map "o" 'chunyu/dired-open-explorer)
-       (define-key dired-mode-map "h" 'chunyu/totalcmd-open)
+       (define-key dired-mode-map "h" 'chunyu/dired-foobar2000-play)
+       (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
+       (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
 
        (defun dired-mouse-execute-file (event)
 	 "In dired, execute the file or goto directory name you click on."
@@ -268,18 +270,18 @@
        (defun chunyu/totalcmd-open ()
 	 "Open dir in Total Commander."
 	 (interactive)
-	 (let ((file-name (replace-regexp-in-string "/" "\\\\" (dired-get-filename)))
-	       (tcmd "c:/Program Files/totalcmd/TOTALCMD.EXE"))
-	   (if (file-exists-p file-name)
-	       (w32-shell-execute nil tcmd (format "/O \"%s\"" file-name) 1))))
+	 (let ((f (replace-regexp-in-string "/" "\\\\" (dired-get-filename)))
+	       (c "C:/Program Files/totalcmd/totalcmd.exe"))
+	   (if (file-exists-p f)
+	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
 
        (defun chunyu/dired-foobar2000-play ()
 	 "Open dir of .mp3 files with foobar2000."
 	 (interactive)
-	 (let ((file-name (dired-get-filename 'no-dir))
-	       (fb2k "C:/Program Files/foobar2000/foobar2000.exe"))
-	   (if (file-exists-p file-name)
-	       (w32-shell-execute nil fb2k (format "\"%s\"" file-name) 1)))))))
+	 (let ((f (dired-get-filename 'no-dir))
+	       (b "C:/Program Files/foobar2000/foobar2000.exe"))
+	   (if (file-exists-p f)
+	       (w32-shell-execute nil b (format "\"%s\"" f) 1)))))))
 
 (eval-after-load 'apropos
   '(progn
