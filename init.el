@@ -245,7 +245,6 @@
 
      (when window-system
        (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
-       (define-key dired-mode-map "h" 'chunyu/dired-foobar2000-play)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
 
