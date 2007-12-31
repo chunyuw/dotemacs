@@ -271,7 +271,7 @@
 	 "Open dir in Total Commander."
 	 (interactive)
 	 (let ((f (replace-regexp-in-string "/" "\\\\" (dired-get-filename)))
-	       (c "C:/Program Files/totalcmd/totalcmd.exe"))
+	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
 
