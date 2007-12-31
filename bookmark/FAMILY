@@ -2,12 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("TheTeXBook"
+(("totalcmd"
+  ((filename . "c:/Program Files/totalcmd/wincmd.ini")
+   (front-context-string . "[Shortcuts]\nF1=c")
+   (rear-context-string . "=1\nXPthemeBg=1\n\n")
+   (position . 4069)))
+ ("TheTeXBook"
   ((filename . "e:/Books/Computer/TeX/The TeXbook.tex")
    (front-context-string . "% All rights are")
    (rear-context-string . "atical Society.\n")
    (position . 75)))
- ("todo"
+ ("TODO"
   ((filename . "~/00todo.txt")
    (front-context-string . "\n** TODO LaTeX нд")
    (rear-context-string . "tranx, IEEEtran\n")

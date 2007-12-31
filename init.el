@@ -245,7 +245,7 @@
      (when window-system
        (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
        (define-key dired-mode-map "o" 'chunyu/dired-open-explorer)
-       (define-key dired-mode-map "h" 'chunyu/dired-foobar2000-play)
+       (define-key dired-mode-map "h" 'chunyu/totalcmd-open)
 
        (defun dired-mouse-execute-file (event)
 	 "In dired, execute the file or goto directory name you click on."
@@ -264,6 +264,14 @@
 	 (interactive "P")
 	 (mapcar (lambda (file) (w32-shell-execute "open" file))
 		 (dired-get-marked-files nil arg)))
+
+       (defun chunyu/totalcmd-open ()
+	 "Open dir in Total Commander."
+	 (interactive)
+	 (let ((file-name (replace-regexp-in-string "/" "\\\\" (dired-get-filename)))
+	       (tcmd "c:/Program Files/totalcmd/TOTALCMD.EXE"))
+	   (if (file-exists-p file-name)
+	       (w32-shell-execute nil tcmd (format "/O \"%s\"" file-name) 1))))
 
        (defun chunyu/dired-foobar2000-play ()
 	 "Open dir of .mp3 files with foobar2000."
