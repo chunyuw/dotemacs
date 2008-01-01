@@ -509,6 +509,12 @@ Returns nil if it is not visible in the current calendar window."
 
 (eval-after-load 'tex
   '(progn
+     (define-key TeX-mode-map [(super ?[)] 'preview-buffer)
+     (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
+     (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
+     (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
+     (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
+     (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
      (setq TeX-output-view-style
 	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
      (TeX-global-PDF-mode t)))
@@ -529,7 +535,6 @@ Returns nil if it is not visible in the current calendar window."
     (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
 	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
-	   (global-set-key [(super ?n)] 'fld-next)
 	   (setq csharp-mode-hook nil)
 	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
@@ -583,6 +588,7 @@ Returns nil if it is not visible in the current calendar window."
     (global-set-key [mouse-3] 'ignore)
     (global-set-key [(control return)] [(return)])
     (global-set-key [down-mouse-3] 'mouse-popup-menubar-stuff)
+    ;; (global-set-key [apps] 'keyboard-escape-quit)
 
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system nil)
