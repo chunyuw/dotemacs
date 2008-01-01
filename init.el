@@ -711,6 +711,9 @@ comment char"
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
   (copy-face 'default 'font-lock-warning-face)
   (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
+  (eval-after-load 'font-latex
+    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
   (eval-after-load 'table
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
