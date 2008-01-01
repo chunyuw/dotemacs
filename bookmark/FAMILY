@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("totalcmd"
+(("svn.config"
+  ((filename . "c:/Documents and Settings/chunyu/Application Data/Subversion/config")
+   (front-context-string . "### This file co")
+   (rear-context-string)
+   (position . 1)))
+ ("torrc"
+  ((filename . "c:/Documents and Settings/chunyu/Application Data/tor/torrc")
+   (front-context-string . "## Configuration")
+   (rear-context-string)
+   (position . 1)))
+ ("totalcmd"
   ((filename . "c:/Program Files/totalcmd/wincmd.ini")
    (front-context-string . "[Shortcuts]\nF1=c")
    (rear-context-string . "=1\nXPthemeBg=1\n\n")
