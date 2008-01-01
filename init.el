@@ -714,7 +714,7 @@ comment char"
   (eval-after-load 'table
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
-(when (eq window-system 'w32) (w32-send-sys-command #xf030))
+;(when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
