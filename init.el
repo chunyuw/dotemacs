@@ -139,7 +139,7 @@
 
 (minibuffer-indicate-depth-mode 1)
 (minibuffer-electric-default-mode 1)
-(mouse-avoidance-mode 'exile)
+(mouse-avoidance-mode 'jump)
 (partial-completion-mode 1)
 (global-font-lock-mode 1)
 (column-number-mode 1)
@@ -525,7 +525,6 @@ Returns nil if it is not visible in the current calendar window."
 	   (template-initialize)))
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
-;(setq msf-abbrev-verbose t)
 (if (require 'msf-abbrev nil t)
     (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
@@ -580,6 +579,8 @@ Returns nil if it is not visible in the current calendar window."
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
+    (global-set-key [mouse-2] 'ignore)
+    (global-set-key [mouse-3] 'ignore)
     (global-set-key [(control return)] [(return)])
     (global-set-key [down-mouse-3] 'mouse-popup-menubar-stuff)
 
