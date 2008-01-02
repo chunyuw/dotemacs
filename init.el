@@ -673,6 +673,15 @@ comment char"
 	    (symbol-name (symbol-value 'major-mode)) 0 -5)
 	   " -*- " comment-end)))
 
+(defun kpsewhich-open (filename)
+  "Open TeXLive file in kpathsea."
+  (interactive "skpsewhich: ")
+  (let* ((comm (format "kpsewhich \"%s\"" filename))
+	 (fpath (replace-regexp-in-string
+		 "\015\\|\012" "" (shell-command-to-string comm))))
+    (if (> (length fpath) 0) (find-file fpath)
+      (message "Kpsewhich hasn't file: %s" filename))))
+
 (cond ;; only faces
  ((not (or window-system (equal (getenv "TERM") "xterm-256color")))
   ;; Text-Only console
