@@ -135,6 +135,7 @@
 (set-selection-coding-system 'chinese-gbk)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(set-message-beep 'silent)
 (find-function-setup-keys)
 
 (minibuffer-indicate-depth-mode 1)
@@ -544,7 +545,9 @@ Returns nil if it is not visible in the current calendar window."
  ((not window-system)
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
-
+ ;; Text-Only Windows console
+ ((and (not window-system) (eq system-type 'windows-nt))
+  (global-set-key [(control return)] [(return)]))
  ;; BOTH X-Window and MS-Windows
  (window-system
   (tool-bar-mode -1)
@@ -593,7 +596,6 @@ Returns nil if it is not visible in the current calendar window."
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system nil)
 
-    (set-message-beep 'silent)
     (setq ange-ftp-ftp-program-name "gftp")
     (setq dired-guess-shell-alist-user
 	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")

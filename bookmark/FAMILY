@@ -13,10 +13,10 @@
    (rear-context-string)
    (position . 1)))
  ("totalcmd"
-  ((filename . "c:/Program Files/totalcmd/wincmd.ini")
-   (front-context-string . "[Shortcuts]\nF1=c")
-   (rear-context-string . "=1\nXPthemeBg=1\n\n")
-   (position . 4069)))
+  ((filename . "c:/Program Files/totalcmd/")
+   (front-context-string . "wincmd.ini\n  -rw")
+   (rear-context-string . "133 01-03 09:27 ")
+   (position . 3171)))
  ("TheTeXBook"
   ((filename . "e:/Books/Computer/TeX/The TeXbook.tex")
    (front-context-string . "% All rights are")
