@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("hosts"
+(("totalcmd"
+  ((filename . "c:/Program Files/Totalcmd/")
+   (front-context-string . "wincmd.ini\n  -rw")
+   (rear-context-string . "171 01-01 20:51 ")
+   (position . 3356)))
+ ("hosts"
   ((filename . "c:/WINDOWS/system32/drivers/etc/hosts")
    (front-context-string . "\n127.0.0.1      ")
    (rear-context-string . "# x client host\n")

@@ -161,7 +161,7 @@
 
 
 (mapc (lambda (hook) (add-hook hook 'abbrev-mode))
-      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook 
+      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook
 		     shell-mode-hook python-mode-hook))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -274,6 +274,16 @@
 	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
+
+       (defun acrobat-close-doc ()
+	 "Close [all] open documents in Acrobat."
+	 (interactive)
+	 (save-excursion
+	   (set-buffer (get-buffer-create " *ddeclient*"))
+	   (erase-buffer)
+	   (insert (concat "[DocClose(NULL)]")) ; "[DocClose(\"" file ".pdf\")]"
+	   (call-process-region (point-min) (point-max)
+				"ddeclient" nil t nil "acroview" "control")))
 
        (defun chunyu/dired-foobar2000-play ()
 	 "Open dir of .mp3 files with foobar2000."
