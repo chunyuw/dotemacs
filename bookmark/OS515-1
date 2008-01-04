@@ -3,10 +3,10 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("totalcmd"
-  ((filename . "c:/Program Files/TotalCmd/wincmd.ini")
-   (front-context-string . "\n\n[Layout]\nButto")
-   (rear-context-string . "md5\nA+U=em_svnup")
-   (position . 3160)))
+  ((filename . "c:/Program Files/TotalCmd/")
+   (front-context-string . "wincmd.ini\n  -rw")
+   (rear-context-string . "220 01-01 12:02 ")
+   (position . 2614)))
  ("asy-config"
   ((filename . "c:/Documents and Settings/chunyu/.asy/config.asy")
    (front-context-string . "import settings;")
