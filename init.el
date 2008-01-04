@@ -135,7 +135,6 @@
 (set-selection-coding-system 'chinese-gbk)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(set-message-beep 'silent)
 (find-function-setup-keys)
 
 (minibuffer-indicate-depth-mode 1)
@@ -547,13 +546,14 @@ Returns nil if it is not visible in the current calendar window."
   (setq Info-use-header-line nil))
  ;; Text-Only Windows console
  ((and (not window-system) (eq system-type 'windows-nt))
-  (global-set-key [(control return)] [(return)]))
+  (global-set-key [(control return)] [(return)])
+  (set-message-beep 'silent))
  ;; BOTH X-Window and MS-Windows
  (window-system
   (tool-bar-mode -1)
+  (set-message-beep 'silent)
 
   (setq-default mouse-yank-at-point t)
-
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
