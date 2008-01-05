@@ -758,6 +758,7 @@ comment char"
 	TeX-header-end TeX-trailer-start))
 
 ;; Display page delimiter ^L as a horizontal line
+(or standard-display-table (setq standard-display-table (make-display-table)))
 (aset standard-display-table ?\f (vconcat (make-vector 4 ?-)))
 
 (server-start)
