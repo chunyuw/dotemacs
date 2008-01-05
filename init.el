@@ -48,6 +48,8 @@
       vc-suppress-confirm t
       enable-recursive-minibuffers t
       default-fill-column 78
+      disabled-command-function nil
+      history-delete-duplicates t
       isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
@@ -750,16 +752,13 @@ comment char"
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
-(mapc (lambda (func) (put func 'disabled nil))
-      '(dired-find-alternate-file
-	downcase-region narrow-to-page narrow-to-region set-goal-column
-	scroll-left
-	upcase-region erase-buffer LaTeX-hide-environment))
-
 (mapc (lambda (vrb) (put vrb 'safe-local-variable 'string-or-null-p))
       '(dired-omit-files
 	org-export-html-style org-export-publishing-directory
 	TeX-header-end TeX-trailer-start))
+
+;; Display page delimiter ^L as a horizontal line
+(aset standard-display-table ?\f (vconcat (make-vector 104 ?-)))
 
 (server-start)
 
