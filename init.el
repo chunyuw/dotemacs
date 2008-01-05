@@ -759,7 +759,7 @@ comment char"
 
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
-(aset standard-display-table ?\f (vconcat (make-vector 4 ?-)))
+(aset standard-display-table ?\f (vconcat (make-vector 60 ?~)))
 
 (server-start)
 
