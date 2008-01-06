@@ -117,16 +117,6 @@
       reb-re-syntax 'string
       wdired-use-dired-vertical-movement t)
 
-;; SavePlace ;;
-(let ((var "~/.emacs.d/var"))
-  (if (not (file-exists-p var)) (make-directory var)))
-(setq savehist-file "~/.emacs.d/var/history")
-(setq save-place-file "~/.emacs.d/var/places"
-      save-place-limit 20)
-(setq-default save-place t)
-(require 'saveplace)
-;; SavePlace ends here ;;
-
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
@@ -161,7 +151,6 @@
 		("\\.asy\\'" . asy-mode))
 	      auto-mode-alist))
 
-
 (mapc (lambda (hook) (add-hook hook 'abbrev-mode))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook
 		     shell-mode-hook python-mode-hook))
@@ -182,19 +171,7 @@
 	    (make-local-variable 'max-mini-window-height)
 	    (setq max-mini-window-height 1)))
 
-;; CC-Mode ;;
-(setq c-offsets-alist '((substatement-open . 0))
-      c-cleanup-list
-      '(brace-else-brace compact-empty-funcall comment-close-slash
-	brace-elseif-brace empty-defun-braces defun-close-semi
-	list-close-comma scope-operator space-before-funcall))
-(setq-default c-block-comment-prefix "* ")
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (abbrev-mode 1) (c-subword-mode 1)
-	    (c-toggle-auto-hungry-state 1)))
-;; CC-Mode ends here ;;
-
+
 (eval-after-load 'dictionary
   '(progn
      (define-key dictionary-mode-map "j"  'chunyu/view-scroll-forward)
@@ -228,6 +205,47 @@
 (eval-after-load 'diff-mode
   '(progn
      (define-key diff-mode-map "\M-q" 'delete-window)))
+
+(eval-after-load 'apropos
+  '(progn
+     (require 'view)
+     (define-key apropos-mode-map "n" 'forward-button)
+     (define-key apropos-mode-map "p" 'backward-button)
+     (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
+     (define-key apropos-mode-map "k" 'chunyu/view-scroll-backward)))
+
+(eval-after-load 'meta-mode
+  '(progn
+     (define-key meta-mode-map "\C-c\C-c" 'chunyu/metapost-build-mp)
+
+     (defun chunyu/metapost-build-mp ()
+       "build mp files"
+       (interactive)
+       (shell-command (format "mptopdf %s" (buffer-name))))))
+
+
+;; SavePlace ;;
+(let ((var "~/.emacs.d/var"))
+  (if (not (file-exists-p var)) (make-directory var)))
+(setq savehist-file "~/.emacs.d/var/history")
+(setq save-place-file "~/.emacs.d/var/places"
+      save-place-limit 20)
+(setq-default save-place t)
+(require 'saveplace)
+;; SavePlace ends here ;;
+
+;; CC-Mode ;;
+(setq c-offsets-alist '((substatement-open . 0))
+      c-cleanup-list
+      '(brace-else-brace compact-empty-funcall comment-close-slash
+	brace-elseif-brace empty-defun-braces defun-close-semi
+	list-close-comma scope-operator space-before-funcall))
+(setq-default c-block-comment-prefix "* ")
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+	    (abbrev-mode 1) (c-subword-mode 1)
+	    (c-toggle-auto-hungry-state 1)))
+;; CC-Mode ends here ;;
 
 ;; Dired ;;
 (eval-after-load 'dired
@@ -294,23 +312,6 @@
 	       (b "C:/Program Files/foobar2000/foobar2000.exe"))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil b (format "\"%s\"" f) 1)))))))
-
-(eval-after-load 'apropos
-  '(progn
-     (require 'view)
-     (define-key apropos-mode-map "n" 'forward-button)
-     (define-key apropos-mode-map "p" 'backward-button)
-     (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
-     (define-key apropos-mode-map "k" 'chunyu/view-scroll-backward)))
-
-(eval-after-load 'meta-mode
-  '(progn
-     (define-key meta-mode-map "\C-c\C-c" 'chunyu/metapost-build-mp)
-
-     (defun chunyu/metapost-build-mp ()
-       "build mp files"
-       (interactive)
-       (shell-command (format "mptopdf %s" (buffer-name))))))
 ;; Dired ends here ;;
 
 ;; Uniquify ;;
@@ -459,7 +460,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq tool-bar-mode nil
       LaTeX-enable-toolbar nil
-      LaTeX-document-regexp "document\\|CJK\\*?\\|frame")
+      LaTeX-document-regexp "document\\|CJK\\*?\\|frame\\|preview")
 
 (setq bibtex-autokey-names 1
       bibtex-autokey-names-stretch 1
@@ -551,6 +552,7 @@ Returns nil if it is not visible in the current calendar window."
 	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
+
 (cond ;; Different Platform
  ;; Text-Only console
  ((not window-system)
@@ -637,6 +639,7 @@ Returns nil if it is not visible in the current calendar window."
 		 (error "Browsing URLs is not supported on this system"))
 	     (w32-shell-execute nil "C:/Program Files/Mozilla Firefox/firefox.exe" url 1)))))))))
 
+
 (defun chunyu/view-scroll-forward (&optional lines)
   "Move forward one line or LINES lines."
   (interactive "p")
@@ -696,6 +699,7 @@ comment char"
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich hasn't file: %s" filename))))
 
+
 (cond ;; only faces
  ((not (or window-system (equal (getenv "TERM") "xterm-256color")))
   ;; Text-Only console
@@ -747,6 +751,7 @@ comment char"
   (eval-after-load 'table
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
+
 ;(when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
 (mapc (lambda (func) (put func 'disabled t))
