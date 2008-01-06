@@ -534,7 +534,7 @@ Returns nil if it is not visible in the current calendar window."
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; MISC Packages ;;
-(require 'doc-view)
+(require 'doc-view nil t)
 
 (setq template-auto-update nil
       template-auto-insert nil
