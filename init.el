@@ -114,8 +114,7 @@
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
 (setq reb-blink-delay 1
-      reb-re-syntax 'string
-      wdired-use-dired-vertical-movement t)
+      reb-re-syntax 'string)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 ;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
@@ -252,7 +251,8 @@
   '(progn
      (require 'dired-x)
      (setq dired-listing-switches "-avl"
-	   cvs-dired-use-hook 'always)
+	   cvs-dired-use-hook 'always
+	   wdired-use-dired-vertical-movement t)
 
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
@@ -346,7 +346,7 @@
 	bbdb-offer-save nil
 	bbdb-complete-name-allow-cycling t
 	bbdb-time-display-format "%Y-%m-%d"
-	bbdb-user-mail-names "chunyu\\|cymacs\\|dddkk"
+	bbdb-user-mail-names "chunyu\\|cymacs"
 	bbdb/gnus-score-default +20
 	gnus-score-find-score-files-function '(gnus-score-find-bnews bbdb/gnus-score)
 	bbdb-display-layout-alist
@@ -360,8 +360,8 @@
 ;; Calendar ;;
 (setq diary-file "~/.emacs.d/diary"
       view-diary-entries-initially t
-      calendar-latitude +45.75
-      calendar-longitude +126.63
+      calendar-latitude 45.73213
+      calendar-longitude 126.63621
       calendar-location-name "Harbin"
       calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
@@ -383,7 +383,6 @@
       christian-holidays nil
       hebrew-holidays nil
       islamic-holidays nil
-      ;; solar-holidays nil
       bahai-holidays nil
       solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
 
@@ -394,30 +393,15 @@
 (setq diary-date-forms '((year "-" month "-" day "[^/0-9]") (month "/" day "[^/0-9]")
 			 (month "/" day "/" year "[^0-9]") (monthname " *" day "[^,0-9]")
 			 (monthname " *" day ", *" year "[^0-9]") (dayname "\\W"))
-      ;;calendar-date-display-form '(year "-" month "-" day)
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
 (eval-after-load 'calendar
   '(progn
-     ;; (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
      (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
      (add-hook 'diary-hook 'appt-make-list)
      (add-hook 'diary-display-hook 'fancy-diary-display)
-
-     (add-hook 'calendar-load-hook
-	       (lambda ()
-		 (define-key calendar-mode-map ">" 'scroll-calendar-left)
-		 (define-key calendar-mode-map "<" 'scroll-calendar-right)
-		 (define-key calendar-mode-map "N" 'scroll-calendar-left-three-months)
-		 (define-key calendar-mode-map "P" 'scroll-calendar-right-three-months)
-		 (define-key calendar-mode-map "\M-n" 'scroll-calendar-left-three-months)
-		 (define-key calendar-mode-map "\M-p" 'scroll-calendar-right-three-months)
-		 (define-key calendar-mode-map "f" 'calendar-forward-day)
-		 (define-key calendar-mode-map "b" 'calendar-backward-day)
-		 (define-key calendar-mode-map "j" 'calendar-forward-week)
-		 (define-key calendar-mode-map "k" 'calendar-backward-week)
-		 (define-key calendar-mode-map "\C-z" 'calendar-set-mark)))
+     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
 
      (autoload 'chinese-year "cal-china" "Chinese year data" t)
      (defun holiday-chinese (cmonth cday string)
