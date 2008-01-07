@@ -125,11 +125,12 @@
 (set-clipboard-coding-system 'chinese-gbk)
 (set-selection-coding-system 'chinese-gbk)
 
+(when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
 
-(minibuffer-indicate-depth-mode 1)
 (minibuffer-electric-default-mode 1)
+(minibuffer-indicate-depth-mode 1)
 (mouse-avoidance-mode 'jump)
 (partial-completion-mode 1)
 (global-font-lock-mode 1)
@@ -207,7 +208,6 @@
 
 (eval-after-load 'apropos
   '(progn
-     (require 'view)
      (define-key apropos-mode-map "n" 'forward-button)
      (define-key apropos-mode-map "p" 'backward-button)
      (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
@@ -216,7 +216,6 @@
 (eval-after-load 'meta-mode
   '(progn
      (define-key meta-mode-map "\C-c\C-c" 'chunyu/metapost-build-mp)
-
      (defun chunyu/metapost-build-mp ()
        "build mp files"
        (interactive)
@@ -262,10 +261,10 @@
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
      (define-key dired-mode-map [(control ?/)] 'dired-undo)
+     (define-key dired-mode-map "h" 'ignore)
 
      (when window-system
        (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
-       (define-key dired-mode-map "h" 'ignore)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
 
@@ -296,7 +295,7 @@
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
 
        (defun acrobat-close-doc ()
-	 "Close [all] open documents in Acrobat."
+	 "Close documents in Acrobat."
 	 (interactive)
 	 (save-excursion
 	   (set-buffer (get-buffer-create " *ddeclient*"))
@@ -544,12 +543,10 @@ Returns nil if it is not visible in the current calendar window."
   (setq Info-use-header-line nil))
  ;; Text-Only Windows console
  ((and (not window-system) (eq system-type 'windows-nt))
-  (global-set-key [(control return)] [(return)])
-  (set-message-beep 'silent))
+  (global-set-key [(control return)] [(return)]))
  ;; BOTH X-Window and MS-Windows
  (window-system
   (tool-bar-mode -1)
-  (set-message-beep 'silent)
 
   (setq-default mouse-yank-at-point t)
   (setq default-indicate-empty-lines 'left
@@ -748,7 +745,7 @@ comment char"
 
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
-(aset standard-display-table ?\f (vconcat (make-vector 60 ?~)))
+(aset standard-display-table ?\f (make-vector 60 ?~))
 
 (server-start)
 
