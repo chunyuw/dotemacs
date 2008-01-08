@@ -509,7 +509,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (eval-after-load 'tex
   '(progn
-     (define-key TeX-mode-map [(super ?[)] 'preview-buffer)
+     (define-key TeX-mode-map [(super ?\[)] 'preview-buffer)
      (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
      (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
@@ -737,7 +737,7 @@ comment char"
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
 
-;(when (eq window-system 'w32) (w32-send-sys-command #xf030))
+;; (when (eq window-system 'w32) (w32-send-sys-command #xf030))
 
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
