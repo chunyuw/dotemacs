@@ -585,7 +585,7 @@ Returns nil if it is not visible in the current calendar window."
     (global-set-key [mouse-2] 'ignore)
     (global-set-key [mouse-3] 'ignore)
     (global-set-key [(control return)] [(return)])
-    (global-set-key [down-mouse-3] 'mouse-popup-menubar-stuff)
+    (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
     ;; (global-set-key [apps] 'keyboard-escape-quit)
 
     (setq w32-lwindow-modifier 'super
