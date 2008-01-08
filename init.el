@@ -289,7 +289,7 @@
        (defun chunyu/totalcmd-open ()
 	 "Open dir in Total Commander."
 	 (interactive)
-	 (let ((f (replace-regexp-in-string "/" "\\\\" (dired-get-filename)))
+	 (let ((f (substitute ?\\ ?/ (dired-get-filename)))
 	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
@@ -303,6 +303,10 @@
 	   (insert (concat "[DocClose(NULL)]")) ; "[DocClose(\"" file ".pdf\")]"
 	   (call-process-region (point-min) (point-max)
 				"ddeclient" nil t nil "acroview" "control")))
+
+       (defun eshell/op (FILE)
+	 "Invoke (w32-shell-execute \"Open\" FILE) and substitute slashes for backslashes"
+	 (w32-shell-execute "Open" (substitute ?\\ ?/ (expand-file-name FILE))))
 
        (defun chunyu/dired-foobar2000-play ()
 	 "Open dir of .mp3 files with foobar2000."
