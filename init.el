@@ -682,7 +682,7 @@ comment char"
 	 (fpath (replace-regexp-in-string
 		 "\015\\|\012" "" (shell-command-to-string comm))))
     (if (> (length fpath) 0) (find-file fpath)
-      (message "Kpsewhich hasn't file: %s" filename))))
+      (message "Kpsewhich not found: %s" filename))))
 
 
 (cond ;; only faces
