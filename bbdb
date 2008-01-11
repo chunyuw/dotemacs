@@ -25,7 +25,7 @@
 ["何震瀛" nil ("Zhenying" "hehe") nil nil nil ("zhenying@fudan.edu.cn" "hzy@hit.edu.cn" "hzy_hit_cn@sina.com") ((creation-date . "2004-05-09") (timestamp . "2007-01-23")) nil]
 ["黄烁" nil ("thinking hs" "Arthur") nil (["Mobile" "13810397180"]) nil ("huangshuo@hit.edu.cn" "thinking_hs@hit.edu.cn" "huangshuo@1218.com.cn") ((creation-date . "2003-07-30") (timestamp . "2007-01-23")) nil]
 ["黄芙蓉" nil nil "哈工大外语系" (["Office" "86418805"]) nil ("frhuang@hit.edu.cn") ((creation-date . "2004-08-30") (timestamp . "2004-08-30")) nil]
-["姜美竹" nil nil nil (["Mobile" "13681226451"]) nil ("jiangmeizhu@bpsb.com.cn" "beautifulbamboo@sina.com") ((creation-date . "2003-08-03") (timestamp . "2007-11-09")) nil]
+["姜美竹" nil nil nil (["Mobile" "13681226451"] ["Office" "010-66056785"]) nil ("jiangmeizhu@bpsb.com.cn" "beautifulbamboo@sina.com") ((creation-date . "2003-08-03") (timestamp . "2008-01-10")) nil]
 ["姜守旭" nil nil nil nil nil ("jsx@hit.edu.cn") ((creation-date . "2005-06-08") (timestamp . "2005-10-30")) nil]
 ["匡正" nil nil nil (["Home" "86415114"]) nil nil ((creation-date . "2004-09-13") (timestamp . "2005-04-02")) nil]
 ["李春举" nil nil nil nil nil ("lichunju@eyou.com") ((creation-date . "2003-07-30") (timestamp . "2003-07-30")) nil]
