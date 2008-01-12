@@ -50,6 +50,7 @@
       default-fill-column 78
       disabled-command-function nil
       history-delete-duplicates t
+      mark-even-if-inactive t
       isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
@@ -126,6 +127,7 @@
 (set-selection-coding-system 'chinese-gbk)
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
+(windmove-default-keybindings)
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
 
