@@ -522,6 +522,13 @@ Returns nil if it is not visible in the current calendar window."
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
+;; Haskell ;;
+(load "haskell-site-file.el" t t t)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
+;; Haskell ends here ;;
+
 ;; MISC Packages ;;
 (require 'doc-view nil t)
 
