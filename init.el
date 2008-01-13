@@ -138,7 +138,6 @@
 (global-font-lock-mode 1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
-(global-cwarn-mode 1)
 (display-time-mode 1)
 (show-paren-mode 1)
 (icomplete-mode 1)
@@ -243,7 +242,7 @@
 (setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (abbrev-mode 1) (c-subword-mode 1)
+	    (abbrev-mode 1) (c-subword-mode 1) (cwarn-mode 1)
 	    (c-toggle-auto-hungry-state 1)))
 ;; CC-Mode ends here ;;
 
@@ -526,7 +525,6 @@ Returns nil if it is not visible in the current calendar window."
 (load "haskell-site-file.el" t t t)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 ;; Haskell ends here ;;
 
 ;; MISC Packages ;;
