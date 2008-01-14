@@ -152,10 +152,6 @@
 		("\\.asy\\'" . asy-mode))
 	      auto-mode-alist))
 
-(mapc (lambda (hook) (add-hook hook 'abbrev-mode))
-      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook
-		     shell-mode-hook python-mode-hook))
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
@@ -329,7 +325,8 @@
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point t
       completion-ignored-extensions
-      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out") completion-ignored-extensions))
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
+	      completion-ignored-extensions))
 (require 'ido)
 (ido-everywhere 1)
 (ido-mode 1)
@@ -537,12 +534,16 @@ Returns nil if it is not visible in the current calendar window."
     (progn (define-key meta-m-map "f" 'template-expand-template)
 	   (template-initialize)))
 
+(mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
+      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
+		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook 
+		     python-mode-hook haskell-mode-hook))
+
 (setq msf-abbrev-root "~/.emacs.d/msf")
 (if (require 'msf-abbrev nil t)
     (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
 	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
-	   (setq csharp-mode-hook nil)
 	   (msf-abbrev-load)))
 ;; MISC Packages end here ;;
 
