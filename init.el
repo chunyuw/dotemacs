@@ -445,7 +445,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq tool-bar-mode nil
       LaTeX-enable-toolbar nil
-      LaTeX-document-regexp "document\\|CJK\\*?\\|frame\\|preview")
+      LaTeX-document-regexp "document\\|CJK\\*?\\|frame")
 
 (setq bibtex-autokey-names 1
       bibtex-autokey-names-stretch 1
@@ -507,6 +507,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (eval-after-load 'tex
   '(progn
+     (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
      (define-key TeX-mode-map [(super ?\[)] 'preview-buffer)
      (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
      (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
@@ -750,10 +751,12 @@ comment char"
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
-(mapc (lambda (vrb) (put vrb 'safe-local-variable 'string-or-null-p))
+(mapc (lambda (var) (put var 'safe-local-variable 'string-or-null-p))
       '(dired-omit-files
 	org-export-html-style org-export-publishing-directory
 	TeX-header-end TeX-trailer-start))
+
+(setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
@@ -767,7 +770,6 @@ comment char"
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((dired-omit-mode . t))))
 )
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
