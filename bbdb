@@ -1,9 +1,9 @@
 ;;; file-version: 6
-;;; user-fields: (www attribution msn qq 匡正)
+;;; user-fields: (www attribution msn qq)
 ["985101" nil nil "邮件组" nil nil ("985101@googlegroups.com") ((creation-date . "2004-08-06") (timestamp . "2005-01-14") (www . "http://groups-beta.google.com/group/985101")) nil]
-["bear" nil nil nil (["home" "010-88591129"] ["mobile" "010-81102978, 13910152827"]) nil nil ((creation-date . "2004-11-24") (timestamp . "2006-09-03")) nil]
+["bear" nil nil nil (["home" "010-88591129"] ["mobile" "010-81102978, 13910152827"]) nil nil ((creation-date . "2004-11-24") (timestamp . "2008-01-18")) nil]
 ["Jiali" "Gao" nil nil (["Home" "1-612-926-8731"] ["Office" "1-612-625-0769"] ["FAX" "1-612-626-7541"]) (["Home" ("4101 Upton Ave. S") "Minneapolis" "Minnesota(MN)" "55410" "USA"] ["Office" ("Department of Chemistry" "University of Minnesota" "207 Pleasant Street, SE") "Minnesota(MN)" "Minnesota(MN)" "55455" "USA"]) ("jgao@umn.edu" "gao@chem.umn.edu") ((creation-date . "2004-08-23") (timestamp . "2007-03-17") (www . "http://vesta.chem.umn.edu")) nil]
-["yuan" nil ("zhangyuan") nil (["mobile" "13366781220"] ["Office" "010-58671888-2720"] ["FAX" "010-58671882"]) nil ("zhangyuan@sinotrust.cn" "zhangyuan@sbd.com.cn") ((creation-date . "2004-09-08") (timestamp . "2006-09-03") (qq . "22698130")) nil]
+["yuan" nil ("zhangyuan" "zhangyuan1979") nil (["mobile" "13366781220"] ["Office" "010-58671888-2720"] ["FAX" "010-58671882"]) nil ("zhangyuan1979@126.com" "zhangyuan@sinotrust.cn" "zhangyuan@sbd.com.cn") ((creation-date . "2004-09-08") (timestamp . "2008-01-18") (qq . "22698130")) nil]
 ["丁杰男" nil ("Jienan Ding" "ding jienan" "ding xiaonan" "xiaonan djn" "xiaonan") nil (["Mobile" "13820512657"]) nil ("dingjienantju@gmail.com" "xiaonan_djn@eyou.com" "xiaonan_djn@hotmail.com" "jienan.ding@gmail.com" "xiaoxian_djn@twtmail.tju.cn") ((creation-date . "2003-07-30") (timestamp . "2007-11-30") (msn . "xiaonan_djn@hotmail.com") (www . "http://isiswiki.georgetown.edu/ding")) nil]
 ["任世军" nil ("ren shijun") "软件基础教研室" (["mobile" "13946025590"]) nil ("ren_shijun@163.com") ((creation-date . "2006-11-23") (timestamp . "2008-01-17")) nil]
 ["刘国军" nil ("Liu GuoJun" "GuoJun Liu") "软件基础教研室" (["Mobile" "13633601373"] ["Office" "86417602"]) nil ("hitliu@hit.edu.cn") ((creation-date . "2004-09-10") (timestamp . "2008-01-17")) nil]
