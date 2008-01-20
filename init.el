@@ -143,6 +143,7 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
+(server-mode 1)
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
@@ -746,8 +747,6 @@ comment char"
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
 
-;; (when (eq window-system 'w32) (w32-send-sys-command #xf030))
-
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
@@ -763,8 +762,7 @@ comment char"
 (let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
   (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
 
-(server-start)
-
+;; Customizations ;;
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
