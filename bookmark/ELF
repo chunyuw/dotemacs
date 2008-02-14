@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("totalcmd"
+(("notes-emacs"
+  ((filename . "~/notes/notes-emacs")
+   (front-context-string . "----\n[ebnf] ebnf")
+   (rear-context-string)
+   (position . 1)))
+ ("totalcmd"
   ((filename . "c:/Program Files/Totalcmd/")
    (front-context-string . "wincmd.ini\n  -rw")
    (rear-context-string . "171 01-01 20:51 ")
