@@ -52,6 +52,7 @@
       disabled-command-function nil
       history-delete-duplicates t
       mark-even-if-inactive t
+      isearch-buffers-multi t
       isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
@@ -696,42 +697,40 @@ comment char"
       (message "Kpsewhich not found: %s" filename))))
 
 
-(cond ;; only faces
- ((not (or window-system (equal (getenv "TERM") "xterm-256color")))
-  ;; Text-Only console
+(cond ;; faces only
+ ((not window-system)
+  ;; Text only console
   (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 
-  (eval-after-load 'log-view
-    '(progn
-       (set-face-attribute 'log-view-file-face nil :foreground "blue" :weight 'bold)
-       (set-face-attribute 'log-view-message-face nil :foreground "yellow" :weight 'bold)))
   (eval-after-load 'calendar
-    '(progn
-       (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
+    '(progn (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
 
-  (eval-after-load 'ediff-init
-    '(progn
-       (set-face-attribute 'ediff-current-diff-A nil :background "blue" :foreground "red" :weight 'bold)
-       (set-face-attribute 'ediff-current-diff-B nil :background "blue" :foreground "yellow" :weight 'bold)
-       (set-face-attribute 'ediff-current-diff-C nil :background "blue" :foreground "magenta" :weight 'bold)
-       (set-face-attribute 'ediff-even-diff-A nil :background "black" :foreground "red")
-       (set-face-attribute 'ediff-even-diff-B nil :background "black" :foreground "blue")
-       (set-face-attribute 'ediff-even-diff-C nil :background "black" :foreground "magenta")
-       (set-face-attribute 'ediff-fine-diff-A nil :background "cyan" :foreground "red")
-       (set-face-attribute 'ediff-fine-diff-B nil :background "cyan" :foreground "yellow" :weight 'bold)
-       (set-face-attribute 'ediff-fine-diff-C nil :background "cyan" :foreground "magenta" :weight 'bold)
-       (set-face-attribute 'ediff-odd-diff-A nil :background "black" :foreground "red3" :weight 'bold)
-       (set-face-attribute 'ediff-odd-diff-B nil :background "black" :foreground "yellow" :weight 'bold)
-       (set-face-attribute 'ediff-odd-diff-C nil :background "black" :foreground "magenta" :weight 'bold)
-       (set-face-attribute 'ediff-current-diff-Ancestor nil :background "magenta" :foreground "black")
-       (set-face-attribute 'ediff-even-diff-Ancestor nil :background "cyan" :foreground "black")
-       (set-face-attribute 'ediff-fine-diff-Ancestor nil :background "cyan" :foreground "black")
-       (set-face-attribute 'ediff-odd-diff-Ancestor nil :background "black" :foreground "green" :weight 'bold))))
+  (when (< 240 (display-color-cells))
+    ;; 256 colors XTerm console
+    (set-face-attribute 'region nil :background "grey25")
+    (set-face-attribute 'mode-line nil :background "color-180")
+    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+    (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
+    (set-face-attribute 'dired-directory nil :foreground "brightblue")
+    (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
+    (set-face-attribute 'font-lock-string-face nil :foreground "peru")
+    (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
+    (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
+
+    (eval-after-load 'diff-mode
+      '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
+	      (set-face-attribute 'diff-header nil :background "grey20")
+	      (set-face-attribute 'diff-file-header nil :background "grey30")))
+    (eval-after-load 'font-latex
+      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+    (eval-after-load 'table
+      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
  (window-system
-  ;; BOTH X-Window and MS-Windows
+  ;; Both X-window and MS-Windows
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
