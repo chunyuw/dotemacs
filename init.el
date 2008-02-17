@@ -6,6 +6,7 @@
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\M-k" 'chunyu/kill-this-buffer)
+(global-set-key "\M-a" 'mode-line-other-buffer)
 (global-set-key "\C-xk" 'chunyu/kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
