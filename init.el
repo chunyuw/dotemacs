@@ -139,6 +139,7 @@
 (mouse-avoidance-mode 'jump)
 (partial-completion-mode 1)
 (global-font-lock-mode 1)
+(transient-mark-mode -1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
