@@ -19,7 +19,7 @@
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
       gnus-gcc-mark-as-read t
-      gnus-gcc-externalize-attachments 'all
+      gnus-gcc-externalize-attachments nil
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
@@ -86,8 +86,7 @@
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
       '(| (any "985101" "classmate.985101")
-	  (any "pgf-users" "list.pgf-users")
-	  (any "luatex" "list.tex")
+	  (any "luatex\\|pgf" "list.tex")
 	  (any "emacs-cn" "list.emacs-cn")
 	  (to "@202.118.224.153" "mail.misc")
 	  (to "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
