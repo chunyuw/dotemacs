@@ -703,7 +703,7 @@ comment char"
 
   (when (< 240 (display-color-cells))
     ;; 256 colors XTerm console
-    (set-face-attribute 'region nil :background "grey25")
+    (set-face-attribute 'region nil :background "color-24")
     (set-face-attribute 'mode-line nil :background "color-180")
     (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
     (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
