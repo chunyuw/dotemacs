@@ -28,7 +28,7 @@
    (rear-context-string . "# -*- org -*- \n\n")
    (position . 17)))
  ("proxy.pac"
-  ((filename . "c:/free_ware/misc/proxy.pac")
+  ((filename . "c:/free_ware/etc/proxy.pac")
    (front-context-string . "/* -*- javascrip")
    (rear-context-string)
    (position . 1)))

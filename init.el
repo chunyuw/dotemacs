@@ -582,9 +582,6 @@ Returns nil if it is not visible in the current calendar window."
   (create-fontset-from-fontset-spec
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
-  (setq w32-charset-info-alist
-	(cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
-
   (let ((fstr "-*-ÐÂËÎÌå-normal-r-*-*-14-*-*-*-*-*-iso10646-1"))
     (set-fontset-font "fontset-chinese" nil       fstr)
     (set-fontset-font "fontset-chinese" 'kana     fstr)
@@ -607,7 +604,9 @@ Returns nil if it is not visible in the current calendar window."
     ;; (global-set-key [apps] 'keyboard-escape-quit)
 
     (setq w32-lwindow-modifier 'super
-	  w32-pass-lwindow-to-system nil)
+	  w32-pass-lwindow-to-system nil
+	  w32-charset-info-alist
+	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
     (setq ange-ftp-ftp-program-name "gftp")
     (setq dired-guess-shell-alist-user
