@@ -19,7 +19,7 @@
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
       gnus-gcc-mark-as-read t
-      gnus-gcc-externalize-attachments nil
+      gnus-gcc-externalize-attachments t
       gnus-treat-strip-trailing-blank-lines 'last
       gnus-treat-strip-leading-blank-lines 'last
       gnus-treat-strip-multiple-blank-lines 'last
@@ -76,6 +76,7 @@
       (regexp-opt '("chunyu@hit.edu.cn" "cymacs@gmail.com"))
       message-dont-reply-to-names message-alternative-emails
       message-subscribed-address-functions '(gnus-find-subscribed-addresses)
+      message-send-mail-partially-limit nil
       message-forward-show-mml nil)
 
 (setq nnml-use-compressed-files t)

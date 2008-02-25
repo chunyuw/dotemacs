@@ -711,8 +711,9 @@ comment char"
     (set-face-attribute 'font-lock-string-face nil :foreground "peru")
     (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
     (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
-    (set-face-attribute 'mm-uu-extract nil :foreground "DarkOliveGreen3" :background "grey15")
 
+    (eval-after-load 'mm-uu
+      '(progn (set-face-attribute 'mm-uu-extract nil :foreground "DarkOliveGreen3" :background "grey15")))
     (eval-after-load 'diff-mode
       '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
 	      (set-face-attribute 'diff-header nil :background "grey20")
