@@ -486,6 +486,7 @@ Returns nil if it is not visible in the current calendar window."
       ;; 	(?> ("\\rightarrow" "\\Rightarrow" "\\longrightarrow" "\\Longrightarrow")))
       cdlatex-env-alist
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
+	("figure" "\\begin{figure}\n  \\centering\n  \\includegraphics[width=?cm]{}\n\\end{figure}\n" nil)
 	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
 	("lstlisting" "\\begin{lstlisting}\n?\n\\end{lstlisting}" nil)
 	("alertblock" "\\begin{alertblock}{?}\n\n\\end{alertblock}\n" nil)
@@ -493,6 +494,7 @@ Returns nil if it is not visible in the current calendar window."
       cdlatex-command-alist
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("fig" "figure" "" cdlatex-environment ("figure") t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("lst" "lstlisting" "" cdlatex-environment ("lstlisting") t nil)
