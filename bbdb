@@ -11,6 +11,7 @@
 ["匡正" nil nil "软件基础教研室" nil nil ("kuangzh@hit.edu.cn") ((creation-date . "2008-01-17") (timestamp . "2008-01-17")) nil]
 ["周明德" nil nil "软件基础教研室" nil nil ("zhoumingde@163.com") ((creation-date . "2008-01-17") (timestamp . "2008-01-17")) nil]
 ["周洪微" nil nil "软件基础教研室" nil nil ("hongweizhou321@MSN.com") ((creation-date . "2008-01-17") (timestamp . "2008-01-17")) nil]
+["孙剑飞" nil nil "08春" (["mobile" "13104510195"]) nil ("yuanyuan2283@yahoo.com.cn") ((creation-date . "2008-03-03") (timestamp . "2008-03-03") (qq . "52362032")) nil]
 ["宋巧红" nil ("SQH") "计算机院办" (["mobile" "13936663983"]) nil ("jdxy@hit.edu.cn") ((creation-date . "2005-05-06") (timestamp . "2008-01-17")) nil]
 ["宋玲" nil nil "学工办 - 博士生协理员" (["Office" "15945990923"]) nil ("songling2003@hit.edu.cn") ((creation-date . "2008-02-26") (timestamp . "2008-02-26")) nil]
 ["张媛" nil ("zhangyuan" "zhangyuan1979") nil (["mobile" "13366781220"] ["Office" "010-58671888-2720"] ["FAX" "010-58671882"]) (["Office" ("北京市朝阳区酒仙桥路14号" "兆维大厦7层 新华信公司") "" "" "100016" ""]) ("zhangyuan1979@126.com" "zhangyuan@sinotrust.cn" "zhangyuan@sbd.com.cn") ((creation-date . "2004-09-08") (timestamp . "2008-02-02") (QQ . "22698130")) nil]
