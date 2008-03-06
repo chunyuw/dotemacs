@@ -552,6 +552,7 @@ Returns nil if it is not visible in the current calendar window."
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
 	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
+
 (setq swbuff-clear-delay 1
       swbuff-separator "|"
       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
