@@ -6,8 +6,7 @@
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\M-k" 'kill-this-buffer)
-(global-set-key "\M-a" 'next-buffer)
-(global-set-key "\M-e" 'previous-buffer)
+(global-set-key "\M-a" 'other-window)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
@@ -553,6 +552,17 @@ Returns nil if it is not visible in the current calendar window."
 	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
 	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
+(setq swbuff-clear-delay 1
+      swbuff-separator "|"
+      swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
+      swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*")
+      swbuff-exclude-mode-regexp "Fundamental\|Help"
+)
+(if (require 'swbuff nil t)
+    (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
+	   (set-face-attribute 'swbuff-current-buffer-face nil :foreground "OrangeRed")
+	   (set-face-attribute 'swbuff-separator-face nil :foreground "PaleTurquoise1")
+	   (set-face-attribute 'swbuff-special-buffers-face nil :foreground "goldenrod2")))
 ;; MISC Packages end here ;;
 
 
