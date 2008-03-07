@@ -554,6 +554,7 @@ Returns nil if it is not visible in the current calendar window."
 	   (msf-abbrev-load)))
 
 (setq swbuff-clear-delay 1
+      swbuff-load-hook nil
       swbuff-separator "|"
       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
       swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*")
