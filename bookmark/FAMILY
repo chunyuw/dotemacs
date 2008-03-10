@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("seminar"
+(("subversion"
+  ((filename . "c:/Documents and Settings/chunyu/Application Data/Subversion/config")
+   (front-context-string . "local=plink -loa")
+   (rear-context-string . "wing character.\n")
+   (position . 3158)))
+ ("seminar"
   ((filename . "~/seminar/introlang.tex")
    (front-context-string . "\n\\begin{frame}\n\\")
    (rear-context-string)
