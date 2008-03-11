@@ -508,8 +508,8 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq TeX-fold-type-list '(env macro))
 (add-hook 'LaTeX-mode-hook
-	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
-	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
+	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (TeX-fold-buffer)
+	    (TeX-fold-mode 1) (turn-on-cdlatex)))
 
 (eval-after-load 'tex
   '(progn
