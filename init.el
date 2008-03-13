@@ -513,6 +513,12 @@ Returns nil if it is not visible in the current calendar window."
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (TeX-fold-buffer)
 	    (TeX-fold-mode 1) (turn-on-cdlatex)))
 
+(eval-after-load 'latex
+  '(progn 
+     (setq LaTeX-font-list
+	   (append '((?\C-a "\\alert<.>{" "}" "\\mathcal{" "}")
+		     (?\C-o "\\only<.>{" "}" "" "")) LaTeX-font-list))))
+
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
