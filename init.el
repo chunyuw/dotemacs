@@ -565,7 +565,7 @@ Returns nil if it is not visible in the current calendar window."
       swbuff-load-hook nil
       swbuff-separator "|"
       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
-      swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*")
+      swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
       swbuff-exclude-mode-regexp "Fundamental\|Help")
 (if (require 'swbuff-x nil t)
     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
