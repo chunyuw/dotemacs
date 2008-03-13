@@ -479,7 +479,6 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq cdlatex-math-modify-prefix [(super ?')]
       ;; cdlatex-math-symbol-prefix [(super ?`)]
-      cdlatex-simplify-sub-super-scripts nil
       cdlatex-paired-parens "$[{(<|"
       ;; cdlatex-math-symbol-alist
       ;; '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
