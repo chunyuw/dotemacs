@@ -7,7 +7,7 @@ Copyright = Copyright (C) $(shell seq -s, 2002 $(shell $(DATE) +%Y)) $(Author).
 
 AUTOCSTR  = Batch checkin for .emacs.d ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n)).
 
-ifeq ($(shell uname -s),"windows32") 
+ifeq ($(shell uname -s), windows32)
   DATE    = gdate
 else 
   DATE    = date

@@ -479,6 +479,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq cdlatex-math-modify-prefix [(super ?')]
       ;; cdlatex-math-symbol-prefix [(super ?`)]
+      cdlatex-simplify-sub-super-scripts nil
       cdlatex-paired-parens "$[{(<|"
       ;; cdlatex-math-symbol-alist
       ;; '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
@@ -486,6 +487,7 @@ Returns nil if it is not visible in the current calendar window."
       cdlatex-env-alist
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("figure" "\\begin{figure}\n  \\centering\n  \\includegraphics[width=?cm]{}\n\\end{figure}\n" nil)
+	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil)
 	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
 	("lstlisting" "\\begin{lstlisting}\n?\n\\end{lstlisting}" nil)
 	("alertblock" "\\begin{alertblock}{?}\n\n\\end{alertblock}\n" nil)
@@ -493,6 +495,7 @@ Returns nil if it is not visible in the current calendar window."
       cdlatex-command-alist
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("fig" "figure" "" cdlatex-environment ("figure") t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
