@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("notes-emacs"
   ((filename . "~/notes/notes-emacs")
-   (front-context-string . "----\n[ebnf] ebnf")
+   (front-context-string . "----")
    (rear-context-string)
-   (position . 1)))
+   (position . 0)))
  ("totalcmd"
   ((filename . "c:/Program Files/Totalcmd/")
    (front-context-string . "wincmd.ini\n  -rw")
