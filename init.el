@@ -327,7 +327,9 @@
 (setq ido-max-prospects 8
       ido-save-directory-list-file "~/.emacs.d/var/ido.last"
       ido-auto-merge-delay-time 2
-      ido-use-filename-at-point t
+      ido-use-filename-at-point nil
+      ido-enable-flex-matching t
+      ido-create-new-buffer 'always
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
 	      completion-ignored-extensions))
@@ -563,7 +565,7 @@ Returns nil if it is not visible in the current calendar window."
 
 (setq swbuff-clear-delay 1
       swbuff-load-hook nil
-      swbuff-separator "|"
+      swbuff-separator " | "
       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
       swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
       swbuff-exclude-mode-regexp "Fundamental\|Help")
