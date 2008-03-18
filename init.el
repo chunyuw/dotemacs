@@ -224,8 +224,7 @@
 
 
 ;; SavePlace ;;
-(let ((var "~/.emacs.d/var"))
-  (if (not (file-exists-p var)) (make-directory var)))
+(let ((var "~/.emacs.d/var")) (or (file-exists-p var) (make-directory var)))
 (setq savehist-file "~/.emacs.d/var/history")
 (setq save-place-file "~/.emacs.d/var/places"
       save-place-limit 20)
@@ -251,7 +250,6 @@
   '(progn
      (require 'dired-x)
      (setq dired-listing-switches "-avl"
-	   cvs-dired-use-hook 'always
 	   wdired-use-dired-vertical-movement t)
 
      (define-key dired-mode-map "b" 'dired-mark-extension)
@@ -265,16 +263,8 @@
      (define-key dired-mode-map "h" 'ignore)
 
      (when window-system
-       (define-key dired-mode-map [down-mouse-2] 'dired-mouse-execute-file)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
-
-       (defun dired-mouse-execute-file (event)
-	 "In dired, execute the file or goto directory name you click on."
-	 (interactive "e")
-	 (set-buffer (window-buffer (posn-window (event-end event))))
-	 (goto-char (posn-point (event-end event)))
-	 (dired-execute-file))
 
        (defun chunyu/dired-open-explorer ()
 	 (interactive)
@@ -563,12 +553,12 @@ Returns nil if it is not visible in the current calendar window."
 	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
 
-(setq swbuff-clear-delay 1
+(setq swbuff-clear-delay 0.7
       swbuff-load-hook nil
       swbuff-separator " | "
       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
       swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
-      swbuff-exclude-mode-regexp "Fundamental\|Help")
+      swbuff-exclude-mode-regexp "Fundamental")
 (if (require 'swbuff-x nil t)
     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
 	   (set-face-attribute 'swbuff-current-buffer-face nil :foreground "OrangeRed" :underline nil)
@@ -665,14 +655,14 @@ Returns nil if it is not visible in the current calendar window."
   "Move forward one line or LINES lines."
   (interactive "p")
   (scroll-up lines)
-  (if (not (eq scroll-preserve-screen-position 'keep))
+  (or (eq scroll-preserve-screen-position 'keep)
       (next-line lines)))
 
 (defun chunyu/view-scroll-backward (&optional lines)
   "Move backward one line or LINES lines."
   (interactive "p")
   (scroll-down lines)
-  (if (not (eq scroll-preserve-screen-position 'keep))
+  (or (eq scroll-preserve-screen-position 'keep)
       (previous-line lines)))
 
 (defun chunyu/update-src ()
@@ -694,14 +684,11 @@ Returns nil if it is not visible in the current calendar window."
      (format "win %sstyle title \"%s\" 0x00C00000" pp tt) 1)))
 
 (defun chunyu/insert-file-variable ()
-  "Insert file variable string \"-*- Major-Mode-Name -*-\" with
-comment char"
+  "Insert file variable \"-*- major-mode -*-\" with comment"
   (interactive)
-  (insert
-   (concat comment-start " -*- "
-	   (substring
-	    (symbol-name (symbol-value 'major-mode)) 0 -5)
-	   " -*- " comment-end)))
+  (let ((s " -*- ") 
+	(n (substring (symbol-name (symbol-value 'major-mode)) 0 -5)))
+    (insert comment-start s n s comment-end)))
 
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
