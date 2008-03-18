@@ -520,8 +520,9 @@ Returns nil if it is not visible in the current calendar window."
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
      (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
      (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
-     (setq TeX-output-view-style
-	   (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
+     (if (eq window-system 'w32) 
+	 (setq TeX-output-view-style
+	       (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
