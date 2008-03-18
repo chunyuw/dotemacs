@@ -291,7 +291,7 @@
 	 (save-excursion
 	   (set-buffer (get-buffer-create " *ddeclient*"))
 	   (erase-buffer)
-	   (insert (concat "[DocClose(NULL)]")) ; "[DocClose(\"" file ".pdf\")]"
+	   (insert "[DocClose(NULL)]") ; "[DocClose(\"" file ".pdf\")]"
 	   (call-process-region (point-min) (point-max)
 				"ddeclient" nil t nil "acroview" "control")))
 
@@ -433,7 +433,8 @@ Returns nil if it is not visible in the current calendar window."
 (setq TeX-auto-save t
       TeX-parse-self t
       TeX-auto-untabify t
-      TeX-region "z_region")
+      TeX-region "z_region"
+      TeX-fold-type-list '(env math))
 
 (setq preview-scale-function 1.44
       preview-image-type 'dvipng
@@ -500,7 +501,6 @@ Returns nil if it is not visible in the current calendar window."
 	  (lambda () ;; (flyspell-mode 1)
 	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
 
-(setq TeX-fold-type-list '(env math))
 (add-hook 'LaTeX-mode-hook
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
 	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
@@ -520,16 +520,16 @@ Returns nil if it is not visible in the current calendar window."
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
      (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
      (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
-     (if (eq window-system 'w32) 
-	 (setq TeX-output-view-style
-	       (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
+     (when (eq window-system 'w32) 
+       (setq TeX-output-view-style
+	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
      (TeX-global-PDF-mode t)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; Haskell ;;
-(load "haskell-site-file.el" t t t)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(when (load "haskell-site-file.el" t t t)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent))
 ;; Haskell ends here ;;
 
 ;; MISC Packages ;;
