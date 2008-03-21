@@ -224,9 +224,8 @@
 
 
 ;; SavePlace ;;
-(let ((var "~/.emacs.d/var")) (or (file-exists-p var) (make-directory var)))
-(setq savehist-file "~/.emacs.d/var/history")
-(setq save-place-file "~/.emacs.d/var/places"
+(setq savehist-file "~/.emacs.d/z.history")
+(setq save-place-file "~/.emacs.d/z.places"
       save-place-limit 20)
 (setq-default save-place t)
 (require 'saveplace)
@@ -315,7 +314,7 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/var/ido.last"
+      ido-save-directory-list-file "~/.emacs.d/z.ido"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point nil
       ido-enable-flex-matching t

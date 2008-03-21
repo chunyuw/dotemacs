@@ -7,16 +7,6 @@
    (front-context-string . "local=plink -loa")
    (rear-context-string . "wing character.\n")
    (position . 3158)))
- ("seminar"
-  ((filename . "~/seminar/introlang.tex")
-   (front-context-string . "\n\\begin{frame}\n\\")
-   (rear-context-string)
-   (position . 2437)))
- ("svn.config"
-  ((filename . "c:/Documents and Settings/chunyu/Application Data/Subversion/config")
-   (front-context-string . "### This file co")
-   (rear-context-string)
-   (position . 1)))
  ("torrc"
   ((filename . "c:/Documents and Settings/chunyu/Application Data/tor/torrc")
    (front-context-string . "## Configuration")
