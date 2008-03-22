@@ -567,6 +567,9 @@ Returns nil if it is not visible in the current calendar window."
 	   (set-face-attribute 'swbuff-current-buffer-face nil :foreground "OrangeRed" :underline nil)
 	   (set-face-attribute 'swbuff-separator-face nil :foreground "azure" :bold nil)
 	   (set-face-attribute 'swbuff-special-buffers-face nil :foreground "goldenrod2")))
+
+(setq w3m-init-file "~/.emacs.d/w3m")
+(require 'w3m-load nil t)
 ;; MISC Packages end here ;;
 
 
@@ -631,7 +634,6 @@ Returns nil if it is not visible in the current calendar window."
 	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
 
     (setq find-program "gfind")
-    ;; (setq grep-find-command (cons "gfind . -type f -exec grep -nH -e  {} NUL ;" 35))
 
     ;; ISpell on win32 ;;
     (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
