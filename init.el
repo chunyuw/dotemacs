@@ -90,7 +90,9 @@
       backup-by-copying-when-mismatch t)
 
 (setq org-startup-folded 'nofold
-      org-log-done t)
+      org-log-done t
+      tramp-persistency-file-name "~/.emacs.d/ztramp.el"
+      calc-settings-file "~/.emacs.d/calc.el")
 
 (setq hippie-expand-try-functions-list
       '(try-expand-line
@@ -224,8 +226,8 @@
 
 
 ;; SavePlace ;;
-(setq savehist-file "~/.emacs.d/z.history")
-(setq save-place-file "~/.emacs.d/z.places"
+(setq savehist-file "~/.emacs.d/zhistory.el"
+      save-place-file "~/.emacs.d/zplaces.el"
       save-place-limit 20)
 (setq-default save-place t)
 (require 'saveplace)
@@ -307,14 +309,9 @@
 	       (w32-shell-execute nil b (format "\"%s\"" f) 1)))))))
 ;; Dired ends here ;;
 
-;; Uniquify ;;
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-;; Uniquify ends here ;;
-
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/z.ido"
+      ido-save-directory-list-file "~/.emacs.d/zido.el"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point nil
       ido-enable-flex-matching t
@@ -536,6 +533,9 @@ Returns nil if it is not visible in the current calendar window."
 
 ;; MISC Packages ;;
 (require 'doc-view nil t)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
 
 (setq template-auto-update nil
       template-auto-insert nil
