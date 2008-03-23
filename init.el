@@ -7,7 +7,7 @@
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-a" 'other-window)
-(global-set-key "\M-r" 'rgrep)
+(global-set-key "\M-g\M-r" 'rgrep)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
