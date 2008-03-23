@@ -8,6 +8,8 @@
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-a" 'other-window)
 (global-set-key "\M-g\M-r" 'rgrep)
+(global-set-key "\M-g\M-a" 'backward-sentence)
+(global-set-key "\M-g\M-e" 'forward-sentence)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
