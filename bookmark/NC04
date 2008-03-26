@@ -1,0 +1,14 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("TotalCmd"
+  ((filename . "c:/Program Files/TotalCmd/")
+   (front-context-string . "wincmd.ini\n  -rw")
+   (rear-context-string . "707 03-26 13:13 ")
+   (position . 2747)))
+ ("hosts"
+  ((filename . "c:/WINDOWS/system32/drivers/etc/hosts")
+   (front-context-string . "\n127.0.0.1      ")
+   (rear-context-string . " x client host\n\n")
+   (position . 690))))
