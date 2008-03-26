@@ -604,7 +604,9 @@ Returns nil if it is not visible in the current calendar window."
   (create-fontset-from-fontset-spec
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
-  (let ((fstr "-*-新宋体-normal-r-*-*-14-*-*-*-*-*-iso10646-1"))
+  (let ((fstr (cond ((equal system-name "nc04") 
+		     "-*-新宋体-normal-r-*-*-16-*-*-*-*-*-iso10646-1")
+		    (t "-*-新宋体-normal-r-*-*-14-*-*-*-*-*-iso10646-1"))))
     (set-fontset-font "fontset-chinese" nil       fstr)
     (set-fontset-font "fontset-chinese" 'kana     fstr)
     (set-fontset-font "fontset-chinese" 'han      fstr)
