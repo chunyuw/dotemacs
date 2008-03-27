@@ -34,7 +34,6 @@
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
-(define-key meta-m-map "\M-l" 'dictionary-search)
 (define-key meta-m-map "\M-u" 'chunyu/update-src)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
@@ -117,7 +116,7 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(setq dictionary-server "202.118.228.177"
+(setq dictionary-server "cstgw.hit.edu.cn"
       dictionary-coding-systems-for-dictionaries
       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
