@@ -622,7 +622,7 @@ Returns nil if it is not visible in the current calendar window."
    "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
 
   (let ((fstr (format "-*-ÐÂËÎÌå-normal-r-*-*-%s-*-*-*-*-*-iso10646-1"
-		      (if (equal system-name "NC04") "16" "14"))))
+		      (if (> (display-pixel-width) 1280) "16" "14"))))
     (set-fontset-font "fontset-chinese" nil       fstr)
     (set-fontset-font "fontset-chinese" 'kana     fstr)
     (set-fontset-font "fontset-chinese" 'han      fstr)
