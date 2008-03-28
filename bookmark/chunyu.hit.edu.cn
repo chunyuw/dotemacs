@@ -1,0 +1,14 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("openvpn.conf"
+  ((filename . "/etc/openvpn/openvpn.conf")
+   (front-context-string . "push \"route 192.")
+   (rear-context-string . "OpenVPN server.\n")
+   (position . 4582)))
+ ("firewall"
+  ((filename . "/etc/init.d/firewall")
+   (front-context-string . "    iptables -t ")
+   (rear-context-string . " 172.24.0.81:21\n")
+   (position . 3775))))
