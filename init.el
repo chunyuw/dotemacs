@@ -583,6 +583,7 @@ Returns nil if it is not visible in the current calendar window."
       swbuff-exclude-mode-regexp "Fundamental")
 (if (require 'swbuff-x nil t)
     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
+	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)
 	   (set-face-attribute 'swbuff-current-buffer-face nil :foreground "OrangeRed" :underline nil)
 	   (set-face-attribute 'swbuff-separator-face nil :foreground "azure" :bold nil)
 	   (set-face-attribute 'swbuff-special-buffers-face nil :foreground "goldenrod2")))
