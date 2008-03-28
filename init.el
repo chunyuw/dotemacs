@@ -521,10 +521,27 @@ Returns nil if it is not visible in the current calendar window."
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
      (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
      (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
+     (define-key TeX-mode-map "\M-m\M-." 'LaTeX-mark-build-frame)
+     (define-key TeX-mode-map "\M-m\M-," 'TeX-view)
+     (define-key TeX-mode-map "\M-n" 'next-line)
+     (define-key TeX-mode-map "\M-p" 'previous-line)
      (when (eq window-system 'w32) 
        (setq TeX-output-view-style
 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
      (TeX-global-PDF-mode t)))
+
+(defun LaTeX-mark-build-frame ()
+  "mark frame enviroment."
+  (interactive)
+  (let ((cur (point)) begin end)
+    (save-excursion
+      (re-search-forward "end.frame" nil t)
+      (beginning-of-line 2) (setq end (point)) 
+      (goto-char cur)
+      (re-search-backward "begin.frame" nil t)
+      (beginning-of-line 1) (setq begin (point))
+      (TeX-pin-region begin end))
+    (TeX-command-region)))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; Haskell ;;
