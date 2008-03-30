@@ -18,7 +18,7 @@
    (rear-context-string . " x client host\n\n")
    (position . 690)))
  ("site-lisp"
-  ((filename . "d:/free_ware/emacs-23/site-lisp/")
+  ((filename . "c:/free_ware/emacs-23/site-lisp/")
    (front-context-string . "misc\n  -rw-rw-rw")
    (rear-context-string . "  0 12-26 15:38 ")
    (position . 521)))
