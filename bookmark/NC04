@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("openvpn"
+(("os515.rdp"
+  ((filename . "c:/os515.rdp")
+   (front-context-string . "\ndesktopheight:i")
+   (rear-context-string . "ktopwidth:i:1280")
+   (position . 39)))
+ ("openvpn"
   ((filename . "c:/Program Files/OpenVPN/config/nc04.ovpn")
    (front-context-string . "################")
    (rear-context-string)
