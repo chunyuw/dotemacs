@@ -396,7 +396,6 @@
      (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
      (add-hook 'diary-hook 'appt-make-list)
      (add-hook 'diary-display-hook 'fancy-diary-display)
-     (define-key calendar-mode-map "\C-z" 'calendar-set-mark)
 
      (autoload 'chinese-year "cal-china" "Chinese year data" t)
      (defun holiday-chinese (cmonth cday string)
