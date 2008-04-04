@@ -288,15 +288,16 @@
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
 
-       (defun acrobat-close-doc ()
+       (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
 	 (interactive)
-	 (save-excursion
-	   (set-buffer (get-buffer-create " *ddeclient*"))
-	   (erase-buffer)
-	   (insert "[DocClose(NULL)]") ; "[DocClose(\"" file ".pdf\")]"
-	   (call-process-region (point-min) (point-max)
-				"ddeclient" nil t nil "acroview" "control")))
+	 (let* ((o "[DocOpen(\"%s\")]") (c "[DocClose(\"%s\")]") 
+		(dde (if f (format (concat o o c) f f f) (format c "NULL"))))
+	   (save-excursion
+	     (set-buffer (get-buffer-create " *ddeclient*"))
+	     (erase-buffer) (message (concat "DDE:" dde)) (insert dde)
+	     (call-process-region (point-min) (point-max) "ddeclient" 
+				  nil t nil "acroview" "control"))))
 
        (defun eshell/op (FILE)
 	 "Invoke (w32-shell-execute \"Open\" FILE) and substitute slashes for backslashes"
