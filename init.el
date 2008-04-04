@@ -124,7 +124,6 @@
       reb-re-syntax 'string)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-;; (set-register ?g '(file . "~/.emacs.d/gnus.el"))
 
 (set-language-environment    'Chinese-GBK)
 (set-keyboard-coding-system  'chinese-gbk)
