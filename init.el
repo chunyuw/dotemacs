@@ -35,6 +35,7 @@
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
 (define-key meta-m-map "\M-u" 'chunyu/update-src)
+(define-key meta-m-map "\M-l" 'dictionary-search)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "m" 'chunyu/insert-file-variable)
