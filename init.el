@@ -485,6 +485,7 @@ Returns nil if it is not visible in the current calendar window."
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
+	("cjk" "CJKindent" "\\CJKindent ?" cdlatex-position-cursor nil t nil)
 	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{e01/?}}\n%\\centerline{}\n" 
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
@@ -537,10 +538,10 @@ Returns nil if it is not visible in the current calendar window."
   (interactive)
   (let ((cur (point)) begin end)
     (save-excursion
-      (re-search-forward "end.frame" nil t)
+      (re-search-forward "^[^%]*?end.frame" nil t)
       (beginning-of-line 2) (setq end (point)) 
       (goto-char cur)
-      (re-search-backward "begin.frame" nil t)
+      (re-search-backward "^[^%]*?begin.frame" nil t)
       (beginning-of-line 1) (setq begin (point))
       (TeX-pin-region begin end))
     (TeX-command-region)))
