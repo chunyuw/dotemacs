@@ -458,11 +458,7 @@ Returns nil if it is not visible in the current calendar window."
       reftex-save-parse-info nil
       reftex-use-multiple-selection-buffers t
       reftex-auto-recenter-toc t
-      reftex-plug-into-AUCTeX t
-      reftex-section-levels
-      '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
-	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
-	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
+      reftex-plug-into-AUCTeX t)
 
 (setq font-latex-fontify-script nil
       font-latex-fontify-sectioning 1
@@ -524,14 +520,20 @@ Returns nil if it is not visible in the current calendar window."
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
      (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
      (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
-     (define-key TeX-mode-map "\M-m\M-." 'LaTeX-mark-build-frame)
      (define-key TeX-mode-map "\M-m\M-," 'TeX-view)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (when (eq window-system 'w32) 
        (setq TeX-output-view-style
 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
+     (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
+
+(defun beamer-setup ()
+  (set (make-local-variable 'reftex-section-levels)
+       '(("part" . 0) ("section" . 1) ("frametitle" . 2)))
+  (reftex-reset-mode)
+  (define-key TeX-mode-map "\M-m\M-." 'LaTeX-mark-build-frame))
 
 (defun LaTeX-mark-build-frame ()
   "mark frame enviroment."
@@ -545,6 +547,20 @@ Returns nil if it is not visible in the current calendar window."
       (beginning-of-line 1) (setq begin (point))
       (TeX-pin-region begin end))
     (TeX-command-region)))
+
+(defun LaTeX-mark-build-frame2 ()
+  "Run pdflatex on current frame.  
+Frame must be declared as an environment."
+  (interactive)
+  (let (beg)
+    (save-excursion
+      (search-backward "\\begin{frame}")
+      (setq beg (point))
+      (forward-char 1)
+      (LaTeX-find-matching-end)
+      (TeX-pin-region beg (point))
+      (letf (( (symbol-function 'TeX-command-query) (lambda (x) "LaTeX")))
+        (TeX-command-region)))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; Haskell ;;
