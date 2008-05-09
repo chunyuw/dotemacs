@@ -365,17 +365,17 @@
       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
       chinese-calendar-terrestrial-branch
       ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
-      holiday-other-holidays
-      '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
-	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
-	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
-      holiday-local-holidays
-      '((holiday-chinese 1 15 "元宵节 (正月十五)")
-	(holiday-chinese 5  5 "端午节 (五月初五)")
-	(holiday-chinese 7  7 "七月七 (七月初七)")
-	(holiday-chinese 9  9 "重阳节 (九月初九)")
-	(holiday-chinese 8 15 "中秋节 (八月十五)")
-	(holiday-chinese 12 7 "老婆生日"))
+      ;; holiday-other-holidays
+      ;; '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
+      ;; 	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
+      ;; 	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
+      ;; holiday-local-holidays
+      ;; '((holiday-chinese 1 15 "元宵节 (正月十五)")
+      ;; 	(holiday-chinese 5  5 "端午节 (五月初五)")
+      ;; 	(holiday-chinese 7  7 "七月七 (七月初七)")
+      ;; 	(holiday-chinese 9  9 "重阳节 (九月初九)")
+      ;; 	(holiday-chinese 8 15 "中秋节 (八月十五)")
+      ;; 	(holiday-chinese 12 7 "老婆生日"))
       solar-n-hemi-seasons '("春分" "夏至" "秋分" "冬至"))
 
 (setq calendar-holidays
@@ -469,7 +469,7 @@
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("cjk" "CJKindent" "\\CJKindent ?" cdlatex-position-cursor nil t nil)
-	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{e01/?}}\n%\\centerline{}\n" 
+	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{f01/?}}\n%\\centerline{}\n" 
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
