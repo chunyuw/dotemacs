@@ -15,6 +15,7 @@
       gnus-save-newsrc-file nil
       gnus-save-killed-list nil
       gnus-backup-startup-file nil
+      gnus-registry-install t
       gnus-summary-display-arrow nil
       gnus-always-read-dribble-file t
       gnus-confirm-mail-reply-to-news t
