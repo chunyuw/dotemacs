@@ -133,7 +133,7 @@
 (set-selection-coding-system 'chinese-gbk)
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
-(windmove-default-keybindings)
+;(windmove-default-keybindings)
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
 
@@ -469,7 +469,7 @@
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("cjk" "CJKindent" "\\CJKindent ?" cdlatex-position-cursor nil t nil)
-	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{f01/?}}\n%\\centerline{}\n" 
+	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n" 
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
