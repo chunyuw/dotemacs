@@ -485,7 +485,7 @@
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
-	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
+	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) (beamer-setup)))
 
 (eval-after-load 'cdlatex
   '(progn
@@ -513,7 +513,7 @@
      (when (eq window-system 'w32) 
        (setq TeX-output-view-style
 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
-     (TeX-add-style-hook "beamer" 'beamer-setup)
+     ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
 (defun beamer-setup ()
