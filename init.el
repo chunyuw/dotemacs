@@ -157,7 +157,7 @@
 		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode)
 		("\\.bat\\'" . cmd-mode) ("\\.7z\\'" . archive-mode)
 		("\\.csproj\\'" . xml-mode) ("\\.org\\'" . org-mode)
-		("\\.asy\\'" . asy-mode))
+		("\\.asy\\'" . asy-mode) ("\\.rdlc\\'" . nxml-mode))
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
