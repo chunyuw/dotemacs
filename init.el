@@ -361,21 +361,20 @@
       calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
       chinese-calendar-celestial-stem
-      ["ç”²" "ä¹™" "ä¸™" "ä¸" "æˆŠ" "å·±" "åºš" "è¾›" "å£¬" "ç™¸"]
+      ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ı" "ĞÁ" "ÈÉ" "¹ï"]
       chinese-calendar-terrestrial-branch
-      ["å­" "ä¸‘" "å¯…" "å¯" "è¾°" "å·³" "åˆ" "æœª" "ç”³" "é…‰" "æˆŒ" "äº¥"]
-      ;; holiday-other-holidays
-      ;; '((holiday-fixed 1 1 "å…ƒæ—¦") (holiday-fixed 2 14 "æƒ…äººèŠ‚")
-      ;; 	(holiday-fixed 4 1 "æ„šäººèŠ‚") (holiday-float 5 0 2 "æ¯äº²èŠ‚")
-      ;; 	(holiday-float 6 0 3 "çˆ¶äº²èŠ‚") (holiday-fixed 12 25 "åœ£è¯èŠ‚"))
-      ;; holiday-local-holidays
-      ;; '((holiday-chinese 1 15 "å…ƒå®µèŠ‚ (æ­£æœˆåäº”)")
-      ;; 	(holiday-chinese 5  5 "ç«¯åˆèŠ‚ (äº”æœˆåˆäº”)")
-      ;; 	(holiday-chinese 7  7 "ä¸ƒæœˆä¸ƒ (ä¸ƒæœˆåˆä¸ƒ)")
-      ;; 	(holiday-chinese 9  9 "é‡é˜³èŠ‚ (ä¹æœˆåˆä¹)")
-      ;; 	(holiday-chinese 8 15 "ä¸­ç§‹èŠ‚ (å…«æœˆåäº”)")
-      ;; 	(holiday-chinese 12 7 "è€å©†ç”Ÿæ—¥"))
-      solar-n-hemi-seasons '("æ˜¥åˆ†" "å¤è‡³" "ç§‹åˆ†" "å†¬è‡³"))
+      ["×Ó" "³ó" "Òú" "Ã®" "³½" "ËÈ" "Îç" "Î´" "Éê" "ÓÏ" "Ğç" "º¥"]
+      holiday-other-holidays
+      '((holiday-fixed 1 1 "Ôªµ©") (holiday-fixed 2 14 "ÇéÈË½Ú")
+      	(holiday-fixed 4 1 "ÓŞÈË½Ú") (holiday-float 5 0 2 "Ä¸Ç×½Ú")
+      	(holiday-float 6 0 3 "¸¸Ç×½Ú") (holiday-fixed 12 25 "Ê¥µ®½Ú"))
+      holiday-local-holidays
+      '((holiday-chinese 1 15 "ÔªÏü½Ú (ÕıÔÂÊ®Îå)")
+      	(holiday-chinese 5  5 "¶ËÎç½Ú (ÎåÔÂ³õÎå)")
+      	(holiday-chinese 7  7 "ÆßÔÂÆß (ÆßÔÂ³õÆß)")
+      	(holiday-chinese 9  9 "ÖØÑô½Ú (¾ÅÔÂ³õ¾Å)")
+      	(holiday-chinese 8 15 "ÖĞÇï½Ú (°ËÔÂÊ®Îå)")
+      	(holiday-chinese 12 7 "ÀÏÆÅÉúÈÕ")))
 
 (setq calendar-holidays
       (append holiday-local-holidays holiday-other-holidays holiday-solar-holidays))
