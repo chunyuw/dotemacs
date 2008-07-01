@@ -1,4 +1,5 @@
 ;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs, created on 2001-12-11 on db.hit.edu.cn.
+;; -*- mode: emacs-lisp; coding: gb2312-unix; -*-
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
