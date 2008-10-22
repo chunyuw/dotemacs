@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("os515.rdp"
+(("subversion"
+  (filename . "c:/Documents and Settings/chunyu/Application Data/Subversion/config")
+  (front-context-string . "\n### If you want")
+  (rear-context-string . "sh\nlocal = plink")
+  (position . 2673))
+ ("os515.rdp"
   ((filename . "c:/os515.rdp")
    (front-context-string . "\ndesktopheight:i")
    (rear-context-string . "ktopwidth:i:1280")
