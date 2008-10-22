@@ -138,7 +138,7 @@
 (find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
-;(minibuffer-indicate-depth-mode 1)
+(minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
 (partial-completion-mode 1)
 (global-font-lock-mode 1)
