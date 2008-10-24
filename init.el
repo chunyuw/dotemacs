@@ -30,7 +30,6 @@
 (define-prefix-command 'meta-m-map)
 (global-set-key "\M-m" 'meta-m-map)
 (define-key meta-m-map "b" 'back-to-indentation)
-(define-key meta-m-map "\M-o" 'occur)
 (define-key meta-m-map "\M-i" 'imenu)
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
