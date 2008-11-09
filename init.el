@@ -737,9 +737,6 @@ Frame must be declared as an environment."
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 
-  (eval-after-load 'calendar
-    '(progn (set-face-attribute 'holiday-face nil :foreground "red" :background "black" :weight 'bold)))
-
   (when (< 240 (display-color-cells))
     ;; 256 colors XTerm console
     (set-face-attribute 'region nil :background "color-24")
