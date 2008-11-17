@@ -73,8 +73,7 @@
       display-time-day-and-date t)
 
 (setq gnus-inhibit-startup-message t
-      gnus-init-file "~/.emacs.d/gnus.el"
-      canlock-password "a6763075ef97955033c40069155a4ef7b1d67fee")
+      gnus-init-file "~/.emacs.d/gnus.el")
 
 (setq mail-signature-file "~/.sig/default"
       mail-user-agent 'gnus-user-agent
