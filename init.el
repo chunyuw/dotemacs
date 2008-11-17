@@ -647,7 +647,7 @@ Frame must be declared as an environment."
     ;; (global-set-key [apps] 'keyboard-escape-quit)
 
     (setq w32-lwindow-modifier 'super
-	  w32-pass-lwindow-to-system nil
+	  w32-pass-lwindow-to-system t
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
