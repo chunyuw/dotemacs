@@ -34,7 +34,6 @@
 (define-key meta-m-map "\M-k" 'bbdb)
 (define-key meta-m-map "\M-p" 'calendar)
 (define-key meta-m-map "\M-u" 'chunyu/update-src)
-(define-key meta-m-map "\M-l" 'dictionary-search)
 (define-key meta-m-map "c" 'compile)
 (define-key meta-m-map "i" 'ibuffer)
 (define-key meta-m-map "m" 'chunyu/insert-file-variable)
@@ -612,6 +611,8 @@ Frame must be declared as an environment."
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
+  ;; buffer-face-mode, face-remapping-alist, text-scale-mode
+
   (setq default-frame-alist
 	'((background-mode . dark)
 	  ;; (top . 0) (left . 0) (width . 80) (height . 44)
@@ -619,6 +620,7 @@ Frame must be declared as an environment."
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
 	  (cursor-color . "coral")
+	  ;; (alpha . (100 . 75))
 	  (font . "fontset-chinese")))
 
   (create-fontset-from-fontset-spec
