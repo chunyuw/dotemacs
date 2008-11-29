@@ -33,23 +33,20 @@
       track-eol t
       kill-whole-line t
       Man-notify-method 'pushy
-      kill-ring-max 100
-      vc-follow-symlinks t
+      vcg-follow-symlinks t
       vc-suppress-confirm t
       enable-recursive-minibuffers t
       default-fill-column 78
       disabled-command-function nil
       history-delete-duplicates t
       mark-even-if-inactive t
-      isearch-buffers-multi t
       isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
       apropos-do-all t
       sentence-end-double-space nil
       scroll-preserve-screen-position 'keep
-      comment-style 'extra-line
-      outline-minor-mode-prefix "\C-c\C-o")
+      comment-style 'extra-line)
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
@@ -102,9 +99,9 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(setq dictionary-server "cstgw.hit.edu.cn"
-      dictionary-coding-systems-for-dictionaries
-      '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
+;; (setq dictionary-server "cstgw.hit.edu.cn"
+;;       dictionary-coding-systems-for-dictionaries
+;;       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
 
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
@@ -118,7 +115,6 @@
 (set-selection-coding-system 'chinese-gbk)
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
-;(windmove-default-keybindings)
 (fset 'yes-or-no-p 'y-or-n-p)
 (find-function-setup-keys)
 
@@ -162,11 +158,6 @@
 	    (setq max-mini-window-height 1)))
 
 
-(eval-after-load 'dictionary
-  '(progn
-     (define-key dictionary-mode-map "j"  'chunyu/view-scroll-forward)
-     (define-key dictionary-mode-map "k"  'chunyu/view-scroll-backward)))
-
 (eval-after-load 'man
   '(progn
      (define-key Man-mode-map "j"  'chunyu/view-scroll-forward)
