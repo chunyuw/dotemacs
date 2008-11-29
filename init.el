@@ -593,8 +593,14 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
-  (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'modeline nil :height 120)
+  (if (> (display-pixel-width) 1024)
+    (progn
+      (set-face-attribute 'default nil :height 140)
+      (set-face-attribute 'modeline nil :height 120))
+    (progn
+      (set-default-font "Courier New")
+      (set-face-attribute 'default nil :height 100)
+      (set-face-attribute 'modeline nil :height 100)))
 
   (cond
    ;; MS-Windows
