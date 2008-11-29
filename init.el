@@ -1,4 +1,3 @@
-;; -*- mode: emacs-lisp; coding: gbk-unix; -*-
 ;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs
 ;; Created on 2001-12-11 on db.hit.edu.cn
 
@@ -594,13 +593,8 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
-  (if (> (display-pixel-width) 1024)
-    (progn
-      (set-face-attribute 'default nil :height 140)
-      (set-face-attribute 'modeline nil :height 120))
-    (progn
-      (set-face-attribute 'default nil :height 100)
-      (set-face-attribute 'modeline nil :height 90)))
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'modeline nil :height 120)
 
   (cond
    ;; MS-Windows
@@ -772,5 +766,10 @@ Frame must be declared as an environment."
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
 )
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: gbk-unix
+;; End:
 
 ;; Chunyu's .emacs.d/init.el ends here.

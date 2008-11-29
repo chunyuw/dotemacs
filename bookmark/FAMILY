@@ -13,10 +13,10 @@
    (rear-context-string)
    (position . 1)))
  ("totalcmd"
-  ((filename . "c:/Program Files/totalcmd/")
-   (front-context-string . "wincmd.ini\n  -rw")
-   (rear-context-string . "133 01-03 09:27 ")
-   (position . 3171)))
+  (filename . "c:/Program Files/TotalCmd/usercmd.ini")
+  (front-context-string . " --fullscreen\nbu")
+  (rear-context-string . "cs]\ncmd=runemacs")
+  (position . 144))
  ("TheTeXBook"
   ((filename . "e:/Books/Computer/TeX/The TeXbook.tex")
    (front-context-string . "% All rights are")
@@ -28,7 +28,7 @@
    (rear-context-string . "tranx, IEEEtran\n")
    (position . 151)))
  ("site-lisp"
-  ((filename . "d:/free_ware/emacs-23/site-lisp/")
+  ((filename . "c:/free_ware/emacs-23/site-lisp/")
    (front-context-string . "misc\n  -rw-rw-rw")
    (rear-context-string . "  0 12-26 15:38 ")
    (position . 521)))
