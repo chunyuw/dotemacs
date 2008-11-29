@@ -18,10 +18,10 @@
    (rear-context-string)
    (position . 1)))
  ("TotalCmd"
-  ((filename . "c:/Program Files/TotalCmd/")
-   (front-context-string . "wincmd.ini\n  -rw")
-   (rear-context-string . "707 03-26 13:13 ")
-   (position . 2747)))
+  (filename . "c:/Program Files/totalcmd/usercmd.ini")
+  (front-context-string . "[em_usercmd1]\ncm")
+  (rear-context-string)
+  (position . 1))
  ("hosts"
   ((filename . "c:/WINDOWS/system32/drivers/etc/hosts")
    (front-context-string . "\n127.0.0.1      ")

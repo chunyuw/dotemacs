@@ -1,42 +1,30 @@
-;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs, created on 2001-12-11 on db.hit.edu.cn.
-;; -*- mode: emacs-lisp; coding: gb2312-unix; -*-
+;; -*- mode: emacs-lisp; coding: gbk-unix; -*-
+;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs
+;; Created on 2001-12-11 on db.hit.edu.cn
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
-(global-set-key "\M-k" 'kill-this-buffer)
-(global-set-key "\M-a" 'other-window)
-(global-set-key "\M-g\M-r" 'rgrep)
-(global-set-key "\M-g\M-a" 'backward-sentence)
-(global-set-key "\M-g\M-e" 'forward-sentence)
 (global-set-key "\C-xk" 'kill-this-buffer)
 (global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-xI" 'insert-buffer)
-(global-set-key "\C-xve" 'cvs-examine)
-(global-set-key "\C-c\C-v" 'view-mode)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
-(global-set-key "\M-#" 'calc-dispatch)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-`" 'next-error)
+(global-set-key "\M-k" 'kill-this-buffer)
+(global-set-key "\M-a" 'other-window)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cL" 'org-insert-link-global)
 (global-set-key "\C-co" 'org-open-at-point-global)
 (global-set-key "\C-ca" 'org-agenda)
-
-(define-prefix-command 'meta-m-map)
-(global-set-key "\M-m" 'meta-m-map)
-(define-key meta-m-map "b" 'back-to-indentation)
-(define-key meta-m-map "\M-i" 'imenu)
-(define-key meta-m-map "\M-k" 'bbdb)
-(define-key meta-m-map "\M-p" 'calendar)
-(define-key meta-m-map "\M-u" 'chunyu/update-src)
-(define-key meta-m-map "c" 'compile)
-(define-key meta-m-map "i" 'ibuffer)
-(define-key meta-m-map "m" 'chunyu/insert-file-variable)
+(global-set-key "\M-sc" 'compile)
+(global-set-key "\M-sr" 'rgrep)
+(global-set-key "\M-sb" 'bbdb)
+(global-set-key "\M-sg" 'calendar)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -562,8 +550,7 @@ Frame must be declared as an environment."
       template-auto-insert nil
       template-initialize '(menus))
 (if (require 'template nil t)
-    (progn (define-key meta-m-map "f" 'template-expand-template)
-	   (template-initialize)))
+    (progn (template-initialize)))
 
 (mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
@@ -572,9 +559,7 @@ Frame must be declared as an environment."
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
 (if (require 'msf-abbrev nil t)
-    (progn (define-key meta-m-map "r" 'msf-abbrev-goto-root)
-	   (define-key meta-m-map "n" 'msf-abbrev-define-new-abbrev-this-mode)
-	   (define-key fld-choose-keymap "\M-m" 'fld-choose)
+    (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
 
 (setq swbuff-clear-delay 0.7
@@ -611,32 +596,15 @@ Frame must be declared as an environment."
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
 
-  ;; buffer-face-mode, face-remapping-alist, text-scale-mode
-
   (setq default-frame-alist
 	'((background-mode . dark)
-	  ;; (top . 0) (left . 0) (width . 80) (height . 44)
 	  (vertical-scroll-bars)
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
-	  (cursor-color . "coral")
-	  ;; (alpha . (100 . 75))
-	  (font . "fontset-chinese")))
+	  (cursor-color . "Coral")))
 
-  (create-fontset-from-fontset-spec
-   "-*-Courier New-normal-r-*-*-13-*-*-*-c-*-fontset-chinese")
-
-  (let ((fstr (format "-*-SimSun-normal-r-*-*-%s-*-*-*-*-*-iso10646-1"
-		      (if (> (display-pixel-width) 1280) "16" "14"))))
-    (set-fontset-font "fontset-chinese" nil       fstr)
-    (set-fontset-font "fontset-chinese" 'kana     fstr)
-    (set-fontset-font "fontset-chinese" 'han      fstr)
-    (set-fontset-font "fontset-chinese" 'cjk-misc fstr)
-    (set-fontset-font "fontset-chinese" 'symbol   fstr))
-
-  (set-default-font "fontset-chinese")
-
-  (modify-coding-system-alist 'file "\\.nfo\\'" 'cp437)
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'modeline nil :height 120)
 
   (cond
    ;; MS-Windows
@@ -801,12 +769,12 @@ Frame must be declared as an environment."
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
-)
+ )
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+)
 
 ;; Chunyu's .emacs.d/init.el ends here.
