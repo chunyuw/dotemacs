@@ -595,6 +595,7 @@ Frame must be declared as an environment."
 
   (if (> (display-pixel-width) 1024)
     (progn
+      (set-default-font "Consolas")
       (set-face-attribute 'default nil :height 140)
       (set-face-attribute 'modeline nil :height 120))
     (progn
