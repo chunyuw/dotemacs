@@ -14,7 +14,7 @@
    (position . 1)))
  ("totalcmd"
   (filename . "c:/Program Files/TotalCmd/usercmd.ini")
-  (front-context-string . " --fullscreen\nbu")
+  (front-context-string . " -g 126x41+0+0\np")
   (rear-context-string . "cs]\ncmd=runemacs")
   (position . 144))
  ("TheTeXBook"

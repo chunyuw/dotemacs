@@ -98,10 +98,6 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; (setq dictionary-server "cstgw.hit.edu.cn"
-;;       dictionary-coding-systems-for-dictionaries
-;;       '(("cdict" . gb2312) ("stardic" . gb2312) ("xdict" . gb2312)))
-
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
 
