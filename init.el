@@ -21,7 +21,7 @@
 (global-set-key "\C-co" 'org-open-at-point-global)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\M-sc" 'compile)
-;;(global-set-key "\M-sr" 'rgrep)
+(global-set-key "\M-sr" 'rgrep)
 (global-set-key "\M-sg" 'calendar)
 
 (setq inhibit-startup-message t
@@ -331,6 +331,10 @@
       calendar-location-name "Harbin"
       calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
+      calendar-intermonth-header t
+      calendar-intermonth-text 
+      '(propertize (hit-week-number month day year)
+	'font-lock-face 'font-lock-function-name-face)
       chinese-calendar-celestial-stem
       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
       chinese-calendar-terrestrial-branch
@@ -339,16 +343,18 @@
       '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
       	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
       	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
-      holiday-local-holidays
-      '((holiday-chinese 1 15 "元宵节 (正月十五)")
-      	(holiday-chinese 5  5 "端午节 (五月初五)")
+      holiday-oriental-holidays
+      '((holiday-chinese-new-year)
+	(holiday-chinese 1 15 "元宵节 (正月十五)")
+	(holiday-chinese-qingming)
+	(holiday-chinese 5  5 "端午节 (五月初五)")
       	(holiday-chinese 7  7 "七月七 (七月初七)")
       	(holiday-chinese 9  9 "重阳节 (九月初九)")
       	(holiday-chinese 8 15 "中秋节 (八月十五)")
       	(holiday-chinese 12 7 "老婆生日")))
 
 (setq calendar-holidays
-      (append holiday-local-holidays holiday-other-holidays holiday-solar-holidays))
+      (append holiday-oriental-holidays holiday-other-holidays holiday-solar-holidays))
 
 (setq mark-diary-entries-in-calendar t
       appt-message-warning-time 30
@@ -360,12 +366,18 @@
       calendar-time-display-form
       '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
 
-(autoload 'holiday-chinese "cal-china" "Chinese year data" t)
 (eval-after-load 'calendar
   '(progn
      (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
      (add-hook 'diary-hook 'appt-make-list)
-     (add-hook 'diary-display-hook 'fancy-diary-display)))
+     (add-hook 'diary-display-hook 'diary-fancy-display)))
+
+(defun hit-week-number (month day year)
+  (let* ((week 
+	  (car (calendar-iso-from-absolute
+		(calendar-absolute-from-gregorian (list month day year)))))
+	 (hit-week (% (+ week 18) 52))
+	 (result (if (< hit-week 22) (format "%2d" hit-week) "  "))) result))
 ;; Calendar ends here ;;
 
 ;; Load credentials ;;
