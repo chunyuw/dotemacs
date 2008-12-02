@@ -21,8 +21,7 @@
 (global-set-key "\C-co" 'org-open-at-point-global)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\M-sc" 'compile)
-(global-set-key "\M-sr" 'rgrep)
-(global-set-key "\M-sb" 'bbdb)
+;;(global-set-key "\M-sr" 'rgrep)
 (global-set-key "\M-sg" 'calendar)
 
 (setq inhibit-startup-message t
