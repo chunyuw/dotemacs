@@ -8,10 +8,10 @@
    (rear-context-string)
    (position . 0)))
  ("totalcmd"
-  ((filename . "c:/Program Files/Totalcmd/")
-   (front-context-string . "wincmd.ini\n  -rw")
-   (rear-context-string . "171 01-01 20:51 ")
-   (position . 3356)))
+  (filename . "c:/Program Files/totalcmd/usercmd.ini")
+  (front-context-string . "emacsclientw.exe")
+  (rear-context-string . "lient_edit]\ncmd=")
+  (position . 189))
  ("hosts"
   ((filename . "c:/WINDOWS/system32/drivers/etc/hosts")
    (front-context-string . "\n127.0.0.1      ")

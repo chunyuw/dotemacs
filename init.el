@@ -588,29 +588,27 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
-  (if (> (display-pixel-width) 1024)
+  (if (>= (display-pixel-width) 1024)
       (progn
-	(set-frame-font "Consolas")
-	(set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-	(set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-	(set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+	(set-frame-font "Consolas" t)
 	(set-face-attribute 'default nil :height 140)
-	(set-face-attribute 'modeline nil :height 120))
+	(set-face-attribute 'modeline nil :height 120)
+	(set-face-attribute 'font-lock-comment-face nil :italic t))
     (progn
       (set-frame-font "Courier New")
       (set-face-attribute 'default  nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+  
   ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
 
   (cond
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
-    ;; (global-set-key [mouse-2] 'ignore)
-    ;; (global-set-key [mouse-3] 'ignore)
-    ;; (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
-    ;; (global-set-key [apps] 'keyboard-escape-quit)
     (global-set-key [(control return)] [(return)])
     (global-set-key [pause] 'keyboard-escape-quit)
 
@@ -737,8 +735,7 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
-  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-  (set-face-attribute 'font-lock-comment-face nil :italic t)))
+  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
 
 
 (mapc (lambda (func) (put func 'disabled t))
