@@ -610,15 +610,20 @@ Frame must be declared as an environment."
       (set-face-attribute 'default nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'bopomofo "Microsoft YaHei")
+
   (cond
    ;; MS-Windows
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
-    (global-set-key [mouse-2] 'ignore)
-    (global-set-key [mouse-3] 'ignore)
-    (global-set-key [(control return)] [(return)])
-    (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
+    ;; (global-set-key [mouse-2] 'ignore)
+    ;; (global-set-key [mouse-3] 'ignore)
+    ;; (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
     ;; (global-set-key [apps] 'keyboard-escape-quit)
+    (global-set-key [(control return)] [(return)])
 
     (setq w32-lwindow-modifier 'super
 	  w32-pass-lwindow-to-system t
