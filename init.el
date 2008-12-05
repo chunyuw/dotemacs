@@ -497,10 +497,6 @@
      ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
-(eval-after-load 'font-latex
-  '(progn
-     (set-face-attribute 'font-latex-slide-title-face nil :height 1.01 :weight 'normal)))
-
 (defun beamer-setup ()
   (set (make-local-variable 'reftex-section-levels)
        '(("part" . 0) ("section" . 1) ("frametitle" . 2)))
@@ -748,11 +744,12 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-  (copy-face 'default 'font-lock-warning-face)
-  (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
+  ;; (copy-face 'default 'font-lock-warning-face)
+  ;; (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")
+	    (set-face-attribute 'font-latex-slide-title-face nil :height 1.01 :weight 'normal)))
   (eval-after-load 'table
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
