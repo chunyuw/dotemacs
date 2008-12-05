@@ -597,16 +597,15 @@ Frame must be declared as an environment."
   (if (> (display-pixel-width) 1024)
     (progn
       (set-frame-font "Consolas")
+      (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+      (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+      (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
       (set-face-attribute 'default nil :height 140)
       (set-face-attribute 'modeline nil :height 120))
     (progn
       (set-frame-font "Courier New")
       (set-face-attribute 'default nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
-
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
 
   ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
 
