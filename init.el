@@ -600,13 +600,12 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
+  (set-frame-font "Consolas")
   (if (> (display-pixel-width) 1024)
     (progn
-      (set-frame-font "Consolas")
       (set-face-attribute 'default nil :height 140)
       (set-face-attribute 'modeline nil :height 120))
     (progn
-      (set-frame-font "Courier New")
       (set-face-attribute 'default nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
@@ -614,6 +613,8 @@ Frame must be declared as an environment."
   (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'bopomofo "Microsoft YaHei")
+
+;  (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
 
   (cond
    ;; MS-Windows
