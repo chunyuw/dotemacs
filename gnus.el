@@ -2,7 +2,7 @@
 ;; Created on 2003/02/24 on db.hit.edu.cn
 
 (setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml ""))) ; (nntp "news.happynet.org") (nntp "news.delegate.org")
+      gnus-secondary-select-methods '((nnml "")))
 
 (setq gnus-default-charset 'gbk
       gnus-group-name-charset-group-alist '((".*" . gbk))
@@ -115,13 +115,6 @@
 	 . message-expand-group)))
 
 (gnus-compile)
-
-(when window-system
-  (eval-after-load 'gnus-art
-    '(progn 
-       (copy-face 'gnus-header-from-face 'gnus-x-face)
-       (set-face-attribute 'gnus-x-face nil :foreground "blue")))
-  (set-face-attribute 'gnus-summary-high-unread-face nil :foreground "LightGoldenrod3"))
 
 (unless window-system
   (when (= 8 (display-color-cells))
