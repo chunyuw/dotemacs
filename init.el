@@ -535,12 +535,6 @@ Frame must be declared as an environment."
         (TeX-command-region)))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
-;; Haskell ;;
-(when (load "haskell-site-file.el" t t t)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent))
-;; Haskell ends here ;;
-
 ;; MISC Packages ;;
 (require 'doc-view nil t)
 
