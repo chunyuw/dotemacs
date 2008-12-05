@@ -429,7 +429,7 @@
       reftex-plug-into-AUCTeX t)
 
 (setq font-latex-fontify-script nil
-      font-latex-fontify-sectioning 1
+      font-latex-fontify-sectioning 1.01
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
@@ -496,6 +496,10 @@
 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
      ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
+
+(eval-after-load 'font-latex
+  '(progn
+     (set-face-attribute 'font-latex-slide-title-face nil :height 1.01 :weight 'normal)))
 
 (defun beamer-setup ()
   (set (make-local-variable 'reftex-section-levels)
