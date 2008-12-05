@@ -713,6 +713,7 @@ Frame must be declared as an environment."
   (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red")
+  (set-face-attribute 'font-lock-comment-face nil :italic t)
 
   (when (< 240 (display-color-cells))
     ;; 256 colors XTerm console
