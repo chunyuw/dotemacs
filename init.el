@@ -23,6 +23,7 @@
 (global-set-key "\M-sc" 'compile)
 (global-set-key "\M-sr" 'rgrep)
 (global-set-key "\M-sg" 'calendar)
+(global-set-key [(super c)] 'compile)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -209,8 +210,8 @@
 (setq c-offsets-alist '((substatement-open . 0))
       c-cleanup-list
       '(brace-else-brace compact-empty-funcall comment-close-slash
-	brace-elseif-brace empty-defun-braces defun-close-semi
-	list-close-comma scope-operator space-before-funcall))
+			 brace-elseif-brace empty-defun-braces defun-close-semi
+			 list-close-comma scope-operator space-before-funcall))
 (setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
@@ -334,7 +335,7 @@
       calendar-intermonth-header t
       calendar-intermonth-text 
       '(propertize (hit-week-number month day year)
-	'font-lock-face 'font-lock-function-name-face)
+		   'font-lock-face 'font-lock-function-name-face)
       chinese-calendar-celestial-stem
       ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ý" "ÐÁ" "ÈÉ" "¹ï"]
       chinese-calendar-terrestrial-branch
@@ -380,7 +381,7 @@
 	 (result (if (< hit-week 22) (format "%2d" hit-week) "  "))) result))
 ;; Calendar ends here ;;
 
-;; Load credentials ;;
+;; Load pass etc ;;
 (set (make-local-variable 'my-smtp-pass) "")
 (load "~/.emacs.d/mypass" t t t)
 ;; Loaded ;;
@@ -561,10 +562,7 @@ Frame must be declared as an environment."
       swbuff-exclude-mode-regexp "Fundamental")
 (if (require 'swbuff-x nil t)
     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
-	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)
-	   (set-face-attribute 'swbuff-current-buffer-face nil :foreground "OrangeRed" :underline nil)
-	   (set-face-attribute 'swbuff-separator-face nil :foreground "azure" :bold nil)
-	   (set-face-attribute 'swbuff-special-buffers-face nil :foreground "goldenrod2")))
+	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)))
 
 (setq w3m-init-file "~/.emacs.d/w3m")
 (require 'w3m-load nil t)
@@ -576,13 +574,9 @@ Frame must be declared as an environment."
  ((not window-system)
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
- ;; Text-Only Windows console
- ((and (not window-system) (eq system-type 'windows-nt))
-  (global-set-key [(control return)] [(return)]))
+
  ;; BOTH X-Window and MS-Windows
  (window-system
-  (tool-bar-mode -1)
-
   (setq-default mouse-yank-at-point t)
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
@@ -595,16 +589,16 @@ Frame must be declared as an environment."
 	  (cursor-color . "Coral")))
 
   (if (> (display-pixel-width) 1024)
-    (progn
-      (set-frame-font "Consolas")
-      (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-      (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-      (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
-      (set-face-attribute 'default nil :height 140)
-      (set-face-attribute 'modeline nil :height 120))
+      (progn
+	(set-frame-font "Consolas")
+	(set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+	(set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+	(set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+	(set-face-attribute 'default nil :height 140)
+	(set-face-attribute 'modeline nil :height 120))
     (progn
       (set-frame-font "Courier New")
-      (set-face-attribute 'default nil :height 100)
+      (set-face-attribute 'default  nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
   ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
@@ -618,8 +612,10 @@ Frame must be declared as an environment."
     ;; (global-set-key [mouse-3] 'mouse-popup-menubar-stuff)
     ;; (global-set-key [apps] 'keyboard-escape-quit)
     (global-set-key [(control return)] [(return)])
+    (global-set-key [pause] 'keyboard-escape-quit)
 
-    (setq w32-lwindow-modifier 'super
+    (setq w32-lwindow-modifier 'hyper
+	  w32-apps-modifier 'super
 	  w32-pass-lwindow-to-system t
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
@@ -708,7 +704,6 @@ Frame must be declared as an environment."
   (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red")
-  (set-face-attribute 'font-lock-comment-face nil :italic t)
 
   (when (< 240 (display-color-cells))
     ;; 256 colors XTerm console
@@ -743,14 +738,7 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-  ;; (copy-face 'default 'font-lock-warning-face)
-  ;; (set-face-attribute 'font-lock-warning-face nil :foreground "deep pink")
-  (eval-after-load 'font-latex
-    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-slide-title-face nil :height 1.01 :weight 'normal)))
-  (eval-after-load 'table
-    '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
+  (set-face-attribute 'font-lock-comment-face nil :italic t)))
 
 
 (mapc (lambda (func) (put func 'disabled t))
@@ -766,21 +754,21 @@ Frame must be declared as an environment."
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
 (let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
-  (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
+     (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
 
 ;; Customizations ;;
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-)
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; Local Variables:
 ;; mode: emacs-lisp
