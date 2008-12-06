@@ -20,10 +20,12 @@
 (global-set-key "\C-cL" 'org-insert-link-global)
 (global-set-key "\C-co" 'org-open-at-point-global)
 (global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\M-sc" 'compile)
-(global-set-key "\M-sr" 'rgrep)
-(global-set-key "\M-sg" 'calendar)
+(global-set-key [pause] 'set-mark-command)
+;;(global-set-key [(super pause)] 'pop-global-mark)
+(global-set-key [(super g)] 'rgrep)
+(global-set-key [(super i)] 'calendar)
 (global-set-key [(super c)] 'compile)
+(global-set-key [(super u)] 'chunyu/update-src)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -610,7 +612,6 @@ Frame must be declared as an environment."
    ((eq window-system 'w32)
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
-    (global-set-key [pause] 'keyboard-escape-quit)
 
     (setq w32-lwindow-modifier 'hyper
 	  w32-apps-modifier 'super
