@@ -297,11 +297,11 @@
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
 	      completion-ignored-extensions))
 (require 'ido)
+(ido-everywhere 1)
+(ido-mode 1)
 (define-key ido-buffer-completion-map [(super r)] 'ido-next-match)
 (define-key ido-buffer-completion-map [(super R)] 'ido-prev-match)
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
-(ido-everywhere 1)
-(ido-mode 1)
 ;; Ido ends here ;;
 
 ;; BBDB ;;
