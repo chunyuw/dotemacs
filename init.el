@@ -15,17 +15,18 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-`" 'next-error)
 (global-set-key "\M-k" 'kill-this-buffer)
-(global-set-key "\M-a" 'other-window)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cL" 'org-insert-link-global)
-(global-set-key "\C-co" 'org-open-at-point-global)
-(global-set-key "\C-ca" 'org-agenda)
 (global-set-key [pause] 'set-mark-command)
 ;;(global-set-key [(super pause)] 'pop-global-mark)
+;(global-set-key [?\s- ] 'set-mark-command)
+(global-set-key [(super o)] 'other-window)
 (global-set-key [(super g)] 'rgrep)
 (global-set-key [(super i)] 'calendar)
-(global-set-key [(super c)] 'compile)
 (global-set-key [(super u)] 'chunyu/update-src)
+(global-set-key [(super r)] 'switch-to-buffer)
+
+(define-prefix-command 'super-c-map)
+(global-set-key [(super c)] 'super-c-map)
+(define-key super-c-map [(super c)] 'compile)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -296,6 +297,9 @@
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
 	      completion-ignored-extensions))
 (require 'ido)
+(define-key ido-buffer-completion-map [(super r)] 'ido-next-match)
+(define-key ido-buffer-completion-map [(super R)] 'ido-prev-match)
+(define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 (ido-everywhere 1)
 (ido-mode 1)
 ;; Ido ends here ;;
@@ -556,15 +560,15 @@ Frame must be declared as an environment."
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
 
-(setq swbuff-clear-delay 0.7
-      swbuff-load-hook nil
-      swbuff-separator " | "
-      swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
-      swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
-      swbuff-exclude-mode-regexp "Fundamental")
-(if (require 'swbuff-x nil t)
-    (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
-	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)))
+;; (setq swbuff-clear-delay 0.7
+;;       swbuff-load-hook nil
+;;       swbuff-separator " | "
+;;       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
+;;       swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
+;;       swbuff-exclude-mode-regexp "Fundamental")
+;; (if (require 'swbuff-x nil t)
+;;     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
+;; 	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)))
 
 (setq w3m-init-file "~/.emacs.d/w3m")
 (require 'w3m-load nil t)
