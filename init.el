@@ -107,6 +107,12 @@
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
 
+(setq savehist-file "~/.emacs.d/zhistory.el"
+      savehist-additinoal-variables
+      '(regexp-history command-history search-ring file-name-history shell-command-history
+		       minibuffer-history extended-command-history compile-history
+		       LaTeX-environment-history query-replace-history))
+
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (set-language-environment    'Chinese-GBK)
@@ -145,14 +151,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
-(add-hook 'savehist-save-hook
-	  (lambda ()
-	    (setq savehist-minibuffer-history-variables
-		  '(regexp-history
-		    search-ring file-name-history shell-command-history
-		    minibuffer-history extended-command-history compile-history
-		    LaTeX-environment-history
-		    query-replace-history))))
+
 (add-hook 'icomplete-minibuffer-setup-hook
 	  (lambda ()
 	    (make-local-variable 'max-mini-window-height)
@@ -205,8 +204,7 @@
 
 
 ;; SavePlace ;;
-(setq savehist-file "~/.emacs.d/zhistory.el"
-      save-place-file "~/.emacs.d/zplaces.el"
+(setq save-place-file "~/.emacs.d/zplaces.el"
       save-place-limit 20)
 (setq-default save-place t)
 (require 'saveplace)
@@ -496,7 +494,7 @@
      (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
      (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
      (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
-     (define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
+     ;;(define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
      (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
      (define-key TeX-mode-map "\M-m\M-," 'TeX-view)
      (define-key TeX-mode-map "\M-n" 'next-line)
