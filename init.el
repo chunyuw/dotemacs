@@ -15,8 +15,6 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key [pause] 'set-mark-command)
-;;(global-set-key [(super pause)] 'pop-global-mark)
-;(global-set-key [?\s- ] 'set-mark-command)
 (global-set-key [(super o)] 'other-window)
 (global-set-key [(super g)] 'rgrep)
 (global-set-key [(super i)] 'calendar)
