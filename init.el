@@ -13,7 +13,6 @@
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
-(global-set-key "\M-`" 'next-error)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key [pause] 'set-mark-command)
 ;;(global-set-key [(super pause)] 'pop-global-mark)
