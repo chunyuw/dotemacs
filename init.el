@@ -23,6 +23,8 @@
 (global-set-key [(super i)] 'calendar)
 (global-set-key [(super u)] 'chunyu/update-src)
 (global-set-key [(super r)] 'switch-to-buffer)
+(global-set-key [(super v)] 'view-mode)
+(global-set-key [(super h)] 'mark-whole-buffer)
 
 (define-prefix-command 'super-c-map)
 (global-set-key [(super c)] 'super-c-map)
@@ -42,6 +44,7 @@
       disabled-command-function nil
       history-delete-duplicates t
       mark-even-if-inactive t
+      parens-require-spaces nil
       isearch-allow-scroll t)
 
 (setq makefile-electric-keys t
@@ -610,6 +613,7 @@ Frame must be declared as an environment."
   (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
   
   ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
+  (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
   (cond
    ;; MS-Windows
