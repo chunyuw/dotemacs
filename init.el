@@ -113,6 +113,7 @@
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (set-language-environment    'Chinese-GBK)
+(set-default-coding-systems  'chinese-gbk)
 (set-keyboard-coding-system  'chinese-gbk)
 (set-terminal-coding-system  'chinese-gbk)
 (set-clipboard-coding-system 'chinese-gbk)
@@ -298,7 +299,7 @@
 (ido-everywhere 1)
 (ido-mode 1)
 (define-key ido-buffer-completion-map [(super r)] 'ido-next-match)
-(define-key ido-buffer-completion-map [(super R)] 'ido-prev-match)
+(define-key ido-buffer-completion-map [(super s)] 'ido-prev-match)
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 ;; Ido ends here ;;
 
