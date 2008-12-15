@@ -15,6 +15,8 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key [pause] 'set-mark-command)
+(global-set-key [(super pause)] 'pop-global-mark)
+;(global-set-key [?\s- ] 'set-mark-command)
 (global-set-key [(super o)] 'other-window)
 (global-set-key [(super g)] 'rgrep)
 (global-set-key [(super i)] 'calendar)
@@ -291,6 +293,8 @@
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point nil
       ido-enable-flex-matching t
+      ido-enable-prefix t
+      ido-enable-regexp t
       ido-create-new-buffer 'always
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
@@ -558,16 +562,6 @@ Frame must be declared as an environment."
 (if (require 'msf-abbrev nil t)
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
-
-;; (setq swbuff-clear-delay 0.7
-;;       swbuff-load-hook nil
-;;       swbuff-separator " | "
-;;       swbuff-exclude-buffer-regexps '("^ " "^\*.*\*")
-;;       swbuff-include-buffer-regexps '("\*scratch\*" "\*info\*" "\*Calculator\*")
-;;       swbuff-exclude-mode-regexp "Fundamental")
-;; (if (require 'swbuff-x nil t)
-;;     (progn (global-set-key "\M-e" 'swbuff-switch-to-next-buffer)
-;; 	   (global-set-key "\M-E" 'swbuff-switch-to-previous-buffer)))
 
 (setq w3m-init-file "~/.emacs.d/w3m")
 (require 'w3m-load nil t)
