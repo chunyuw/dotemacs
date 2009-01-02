@@ -63,7 +63,7 @@
 (setq gnus-inhibit-startup-message t
       gnus-init-file "~/.emacs.d/gnus.el")
 
-(setq ;; mail-signature-file "~/.sig/default"
+(setq ;; mail-signature-file "~/.emacs.d/signature"
       mail-user-agent 'gnus-user-agent
       mail-alias-file "~/.mailrc"
       user-full-name "Chunyu Wang"

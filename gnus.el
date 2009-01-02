@@ -49,19 +49,16 @@
 
 (setq gnus-posting-styles
       '((".*"
-	 (signature-file "~/.emacs.d/sig/default")
+	 ;; (signature-file "~/.emacs.d/signature")
 	 (name "Íõ´ºÓî")
 	 (address "chunyu@hit.edu.cn"))
 	("^cn\\..*\\|^nntp\\+news.*"
-	 (signature-file "~/.emacs.d/sig/cnnews")
 	 (name "Chunyu")
 	 (address "chunyu@myrealbox.com"))
 	("^nnml:mail.*"
-	 (signature-file "~/.emacs.d/sig/mail")
 	 (name "Íõ´ºÓî")
 	 (address "chunyu@hit.edu.cn"))	
 	("^nnml:list.*"
-	 (signature-file "~/.emacs.d/sig/lists")
 	 (name "Chunyu Wang")
 	 (address "cymacs@gmail.com"))))
 
@@ -70,7 +67,7 @@
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
       message-signature t
-      message-signature-file "~/.emacs.d/sig/default"
+      ;; message-signature-file "~/.emacs.d/signature"
       message-mail-alias-type nil
       message-make-forward-subject-function 'message-forward-subject-fwd
       message-forward-as-mime t
