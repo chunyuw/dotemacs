@@ -339,7 +339,6 @@
       calendar-latitude 45.73213
       calendar-longitude 126.63621
       calendar-location-name "Harbin"
-      calendar-remove-frame-by-deleting t
       calendar-week-start-day 1
       calendar-intermonth-header t
       calendar-intermonth-text 
