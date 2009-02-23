@@ -258,7 +258,7 @@
        (defun chunyu/totalcmd-open ()
 	 "Open dir in Total Commander."
 	 (interactive)
-	 (let ((f (substitute ?\\ ?/ (dired-get-filename)))
+	 (let ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
 	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
