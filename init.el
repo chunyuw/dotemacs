@@ -16,7 +16,6 @@
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key [pause] 'set-mark-command)
 (global-set-key [(super pause)] 'pop-global-mark)
-;(global-set-key [?\s- ] 'set-mark-command)
 (global-set-key [(super o)] 'other-window)
 (global-set-key [(super g)] 'rgrep)
 (global-set-key [(super i)] 'calendar)
@@ -385,8 +384,9 @@
   (let* ((week 
 	  (car (calendar-iso-from-absolute
 		(calendar-absolute-from-gregorian (list month day year)))))
-	 (hit-week (% (+ week 18) 52))
-	 (result (if (< hit-week 22) (format "%2d" hit-week) "  "))) result))
+	 (offset 8) ;; first week of this semester
+	 (hit-week (% (- week offset) 52))
+	 (result (if (and (> hit-week 0) (< hit-week 22)) (format "%2d" hit-week) "  "))) result))
 ;; Calendar ends here ;;
 
 ;; Load pass etc ;;
