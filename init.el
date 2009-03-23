@@ -388,17 +388,9 @@
 	 (result (if (and (> hit-week 0) (< hit-week 22)) (format "%2d" hit-week) "  "))) result))
 ;; Calendar ends here ;;
 
-;; Load pass etc ;;
-(set (make-local-variable 'my-smtp-pass) "")
+;; Load local settings ;;
 (load "~/.emacs.d/mypass" t t t)
 ;; Loaded ;;
-
-;; SMTP ;;
-(setq message-send-mail-function 'smtpmail-send-it)
-(setq smtpmail-smtp-server "mx.hit.edu.cn")
-(setq smtpmail-auth-credentials
-      `(("mx.hit.edu.cn" 25 "chunyu" ,my-smtp-pass)))
-;; SMTP ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (load "auctex.el" t t t)
@@ -585,18 +577,20 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
+  (if (>= (display-pixel-width) 1024)
+      (set-frame-font "Consolas" t)
+    (set-frame-font "Courier New"))
+
   (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
 
   (if (>= (display-pixel-width) 1024)
       (progn
-	(set-frame-font "Consolas" t)
 	(set-face-attribute 'default nil :height 140)
 	(set-face-attribute 'modeline nil :height 120)
-	(set-face-attribute 'font-lock-comment-face nil :italic t))
+  	(set-face-attribute 'font-lock-comment-face nil :italic t))
     (progn
-      (set-frame-font "Courier New")
       (set-face-attribute 'default  nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
