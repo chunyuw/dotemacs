@@ -62,8 +62,7 @@
 (setq gnus-inhibit-startup-message t
       gnus-init-file "~/.emacs.d/gnus.el")
 
-(setq ;; mail-signature-file "~/.emacs.d/signature"
-      mail-user-agent 'gnus-user-agent
+(setq mail-user-agent 'gnus-user-agent
       mail-alias-file "~/.mailrc"
       user-full-name "Chunyu Wang"
       user-mail-address "chunyu@hit.edu.cn")
@@ -586,6 +585,10 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+
   (if (>= (display-pixel-width) 1024)
       (progn
 	(set-frame-font "Consolas" t)
@@ -597,10 +600,6 @@ Frame must be declared as an environment."
       (set-face-attribute 'default  nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
-  
   ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
