@@ -287,7 +287,7 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ido-save-directory-list-file "~/.emacs.d/zido.el"
+      ;; ido-save-directory-list-file "~/.emacs.d/zido.el"
       ido-auto-merge-delay-time 2
       ido-use-filename-at-point nil
       ido-enable-flex-matching t
