@@ -546,7 +546,7 @@ Frame must be declared as an environment."
 (mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
 		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook 
-		     python-mode-hook haskell-mode-hook))
+		     haskell-mode-hook))
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
 (if (require 'msf-abbrev nil t)
