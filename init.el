@@ -465,13 +465,14 @@
 	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
-	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1)
-	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) (beamer-setup)))
+	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (beamer-setup)
+	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) ))
 
-(eval-after-load 'cdlatex
-  '(progn
-     ;; (define-key cdlatex-mode-map "^" 'self-insert-command)
-     (define-key cdlatex-mode-map "_" 'self-insert-command)))
+;; (eval-after-load 'cdlatex
+;;   '(progn
+;;      (define-key cdlatex-mode-map "^" 'self-insert-command)
+;;      (define-key cdlatex-mode-map "_" 'self-insert-command)
+;;      ))
 
 (eval-after-load 'latex
   '(progn 
