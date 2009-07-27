@@ -259,8 +259,8 @@
 	 (let ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
 	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
 	   (if (file-exists-p f)
-	       (w32-shell-execute nil c (format "/O \"%s\"" f) 1))))
-
+	       (w32-shell-execute nil c (format "/O \"%s\"" (subst-char-in-string ?/ ?\\ f)) 1))))
+       
        (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
 	 (interactive)
