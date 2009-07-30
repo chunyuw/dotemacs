@@ -339,9 +339,6 @@
       calendar-location-name "Harbin"
       calendar-week-start-day 1
       calendar-intermonth-header t
-      calendar-intermonth-text 
-      '(propertize (hit-week-number month day year)
-		   'font-lock-face 'font-lock-function-name-face)
       chinese-calendar-celestial-stem
       ["¼×" "ÒÒ" "±û" "¶¡" "Îì" "¼º" "¸ý" "ÐÁ" "ÈÉ" "¹ï"]
       chinese-calendar-terrestrial-branch
@@ -378,14 +375,6 @@
      (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
      (add-hook 'diary-hook 'appt-make-list)
      (add-hook 'diary-display-hook 'diary-fancy-display)))
-
-(defun hit-week-number (month day year)
-  (let* ((week 
-	  (car (calendar-iso-from-absolute
-		(calendar-absolute-from-gregorian (list month day year)))))
-	 (offset 8) ;; first week of this semester
-	 (hit-week (% (- week offset) 52))
-	 (result (if (and (> hit-week 0) (< hit-week 22)) (format "%2d" hit-week) "  "))) result))
 ;; Calendar ends here ;;
 
 ;; Load local settings ;;
