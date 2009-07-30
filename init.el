@@ -35,7 +35,7 @@
       track-eol t
       kill-whole-line t
       Man-notify-method 'pushy
-      vcg-follow-symlinks t
+      vc-follow-symlinks t
       vc-suppress-confirm t
       enable-recursive-minibuffers t
       default-fill-column 78
