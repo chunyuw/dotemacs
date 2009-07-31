@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("subversion"
+(("eclipse"
+  (filename . "d:/Projects/eclipse/htdg-work/src/")
+  (front-context-string . "JobBuilder.java\n")
+  (rear-context-string . "922 07-31 11:02 ")
+  (position . 226))
+ ("subversion"
   (filename . "c:/Documents and Settings/chunyu/Application Data/Subversion/config")
   (front-context-string . "\n### If you want")
   (rear-context-string . "sh\nlocal = plink")
