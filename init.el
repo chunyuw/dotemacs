@@ -305,32 +305,6 @@
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 ;; Ido ends here ;;
 
-;; BBDB ;;
-(cond
- ((load "bbdb-autoloads.el" t t t)
-  (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-  (add-hook 'gnus-startup-hook 'bbdb-insinuate-sc)
-  (setq bbdb-file "~/.emacs.d/bbdb"
-	bbdb-north-american-phone-numbers-p nil
-	bbdb-check-zip-codes-p nil
-	bbdb-electric-p t
-	bbdb-use-pop-up nil
-	bbdb-pop-up-target-lines 1
-	bbdb-display-layout 'multi-line
-	bbdb-offer-save nil
-	bbdb-complete-name-allow-cycling t
-	bbdb-time-display-format "%Y-%m-%d"
-	bbdb-user-mail-names "chunyu\\|cymacs"
-	bbdb/gnus-score-default +20
-	gnus-score-find-score-files-function '(gnus-score-find-bnews bbdb/gnus-score)
-	bbdb-display-layout-alist
-	'((one-line (order phones net) (name-end . 24) (toggle . t))
-	  (multi-line (indention . 14) (toggle . t) (omit creation-date timestamp))
-	  (pop-up-multi-line (indention . 14))))
-  (eval-after-load 'gnus
-    '(progn (bbdb-initialize 'gnus 'message 'sc)))))
-;; BBDB ends here ;;
-
 ;; Calendar ;;
 (setq diary-file "~/.emacs.d/diary"
       view-diary-entries-initially t
