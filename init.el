@@ -6,27 +6,12 @@
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-xk" 'kill-this-buffer)
-(global-set-key "\C-xB" 'bury-buffer)
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
-(global-set-key "\C-xI" 'insert-buffer)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
-(global-set-key [pause] 'set-mark-command)
-(global-set-key [(super pause)] 'pop-global-mark)
-(global-set-key [(super o)] 'other-window)
-(global-set-key [(super g)] 'rgrep)
-(global-set-key [(super i)] 'calendar)
-(global-set-key [(super u)] 'chunyu/update-src)
-(global-set-key [(super r)] 'switch-to-buffer)
-(global-set-key [(super v)] 'view-mode)
-(global-set-key [(super h)] 'mark-whole-buffer)
-
-(define-prefix-command 'super-c-map)
-(global-set-key [(super c)] 'super-c-map)
-(define-key super-c-map [(super c)] 'compile)
 
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
@@ -201,12 +186,12 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
-;; ;; SavePlace ;;
-;; (setq save-place-file "~/.emacs.d/zplaces.el"
-;;       save-place-limit 20)
-;; (setq-default save-place t)
-;; (require 'saveplace)
-;; ;; SavePlace ends here ;;
+;; SavePlace ;;
+(setq save-place-file "~/.emacs.d/zplaces.el"
+      save-place-limit 20)
+(setq-default save-place t)
+(require 'saveplace)
+;; SavePlace ends here ;;
 
 ;; CC-Mode ;;
 (setq c-offsets-alist '((substatement-open . 0))
@@ -287,11 +272,11 @@
 
 ;; Ido ;;
 (setq ido-max-prospects 8
-      ;; ido-save-directory-list-file "~/.emacs.d/zido.el"
+      ido-save-directory-list-file nil
       ido-auto-merge-delay-time 2
-      ido-use-filename-at-point nil
+      ido-use-filename-at-point t
       ido-enable-flex-matching t
-      ido-enable-prefix t
+      ido-enable-prefix nil
       ido-enable-regexp t
       ido-create-new-buffer 'always
       completion-ignored-extensions
@@ -300,8 +285,6 @@
 (require 'ido)
 (ido-everywhere 1)
 (ido-mode 1)
-(define-key ido-buffer-completion-map [(super r)] 'ido-next-match)
-(define-key ido-buffer-completion-map [(super s)] 'ido-prev-match)
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 ;; Ido ends here ;;
 
