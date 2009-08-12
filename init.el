@@ -201,12 +201,12 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
-;; SavePlace ;;
-(setq save-place-file "~/.emacs.d/zplaces.el"
-      save-place-limit 20)
-(setq-default save-place t)
-(require 'saveplace)
-;; SavePlace ends here ;;
+;; ;; SavePlace ;;
+;; (setq save-place-file "~/.emacs.d/zplaces.el"
+;;       save-place-limit 20)
+;; (setq-default save-place t)
+;; (require 'saveplace)
+;; ;; SavePlace ends here ;;
 
 ;; CC-Mode ;;
 (setq c-offsets-alist '((substatement-open . 0))
