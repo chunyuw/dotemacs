@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("eclipse"
+(("free_ware"
+  (filename . "c:/free_ware/")
+  (front-context-string . "MinGW\n  drwxrwxr")
+  (rear-context-string . "  0 2008-09-14  ")
+  (position . 250))
+ ("eclipse"
   (filename . "d:/Projects/eclipse/htdg-work/src/")
   (front-context-string . "JobBuilder.java\n")
   (rear-context-string . "922 07-31 11:02 ")
