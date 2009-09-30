@@ -38,9 +38,7 @@
       '((".*" (agent-disable-undownloaded-faces t))
 	("list\\..*" (subscribed . t) (total-expire . t))
 	("mail\\..*" (total-expire . nil) (gnus-use-scoring nil))
-	("misc\\..*" (total-expire . nil))
-	("nnfolder\\+archive:.*" (gnus-use-scoring nil))
-	("classmate\\..*" (gnus-use-scoring nil))))
+	("misc\\..*" (total-expire . nil))))
 
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -52,12 +50,9 @@
 	 ;; (signature-file "~/.emacs.d/signature")
 	 (name "Õı¥∫”Ó")
 	 (address "chunyu@hit.edu.cn"))
-	("^cn\\..*\\|^nntp\\+news.*"
-	 (name "Chunyu")
-	 (address "chunyu@myrealbox.com"))
 	("^nnml:mail.*"
 	 (name "Õı¥∫”Ó")
-	 (address "chunyu@hit.edu.cn"))	
+	 (address "cymacs@gmail.com"))
 	("^nnml:list.*"
 	 (name "Chunyu Wang")
 	 (address "cymacs@gmail.com"))))
@@ -67,7 +62,6 @@
       message-elide-ellipsis "\n  [...]\n"
       message-sendmail-envelope-from 'header
       message-signature t
-      ;; message-signature-file "~/.emacs.d/signature"
       message-mail-alias-type nil
       message-make-forward-subject-function 'message-forward-subject-fwd
       message-forward-as-mime t
@@ -85,13 +79,8 @@
       nnmail-split-methods 'nnmail-split-fancy
       nnmail-split-fancy-match-partial-words t
       nnmail-split-fancy
-      '(| (any "985101" "classmate.985101")
-	  (any "luatex\\|pgf" "list.tex")
-	  (any "emacs-cn" "list.emacs-cn")
-	  (to "@202.118.224.153" "mail.misc")
-	  (to "chunyu@\\|cymacs@gmail\\|@\\(cy.\\)?emacs\\.cn"
-	      (| (any "cmbchina\\.com" "mail.cmbchina")
-		 "mail.misc"))
+      '(| (to "@202.118.224.153" "mail.misc")
+	  (to "chunyu@hit.edu.cn\\|cymacs@gmail.com" "mail.misc")
 	  "misc.junk")
       nnmail-mail-splitting-decodes t)
 
@@ -100,7 +89,7 @@
       gnus-registry-use-long-group-names t)
 (gnus-registry-initialize)
 
-(add-hook 'message-mode-hook 
+(add-hook 'message-mode-hook
 	  (lambda ()
 	    (setq fill-column 72)
 	    (turn-on-auto-fill)))
@@ -112,30 +101,5 @@
 	 . message-expand-group)))
 
 (gnus-compile)
-
-(unless window-system
-  (when (= 8 (display-color-cells))
-    (eval-after-load 'gnus-cite
-      '(progn
-	 (set-face-attribute 'gnus-cite-face-2 nil :foreground "magenta")
-	 (set-face-attribute 'gnus-cite-face-3 nil :foreground "yellow")
-	 (set-face-attribute 'gnus-cite-face-4 nil :foreground "cyan")))
-    (eval-after-load 'gnus-art
-      '(progn
-	 (set-face-attribute 'gnus-header-subject-face nil :foreground "red" :weight 'bold)))
-
-    (set-face-attribute 'gnus-splash-face nil :foreground "yellow")
-    (set-face-attribute 'gnus-group-mail-1-empty-face nil :foreground "magenta")
-    (set-face-attribute 'gnus-group-mail-1-face nil :foreground "magenta" :weight 'bold)
-    (set-face-attribute 'gnus-group-mail-2-empty-face nil :foreground "cyan")
-    (set-face-attribute 'gnus-group-mail-2-face nil :foreground "cyan" :weight 'bold)
-    (set-face-attribute 'gnus-group-mail-3-empty-face nil :foreground "green")
-    (set-face-attribute 'gnus-group-mail-3-face nil :foreground "green" :weight 'bold)
-    (set-face-attribute 'gnus-group-news-1-empty-face nil :foreground "magenta")
-    (set-face-attribute 'gnus-group-news-1-face nil :foreground "magenta" :weight 'bold)
-    (set-face-attribute 'gnus-group-news-2-empty-face nil :foreground "cyan")
-    (set-face-attribute 'gnus-group-news-2-face nil :foreground "cyan" :weight 'bold)
-    (set-face-attribute 'gnus-group-news-3-empty-face nil :foreground "green")
-    (set-face-attribute 'gnus-group-news-3-face nil :foreground "green" :weight 'bold)))
 
 ;; Chunyu's .emacs.d/gnus.el ends here.
