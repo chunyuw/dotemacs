@@ -525,6 +525,10 @@ Frame must be declared as an environment."
 	  (cursor-color . "Coral")))
 
   (if (>= (display-pixel-width) 1024)
+      (set-frame-font "Consolas" t)
+    (set-frame-font "Courier New"))
+
+  (if (>= (display-pixel-width) 1024)
       (progn
 	(set-face-attribute 'default nil :height 140)
 	(set-face-attribute 'modeline nil :height 120)
@@ -533,10 +537,7 @@ Frame must be declared as an environment."
       (set-face-attribute 'default  nil :height 100)
       (set-face-attribute 'modeline nil :height 100)))
 
-  (if (>= (display-pixel-width) 1024)
-      (progn (set-frame-font "Consolas" t)
-	     (set-face-font 'fixed-pitch "Courier New"))
-    (set-frame-font "Courier New"))
+  (set-face-font 'fixed-pitch "Courier New")
 
   (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
