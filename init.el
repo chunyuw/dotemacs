@@ -97,12 +97,12 @@
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
-(set-language-environment    'Chinese-GBK)
-(set-default-coding-systems  'chinese-gbk)
-(set-keyboard-coding-system  'chinese-gbk)
-(set-terminal-coding-system  'chinese-gbk)
-(set-clipboard-coding-system 'chinese-gbk)
-(set-selection-coding-system 'chinese-gbk)
+(set-language-environment    'UTF-8)
+(set-default-coding-systems  'utf-8)
+(set-keyboard-coding-system  'utf-8)
+(set-terminal-coding-system  'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
