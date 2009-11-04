@@ -121,7 +121,7 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
-(server-mode 1)
+;(server-mode 1)
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
