@@ -89,12 +89,6 @@
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
 
-(setq savehist-file "~/.emacs.d/zhistory.el"
-      savehist-additinoal-variables
-      '(regexp-history command-history search-ring file-name-history shell-command-history
-		       minibuffer-history extended-command-history compile-history
-		       LaTeX-environment-history query-replace-history))
-
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (set-language-environment    'UTF-8)
@@ -120,7 +114,6 @@
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
-(savehist-mode 1)
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
@@ -185,6 +178,13 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
+;; ;; SavePlace ;;
+(setq save-place-file "~/.emacs.d/zplaces.el"
+      save-place-limit 20)
+(setq-default save-place t)
+(require 'saveplace)
+;; SavePlace ends here ;;
+
 ;; CC-Mode ;;
 (setq c-offsets-alist '((substatement-open . 0))
       c-cleanup-list
