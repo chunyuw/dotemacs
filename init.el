@@ -178,7 +178,7 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
-;; ;; SavePlace ;;
+;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/zplaces.el"
       save-place-limit 20)
 (setq-default save-place t)
@@ -331,6 +331,8 @@
 ;; Loaded ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
+(setq TeX-engine 'xetex)
+
 (load "auctex.el" t t t)
 (load "preview-latex.el" t t t)
 
@@ -364,7 +366,11 @@
       reftex-save-parse-info nil
       reftex-use-multiple-selection-buffers t
       reftex-auto-recenter-toc t
-      reftex-plug-into-AUCTeX t)
+      reftex-plug-into-AUCTeX t
+      reftex-section-levels
+      '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
+	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
+	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
 (setq font-latex-fontify-script nil
       font-latex-fontify-sectioning 1.01
