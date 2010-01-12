@@ -121,7 +121,6 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
-;(server-mode 1)
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
@@ -186,13 +185,6 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
-;; SavePlace ;;
-(setq save-place-file "~/.emacs.d/zplaces.el"
-      save-place-limit 20)
-(setq-default save-place t)
-(require 'saveplace)
-;; SavePlace ends here ;;
-
 ;; CC-Mode ;;
 (setq c-offsets-alist '((substatement-open . 0))
       c-cleanup-list
