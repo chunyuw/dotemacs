@@ -17,13 +17,13 @@ all:
 	@echo "Usage:"
 	@echo "    make ci/up/st/ps | clean"
 
-up:;	svn update .
-ci:;    svn commit . -m "$(AUTOCSTR)"
-st:;	svn status .
-ps:
-	svn -q propset svn:eol-style LF $(ALLFILES)
-	svn -q propset Author "$(Author)" $(ALLFILES)
-	svn -q propset Copyright "$(Copyright)" $(ALLFILES)
+up:;	bzr pull .
+ci:;    bzr commit . -m "$(AUTOCSTR)"
+st:;	bzr status .
+# ps:
+# 	svn -q propset svn:eol-style LF $(ALLFILES)
+# 	svn -q propset Author "$(Author)" $(ALLFILES)
+# 	svn -q propset Copyright "$(Copyright)" $(ALLFILES)
 
 
 clean:;	-$(RM) var/{ido.last,places,history} auto-save-list/.*~

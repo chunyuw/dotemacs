@@ -266,7 +266,7 @@
 (setq ido-max-prospects 8
       ido-save-directory-list-file nil
       ido-auto-merge-delay-time 2
-      ido-use-filename-at-point t
+      ; ido-use-filename-at-point t
       ido-enable-flex-matching t
       ido-enable-prefix nil
       ido-enable-regexp t
@@ -333,8 +333,8 @@
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
 
-(load "auctex.el" t t t)
 (load "preview-latex.el" t t t)
+(load "auctex.el" t t t)
 
 (setq TeX-auto-save t
       TeX-parse-self t
@@ -342,7 +342,7 @@
       TeX-region "z_region"
       TeX-fold-type-list '(env math))
 
-(setq preview-scale-function 1.44
+(setq preview-scale-function 2
       preview-image-type 'dvipng
       preview-auto-cache-preamble nil)
 
@@ -562,9 +562,7 @@ Frame must be declared as an environment."
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
 	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
 
-    (setq find-program "gfind")
-
-    ;; ISpell on win32 ;;
+    ;; ISpell on Win32 ;;
     (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
     (setq ispell-dictionary-alist
 	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
@@ -572,17 +570,9 @@ Frame must be declared as an environment."
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
 	    ("UK-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "UK-xlg") nil iso-8859-1)
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
-    ;; ISpell on win32 ends here ;;
+    ;; ISpell on Win32 ends here ;;
 
-    (eval-after-load 'browse-url
-      '(progn
-	 (defun browse-url-default-windows-browser (url &optional new-window)
-	   (interactive (browse-url-interactive-arg "URL: "))
-	   (if (eq system-type 'ms-dos)
-	       (if dos-windows-version
-		   (shell-command (concat "start " (shell-quote-argument url)))
-		 (error "Browsing URLs is not supported on this system"))
-	     (w32-shell-execute nil "C:/Program Files/Mozilla Firefox/firefox.exe" url 1)))))))))
+    (setq find-program "gfind")))))
 
 
 (defun chunyu/view-scroll-forward (&optional lines)

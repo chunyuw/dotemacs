@@ -102,4 +102,9 @@
 
 (gnus-compile)
 
+;; Local Variables:
+;; mode: emacs-lisp
+;; coding: gbk-unix
+;; End:
+
 ;; Chunyu's .emacs.d/gnus.el ends here.

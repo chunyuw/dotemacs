@@ -1,0 +1,11 @@
+*.elc
+*~
+abbrev_defs
+auto-save-list
+mypass
+server
+thumbs
+tramp
+tutorial
+z*
+
