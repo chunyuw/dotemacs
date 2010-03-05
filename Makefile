@@ -1,8 +1,8 @@
-### Makefile for .emacs.d by Chunyu Wang <chunyu@hit.edu.cn>
+### Makefile for .emacs.d by Chunyu Wang <cymacs@gmail.com>
 
-ALLFILES  = init.el gnus.el bbdb diary .dired bookmark/* sig/* tmpls/*.tpl msf/*-mode/*
+ALLFILES  = init.el gnus.el diary .dired bookmark/* tmpls/*.tpl msf/*-mode/*
 
-Author    = Chunyu Wang <chunyu@hit.edu.cn>
+Author    = Chunyu Wang <cymacs@gmail.com>
 Copyright = Copyright (C) $(shell seq -s, 2002 $(shell $(DATE) +%Y)) $(Author).
 
 AUTOCSTR  = Batch checkin for .emacs.d ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n)).
@@ -15,18 +15,16 @@ endif
 
 all:
 	@echo "Usage:"
-	@echo "    make ci/up/st/ps | clean"
+	@echo "    make pull/push/ci/up/st | clean"
 
 up:;	bzr pull .
+pull:;	bzr pull .
+push:;	bzr push
 ci:;    bzr commit . -m "$(AUTOCSTR)"
 st:;	bzr status .
-# ps:
-# 	svn -q propset svn:eol-style LF $(ALLFILES)
-# 	svn -q propset Author "$(Author)" $(ALLFILES)
-# 	svn -q propset Copyright "$(Copyright)" $(ALLFILES)
 
 
-clean:;	-$(RM) var/{ido.last,places,history} auto-save-list/.*~
+clean:;	-$(RM) {zido.last,zplaces.el,zhistory} auto-save-list/.*~
 
 .PHONY:	all up ci st ps clean
 

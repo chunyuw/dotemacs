@@ -1,4 +1,4 @@
-;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/init.el for GNU Emacs
+;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs
 ;; Created on 2001-12-11 on db.hit.edu.cn
 
 (global-unset-key [(insert)])

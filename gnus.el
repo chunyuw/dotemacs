@@ -1,4 +1,4 @@
-;; Chunyu <chunyu@hit.edu.cn>'s ~/.emacs.d/gnus.el
+;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/gnus.el
 ;; Created on 2003/02/24 on db.hit.edu.cn
 
 (setq gnus-select-method '(nntp "news.yaako.com")
