@@ -247,19 +247,7 @@
 	     (set-buffer (get-buffer-create " *ddeclient*"))
 	     (erase-buffer) (message (concat "DDE:" dde)) (insert dde)
 	     (call-process-region (point-min) (point-max) "ddeclient" 
-				  nil t nil "acroview" "control"))))
-
-       (defun eshell/op (FILE)
-	 "Invoke (w32-shell-execute \"Open\" FILE) and substitute slashes for backslashes"
-	 (w32-shell-execute "Open" (substitute ?\\ ?/ (expand-file-name FILE))))
-
-       (defun chunyu/dired-foobar2000-play ()
-	 "Open dir of .mp3 files with foobar2000."
-	 (interactive)
-	 (let ((f (dired-get-filename 'no-dir))
-	       (b "C:/Program Files/foobar2000/foobar2000.exe"))
-	   (if (file-exists-p f)
-	       (w32-shell-execute nil b (format "\"%s\"" f) 1)))))))
+				  nil t nil "acroview" "control")))))))
 ;; Dired ends here ;;
 
 ;; Ido ;;
