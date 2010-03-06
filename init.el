@@ -189,8 +189,7 @@
 (setq-default c-block-comment-prefix "* ")
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (abbrev-mode 1) (c-subword-mode 1) (cwarn-mode 1)
-	    (c-toggle-auto-hungry-state -1)))
+	    (abbrev-mode 1) (cwarn-mode 1) (c-toggle-auto-hungry-state -1)))
 ;; CC-Mode ends here ;;
 
 ;; Dired ;;
