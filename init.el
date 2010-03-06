@@ -478,6 +478,8 @@ Frame must be declared as an environment."
 
 ;; MISC Packages ;;
 (require 'doc-view nil t)
+(require 'misc)
+(global-set-key "\M-Z" 'zap-up-to-char)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
