@@ -44,13 +44,8 @@
 (setq display-time-24hr-format t
       display-time-day-and-date t)
 
-(setq gnus-inhibit-startup-message t
-      gnus-init-file "~/.emacs.d/gnus.el")
-
-(setq mail-user-agent 'gnus-user-agent
-      mail-alias-file "~/.mailrc"
-      user-full-name "Chunyu Wang"
-      user-mail-address "chunyu@hit.edu.cn")
+(setq user-full-name "Chunyu Wang"
+      user-mail-address "cymacs@gmail.cn")
 
 (setq version-control t
       kept-old-versions 2
