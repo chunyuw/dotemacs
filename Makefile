@@ -17,7 +17,7 @@ all:
 	@echo "Usage:"
 	@echo "    make pull/push/ci/up/st | clean"
 
-up:;	bzr pull .
+up:;	bzr up .
 pull:;	bzr pull .
 push:;	bzr push
 ci:;    bzr commit . -m "$(AUTOCSTR)"
