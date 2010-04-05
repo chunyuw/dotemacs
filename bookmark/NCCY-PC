@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("tcignore"
+(("emacs-24"
+ (filename . "c:/free_ware/emacs-24/")
+ (front-context-string . "COPYING\n  drwxrw")
+ (rear-context-string . "147 03-17 15:32 ")
+ (position . 217))
+("hosts"
+ (filename . "c:/Windows/System32/drivers/etc/hosts")
+ (front-context-string . "# Copyright (c) ")
+ (rear-context-string)
+ (position . 1))
+("tcignore"
  (filename . "c:/Program Files (x86)/TotalCmd/tcignore.txt")
  (front-context-string)
  (rear-context-string . "sys\nDefault.rdp\n")
