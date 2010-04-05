@@ -13,6 +13,7 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
 
+
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
       require-final-newline t
@@ -109,6 +110,9 @@
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
+(savehist-mode 1)
+
+(setq savehist-ignored-variables '(ido-file-history ido-buffer-history))
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
@@ -307,10 +311,6 @@
      (add-hook 'diary-hook 'appt-make-list)
      (add-hook 'diary-display-hook 'diary-fancy-display)))
 ;; Calendar ends here ;;
-
-;; Load local settings ;;
-(load "~/.emacs.d/mypass" t t t)
-;; Loaded ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
@@ -664,6 +664,10 @@ Frame must be declared as an environment."
 (or standard-display-table (setq standard-display-table (make-display-table)))
 (let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
      (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
+
+;; Load local settings ;;
+(load "~/.emacs.d/mypass" t t t)
+;; Loaded ;;
 
 ;; Local Variables:
 ;; mode: emacs-lisp
