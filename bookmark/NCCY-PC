@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("emacs-24"
+(("free_ware"
+ (filename . "c:/free_ware/")
+ (front-context-string . "build\n  drwxrwxr")
+ (rear-context-string . "  0 04-03 15:29 ")
+ (position . 522))
+("build"
+ (filename . "c:/free_ware/build/build-24.cmd")
+ (front-context-string . "@rem Script for ")
+ (rear-context-string)
+ (position . 1))
+("emacs-24"
  (filename . "c:/free_ware/emacs-24/")
  (front-context-string . "COPYING\n  drwxrw")
  (rear-context-string . "147 03-17 15:32 ")
