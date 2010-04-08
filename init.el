@@ -176,10 +176,12 @@
 
 
 ;; Org-mode ;;
-(setq org-export-author-info nil
+(setq org-startup-folded 'nofold
+      org-log-done t
+      org-export-author-info nil
       org-export-email-info nil
-      org-startup-folded 'nofold
-      org-log-done t)
+      org-export-creator-info nil
+      org-export-time-stamp-file nil)
 ;; Org ;;
 
 ;; SavePlace ;;
