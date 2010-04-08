@@ -46,7 +46,7 @@
       display-time-day-and-date t)
 
 (setq user-full-name "Chunyu Wang"
-      user-mail-address "cymacs@gmail.cn")
+      user-mail-address "cymacs@gmail.com")
 
 (setq version-control t
       kept-old-versions 2
