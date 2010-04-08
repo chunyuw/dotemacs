@@ -57,9 +57,7 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq org-startup-folded 'nofold
-      org-log-done t
-      tramp-persistency-file-name "~/.emacs.d/ztramp.el"
+(setq tramp-persistency-file-name "~/.emacs.d/ztramp.el"
       calc-settings-file "~/.emacs.d/calc.el")
 
 (setq hippie-expand-try-functions-list
@@ -118,8 +116,8 @@
       (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
 		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode)
 		("\\.bat\\'" . cmd-mode) ("\\.7z\\'" . archive-mode)
-		("\\.csproj\\'" . xml-mode) ("\\.org\\'" . org-mode)
-		("\\.asy\\'" . asy-mode) ("\\.rdlc\\'" . nxml-mode))
+		("\\.asy\\'" . asy-mode) ("\\.rdlc\\'" . nxml-mode)
+		("\\.csproj\\'" . xml-mode))
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -177,6 +175,13 @@
        (shell-command (format "mptopdf %s" (buffer-name))))))
 
 
+;; Org-mode ;;
+(setq org-export-author-info nil
+      org-export-email-info nil
+      org-startup-folded 'nofold
+      org-log-done t)
+;; Org ;;
+
 ;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/zplaces.el"
       save-place-limit 20)
