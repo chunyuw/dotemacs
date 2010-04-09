@@ -176,8 +176,7 @@
 
 
 ;; Org-mode ;;
-(setq org-startup-folded 'nofold
-      org-log-done t
+(setq org-log-done t
       org-export-author-info nil
       org-export-email-info nil
       org-export-creator-info nil
