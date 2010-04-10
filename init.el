@@ -168,11 +168,12 @@
 
 
 ;; Org-mode ;;
-(setq org-log-done t
-      org-export-author-info nil
+(setq org-export-author-info nil
       org-export-email-info nil
       org-export-creator-info nil
-      org-export-time-stamp-file nil)
+      org-export-time-stamp-file nil
+      org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
+      org-log-done t)
 ;; Org ;;
 
 ;; SavePlace ;;
