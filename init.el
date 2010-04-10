@@ -166,14 +166,6 @@
      (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
      (define-key apropos-mode-map "k" 'chunyu/view-scroll-backward)))
 
-(eval-after-load 'meta-mode
-  '(progn
-     (define-key meta-mode-map "\C-c\C-c" 'chunyu/metapost-build-mp)
-     (defun chunyu/metapost-build-mp ()
-       "build mp files"
-       (interactive)
-       (shell-command (format "mptopdf %s" (buffer-name))))))
-
 
 ;; Org-mode ;;
 (setq org-log-done t
@@ -369,7 +361,7 @@
       cdlatex-paired-parens "$[{(<|"
       ;; cdlatex-math-symbol-alist
       ;; '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
-      ;; 	(?> ("\\rightarrow" "\\Rightarrow" "\\longrightarrow" "\\Longrightarrow")))
+      ;;   (?> ("\\rightarrow" "\\Rightarrow" "\\longrightarrow" "\\Longrightarrow")))
       cdlatex-env-alist
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil)
@@ -579,31 +571,6 @@ Frame must be declared as an environment."
   (or (eq scroll-preserve-screen-position 'keep)
       (previous-line lines)))
 
-(defun chunyu/update-src ()
-  (interactive)
-  (cond ((file-exists-p ".svn")
-	 (message "svn update current dir")
-	 (shell-command "svn update ."))
-	((file-exists-p "CVS")
-	 (message "cvs update current dir")
-	 (shell-command "cvs update ."))
-	(t (message "Update What?"))))
-
-(defun chunyu/title-bar-w32 (arg)
-  (interactive "p")
-  (let ((pp (if (< arg 0) "+" "-"))
-	(tt (frame-parameter nil 'name)))
-    (w32-shell-execute
-     "open" "nircmd"
-     (format "win %sstyle title \"%s\" 0x00C00000" pp tt) 1)))
-
-(defun chunyu/insert-file-variable ()
-  "Insert file variable \"-*- major-mode -*-\" with comment"
-  (interactive)
-  (let ((s " -*- ") 
-	(n (substring (symbol-name (symbol-value 'major-mode)) 0 -5)))
-    (insert comment-start s n s comment-end)))
-
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
   (interactive "skpsewhich: ")
@@ -670,6 +637,10 @@ Frame must be declared as an environment."
 (or standard-display-table (setq standard-display-table (make-display-table)))
 (let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
      (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
+
+(or (file-exists-p "~/.emacs.d/server/server")
+    (and (eq window-system 'w32)
+	 (server-mode 1)))
 
 ;; Load local settings ;;
 (load "~/.emacs.d/mypass" t t t)
