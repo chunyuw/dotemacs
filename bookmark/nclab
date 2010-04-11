@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("internal"
+ (filename . "/var/www/internal/")
+ (front-context-string . "hp\n  -rw-r--r-- ")
+ (rear-context-string . "010-04-08 14:55 ")
+ (position . 229))
+)
