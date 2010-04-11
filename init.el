@@ -168,7 +168,9 @@
 
 
 ;; Org-mode ;;
-(setq org-export-author-info nil
+(setq org-special-ctrl-a/e t
+      org-special-ctrl-k t
+      org-export-author-info nil
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
