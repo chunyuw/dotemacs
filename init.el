@@ -641,10 +641,6 @@ Frame must be declared as an environment."
 (let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
      (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
 
-(or (file-exists-p "~/.emacs.d/server/server")
-    (and (eq window-system 'w32)
-	 (server-mode 1)))
-
 ;; Load local settings ;;
 (load "~/.emacs.d/mypass" t t t)
 ;; Loaded ;;
