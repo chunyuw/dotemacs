@@ -502,7 +502,7 @@ Frame must be declared as an environment."
 
   (setq default-frame-alist
 	'((background-mode . dark)
-	  (vertical-scroll-bars)
+	  (font . "Consolas")
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
