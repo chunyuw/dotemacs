@@ -57,9 +57,6 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq tramp-persistency-file-name "~/.emacs.d/ztramp.el"
-      calc-settings-file "~/.emacs.d/calc.el")
-
 (setq hippie-expand-try-functions-list
       '(try-expand-line
 	try-expand-line-all-buffers
@@ -113,11 +110,8 @@
 (setq savehist-ignored-variables '(ido-file-history ido-buffer-history))
 
 (setq auto-mode-alist
-      (append '(("\\.cs\\'" . csharp-mode) ("\\.mix\\'" . mixal-mode)
-		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode)
-		("\\.bat\\'" . cmd-mode) ("\\.7z\\'" . archive-mode)
-		("\\.asy\\'" . asy-mode) ("\\.rdlc\\'" . nxml-mode)
-		("\\.csproj\\'" . xml-mode))
+      (append '(("\\.cs\\'" . csharp-mode) ("\\.bat\\'" . cmd-mode)
+		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode))
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -155,10 +149,6 @@
      (define-key Info-mode-map "k" 'chunyu/view-scroll-backward)
      (define-key Info-mode-map "\M-n" 'gnus)))
 
-(eval-after-load 'diff-mode
-  '(progn
-     (define-key diff-mode-map "\M-q" 'delete-window)))
-
 (eval-after-load 'apropos
   '(progn
      (define-key apropos-mode-map "n" 'forward-button)
@@ -176,10 +166,10 @@
       org-export-time-stamp-file nil
       org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
-;; Org ;;
+;; Org-mode ends here ;;
 
 ;; SavePlace ;;
-(setq save-place-file "~/.emacs.d/zplaces.el"
+(setq save-place-file "~/.emacs.d/places"
       save-place-limit 20)
 (setq-default save-place t)
 (require 'saveplace)
@@ -233,7 +223,7 @@
 	 "Open dir in Total Commander."
 	 (interactive)
 	 (let ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
-	       (c (substitute-in-file-name "$COMMANDER_PATH/totalcmd.exe")))
+	       (c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" (subst-char-in-string ?/ ?\\ f)) 1))))
        
@@ -253,7 +243,6 @@
 (setq ido-max-prospects 8
       ido-save-directory-list-file nil
       ido-auto-merge-delay-time 2
-      ; ido-use-filename-at-point t
       ido-enable-flex-matching t
       ido-enable-prefix nil
       ido-enable-regexp t
@@ -268,49 +257,10 @@
 ;; Ido ends here ;;
 
 ;; Calendar ;;
-(setq diary-file "~/.emacs.d/diary"
-      view-diary-entries-initially t
-      calendar-latitude 45.73213
+(setq calendar-latitude 45.73213
       calendar-longitude 126.63621
       calendar-location-name "Harbin"
-      calendar-week-start-day 1
-      calendar-intermonth-header t
-      chinese-calendar-celestial-stem
-      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-      chinese-calendar-terrestrial-branch
-      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"]
-      holiday-other-holidays
-      '((holiday-fixed 1 1 "元旦") (holiday-fixed 2 14 "情人节")
-      	(holiday-fixed 4 1 "愚人节") (holiday-float 5 0 2 "母亲节")
-      	(holiday-float 6 0 3 "父亲节") (holiday-fixed 12 25 "圣诞节"))
-      holiday-oriental-holidays
-      '((holiday-chinese-new-year)
-	(holiday-chinese 1 15 "元宵节 (正月十五)")
-	(holiday-chinese-qingming)
-	(holiday-chinese 5  5 "端午节 (五月初五)")
-      	(holiday-chinese 7  7 "七月七 (七月初七)")
-      	(holiday-chinese 9  9 "重阳节 (九月初九)")
-      	(holiday-chinese 8 15 "中秋节 (八月十五)")
-      	(holiday-chinese 12 7 "老婆生日")))
-
-(setq calendar-holidays
-      (append holiday-oriental-holidays holiday-other-holidays holiday-solar-holidays))
-
-(setq mark-diary-entries-in-calendar t
-      appt-message-warning-time 30
-      mark-holidays-in-calendar t)
-
-(setq diary-date-forms '((year "-" month "-" day "[^/0-9]") (month "/" day "[^/0-9]")
-			 (month "/" day "/" year "[^0-9]") (monthname " *" day "[^,0-9]")
-			 (monthname " *" day ", *" year "[^0-9]") (dayname "\\W"))
-      calendar-time-display-form
-      '(24-hours ":" minutes (if time-zone " (") time-zone (if time-zone ")")))
-
-(eval-after-load 'calendar
-  '(progn
-     (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
-     (add-hook 'diary-hook 'appt-make-list)
-     (add-hook 'diary-display-hook 'diary-fancy-display)))
+      calendar-week-start-day 1)
 ;; Calendar ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
@@ -482,9 +432,6 @@ Frame must be declared as an environment."
 (if (require 'msf-abbrev nil t)
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
-
-(setq w3m-init-file "~/.emacs.d/w3m")
-(require 'w3m-load nil t)
 ;; MISC Packages end here ;;
 
 
@@ -507,26 +454,15 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
-  (if (>= (display-pixel-width) 1024)
-      (set-frame-font "Consolas" t)
-    (set-frame-font "Courier New"))
+  (set-frame-font "Consolas" t)
 
-  (if (>= (display-pixel-width) 1024)
-      (progn
-	(set-face-attribute 'default nil :height 140)
-	(set-face-attribute 'modeline nil :height 120)
-  	(set-face-attribute 'font-lock-comment-face nil :italic t))
-    (progn
-      (set-face-attribute 'default  nil :height 100)
-      (set-face-attribute 'modeline nil :height 100)))
-
-  (set-face-font 'fixed-pitch "Courier New")
-
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'modeline nil :height 120)
+  (set-face-attribute 'font-lock-comment-face nil :italic t)
   (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
   (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
 
-  ;; (modify-coding-system-alist 'file "\\.nfo\\'" '(cp437 . cp437))
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
   (cond
@@ -560,6 +496,8 @@ Frame must be declared as an environment."
     (setq find-program "gfind")))))
 
 
+(defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
+
 (defun chunyu/view-scroll-forward (&optional lines)
   "Move forward one line or LINES lines."
   (interactive "p")
