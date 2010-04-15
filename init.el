@@ -12,6 +12,7 @@
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
+(global-set-key "\M-sv" 'view-mode)
 
 
 (setq inhibit-startup-message t
@@ -125,8 +126,8 @@
 
 (eval-after-load 'man
   '(progn
-     (define-key Man-mode-map "j"  'chunyu/view-scroll-forward)
-     (define-key Man-mode-map "k"  'chunyu/view-scroll-backward)))
+     (define-key Man-mode-map "j"  'scroll-up-line)
+     (define-key Man-mode-map "k"  'scroll-down-line)))
 
 (eval-after-load 'help-mode
   '(progn
@@ -135,8 +136,8 @@
 
 (eval-after-load 'view
   '(progn
-     (define-key view-mode-map "j" 'chunyu/view-scroll-forward)
-     (define-key view-mode-map "k" 'chunyu/view-scroll-backward)
+     (define-key view-mode-map "j" 'scroll-up-line)
+     (define-key view-mode-map "k" 'scroll-down-line)
      (define-key view-mode-map " " 'scroll-up)
      (define-key view-mode-map "h" 'backward-char)
      (define-key view-mode-map "l" 'forward-char)))
@@ -144,16 +145,16 @@
 (eval-after-load 'info
   '(progn
      (define-key Info-mode-map "w" 'Info-scroll-down)
-     (define-key Info-mode-map "j" 'chunyu/view-scroll-forward)
-     (define-key Info-mode-map "k" 'chunyu/view-scroll-backward)
+     (define-key Info-mode-map "j" 'scroll-up-line)
+     (define-key Info-mode-map "k" 'scroll-down-line)
      (define-key Info-mode-map "\M-n" 'gnus)))
 
 (eval-after-load 'apropos
   '(progn
      (define-key apropos-mode-map "n" 'forward-button)
      (define-key apropos-mode-map "p" 'backward-button)
-     (define-key apropos-mode-map "j" 'chunyu/view-scroll-forward)
-     (define-key apropos-mode-map "k" 'chunyu/view-scroll-backward)))
+     (define-key apropos-mode-map "j" 'scroll-up-line)
+     (define-key apropos-mode-map "k" 'scroll-down-line)))
 
 
 ;; Org-mode ;;
@@ -173,6 +174,11 @@
 (setq-default save-place t)
 (require 'saveplace)
 ;; SavePlace ends here ;;
+
+;; Recentf ;;
+(setq recentf-save-file "~/.emacs.d/recentf")
+(require 'recentf)
+;; Recentf ends here ;;
 
 ;; CC-Mode ;;
 (setq c-offsets-alist '((substatement-open . 0))
@@ -252,6 +258,7 @@
       ido-enable-prefix nil
       ido-enable-regexp t
       ido-create-new-buffer 'always
+      ido-use-virtual-buffers t
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
 	      completion-ignored-extensions))
@@ -502,20 +509,6 @@ Frame must be declared as an environment."
 
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
-
-(defun chunyu/view-scroll-forward (&optional lines)
-  "Move forward one line or LINES lines."
-  (interactive "p")
-  (scroll-up lines)
-  (or (eq scroll-preserve-screen-position 'keep)
-      (next-line lines)))
-
-(defun chunyu/view-scroll-backward (&optional lines)
-  "Move backward one line or LINES lines."
-  (interactive "p")
-  (scroll-down lines)
-  (or (eq scroll-preserve-screen-position 'keep)
-      (previous-line lines)))
 
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
