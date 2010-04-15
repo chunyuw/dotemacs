@@ -96,7 +96,6 @@
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
-(partial-completion-mode 1)
 (global-font-lock-mode 1)
 (transient-mark-mode -1)
 (column-number-mode 1)
@@ -207,6 +206,12 @@
      (when window-system
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
+       (define-key dired-mode-map "W" 
+	 (lambda () (interactive) 
+	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
+
+       (setq browse-url-generic-program 
+	     "C:/users/chunyu/AppData/Local/Google/Chrome/Application/chrome.exe")
 
        (defun chunyu/dired-open-explorer ()
 	 (interactive)

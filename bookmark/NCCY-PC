@@ -2,11 +2,21 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("free_ware"
+(("site-lisp"
+ (filename . "c:/free_ware/emacs-24/site-lisp/")
+ (front-context-string . "auctex\n  -rw-rw-")
+ (rear-context-string . "  0 03-03 12:16 ")
+ (position . 227))
+("Preferences"
+ (filename . "c:/Users/chunyu/AppData/Local/Google/Chrome/User Data/Default/Preferences")
+ (front-context-string . "{\n   \"autofill\":")
+ (rear-context-string)
+ (position . 1))
+("free_ware"
  (filename . "c:/free_ware/")
- (front-context-string . "build\n  drwxrwxr")
- (rear-context-string . "  0 04-03 15:29 ")
- (position . 522))
+ (front-context-string . "cygwin-x\n  drwxr")
+ (rear-context-string . "  0 2009-07-30  ")
+ (position . 602))
 ("build"
  (filename . "c:/free_ware/build/build-24.cmd")
  (front-context-string . "@rem Script for ")
