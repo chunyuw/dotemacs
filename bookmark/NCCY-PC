@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("site-lisp"
+(("down"
+ (filename . "d:/Download/")
+ (front-context-string . "..\n  -rw-rw-rw- ")
+ (rear-context-string . "  0 1970-01-01  ")
+ (position . 172))
+("site-lisp"
  (filename . "c:/free_ware/emacs-24/site-lisp/")
  (front-context-string . "auctex\n  -rw-rw-")
  (rear-context-string . "  0 03-03 12:16 ")

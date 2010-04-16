@@ -268,10 +268,22 @@
 ;; Ido ends here ;;
 
 ;; Anything ;;
-(if (require 'anything-config nil t)
-    (progn (global-set-key "\M-a" 'anything-for-files)
-	   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
-	   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)))
+(when (require 'anything-config nil t)
+  (global-set-key "\M-a" 'anything-for-files)
+  (define-key anything-map "\M-a" 'anything-execute-persistent-action)
+  (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+  
+  (when (window-system)
+    (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
+    (set-face-attribute 'anything-file-name nil :foreground "LawnGreen")
+    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
+  (when (not window-system)
+    (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
+    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
+
 ;; Anything ends here ;;
 
 ;; Calendar ;;
@@ -453,14 +465,12 @@ Frame must be declared as an environment."
 ;; MISC Packages end here ;;
 
 
-(cond ;; Different Platform
- ;; Text-Only console
- ((not window-system)
+(cond
+ ((not window-system) ;; Text-Only console
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
 
- ;; BOTH X-Window and MS-Windows
- (window-system
+ (window-system	;; BOTH X-Window and MS-Windows
   (setq-default mouse-yank-at-point t)
   (setq default-indicate-empty-lines 'left
 	default-indicate-buffer-boundaries 'left)
@@ -483,9 +493,7 @@ Frame must be declared as an environment."
 
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
-  (cond
-   ;; MS-Windows
-   ((eq window-system 'w32)
+  (when (eq window-system 'w32) ;; MS-Windows
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
 
@@ -511,7 +519,7 @@ Frame must be declared as an environment."
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
     ;; ISpell on Win32 ends here ;;
 
-    (setq find-program "gfind")))))
+    (setq find-program "gfind"))))
 
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
@@ -555,14 +563,7 @@ Frame must be declared as an environment."
       '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
     (eval-after-load 'table
-      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))
-    (eval-after-load 'anything
-      '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")))
-    (eval-after-load 'anything-config
-      '(progn (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
-	      (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
-	      (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
-	      (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))))
+      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
 
  (window-system
   ;; Both X-window and MS-Windows
@@ -572,7 +573,8 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
-  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")))
+  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1"))
+)
 
 
 (mapc (lambda (func) (put func 'disabled t))
