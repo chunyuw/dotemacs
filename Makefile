@@ -22,7 +22,7 @@ ci:;    bzr commit . -m "$(AUTOCSTR)"
 st:;	bzr st
 
 
-clean:;	-$(RM) {zido.last,zplaces.el,history} auto-save-list/.*~
+clean:;	-$(RM) {anything-c-adaptive-history,history,places,recentf,tramp} auto-save-list/.*~
 
 # Local Variables:
 # mode: makefile-gmake
