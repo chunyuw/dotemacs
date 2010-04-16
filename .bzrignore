@@ -1,6 +1,8 @@
 *.elc
 *~
 abbrev_defs
+anything*
+auto-install
 auto-save-list
 history
 mypass

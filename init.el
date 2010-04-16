@@ -14,7 +14,6 @@
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-sv" 'view-mode)
 
-
 (setq inhibit-startup-message t
       default-major-mode 'text-mode
       require-final-newline t
@@ -267,6 +266,13 @@
 (ido-mode 1)
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 ;; Ido ends here ;;
+
+;; Anything ;;
+(if (require 'anything-config nil t)
+    (progn (global-set-key "\M-a" 'anything-for-files)
+	   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
+	   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)))
+;; Anything ends here ;;
 
 ;; Calendar ;;
 (setq calendar-latitude 45.73213
