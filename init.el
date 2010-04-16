@@ -279,10 +279,13 @@
 	anything-c-source-files-in-current-dir+
 	anything-c-source-file-cache
 	anything-c-source-bookmarks
-	anything-c-source-locate))
+	anything-c-source-locate
+	;; anything-c-source-files-in-all-dired
+	anything-c-source-buffer-not-found))
 
 (when (require 'anything-config nil t)
   (global-set-key "\M-a" 'anything-for-files)
+  (global-set-key "\M-A" 'anything-resume)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
