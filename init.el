@@ -106,7 +106,7 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 
-(setq savehist-ignored-variables '(ido-file-history ido-buffer-history))
+(setq savehist-ignored-variables '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.bat\\'" . cmd-mode)
@@ -175,7 +175,9 @@
 ;; SavePlace ends here ;;
 
 ;; Recentf ;;
-(setq recentf-save-file "~/.emacs.d/recentf")
+(setq recentf-save-file "~/.emacs.d/recentf"
+      recentf-exclude 
+      '(".emacs.d/bookmark/" "\\.tmp/"))
 (require 'recentf)
 ;; Recentf ends here ;;
 
@@ -211,11 +213,11 @@
      (when window-system
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
-       (define-key dired-mode-map "W" 
-	 (lambda () (interactive) 
+       (define-key dired-mode-map "W"
+	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
 
-       (setq browse-url-generic-program 
+       (setq browse-url-generic-program
 	     "C:/users/chunyu/AppData/Local/Google/Chrome/Application/chrome.exe")
 
        (defun chunyu/dired-open-explorer ()
@@ -236,16 +238,16 @@
 	       (c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe")))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" (subst-char-in-string ?/ ?\\ f)) 1))))
-       
+
        (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
 	 (interactive)
-	 (let* ((o "[DocOpen(\"%s\")]") (c "[DocClose(\"%s\")]") 
+	 (let* ((o "[DocOpen(\"%s\")]") (c "[DocClose(\"%s\")]")
 		(dde (if f (format (concat o o c) f f f) (format c "NULL"))))
 	   (save-excursion
 	     (set-buffer (get-buffer-create " *ddeclient*"))
 	     (erase-buffer) (message (concat "DDE:" dde)) (insert dde)
-	     (call-process-region (point-min) (point-max) "ddeclient" 
+	     (call-process-region (point-min) (point-max) "ddeclient"
 				  nil t nil "acroview" "control")))))))
 ;; Dired ends here ;;
 
@@ -259,7 +261,7 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t
       completion-ignored-extensions
-      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb") 
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb")
 	      completion-ignored-extensions))
 (require 'ido)
 (ido-everywhere 1)
@@ -268,11 +270,23 @@
 ;; Ido ends here ;;
 
 ;; Anything ;;
+(setq anything-su-or-sudo "sudo"
+      anything-for-files-prefered-list
+      '(anything-c-source-ffap-line
+	anything-c-source-ffap-guesser
+	anything-c-source-buffers+
+	anything-c-source-recentf
+	anything-c-source-files-in-current-dir+
+	anything-c-source-file-cache
+	anything-c-source-bookmarks
+	anything-c-source-locate))
+
 (when (require 'anything-config nil t)
   (global-set-key "\M-a" 'anything-for-files)
+  (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
-  
+
   (when (window-system)
     (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
     (set-face-attribute 'anything-file-name nil :foreground "LawnGreen")
@@ -357,7 +371,7 @@
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("cjk" "CJKindent" "\\CJKindent ?" cdlatex-position-cursor nil t nil)
-	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n" 
+	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
@@ -382,7 +396,7 @@
 ;;      ))
 
 (eval-after-load 'latex
-  '(progn 
+  '(progn
      (setq LaTeX-font-list
 	   (append '((?\C-a "\\alert<.>{" "}" "\\mathcal{" "}")
 		     (?\C-o "\\only<.>{" "}" "" "")) LaTeX-font-list))))
@@ -399,7 +413,7 @@
      (define-key TeX-mode-map "\M-m\M-," 'TeX-view)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
-     (when (eq window-system 'w32) 
+     (when (eq window-system 'w32)
        (setq TeX-output-view-style
 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
      ;;(TeX-add-style-hook "beamer" 'beamer-setup)
@@ -417,7 +431,7 @@
   (let ((cur (point)) begin end)
     (save-excursion
       (re-search-forward "^[^%]*?end.frame" nil t)
-      (beginning-of-line 2) (setq end (point)) 
+      (beginning-of-line 2) (setq end (point))
       (goto-char cur)
       (re-search-backward "^[^%]*?begin.frame" nil t)
       (beginning-of-line 1) (setq begin (point))
@@ -425,7 +439,7 @@
     (TeX-command-region)))
 
 (defun LaTeX-mark-build-frame2 ()
-  "Run pdflatex on current frame.  
+  "Run pdflatex on current frame.
 Frame must be declared as an environment."
   (interactive)
   (let (beg)
@@ -455,7 +469,7 @@ Frame must be declared as an environment."
 
 (mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
-		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook 
+		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook
 		     haskell-mode-hook))
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
