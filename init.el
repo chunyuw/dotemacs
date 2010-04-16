@@ -529,7 +529,7 @@ Frame must be declared as an environment."
 (cond ;; faces only
  ((not window-system)
   ;; Text only console
-  (set-face-attribute 'highlight nil :foreground "white" :background "blue" :underline nil :weight 'normal)
+  (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 
@@ -555,7 +555,14 @@ Frame must be declared as an environment."
       '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
     (eval-after-load 'table
-      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
+      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))
+    (eval-after-load 'anything
+      '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")))
+    (eval-after-load 'anything-config
+      '(progn (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+	      (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+	      (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+	      (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))))
 
  (window-system
   ;; Both X-window and MS-Windows
