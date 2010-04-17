@@ -15,32 +15,33 @@
 (global-set-key "\M-sv" 'view-mode)
 
 (setq inhibit-startup-message t
-      default-major-mode 'text-mode
       require-final-newline t
       resize-mini-windows t
       track-eol t
       kill-whole-line t
-      Man-notify-method 'pushy
       vc-follow-symlinks t
       vc-suppress-confirm t
       enable-recursive-minibuffers t
-      default-fill-column 78
       disabled-command-function nil
       history-delete-duplicates t
       mark-even-if-inactive t
       parens-require-spaces nil
+      max-mini-window-height 1 
       isearch-allow-scroll t)
+
+(setq-default major-mode 'text-mode
+	      fill-column 78)
 
 (setq makefile-electric-keys t
       apropos-do-all t
       sentence-end-double-space nil
       scroll-preserve-screen-position 'keep
+      Man-notify-method 'pushy
       comment-style 'extra-line)
 
 (setq bookmark-save-flag 1
       bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
-      save-abbrevs 'silently
-      abbrev-file-name "~/.emacs.d/abbrev_defs")
+      save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
       display-time-day-and-date t)
@@ -96,8 +97,7 @@
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
-(global-font-lock-mode 1)
-(transient-mark-mode -1)
+;(transient-mark-mode -1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
@@ -106,7 +106,8 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 
-(setq savehist-ignored-variables '(ido-file-history ido-buffer-history file-name-history))
+(setq savehist-ignored-variables 
+      '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
       (append '(("\\.cs\\'" . csharp-mode) ("\\.bat\\'" . cmd-mode)
@@ -114,13 +115,7 @@
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
 (add-hook 'bs-mode-hook 'hl-line-mode)
-
-(add-hook 'icomplete-minibuffer-setup-hook
-	  (lambda ()
-	    (make-local-variable 'max-mini-window-height)
-	    (setq max-mini-window-height 1)))
 
 
 (eval-after-load 'man
@@ -131,6 +126,7 @@
 (eval-after-load 'help-mode
   '(progn
      (define-key help-mode-map "b" 'help-go-back)
+     (define-key help-mode-map "f" 'help-go-forward)
      (define-key help-mode-map "h" 'backward-char)))
 
 (eval-after-load 'view
@@ -145,8 +141,7 @@
   '(progn
      (define-key Info-mode-map "w" 'Info-scroll-down)
      (define-key Info-mode-map "j" 'scroll-up-line)
-     (define-key Info-mode-map "k" 'scroll-down-line)
-     (define-key Info-mode-map "\M-n" 'gnus)))
+     (define-key Info-mode-map "k" 'scroll-down-line)))
 
 (eval-after-load 'apropos
   '(progn
@@ -163,7 +158,8 @@
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
-      org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
+      org-export-html-style 
+      "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 ;; Org-mode ends here ;;
 
@@ -198,17 +194,16 @@
   '(progn
      (require 'dired-x)
      (setq dired-listing-switches "-avl"
-	   wdired-use-dired-vertical-movement t)
+	   wdired-use-dired-vertical-movement 'sometime)
 
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
-     (define-key dired-mode-map "j" 'dired-mark-files-regexp)
+     (define-key dired-mode-map "J" 'dired-mark-files-regexp)
      (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
-     (define-key dired-mode-map [(control ?/)] 'dired-undo)
-     (define-key dired-mode-map "h" 'ignore)
+     (define-key dired-mode-map "h" 'dired-mark-files-regexp)
 
      (when window-system
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
@@ -218,7 +213,8 @@
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
 
        (setq browse-url-generic-program
-	     "C:/users/chunyu/AppData/Local/Google/Chrome/Application/chrome.exe")
+	     (substitute-in-file-name
+	      "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe"))
 
        (defun chunyu/dired-open-explorer ()
 	 (interactive)
@@ -234,10 +230,11 @@
        (defun chunyu/totalcmd-open ()
 	 "Open dir in Total Commander."
 	 (interactive)
-	 (let ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
-	       (c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe")))
+	 (let* ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
+		(c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe"))
+		(g (subst-char-in-string ?/ ?\\ f)))
 	   (if (file-exists-p f)
-	       (w32-shell-execute nil c (format "/O \"%s\"" (subst-char-in-string ?/ ?\\ f)) 1))))
+	       (w32-shell-execute nil c (format "/O \"%s\"" g) 1))))
 
        (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
@@ -300,7 +297,6 @@
     (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
     (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
     (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
-
 ;; Anything ends here ;;
 
 ;; Calendar ;;
@@ -488,9 +484,9 @@ Frame must be declared as an environment."
   (setq Info-use-header-line nil))
 
  (window-system	;; BOTH X-Window and MS-Windows
-  (setq-default mouse-yank-at-point t)
-  (setq default-indicate-empty-lines 'left
-	default-indicate-buffer-boundaries 'left)
+  (setq-default mouse-yank-at-point t
+		indicate-empty-lines 'left
+		indicate-buffer-boundaries 'left)
 
   (setq default-frame-alist
 	'((background-mode . dark)
@@ -606,8 +602,6 @@ Frame must be declared as an environment."
 
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
-(let ((s nil)) (dotimes (i 18) (setq s (append '(?\~ ?\  ?\ ) s)))
-     (aset standard-display-table ?\f (vconcat '(?\~ ?\~) s '(?\~ ?\~ ?\~))))
 
 ;; Load local settings ;;
 (load "~/.emacs.d/mypass" t t t)
