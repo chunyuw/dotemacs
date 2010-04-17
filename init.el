@@ -12,6 +12,7 @@
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
+(global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-sv" 'view-mode)
 
 (setq inhibit-startup-message t
@@ -97,7 +98,6 @@
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
-;(transient-mark-mode -1)
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
@@ -150,6 +150,13 @@
      (define-key apropos-mode-map "j" 'scroll-up-line)
      (define-key apropos-mode-map "k" 'scroll-down-line)))
 
+(eval-after-load 'diff-mode
+  '(progn
+     (define-key diff-mode-map "\M-k" 'kill-this-buffer)
+     (define-key diff-mode-map "\M-K" 'kill-buffer-and-window)
+     (define-key diff-mode-map "\C-k" 'diff-hunk-kill)
+     (define-key diff-mode-map "\C-K" 'diff-file-kill)
+     (define-key diff-mode-map "\C-\M-k" 'kill-line)))
 
 ;; Org-mode ;;
 (setq org-special-ctrl-a/e t
