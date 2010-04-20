@@ -168,6 +168,9 @@
       org-export-html-style 
       "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
+(eval-after-load 'org-mode
+  '(progn (if (fboundp 'anything-for-files)
+	      (define-key org-mode-map "\M-a" 'anything-for-files))))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
@@ -292,18 +295,7 @@
   (global-set-key "\M-A" 'anything-resume)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
-  (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
-
-  (when (window-system)
-    (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
-    (set-face-attribute 'anything-file-name nil :foreground "LawnGreen")
-    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
-  (when (not window-system)
-    (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
-    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
-    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
-    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
-    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
+  (define-key anything-map "\C-z" 'anything-toggle-visible-mark))
 ;; Anything ends here ;;
 
 ;; Calendar ;;
@@ -502,15 +494,6 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
-  (set-frame-font "Consolas" t)
-
-  (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'modeline nil :height 120)
-  (set-face-attribute 'font-lock-comment-face nil :italic t)
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
-
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
   (when (eq window-system 'w32) ;; MS-Windows
@@ -541,7 +524,6 @@ Frame must be declared as an environment."
 
     (setq find-program "gfind"))))
 
-
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
 (defun kpsewhich-open (filename)
@@ -552,49 +534,6 @@ Frame must be declared as an environment."
 		 "\015\\|\012" "" (shell-command-to-string comm))))
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
-
-
-(cond ;; faces only
- ((not window-system)
-  ;; Text only console
-  (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
-  (set-face-attribute 'region nil :background "blue")
-  (set-face-attribute 'font-lock-comment-face nil :foreground "red")
-
-  (when (< 240 (display-color-cells))
-    ;; 256 colors XTerm console
-    (set-face-attribute 'region nil :background "color-24")
-    (set-face-attribute 'mode-line nil :background "color-180")
-    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-    (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
-    (set-face-attribute 'dired-directory nil :foreground "brightblue")
-    (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
-    (set-face-attribute 'font-lock-string-face nil :foreground "peru")
-    (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
-    (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
-
-    (eval-after-load 'mm-uu
-      '(progn (set-face-attribute 'mm-uu-extract nil :foreground "DarkOliveGreen3" :background "grey15")))
-    (eval-after-load 'diff-mode
-      '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
-	      (set-face-attribute 'diff-header nil :background "grey20")
-	      (set-face-attribute 'diff-file-header nil :background "grey30")))
-    (eval-after-load 'font-latex
-      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-    (eval-after-load 'table
-      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
-
- (window-system
-  ;; Both X-window and MS-Windows
-  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
-  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
-  (set-face-attribute 'region nil :background "grey21")
-  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1"))
-)
 
 
 (mapc (lambda (func) (put func 'disabled t))
@@ -609,6 +548,76 @@ Frame must be declared as an environment."
 
 ;; Display page delimiter ^L as a horizontal line
 (or standard-display-table (setq standard-display-table (make-display-table)))
+
+(defun frame-face-setup ()
+  (interactive)
+
+  ;;(set-frame-font "Consolas" t)
+
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'modeline nil :height 120)
+  (set-face-attribute 'font-lock-comment-face nil :italic t)
+
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+
+  (when (not window-system)
+    ;; Text only console
+    (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
+    (set-face-attribute 'region nil :background "blue")
+    (set-face-attribute 'font-lock-comment-face nil :foreground "red")
+
+    (when (< 240 (display-color-cells))
+      ;; 256 colors XTerm console
+      (set-face-attribute 'region nil :background "color-24")
+      (set-face-attribute 'mode-line nil :background "color-180")
+      (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+      (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
+      (set-face-attribute 'dired-directory nil :foreground "brightblue")
+      (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
+      (set-face-attribute 'font-lock-string-face nil :foreground "peru")
+      (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
+      (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
+
+      (when (fboundp 'anything-for-files)
+	(when (not window-system)
+	  (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
+	  (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+	  (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+	  (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+	  (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
+      
+      (eval-after-load 'mm-uu
+	'(progn (set-face-attribute 'mm-uu-extract nil :foreground "DarkOliveGreen3" :background "grey15")))
+      (eval-after-load 'diff-mode
+	'(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
+		(set-face-attribute 'diff-header nil :background "grey20")
+		(set-face-attribute 'diff-file-header nil :background "grey30")))
+      (eval-after-load 'font-latex
+	'(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+		(set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+      (eval-after-load 'table
+	'(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))))
+
+  (when window-system
+    ;; Both X-window and MS-Windows
+    (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+    (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+    (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+    (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
+    (set-face-attribute 'region nil :background "grey21")
+    (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+
+    (when (fboundp 'anything-for-files)
+      (when (window-system)
+	(set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
+	(set-face-attribute 'anything-file-name nil :foreground "LawnGreen")
+	(set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))))
+  )
+
+(frame-face-setup)
 
 ;; Load local settings ;;
 (load "~/.emacs.d/mypass" t t t)
