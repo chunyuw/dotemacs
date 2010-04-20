@@ -558,9 +558,9 @@ Frame must be declared as an environment."
   (set-face-attribute 'modeline nil :height 120)
   (set-face-attribute 'font-lock-comment-face nil :italic t)
 
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+    (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+    (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+    (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei"))
 
   ;; Both X-window and MS-Windows
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
