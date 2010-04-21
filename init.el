@@ -579,7 +579,6 @@ Frame must be declared as an environment."
 (defun frame-face-nox-setup ()
   ;; Text only console frame
   (interactive)
-  (remove-hook 'after-make-frame-functions 'frame-face-nox-setup)
 
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
@@ -616,7 +615,8 @@ Frame must be declared as an environment."
 
 (when (eq window-system 'w32) (frame-face-x-setup))
 (when (not window-system)
-  (add-to-list 'after-make-frame-functions 'frame-face-nox-setup))
+  (frame-face-nox-setup)
+  (add-hook 'after-make-frame-functions (lambda (frame) (frame-face-nox-setup))))
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;

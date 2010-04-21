@@ -1,0 +1,60 @@
+# Chunyu <chunyu@hit.edu.cn>'s .screenrc, created on 2005/08/05 on chunyu.hit.edu.cn. -*- shell-script -*-
+
+startup_message off
+nethack off
+deflogin on
+defflow off
+vbell off
+vbell_msg "   -- Ring, Ring!! --   "
+
+escape ``
+autodetach on
+crlf off
+defscrollback 1000
+msgwait 8
+
+shelltitle     '$ |bash'
+activity       "Activity in %n (%t) [%w:%s]~"
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+hardstatus alwayslastline 
+hardstatus  string "%{+r}%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c %{g}]"
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+bind e screen -t 'emacs' emacs
+bind E screen -t 'EMACS' sudo emacs
+
+bind k
+bind ^x
+bind ^k
+bind ^g
+bind 'K' kill
+bind ^] paste [.]
+bind = resize =
+bind + resize +3
+bind - resize -3
+
+bind ; colon
+bind s split
+bind S
+bind q only
+bind Q
+bind o focus
+bind x remove
+bind X lockscreen
+bind \' windowlist
+bind \" select
+
+bindkey -k F1 prev
+bindkey -k F2 next
+
+encoding UTF-8
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+#attrcolor b ".I" 
+# tell screen how to set colors. AB = background, AF=foreground 
+#termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+# erase background with current bg color 
+#defbce "on" 
+term screen-256color
