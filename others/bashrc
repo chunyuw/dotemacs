@@ -1,0 +1,16 @@
+# -*- shell-script -*-
+
+# if [ -f "$HOME/.emacs.d/others/bashrc" ]; then
+#     . "$HOME/.emacs.d/others/bashrc"
+# fi
+
+export PATH=/usr/local/hadoop/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+export DGROOT=$HOME/.dgroot
+export ADMIN=chunyu@hit.edu.cn
+
+shopt -s cdspell
+
+alias  e="emacsclient -c"
+alias  ec="emacsclient -nw -c"
+alias  cls=clear
+
