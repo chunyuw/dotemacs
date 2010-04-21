@@ -494,6 +494,16 @@ Frame must be declared as an environment."
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
+  (set-frame-font "Consolas" t)
+
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'modeline nil :height 120)
+  (set-face-attribute 'font-lock-comment-face nil :italic t)
+
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
   (when (eq window-system 'w32) ;; MS-Windows
@@ -553,15 +563,6 @@ Frame must be declared as an environment."
 (defun frame-face-x-setup ()
   (interactive)
   
-  ;;(set-frame-font "Consolas" t)
-  (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'modeline nil :height 120)
-  (set-face-attribute 'font-lock-comment-face nil :italic t)
-
-    (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-    (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-    (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei"))
-
   ;; Both X-window and MS-Windows
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
