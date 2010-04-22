@@ -1,4 +1,4 @@
 Local Variables:
-dired-omit-files: "^\\(\\.bzr.*\\|\\.dired\\|.htaccess\\|auto-save-list\\|anything.*\\|history\\|places\\|recentf\\|tramp\\)$"
+dired-omit-files: "^\\(\\.bzr.*\\|\\.dired\\|.htaccess\\|auto-save-list\\|anything.*\\|history\\|places\\|recentf\\|tramp\\|abbrev_defs\\)$"
 dired-omit-files-p: t
 End:

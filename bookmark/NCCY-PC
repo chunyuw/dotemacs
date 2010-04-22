@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("down"
+(("download"
+ (filename . "d:/Download/")
+ (front-context-string . "..\n  -rw-rw-rw- ")
+ (rear-context-string . "  0 1970-01-01  ")
+ (position . 172))
+("down"
  (filename . "d:/Download/")
  (front-context-string . "..\n  -rw-rw-rw- ")
  (rear-context-string . "  0 1970-01-01  ")
