@@ -560,64 +560,57 @@ Frame must be declared as an environment."
 (or standard-display-table (setq standard-display-table (make-display-table)))
 
 ;; Frame configuration ;;
-(defun frame-face-x-setup ()
-  (interactive)
-  
-  ;; Both X-window and MS-Windows
-  (set-face-attribute 'fringe t :foreground "limegreen" :background "gray30")
-  (set-face-attribute 'minibuffer-prompt t :foreground "chocolate1")
-  (set-face-attribute 'mode-line t :foreground "black" :background "wheat" :box nil)
-  (set-face-attribute 'mode-line-inactive t :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-  (set-face-attribute 'mode-line-highlight t :box '(:line-width 1 :color "grey40"))
-  (set-face-attribute 'region t :background "grey21")
-  (set-face-attribute 'trailing-whitespace t :background "SeaGreen1")
+(defun frame-face-x-setup () ;; Both X-window and MS-Windows
+  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
+  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
+  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
+  (set-face-attribute 'region nil :background "grey21")
+  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
 
   (when (fboundp 'anything-for-files)
-    (set-face-attribute 'anything-file-name t :foreground "gold")
-    (set-face-attribute 'anything-dir-priv t :foreground "SkyBlue" :background "gray20")
-    (set-face-attribute 'anything-visible-mark t :foreground "firebrick" :background "DarkSlateGray3")))
+    (set-face-attribute 'anything-file-name nil :foreground "gold")
+    (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
+    (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3")))
 
-(defun frame-face-nox-setup ()
-  ;; Text only console frame
-  (interactive)
+(defun frame-face-nox-setup () ;; Text only console frame
+  ;; ;; XTerm console
+  ;; (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
+  ;; (set-face-attribute 'region nil :background "blue")
+  ;; (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 
-  (set-face-attribute 'highlight t :foreground "white" :background "grey35" :underline nil :weight 'normal)
-  (set-face-attribute 'region t :background "blue")
-  (set-face-attribute 'font-lock-comment-face t :foreground "red")
+  ;; 256 colors XTerm console
+  (set-face-attribute 'region nil :background "color-24")
+  (set-face-attribute 'mode-line nil :background "color-180")
+  (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
+  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+  (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
+  (set-face-attribute 'dired-directory nil :foreground "brightblue")
+  (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
+  (set-face-attribute 'font-lock-string-face nil :foreground "peru")
+  (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
+  (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
 
-  (when (< 240 (display-color-cells))
-    ;; 256 colors XTerm console
-    (set-face-attribute 'region t :background "color-24")
-    (set-face-attribute 'mode-line t :background "color-180")
-    (set-face-attribute 'minibuffer-prompt t :foreground "chocolate1")
-    (set-face-attribute 'font-lock-comment-face t :foreground "chocolate")
-    (set-face-attribute 'dired-directory t :foreground "brightblue")
-    (set-face-attribute 'font-lock-keyword-face t :foreground "Cyan1")
-    (set-face-attribute 'font-lock-string-face t :foreground "peru")
-    (set-face-attribute 'font-lock-function-name-face t :foreground "DeepSkyBlue")
-    (set-face-attribute 'font-lock-doc-face t :foreground "color-174")
-
-    (when (fboundp 'anything-for-files)
-      (set-face-attribute 'anything-header t :underline nil :background "black" :foreground "color-75")
-      (set-face-attribute 'anything-dir-heading t  :foreground "color-183" :background "color-236")
-      (set-face-attribute 'anything-dir-priv    t  :foreground "color-136" :background "color-236")
-      (set-face-attribute 'anything-file-name   t  :foreground "color-48"  :background "black")
-      (set-face-attribute 'anything-visible-mark t :foreground "red" :background "color-18"))
-    
-    (eval-after-load 'diff-mode
-      '(progn (set-face-attribute 'diff-changed t :foreground "salmon")
-	      (set-face-attribute 'diff-header t :background "grey20")
-	      (set-face-attribute 'diff-file-header t :background "grey30")))
-    (eval-after-load 'font-latex
-      '(progn (set-face-attribute 'font-latex-italic-face t :foreground "RosyBrown1")
-	      (set-face-attribute 'font-latex-bold-face t :foreground "RosyBrown1")))
-    (eval-after-load 'table
-      '(progn (set-face-attribute 'table-cell t :background "aquamarine4")))))
+  (when  (fboundp 'anything-for-files)
+    (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
+    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
+  
+  (eval-after-load 'diff-mode
+    '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
+	    (set-face-attribute 'diff-header nil :background "grey20")
+	    (set-face-attribute 'diff-file-header nil :background "grey30")))
+  (eval-after-load 'font-latex
+    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+  (eval-after-load 'table
+    '(progn (set-face-attribute 'table-cell nil :background "aquamarine4"))))
 
 (when (eq window-system 'w32) (frame-face-x-setup))
-(when (not window-system)
-  (frame-face-nox-setup)
-  (add-hook 'after-make-frame-functions (lambda (frame) (frame-face-nox-setup))))
+(when (string-match "256color" (getenv "TERM")) (frame-face-nox-setup))
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
