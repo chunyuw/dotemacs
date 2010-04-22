@@ -2,11 +2,11 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("download"
- (filename . "d:/Download/")
- (front-context-string . "..\n  -rw-rw-rw- ")
- (rear-context-string . "  0 1970-01-01  ")
- (position . 172))
+(("chrome"
+ (filename . "c:/Users/chunyu/AppData/Local/Google/Chrome/Application/")
+ (front-context-string . "chrome.exe\n  -rw")
+ (rear-context-string . "088 04-16 09:54 ")
+ (position . 486))
 ("down"
  (filename . "d:/Download/")
  (front-context-string . "..\n  -rw-rw-rw- ")
@@ -17,11 +17,6 @@
  (front-context-string . "auctex\n  -rw-rw-")
  (rear-context-string . "  0 03-03 12:16 ")
  (position . 227))
-("Preferences"
- (filename . "c:/Users/chunyu/AppData/Local/Google/Chrome/User Data/Default/Preferences")
- (front-context-string . "{\n   \"autofill\":")
- (rear-context-string)
- (position . 1))
 ("free_ware"
  (filename . "c:/free_ware/")
  (front-context-string . "cygwin-x\n  drwxr")
@@ -44,9 +39,9 @@
  (position . 1))
 ("tcignore"
  (filename . "c:/Program Files (x86)/TotalCmd/tcignore.txt")
- (front-context-string)
- (rear-context-string . "sys\nDefault.rdp\n")
- (position . 231))
+ (front-context-string . ".bzr .bzrignore ")
+ (rear-context-string)
+ (position . 1))
 ("proxy.pac"
  (filename . "c:/free_ware/etc/proxy.pac")
  (front-context-string . "// -*- javascrip")
