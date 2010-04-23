@@ -14,6 +14,7 @@
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-sv" 'view-mode)
+(global-set-key "\M-sb" 'browse-url)
 
 (setq inhibit-startup-message t
       require-final-newline t
@@ -478,6 +479,9 @@ Frame must be declared as an environment."
 (if (require 'msf-abbrev nil t)
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
+
+(if (fboundp 'twitter-get-friends-timeline)
+    (global-set-key "\M-st" 'twitter-get-friends-timeline))
 ;; MISC Packages end here ;;
 
 
@@ -601,6 +605,8 @@ Frame must be declared as an environment."
     (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
     (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
   
+  (eval-after-load 'twitter
+    '(progn (set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20")))
   (eval-after-load 'diff-mode
     '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
 	    (set-face-attribute 'diff-header nil :background "grey20")
