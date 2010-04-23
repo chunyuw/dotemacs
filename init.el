@@ -576,6 +576,9 @@ Frame must be declared as an environment."
   (set-face-attribute 'region nil :background "grey21")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
 
+  (eval-after-load 'twitter
+    '(progn (set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20")))
+
   (when (fboundp 'anything-for-files)
     (set-face-attribute 'anything-file-name nil :foreground "gold")
     (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
@@ -604,9 +607,7 @@ Frame must be declared as an environment."
     (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
     (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
     (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
-  
-  (eval-after-load 'twitter
-    '(progn (set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20")))
+
   (eval-after-load 'diff-mode
     '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
 	    (set-face-attribute 'diff-header nil :background "grey20")
