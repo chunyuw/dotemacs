@@ -108,7 +108,7 @@
 (savehist-mode 1)
 
 (setq completion-styles 
-      '(partial-completion initials substring emacs22))
+      '(partial-completion initials substring basic emacs22))
 
 (setq savehist-ignored-variables 
       '(ido-file-history ido-buffer-history file-name-history))
@@ -480,8 +480,11 @@ Frame must be declared as an environment."
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
 
-(if (fboundp 'twitter-get-friends-timeline)
-    (global-set-key "\M-st" 'twitter-get-friends-timeline))
+(when (fboundp 'twitter-get-friends-timeline)
+    (global-set-key "\M-st" 'twitter-get-friends-timeline)
+    (setq twitter-username "cymacss"
+	  twitter-password "*******")
+    (setq url-proxy-services '(("http" . "127.0.0.1:8580"))))
 ;; MISC Packages end here ;;
 
 
