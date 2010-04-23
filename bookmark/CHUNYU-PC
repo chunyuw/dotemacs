@@ -2,14 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("tcignore"
+(("init"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Chunyu <cymac")
+ (rear-context-string)
+ (position . 1))
+("tcignore"
  (filename . "c:/Program Files (x86)/TotalCmd/tcignore.txt")
  (front-context-string)
  (rear-context-string . "sys\nDefault.rdp\n")
  (position . 231))
 ("proxy.pac"
  (filename . "c:/free_ware/etc/proxy.pac")
- (front-context-string . "// -*- javascrip")
+ (front-context-string)
  (rear-context-string)
  (position . 1))
 ("subversion"
