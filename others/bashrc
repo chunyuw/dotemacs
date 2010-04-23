@@ -7,10 +7,11 @@
 export PATH=/usr/local/hadoop/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 export DGROOT=$HOME/.dgroot
 export ADMIN=chunyu@hit.edu.cn
+export EDITOR='emacsclient -tca ""' 
 
 shopt -s cdspell
 
-alias  e="emacsclient -c"
-alias  ec="emacsclient -nw -c"
+alias  e="emacsclient"
+alias  ec='emacsclient -tca ""'
 alias  cls=clear
 

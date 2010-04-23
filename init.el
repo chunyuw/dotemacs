@@ -576,12 +576,11 @@ Frame must be declared as an environment."
     (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3")))
 
 (defun frame-face-nox-setup () ;; Text only console frame
-  ;; ;; XTerm console
-  ;; (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
-  ;; (set-face-attribute 'region nil :background "blue")
-  ;; (set-face-attribute 'font-lock-comment-face nil :foreground "red")
+  (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
+  (set-face-attribute 'region nil :background "blue")
+  (set-face-attribute 'font-lock-comment-face nil :foreground "red"))
 
-  ;; 256 colors XTerm console
+(defun frame-face-nox256-setup () ;; Text only 256color console frame
   (set-face-attribute 'region nil :background "color-24")
   (set-face-attribute 'mode-line nil :background "color-180")
   (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
@@ -611,7 +610,8 @@ Frame must be declared as an environment."
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4"))))
 
 (when (eq window-system 'w32) (frame-face-x-setup))
-(when (string-match "256color" (getenv "TERM")) (frame-face-nox-setup))
+(when (not window-system) (frame-face-nox-setup))
+(when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
