@@ -621,8 +621,7 @@ Frame must be declared as an environment."
   (eval-after-load 'table
     '(progn (set-face-attribute 'table-cell nil :background "aquamarine4"))))
 
-(when (eq window-system 'w32) (frame-face-x-setup))
-(when (not window-system) (frame-face-nox-setup))
+(if (window-system) (frame-face-x-setup) (frame-face-nox-setup))
 (when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
 ;; Frame configuration ends here ;;
 
