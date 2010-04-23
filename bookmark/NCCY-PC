@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("chrome"
+(("init"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Chunyu <cymac")
+ (rear-context-string)
+ (position . 1))
+("chrome"
  (filename . "c:/Users/chunyu/AppData/Local/Google/Chrome/Application/")
  (front-context-string . "chrome.exe\n  -rw")
  (rear-context-string . "088 04-16 09:54 ")

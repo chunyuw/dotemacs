@@ -20,7 +20,7 @@ ci:;    bzr commit . -m "$(AUTOCSTR)"
 st:;	bzr st
 
 
-clean:;	-$(RM) -r {anything-c-adaptive-history,history,places,recentf,tramp} auto-save-list
+clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list *~ abbrev_defs
 
 # Local Variables:
 # mode: makefile-gmake
