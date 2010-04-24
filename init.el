@@ -107,7 +107,8 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 
-(setq completion-styles 
+(setq completion-word-extra-chars '(" " "-")
+      completion-styles 
       '(partial-completion initials substring basic emacs22))
 
 (setq savehist-ignored-variables 
