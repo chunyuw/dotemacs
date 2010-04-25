@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("mypass"
+(("wincmd"
+ (filename . "c:/Program Files (x86)/TotalCmd/wincmd.ini")
+ (front-context-string . "[Configuration]\n")
+ (rear-context-string)
+ (position . 1))
+("mypass"
  (filename . "~/.emacs.d/mypass")
  (front-context-string)
  (rear-context-string . "se/test/src\"))\n\n")
