@@ -27,6 +27,7 @@
       disabled-command-function nil
       history-delete-duplicates t
       mark-even-if-inactive t
+      set-mark-command-repeat-pop t
       parens-require-spaces nil
       max-mini-window-height 1 
       isearch-allow-scroll t)
