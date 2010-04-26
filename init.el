@@ -107,9 +107,7 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 
-(setq completion-word-extra-chars '(" " "-")
-      completion-styles 
-      '(partial-completion initials substring basic emacs22))
+(setq completion-styles '(partial-completion initials substring basic emacs22))
 
 (setq savehist-ignored-variables 
       '(ido-file-history ido-buffer-history file-name-history))
