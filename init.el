@@ -85,6 +85,8 @@
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
 
+;; (setq vcursor-key-bindings t)
+
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (set-language-environment    'UTF-8)
@@ -104,6 +106,7 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
+(auto-insert-mode 1)
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
@@ -482,11 +485,11 @@ Frame must be declared as an environment."
     (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
 	   (msf-abbrev-load)))
 
-(when (fboundp 'twitter-get-friends-timeline)
-    (global-set-key "\M-st" 'twitter-get-friends-timeline)
-    (setq twitter-username "cymacss"
-	  twitter-password "*******")
-    (setq url-proxy-services '(("http" . "127.0.0.1:8580"))))
+(eval-after-load 'twitter
+  '(progn (global-set-key "\M-st" 'twitter-get-friends-timeline)
+	  (setq twitter-username "cymacss"
+		twitter-password "*******")
+	  (setq url-proxy-services '(("http" . "127.0.0.1:8580")))))
 ;; MISC Packages end here ;;
 
 
@@ -544,7 +547,8 @@ Frame must be declared as an environment."
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
     ;; ISpell on Win32 ends here ;;
 
-    (setq find-program "gfind"))))
+    (setq file-cache-find-command "gfind"
+	  find-program "gfind"))))
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
@@ -584,10 +588,10 @@ Frame must be declared as an environment."
   (eval-after-load 'twitter
     '(progn (set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20")))
 
-  (when (fboundp 'anything-for-files)
-    (set-face-attribute 'anything-file-name nil :foreground "gold")
-    (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
-    (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3")))
+  (eval-after-load 'anything-config
+    '(progn (set-face-attribute 'anything-file-name nil :foreground "gold")
+       (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
+       (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3"))))
 
 (defun frame-face-nox-setup () ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
@@ -606,12 +610,12 @@ Frame must be declared as an environment."
   (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
   (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
 
-  (when  (fboundp 'anything-for-files)
-    (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
-    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
-    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
-    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
-    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18"))
+  (eval-after-load 'anything-config
+    '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
+	    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+	    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+	    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+	    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
 
   (eval-after-load 'diff-mode
     '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
