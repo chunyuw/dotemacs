@@ -40,6 +40,7 @@
       sentence-end-double-space nil
       scroll-preserve-screen-position 'keep
       Man-notify-method 'pushy
+      comment-auto-fill-only-comments t
       comment-style 'extra-line)
 
 (setq bookmark-save-flag 1
