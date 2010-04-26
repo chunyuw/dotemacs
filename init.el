@@ -289,11 +289,12 @@
 	anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
-	anything-c-source-file-cache
 	anything-c-source-bookmarks
+	anything-c-source-file-cache
+	anything-c-source-occur
 	anything-c-source-locate
-	;; anything-c-source-files-in-all-dired
-	anything-c-source-buffer-not-found))
+	anything-c-source-files-in-all-dired))
+;; anything-c-source-buffer-not-found
 
 (when (require 'anything-config nil t)
   (global-set-key "\M-a" 'anything-for-files)
