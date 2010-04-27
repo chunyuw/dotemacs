@@ -35,6 +35,8 @@
 (setq-default major-mode 'text-mode
 	      fill-column 78)
 
+(setq kmacro-call-repeat-with-arg t)
+
 (setq makefile-electric-keys t
       apropos-do-all t
       sentence-end-double-space nil
