@@ -176,9 +176,9 @@
       org-export-html-style 
       "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
-(eval-after-load 'org-mode
-  '(progn (if (fboundp 'anything-for-files)
-	      (define-key org-mode-map "\M-a" 'anything-for-files))))
+(eval-after-load 'org
+  '(eval-after-load 'anything-config
+      '(define-key org-mode-map "\M-a" 'anything-for-files)))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
@@ -230,7 +230,7 @@
        (define-key dired-mode-map "W"
 	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
-
+       
        (setq browse-url-generic-program
 	     (substitute-in-file-name
 	      "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe"))
@@ -305,8 +305,8 @@
   (global-set-key "\M-A" 'anything-resume)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-execute-persistent-action)
-  (define-key anything-map "\C-z" 'anything-toggle-visible-mark))
-(remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history)
+  (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+  (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
 
 ;; Calendar ;;
@@ -473,8 +473,7 @@ Frame must be declared as an environment."
 (setq template-auto-update nil
       template-auto-insert nil
       template-initialize '(menus))
-(if (require 'template nil t)
-    (progn (template-initialize)))
+(when (require 'template nil t) (template-initialize))
 
 (mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
@@ -482,15 +481,15 @@ Frame must be declared as an environment."
 		     haskell-mode-hook))
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
-(if (require 'msf-abbrev nil t)
-    (progn (define-key fld-choose-keymap "\M-m" 'fld-choose)
-	   (msf-abbrev-load)))
+(when (require 'msf-abbrev nil t)
+  (define-key fld-choose-keymap "\M-m" 'fld-choose)
+  (msf-abbrev-load))
 
-(eval-after-load 'twitter
-  '(progn (global-set-key "\M-st" 'twitter-get-friends-timeline)
-	  (setq twitter-username "cymacss"
-		twitter-password "*******")
-	  (setq url-proxy-services '(("http" . "127.0.0.1:8580")))))
+(when (require 'twitter nil t)
+  (global-set-key "\M-st" 'twitter-get-friends-timeline)
+  (setq twitter-username "cymacss"
+	twitter-password "*******")
+  (setq url-proxy-services '(("http" . "127.0.0.1:8580"))))
 ;; MISC Packages end here ;;
 
 
@@ -572,9 +571,6 @@ Frame must be declared as an environment."
 
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
-;; Display page delimiter ^L as a horizontal line
-(or standard-display-table (setq standard-display-table (make-display-table)))
-
 ;; Frame configuration ;;
 (defun frame-face-x-setup () ;; Both X-window and MS-Windows
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
@@ -586,10 +582,11 @@ Frame must be declared as an environment."
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
 
   (eval-after-load 'twitter
-    '(progn (set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20")))
+    '(set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20"))
 
   (eval-after-load 'anything-config
-    '(progn (set-face-attribute 'anything-file-name nil :foreground "gold")
+    '(progn
+       (set-face-attribute 'anything-file-name nil :foreground "gold")
        (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
        (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3"))))
 
@@ -625,9 +622,9 @@ Frame must be declared as an environment."
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
   (eval-after-load 'table
-    '(progn (set-face-attribute 'table-cell nil :background "aquamarine4"))))
+    '(set-face-attribute 'table-cell nil :background "aquamarine4")))
 
-(if (window-system) (frame-face-x-setup) (frame-face-nox-setup))
+(if window-system (frame-face-x-setup) (frame-face-nox-setup))
 (when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
 ;; Frame configuration ends here ;;
 
