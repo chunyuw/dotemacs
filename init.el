@@ -190,6 +190,7 @@
 
 ;; Recentf ;;
 (setq recentf-save-file "~/.emacs.d/recentf"
+      recentf-max-saved-items 20
       recentf-exclude 
       '(".emacs.d/bookmark/" "\\.tmp/"))
 (require 'recentf)
@@ -547,8 +548,7 @@ Frame must be declared as an environment."
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
     ;; ISpell on Win32 ends here ;;
 
-    (setq file-cache-find-command "gfind"
-	  find-program "gfind"))))
+    (setq find-program "gfind"))))
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
