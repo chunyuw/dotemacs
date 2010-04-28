@@ -82,6 +82,10 @@
 (setq ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net")
 
+(setq tramp-backup-directory-alist backup-directory-alist)
+
+(setq view-inhibit-help-message t)
+
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (setq reb-blink-delay 1
@@ -113,6 +117,8 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
+
+(windmove-default-keybindings 'super)
 
 (setq completion-styles '(partial-completion initials basic emacs22))
 
@@ -213,10 +219,14 @@
 ;; Dired ;;
 (eval-after-load 'dired
   '(progn
-     (require 'dired-x)
      (setq dired-listing-switches "-avl"
+	   dired-dwim-target t
+	   directory-free-space-args "-Ph"
+	   dired-bind-man nil
+	   dired-bind-vm nil
 	   wdired-use-dired-vertical-movement 'sometime)
 
+     (require 'dired-x)
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
