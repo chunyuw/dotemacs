@@ -126,8 +126,8 @@
       '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
-      (append '(("\\.cs\\'" . csharp-mode) ("\\.bat\\'" . cmd-mode)
-		("\\.php\\'" . php-mode) ("\\.cmd\\'" . cmd-mode))
+      (append '(("\\.\(cmd\|bat\)\\'" . dos-mode)
+		("\\.cs\\'" . csharp-mode) ("\\.php\\'" . php-mode))
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
