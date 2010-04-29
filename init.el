@@ -517,20 +517,9 @@ Frame must be declared as an environment."
 
   (setq default-frame-alist
 	'((background-mode . dark)
-	  (font . "Consolas")
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
-
-  (set-frame-font "Consolas" t)
-
-  (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'modeline nil :height 120)
-  (set-face-attribute 'font-lock-comment-face nil :italic t)
-
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
 
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
@@ -585,6 +574,15 @@ Frame must be declared as an environment."
 
 ;; Frame configuration ;;
 (defun frame-face-x-setup () ;; Both X-window and MS-Windows
+  (set-frame-font "Consolas-14" t)
+
+  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'mode-line nil :height 120)
+
+  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
@@ -592,6 +590,7 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
   (set-face-attribute 'region nil :background "grey21")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+  (set-face-attribute 'font-lock-comment-face nil :italic t)
 
   (eval-after-load 'twitter
     '(set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20"))
