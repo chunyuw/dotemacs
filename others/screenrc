@@ -22,7 +22,6 @@ hardstatus  string "%{+r}%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?
 termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 bind e screen -t 'emacs' emacs
-bind E screen -t 'EMACS' sudo emacs
 
 bind k
 bind ^x
