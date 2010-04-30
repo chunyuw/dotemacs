@@ -519,7 +519,7 @@ Frame must be declared as an environment."
 	'((background-mode . dark)
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
-	  (screen-gamma . 1.5)
+	  (screen-gamma . 1.7)
 	  (cursor-color . "Coral")))
 
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
