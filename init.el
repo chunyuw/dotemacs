@@ -126,7 +126,7 @@
       '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
-      (append '(("\\.\(cmd\|bat\)\\'" . dos-mode)
+      (append '(("\\.\\(cmd\\|bat\\)\\'" . dos-mode)
 		("\\.cs\\'" . csharp-mode) ("\\.php\\'" . php-mode))
 	      auto-mode-alist))
 
@@ -519,6 +519,7 @@ Frame must be declared as an environment."
 	'((background-mode . dark)
 	  (background-color . "DarkSlateGrey")
 	  (foreground-color . "Wheat")
+	  (screen-gamma . 1.5)
 	  (cursor-color . "Coral")))
 
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
