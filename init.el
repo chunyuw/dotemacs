@@ -498,10 +498,10 @@ Frame must be declared as an environment."
   (msf-abbrev-load))
 
 (when (require 'twitter nil t)
-  (global-set-key "\M-st" 'twitter-get-friends-timeline)
-  (setq twitter-username "cymacss"
-	twitter-password "*******")
-  (setq url-proxy-services '(("http" . "127.0.0.1:8580"))))
+  (global-set-key "\M-st" (lambda () (interactive) 
+			    (let ((url-proxy-services '(("http" . "127.0.0.1:8580"))))
+			      (twitter-get-friends-timeline))))
+  (setq twitter-username "cymacss" twitter-password "*******"))
 ;; MISC Packages end here ;;
 
 
