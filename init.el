@@ -646,7 +646,7 @@ Frame must be declared as an environment."
 
 ;; Local Variables:
 ;; mode: emacs-lisp
-;; coding: gbk-unix
+;; coding: utf-8
 ;; End:
 
 ;; Chunyu's .emacs.d/init.el ends here.
