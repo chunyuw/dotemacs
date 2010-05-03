@@ -316,7 +316,7 @@
   (global-set-key "\M-a" 'anything-for-files)
   (global-set-key "\M-A" 'anything-resume)
   (define-key anything-map " " 'anything-exit-minibuffer)
-  (define-key anything-map "\M-a" 'anything-execute-persistent-action)
+  (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
