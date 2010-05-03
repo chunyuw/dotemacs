@@ -14,10 +14,10 @@ all:
 	@echo "$(AUTOCSTR)"
 
 #up:;	bzr up
-pull:;	git pull
-push:;	git push
-ci:;    git commit . -m "$(AUTOCSTR)"
-st:;	git status
+pull:;	@git pull
+push:;	@git push
+ci:;    @git commit -a -m "$(AUTOCSTR)"
+st:;	@git status
 
 
 clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list abbrev_defs
