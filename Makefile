@@ -13,11 +13,11 @@ all:
 	@echo "    make pull/push/ci/up/st | clean"
 	@echo "$(AUTOCSTR)"
 
-up:;	bzr up
+#up:;	bzr up
 pull:;	git pull
-push:;	bzr push
-ci:;    bzr commit . -m "$(AUTOCSTR)"
-st:;	bzr st
+push:;	git push
+ci:;    git commit . -m "$(AUTOCSTR)"
+st:;	git status
 
 
 clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list abbrev_defs
