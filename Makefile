@@ -13,7 +13,7 @@ all:
 	@echo "    make pull/push/ci/up/st | clean"
 	@echo "$(AUTOCSTR)"
 
-#up:;	bzr up
+up:;	@git update-index
 pull:;	@git pull
 push:;	@git push
 ci:;    @git commit -a -m "$(AUTOCSTR)"
