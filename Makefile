@@ -14,7 +14,7 @@ all:
 	@echo "$(AUTOCSTR)"
 
 up:;	bzr up
-pull:;	bzr pull
+pull:;	git pull
 push:;	bzr push
 ci:;    bzr commit . -m "$(AUTOCSTR)"
 st:;	bzr st
