@@ -112,7 +112,6 @@
 (column-number-mode 1)
 (blink-cursor-mode -1)
 (display-time-mode 1)
-(auto-insert-mode 1)
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
@@ -204,18 +203,6 @@
 (require 'recentf)
 ;; Recentf ends here ;;
 
-;; CC-Mode ;;
-(setq c-offsets-alist '((substatement-open . 0))
-      c-cleanup-list
-      '(brace-else-brace compact-empty-funcall comment-close-slash
-			 brace-elseif-brace empty-defun-braces defun-close-semi
-			 list-close-comma scope-operator space-before-funcall))
-(setq-default c-block-comment-prefix "* ")
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (abbrev-mode 1) (cwarn-mode 1) (c-toggle-auto-hungry-state -1)))
-;; CC-Mode ends here ;;
-
 ;; Dired ;;
 (eval-after-load 'dired
   '(progn
@@ -239,6 +226,7 @@
      (when window-system
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
+       (define-key dired-mode-map "Y" 'chunyu/dired-win7-mklink)
        (define-key dired-mode-map "W"
 	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
@@ -266,6 +254,17 @@
 		(g (subst-char-in-string ?/ ?\\ f)))
 	   (if (file-exists-p f)
 	       (w32-shell-execute nil c (format "/O \"%s\"" g) 1))))
+
+       (defun chunyu/dired-win7-mklink ()
+	 "Win7 mklink wrapper"
+	 (interactive)
+	 (let* ((file-name (dired-get-file-for-visit))
+		(target-dir (dired-dwim-target-directory))
+		(target (read-file-name "MkLink to:" target-dir))
+		(option (if (file-directory-p file-name) "/J" "/H"))
+		(filenm (replace-regexp-in-string 
+			 "/" "\\\\" (format "%s %s" target file-name))))
+	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0)))
 
        (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
