@@ -488,8 +488,7 @@ Frame must be declared as an environment."
 
 (mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
       '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
-		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook
-		     haskell-mode-hook))
+		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook))
 
 (setq msf-abbrev-root "~/.emacs.d/msf")
 (when (require 'msf-abbrev nil t)
@@ -501,6 +500,10 @@ Frame must be declared as an environment."
 			    (let ((url-proxy-services '(("http" . "127.0.0.1:8580"))))
 			      (twitter-get-friends-timeline))))
   (setq twitter-username "cymacss" twitter-password "*******"))
+
+(when (require 'battery nil t)
+  (or (equal (cdr (assoc ?L (funcall battery-status-function))) "on-line")
+      (display-battery-mode)))
 ;; MISC Packages end here ;;
 
 
