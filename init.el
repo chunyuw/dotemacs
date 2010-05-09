@@ -116,10 +116,10 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
-(when (require 'complete nil t)
-  (partial-completion-mode 1))
 
 (windmove-default-keybindings 'super)
+
+(setq completion-styles '(partial-completion initials emacs22))
 
 (setq savehist-ignored-variables 
       '(ido-file-history ido-buffer-history file-name-history))
@@ -308,15 +308,42 @@
 	anything-c-source-file-cache
 	anything-c-source-occur
 	anything-c-source-locate
-	anything-c-source-files-in-all-dired))
-;; anything-c-source-buffer-not-found
+	anything-c-source-files-in-all-dired)
+      anything-for-expand-prefered-list
+      '(anything-c-source-msf-abbrev
+	anything-c-source-buffer-not-found))
 
 (when (require 'anything-config nil t)
   (global-set-key "\M-a" 'anything-for-files)
-  (global-set-key "\M-A" 'anything-resume)
+  (global-set-key "\M-A" 'anything-call-source)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+
+  (global-set-key "\M-n" 'anything-for-expand)
+
+  (defun anything-for-expand () (interactive)
+    (anything-other-buffer anything-for-expand-prefered-list nil))
+
+  (setq anything-c-source-msf-abbrev
+    '((name . "msf-abbrev abbreviations")
+      (init . (lambda ()
+		(setq msf-abbrev-table nil) (msf-abbrev-load)
+		(setq anything-c-msf-abbrev-buffer (current-buffer))
+		(setq anything-c-msf-abbrev-mode major-mode)
+		(setq anything-c-msf-abbrev-mode-dir
+		      (let* ((current-mode-str
+			      (cond
+			       ((and (eq major-mode 'latex-mode) (boundp 'AUCTeX-version)) "LaTeX-mode")
+			       ((and (eq major-mode 'tex-mode) (boundp 'AUCTeX-version)) "TeX-mode")
+			       (t (format "%s" major-mode))))
+			     (d (msf-abbrev-locate-mode-dir current-mode-str)))
+			(file-name-as-directory d)))))
+      (candidates . (lambda () (cadr (assoc (format "%s" anything-c-msf-abbrev-mode) msf-abbrev-table))))
+      (action ("insert" . (lambda(n) (insert n) (expand-abbrev)))
+	      ("edit"   . (lambda(n) (find-file (concat anything-c-msf-abbrev-mode-dir n))))
+	      ("delete" . (lambda(n) (delete-file (concat anything-c-msf-abbrev-mode-dir n)))))))
+
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
 
