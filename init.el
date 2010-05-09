@@ -116,10 +116,10 @@
 (icomplete-mode 1)
 (menu-bar-mode -1)
 (savehist-mode 1)
+(when (require 'complete nil t)
+  (partial-completion-mode 1))
 
 (windmove-default-keybindings 'super)
-
-(setq completion-styles '(partial-completion initials basic emacs22))
 
 (setq savehist-ignored-variables 
       '(ido-file-history ido-buffer-history file-name-history))
@@ -500,6 +500,9 @@ Frame must be declared as an environment."
   (global-set-key "\M-st" (lambda () (interactive) 
 			    (let ((url-proxy-services '(("http" . "127.0.0.1:8580"))))
 			      (twitter-get-friends-timeline))))
+  (add-hook 'twitter-status-edit-mode-hook
+	    (lambda () (make-local-variable 'url-proxy-services)
+	      (setq url-proxy-services '(("http" . "127.0.0.1:8580")))))
   (setq twitter-username "cymacss" twitter-password "*******"))
 
 (when (require 'battery nil t)
