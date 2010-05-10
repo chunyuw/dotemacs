@@ -512,10 +512,6 @@ Frame must be declared as an environment."
 	      (setq url-proxy-services '(("http" . "127.0.0.1:8580")))))
   (setq twitter-username "cymacss" twitter-password "*******"))
 
-(when (require 'battery nil t)
-  (or (equal (cdr (assoc ?L (funcall battery-status-function))) "on-line")
-      (display-battery-mode)))
-
 (eval-after-load 'yasnippet
   '(progn (yas/load-directory "~/.emacs.d/snippets")
 	  (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))))
