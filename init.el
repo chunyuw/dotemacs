@@ -513,7 +513,7 @@ Frame must be declared as an environment."
   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
 	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
 		      html-mode-hook css-mode-hook perl-mode-hook 
-		      cperl-mode-hook csharp-mode-hook org-mode-hook)))
+		      cperl-mode-hook csharp-mode-hook)))
 ;; MISC Packages end here ;;
 
 (cond
