@@ -525,6 +525,7 @@ Frame must be declared as an environment."
 
 (cond
  ((not window-system) ;; Text-Only console
+  (global-set-key "\C-x5k" 'kill-emacs)
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
 
