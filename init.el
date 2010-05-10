@@ -185,7 +185,8 @@
       org-log-done t)
 (eval-after-load 'org
   '(eval-after-load 'anything-config
-      '(define-key org-mode-map "\M-a" 'anything-for-files)))
+      '(progn (define-key org-mode-map [(C-tab)] 'yas/expand)
+	      (define-key org-mode-map "\M-a" 'anything-for-files))))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
@@ -424,7 +425,7 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
-     (define-key TeX-mode-map [(C-Tab)] 'yas/expand)
+     (define-key TeX-mode-map [(C-tab)] 'yas/expand)
      (define-key TeX-mode-map [(super ?\[)] 'preview-buffer)
      (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
      (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
@@ -511,7 +512,8 @@ Frame must be declared as an environment."
   (setq twitter-username "cymacss" twitter-password "*******"))
 
 (eval-after-load 'yasnippet
-  '(progn (yas/load-directory "~/.emacs.d/snippets")
+  '(progn (global-set-key [(C-tab)] 'yas/expand)
+	  (yas/load-directory "~/.emacs.d/snippets")
 	  (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))))
 (when (fboundp 'yas/minor-mode-on)
   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
