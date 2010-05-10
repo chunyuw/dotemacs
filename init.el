@@ -15,6 +15,7 @@
 (global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sb" 'browse-url)
+(global-set-key "\M-O" 'chunyu/other-window)
 
 (setq inhibit-startup-message t
       require-final-newline t
@@ -29,7 +30,7 @@
       mark-even-if-inactive t
       set-mark-command-repeat-pop t
       parens-require-spaces nil
-      max-mini-window-height 1 
+      max-mini-window-height 1
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
@@ -73,6 +74,7 @@
 	try-expand-dabbrev-visible
 	try-expand-dabbrev-all-buffers
 	try-expand-dabbrev-from-kill
+	yas/expand-1
 	try-complete-file-name
 	try-complete-file-name-partially
 	try-complete-lisp-symbol
@@ -121,7 +123,7 @@
 
 (setq completion-styles '(partial-completion initials emacs22))
 
-(setq savehist-ignored-variables 
+(setq savehist-ignored-variables
       '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
@@ -180,7 +182,7 @@
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
-      org-export-html-style 
+      org-export-html-style
       "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 (eval-after-load 'org
@@ -198,7 +200,7 @@
 ;; Recentf ;;
 (setq recentf-save-file "~/.emacs.d/recentf"
       recentf-max-saved-items 20
-      recentf-exclude 
+      recentf-exclude
       '(".emacs.d/bookmark/" "\\.tmp/"))
 (require 'recentf)
 ;; Recentf ends here ;;
@@ -230,7 +232,7 @@
        (define-key dired-mode-map "W"
 	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
-       
+
        (setq browse-url-generic-program
 	     (substitute-in-file-name
 	      "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe"))
@@ -262,7 +264,7 @@
 		(target-dir (dired-dwim-target-directory))
 		(target (read-file-name "MkLink to:" target-dir))
 		(option (if (file-directory-p file-name) "/J" "/H"))
-		(filenm (replace-regexp-in-string 
+		(filenm (replace-regexp-in-string
 			 "/" "\\\\" (format "%s %s" target file-name))))
 	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0)))
 
@@ -308,42 +310,15 @@
 	anything-c-source-file-cache
 	anything-c-source-occur
 	anything-c-source-locate
-	anything-c-source-files-in-all-dired)
-      anything-for-expand-prefered-list
-      '(anything-c-source-msf-abbrev
-	anything-c-source-buffer-not-found))
+	anything-c-source-files-in-all-dired))
 
 (when (require 'anything-config nil t)
+  (global-set-key [(super a)] 'anything-for-files)
   (global-set-key "\M-a" 'anything-for-files)
   (global-set-key "\M-A" 'anything-call-source)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
-
-  (global-set-key "\M-n" 'anything-for-expand)
-
-  (defun anything-for-expand () (interactive)
-    (anything-other-buffer anything-for-expand-prefered-list nil))
-
-  (setq anything-c-source-msf-abbrev
-    '((name . "msf-abbrev abbreviations")
-      (init . (lambda ()
-		(setq msf-abbrev-table nil) (msf-abbrev-load)
-		(setq anything-c-msf-abbrev-buffer (current-buffer))
-		(setq anything-c-msf-abbrev-mode major-mode)
-		(setq anything-c-msf-abbrev-mode-dir
-		      (let* ((current-mode-str
-			      (cond
-			       ((and (eq major-mode 'latex-mode) (boundp 'AUCTeX-version)) "LaTeX-mode")
-			       ((and (eq major-mode 'tex-mode) (boundp 'AUCTeX-version)) "TeX-mode")
-			       (t (format "%s" major-mode))))
-			     (d (msf-abbrev-locate-mode-dir current-mode-str)))
-			(file-name-as-directory d)))))
-      (candidates . (lambda () (cadr (assoc (format "%s" anything-c-msf-abbrev-mode) msf-abbrev-table))))
-      (action ("insert" . (lambda(n) (insert n) (expand-abbrev)))
-	      ("edit"   . (lambda(n) (find-file (concat anything-c-msf-abbrev-mode-dir n))))
-	      ("delete" . (lambda(n) (delete-file (concat anything-c-msf-abbrev-mode-dir n)))))))
-
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
 
@@ -451,6 +426,7 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
+     (define-key TeX-mode-map [(C-Tab)] 'yas/expand)
      (define-key TeX-mode-map [(super ?\[)] 'preview-buffer)
      (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
      (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
@@ -498,6 +474,15 @@ Frame must be declared as an environment."
       (TeX-pin-region beg (point))
       (letf (( (symbol-function 'TeX-command-query) (lambda (x) "LaTeX")))
         (TeX-command-region)))))
+
+(defun kpsewhich-open (filename)
+  "Open TeXLive file in kpathsea."
+  (interactive "skpsewhich: ")
+  (let* ((comm (format "kpsewhich \"%s\"" filename))
+	 (fpath (replace-regexp-in-string
+		 "\015\\|\012" "" (shell-command-to-string comm))))
+    (if (> (length fpath) 0) (find-file fpath)
+      (message "Kpsewhich not found: %s" filename))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; MISC Packages ;;
@@ -518,13 +503,8 @@ Frame must be declared as an environment."
 		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook
 		     python-mode-hook org-mode-hook))
 
-(setq msf-abbrev-root "~/.emacs.d/msf")
-(when (require 'msf-abbrev nil t)
-  (define-key fld-choose-keymap "\M-m" 'fld-choose)
-  (msf-abbrev-load))
-
 (when (require 'twitter nil t)
-  (global-set-key "\M-st" (lambda () (interactive) 
+  (global-set-key "\M-st" (lambda () (interactive)
 			    (let ((url-proxy-services '(("http" . "127.0.0.1:8580"))))
 			      (twitter-get-friends-timeline))))
   (add-hook 'twitter-status-edit-mode-hook
@@ -535,6 +515,15 @@ Frame must be declared as an environment."
 (when (require 'battery nil t)
   (or (equal (cdr (assoc ?L (funcall battery-status-function))) "on-line")
       (display-battery-mode)))
+
+(eval-after-load 'yasnippet
+  '(progn (global-set-key [(C-Tab)] 'yas/expand)
+	  (yas/load-directory "~/.emacs.d/snippets")
+	  (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
+	  (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
+		'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
+			      html-mode-hook css-mode-hook perl-mode-hook 
+			      cperl-mode-hook csharp-mode-hook org-mode-hook))))
 ;; MISC Packages end here ;;
 
 
@@ -586,14 +575,10 @@ Frame must be declared as an environment."
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
-(defun kpsewhich-open (filename)
-  "Open TeXLive file in kpathsea."
-  (interactive "skpsewhich: ")
-  (let* ((comm (format "kpsewhich \"%s\"" filename))
-	 (fpath (replace-regexp-in-string
-		 "\015\\|\012" "" (shell-command-to-string comm))))
-    (if (> (length fpath) 0) (find-file fpath)
-      (message "Kpsewhich not found: %s" filename))))
+(defun chunyu/other-window (&optional size)
+  (interactive "P")
+  (if (< (count-windows) 2) (split-window-vertically))
+  (other-window 1))
 
 
 (mapc (lambda (func) (put func 'disabled t))
