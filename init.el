@@ -134,7 +134,6 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
-
 (eval-after-load 'man
   '(progn
      (define-key Man-mode-map "j"  'scroll-up-line)
@@ -174,7 +173,6 @@
      (define-key diff-mode-map "\C-k" 'diff-hunk-kill)
      (define-key diff-mode-map "\C-K" 'diff-file-kill)
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
-
 ;; Org-mode ;;
 (setq org-special-ctrl-a/e t
       org-special-ctrl-k t
@@ -522,7 +520,6 @@ Frame must be declared as an environment."
 		      cperl-mode-hook csharp-mode-hook org-mode-hook)))
 ;; MISC Packages end here ;;
 
-
 (cond
  ((not window-system) ;; Text-Only console
   (global-set-key "\C-x5k" 'kill-emacs)
@@ -577,7 +574,6 @@ Frame must be declared as an environment."
   (if (< (count-windows) 2) (split-window-vertically))
   (other-window 1))
 
-
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
