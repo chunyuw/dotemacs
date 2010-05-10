@@ -403,7 +403,7 @@
 
 (add-hook 'TeX-mode-hook
 	  (lambda () ;; (flyspell-mode 1)
-	    (abbrev-mode 1) (turn-on-reftex) (auto-fill-mode 1)))
+	    (turn-on-reftex) (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (beamer-setup)
@@ -495,11 +495,6 @@ Frame must be declared as an environment."
       template-auto-insert nil
       template-initialize '(menus))
 (when (require 'template nil t) (template-initialize))
-
-(mapc (lambda (hook) (add-hook hook (lambda () (abbrev-mode 1))))
-      '(sh-mode-hook text-mode-hook perl-mode-hook cperl-mode-hook csharp-mode-hook
-		     c-mode-hook c++-mode-hook java-mode-hook shell-mode-hook
-		     python-mode-hook org-mode-hook))
 
 (when (require 'twitter nil t)
   (global-set-key "\M-st" (lambda () (interactive)
