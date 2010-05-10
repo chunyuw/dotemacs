@@ -185,8 +185,7 @@
       org-log-done t)
 (eval-after-load 'org
   '(eval-after-load 'anything-config
-      '(progn (define-key org-mode-map [(C-tab)] 'yas/expand)
-	      (define-key org-mode-map "\M-a" 'anything-for-files))))
+      '(define-key org-mode-map "\M-a" 'anything-for-files)))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
