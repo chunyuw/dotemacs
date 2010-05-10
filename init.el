@@ -519,10 +519,11 @@ Frame must be declared as an environment."
 (eval-after-load 'yasnippet
   '(progn (yas/load-directory "~/.emacs.d/snippets")
 	  (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))))
-(mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
-      '(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
-		    html-mode-hook css-mode-hook perl-mode-hook 
-		    cperl-mode-hook csharp-mode-hook org-mode-hook))
+(when (fboundp 'yas/minor-mode-on)
+  (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
+	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
+		      html-mode-hook css-mode-hook perl-mode-hook 
+		      cperl-mode-hook csharp-mode-hook org-mode-hook)))
 ;; MISC Packages end here ;;
 
 
