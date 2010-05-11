@@ -15,7 +15,6 @@
 (global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sb" 'browse-url)
-(global-set-key "\M-O" 'chunyu/other-window)
 
 (setq inhibit-startup-message t
       require-final-newline t
