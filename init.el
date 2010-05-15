@@ -186,6 +186,7 @@
 (eval-after-load 'org
   '(eval-after-load 'anything-config
       '(define-key org-mode-map "\M-a" 'anything-for-files)))
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;

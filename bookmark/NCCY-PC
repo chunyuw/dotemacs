@@ -2,12 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("wincmd"
- (filename . "c:/Program Files (x86)/TotalCmd/wincmd.ini")
- (front-context-string . "[Configuration]\n")
- (rear-context-string)
- (position . 1))
-("mypass"
+(("mypass"
  (filename . "~/.emacs.d/mypass")
  (front-context-string)
  (rear-context-string . "se/test/src\"))\n\n")
@@ -60,16 +55,6 @@
 ("proxy.pac"
  (filename . "c:/free_ware/etc/proxy.pac")
  (front-context-string . "// -*- javascrip")
- (rear-context-string)
- (position . 1))
-("subversion"
- (filename . "c:/Users/chunyu/AppData/Roaming/Subversion/config")
- (front-context-string . "local=plink -loa")
- (rear-context-string . " = $SVN_SSH ssh\n")
- (position . 2660))
-("totalcmd"
- (filename . "c:/Program Files (x86)/TotalCmd/usercmd.ini")
- (front-context-string . "[em_usercmd1]\ncm")
  (rear-context-string)
  (position . 1))
 )
