@@ -603,7 +603,11 @@ Frame must be declared as an environment."
   (eval-after-load 'twitter
     '(set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20"))
 
-  (eval-after-load 'anything-config
+    (eval-after-load 'font-latex
+    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+
+    (eval-after-load 'anything-config
     '(progn
        (set-face-attribute 'anything-file-name nil :foreground "gold")
        (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
