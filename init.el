@@ -588,7 +588,7 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line nil :height 120)
 
   (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "Microsoft YaHei")
+  (set-fontset-font (frame-parameter nil 'font) 'symbol "DejaVu Sans")
   (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
 
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
