@@ -197,7 +197,7 @@
 
 ;; Recentf ;;
 (setq recentf-save-file "~/.emacs.d/recentf"
-      recentf-max-saved-items 20
+      recentf-max-saved-items 40
       recentf-exclude
       '(".emacs.d/bookmark/" "\\.tmp/" "z_region"))
 (require 'recentf)

@@ -4,12 +4,14 @@ abbrev_defs
 anything*
 auto-install
 auto-save-list
+ede-projects.el
 history
 mypass
 places
 recentf
 semanticdb
 server
+srecode-map.el
 thumbs
 tramp
 tutorial
