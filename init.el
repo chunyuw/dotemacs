@@ -120,7 +120,8 @@
 
 (windmove-default-keybindings 'super)
 
-(setq completion-styles '(partial-completion initials emacs22))
+(setq completion-styles '(partial-completion initials))
+(setq completion-pcm-complete-word-inserts-delimiters t)
 
 (setq savehist-ignored-variables
       '(ido-file-history ido-buffer-history file-name-history))
