@@ -1,0 +1,80 @@
+set viminfo='1,"n$HOME/.viminfo
+
+set nocompatible
+colo desert
+"source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+set lines=43
+set co=130
+set go=
+set guifont=Consolas:h14:cANSI
+
+set nu
+set autoindent
+set tabstop=4
+set shiftwidth=4
+syntax enable
+syntax on
+
+inoremap <C-H> <Left>
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+inoremap <C-L> <Right>
+
+
+filetype plugin indent on
+
+autocmd FileType text setlocal textwidth=78
+set linebreak
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,ucs-bom,cp936,big5
+
+set cursorline
+hi cursorline  cterm=bold,underline  ctermfg=Cyan 
+hi CursorColumn ctermfg=Red  ctermbg=White "highlight cursor 
+	   " 0	    0	    Black
+	   " 1	    4	    DarkBlue
+	   " 2	    2	    DarkGreen
+	   " 3	    6	    DarkCyan
+	   " 4	    1	    DarkRed
+	   " 5	    5	    DarkMagenta
+	   " 6	    3	    Brown, DarkYellow
+	   " 7	    7	    LightGray, LightGrey, Gray, Grey
+	   " 8	    0*	    DarkGray, DarkGrey
+	   " 9	    4*	    Blue, LightBlue
+	   " 10	    2*	    Green, LightGreen
+	   " 11	    6*	    Cyan, LightCyan
+	   " 12	    1*	    Red, LightRed
+	   " 13	    5*	    Magenta, LightMagenta
+	   " 14	    3*	    Yellow, LightYellow
+	   " 15	    7*	    White
+
+set foldmethod=syntax
+let perl_fold = 1
+let perl_fold_blocks = 1
+
+let g:is_bash	   = 1
+let g:sh_fold_enabled= 3  
+
+let java_highlight_all=1
+set tags+=~/.vim/systags "autoload for the C
+
+"set thesaurus+=~/.vim/mthesaur.txt
+"set tags+=~/.vim/systags00
+
+
+
+set incsearch
+set nowrapscan
+set hlsearch 	"To highlight all the matches
+
+
+set backspace=indent,eol,start
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+
+let &guicursor = &guicursor . ",a:blinkon0"

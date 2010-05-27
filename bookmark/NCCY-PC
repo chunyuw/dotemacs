@@ -33,7 +33,7 @@
  (rear-context-string . "  0 2009-07-30  ")
  (position . 602))
 ("build"
- (filename . "c:/free_ware/build/build-24.cmd")
+ (filename . "c:/free_ware/build/build-emacs.cmd")
  (front-context-string . "@rem Script for ")
  (rear-context-string)
  (position . 1))
