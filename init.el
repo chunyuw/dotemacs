@@ -588,9 +588,12 @@ Frame must be declared as an environment."
   (set-face-attribute 'default nil :height 140)
   (set-face-attribute 'mode-line nil :height 120)
 
-  (set-fontset-font (frame-parameter nil 'font) 'han "Microsoft YaHei")
-  (set-fontset-font (frame-parameter nil 'font) 'symbol "DejaVu Sans")
-  (set-fontset-font (frame-parameter nil 'font) 'cjk-misc "Microsoft YaHei")
+  (let ((name (frame-parameter nil 'font)))
+    (set-fontset-font name 'han "Microsoft YaHei")
+    (set-fontset-font name 'symbol "DejaVu Sans")
+    (set-fontset-font name 'cjk-misc "Microsoft YaHei")
+    (set-fontset-font name '(#x2018 . #x201D) "Microsoft YaHei")
+    (set-fontset-font name '(#x0B01 . #x0B70) (font-spec :family "Kalinga")))
 
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
