@@ -593,7 +593,7 @@ Frame must be declared as an environment."
     (set-fontset-font name 'symbol "DejaVu Sans")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
     (set-fontset-font name '(#x2018 . #x201D) "Microsoft YaHei")
-    (set-fontset-font name '(#x0B01 . #x0B70) (font-spec :family "Kalinga")))
+    (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga"))
 
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
