@@ -198,9 +198,9 @@
 
 ;; Recentf ;;
 (setq recentf-save-file "~/.emacs.d/recentf"
-      recentf-max-saved-items 40
+      recentf-max-saved-items 60
       recentf-exclude
-      '(".emacs.d/bookmark/" "\\.tmp/" "z_region"))
+      '(".emacs.d/bookmark/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 (require 'recentf)
 ;; Recentf ends here ;;
 
@@ -604,14 +604,17 @@ Frame must be declared as an environment."
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
   (set-face-attribute 'font-lock-comment-face nil :italic t)
 
+  (eval-after-load 'org-faces
+    '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
+
   (eval-after-load 'twitter
     '(set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20"))
 
-    (eval-after-load 'font-latex
+  (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-
-    (eval-after-load 'anything-config
+  
+  (eval-after-load 'anything-config
     '(progn
        (set-face-attribute 'anything-file-name nil :foreground "gold")
        (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
