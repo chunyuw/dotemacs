@@ -20,7 +20,7 @@ ci:;    @git commit -a -m "$(AUTOCSTR)"
 st:;	@git status
 
 
-clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list abbrev_defs
+clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list abbrev_defs ede-projects.el image-dired srecode-map.el url
 
 # Local Variables:
 # mode: makefile-gmake
