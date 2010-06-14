@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("tex-doc"
+(("tcignore"
+ (filename . "c:/free_ware/soft/totalcmd/tcignore.txt")
+ (front-context-string . ".svn auto *.aux ")
+ (rear-context-string)
+ (position . 1))
+("usercmd"
+ (filename . "c:/free_ware/soft/totalcmd/usercmd.ini")
+ (front-context-string . "[em_firefox]\ncmd")
+ (rear-context-string)
+ (position . 1))
+("tex-doc"
  (filename . "c:/free_ware/texlive/texmf-doc.org")
  (front-context-string . "[[file:///c:/fre")
  (rear-context-string)
@@ -12,11 +22,6 @@
  (front-context-string . ";; Chunyu <cymac")
  (rear-context-string)
  (position . 1))
-("tcignore"
- (filename . "c:/Program Files (x86)/TotalCmd/tcignore.txt")
- (front-context-string)
- (rear-context-string . "sys\nDefault.rdp\n")
- (position . 231))
 ("proxy.pac"
  (filename . "c:/free_ware/etc/proxy.pac")
  (front-context-string)
@@ -27,9 +32,4 @@
  (front-context-string . "local=plink -loa")
  (rear-context-string . " = $SVN_SSH ssh\n")
  (position . 2660))
-("totalcmd"
- (filename . "c:/Program Files (x86)/TotalCmd/usercmd.ini")
- (front-context-string . "[em_usercmd1]\ncm")
- (rear-context-string)
- (position . 1))
 )
