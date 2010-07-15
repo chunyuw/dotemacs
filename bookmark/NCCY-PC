@@ -48,7 +48,7 @@
  (rear-context-string)
  (position . 1))
 ("tcignore"
- (filename . "c:/Program Files (x86)/TotalCmd/tcignore.txt")
+ (filename . "c:/free_ware/soft/totalcmd/tcignore.txt")
  (front-context-string . ".bzr .bzrignore ")
  (rear-context-string)
  (position . 1))

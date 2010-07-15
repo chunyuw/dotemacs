@@ -8,6 +8,7 @@ export PATH=/usr/local/hadoop/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 export DGROOT=$HOME/.dgroot
 export ADMIN=chunyu@hit.edu.cn
 export EDITOR='emacsclient -tca ""' 
+#export XDG_CONFIG_HOME=$HOME/.google
 
 shopt -s cdspell
 

@@ -172,6 +172,11 @@
      (define-key diff-mode-map "\C-k" 'diff-hunk-kill)
      (define-key diff-mode-map "\C-K" 'diff-file-kill)
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
+;; package ;;
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("tromey" . "http://tromey.com/elpa/")))
+;; package ends here ;;
+
 ;; Org-mode ;;
 (setq org-special-ctrl-a/e t
       org-special-ctrl-k t
@@ -315,6 +320,7 @@
   (global-set-key "\M-a" 'anything-for-files)
   (global-set-key "\M-A" 'anything-call-source)
   (define-key anything-map " " 'anything-exit-minibuffer)
+  (define-key anything-map "\C-k" 'anything-execute-persistent-action)
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
