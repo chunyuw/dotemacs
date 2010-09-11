@@ -178,6 +178,8 @@
 ;; package ends here ;;
 
 ;; Org-mode ;;
+(setq org-goto-auto-isearch nil)
+
 (setq org-special-ctrl-a/e t
       org-special-ctrl-k t
       org-export-author-info nil
@@ -191,6 +193,9 @@
   '(eval-after-load 'anything-config
       '(define-key org-mode-map "\M-a" 'anything-for-files)))
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+(setq googlecl-blogname "Chunyu"
+      googlecl-username user-mail-address)
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
