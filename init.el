@@ -307,6 +307,10 @@
 (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
 ;; Ido ends here ;;
 
+;; ffap ;;
+(setq ffap-machine-p-known 'accept)
+;; ffap ends here ;;
+
 ;; Anything ;;
 (setq anything-su-or-sudo "sudo"
       anything-for-files-prefered-list
