@@ -172,6 +172,7 @@
      (define-key diff-mode-map "\C-k" 'diff-hunk-kill)
      (define-key diff-mode-map "\C-K" 'diff-file-kill)
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
+
 ;; package ;;
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("tromey" . "http://tromey.com/elpa/")))
