@@ -197,6 +197,10 @@
 
 (setq googlecl-blogname "Chunyu"
       googlecl-username user-mail-address)
+
+(setq file-coding-system-alist
+      (append '(("\\.ics\\'" . utf-8)) 
+	      file-coding-system-alist))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
@@ -317,6 +321,7 @@
       anything-for-files-prefered-list
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
+	anything-c-source-org-headline
 	anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
