@@ -318,6 +318,7 @@
 ;; Anything ;;
 (setq anything-su-or-sudo "sudo"
       anything-c-locate-command "locate -i %s"
+      anything-command-map-prefix-key "M-g a"
       anything-for-files-prefered-list
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
@@ -325,11 +326,10 @@
 	anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
+	anything-c-source-files-in-all-dired
 	anything-c-source-bookmarks
 	anything-c-source-file-cache
-	anything-c-source-occur
-	anything-c-source-locate
-	anything-c-source-files-in-all-dired))
+	anything-c-source-locate))
 
 (when (require 'anything-config nil t)
   (global-set-key [(super a)] 'anything-for-files)
@@ -504,6 +504,18 @@ Frame must be declared as an environment."
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
+
+;; Ropemacs & Pymacs ;;
+(defun load-ropemacs ()
+  "Load pymacs and ropemacs"
+  (interactive)
+  ;; (setq ropemacs-enable-shortcuts nil
+  ;;       ropemacs-local-prefix "M-g r")
+  (setq ropemacs-confirm-saving 'nil)
+  (require 'pymacs)
+  (pymacs-load "ropemacs" "rope-"))
+;; (eval-after-load 'python '(load-ropemacs))
+;; Ropemacs & Pymacs end here ;;
 
 ;; MISC Packages ;;
 (require 'doc-view nil t)
