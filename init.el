@@ -530,15 +530,6 @@ Frame must be declared as an environment."
       template-initialize '(menus))
 (when (require 'template nil t) (template-initialize))
 
-(when (require 'twitter nil t)
-  (global-set-key "\M-st" (lambda () (interactive)
-			    (let ((url-proxy-services '(("http" . "127.0.0.1:8580"))))
-			      (twitter-get-friends-timeline))))
-  (add-hook 'twitter-status-edit-mode-hook
-	    (lambda () (make-local-variable 'url-proxy-services)
-	      (setq url-proxy-services '(("http" . "127.0.0.1:8580")))))
-  (setq twitter-username "cymacss" twitter-password "*******"))
-
 (eval-after-load 'yasnippet
   '(progn (global-set-key [(C-tab)] 'yas/expand)
 	  (yas/load-directory "~/.emacs.d/snippets")
@@ -639,9 +630,6 @@ Frame must be declared as an environment."
 
   (eval-after-load 'org-faces
     '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
-
-  (eval-after-load 'twitter
-    '(set-face-attribute 'twitter-header-face nil :foreground "SkyBlue" :background "grey20"))
 
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
