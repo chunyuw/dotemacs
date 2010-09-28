@@ -51,8 +51,12 @@
 (setq display-time-24hr-format t
       display-time-day-and-date t)
 
-(setq user-full-name "Chunyu Wang"
-      user-mail-address "cymacs@gmail.com")
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "msmtp.exe"
+      ;; message-sendmail-extra-arguments '("-a" "cymacs") ;; for gmail
+      mail-host-address "hit.edu.cn"
+      user-full-name "Chunyu Wang"
+      user-mail-address "chunyu@hit.edu.cn")
 
 (setq version-control t
       kept-old-versions 2
@@ -90,8 +94,6 @@
 
 (setq reb-blink-delay 1
       reb-re-syntax 'string)
-
-;; (setq vcursor-key-bindings t)
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
