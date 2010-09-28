@@ -190,10 +190,19 @@
       org-export-html-style
       "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
+
 (eval-after-load 'org
   '(eval-after-load 'anything-config
       '(define-key org-mode-map "\M-a" 'anything-for-files)))
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+(add-hook 'org-mode-hook
+          (lambda ()
+	    (turn-on-auto-fill)
+	    (yas/minor-mode-on)
+	    (make-variable-buffer-local 'yas/trigger-key)
+            (org-set-local 'yas/trigger-key [tab])
+            (define-key yas/keymap [tab] 'yas/next-field)))
 
 (setq googlecl-blogname "Chunyu"
       googlecl-username user-mail-address)

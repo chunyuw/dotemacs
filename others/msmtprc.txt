@@ -1,0 +1,28 @@
+# -*- conf -*-
+
+# smth.hit.edu.cn
+# 
+ACCOUNT default
+HOST smtp.hit.edu.cn
+AUTH PLAIN
+USER chunyu@hit.edu.cn
+PASSWORD spr@wang
+LOGFILE ~/.tmp/msmtp.log
+
+
+
+# # smth.gmail.com
+#  
+# # (setq message-send-mail-function 'message-send-mail-with-sendmail)
+# # (setq sendmail-program "msmtp.exe")
+# # (setq message-sendmail-extra-arguments '("-a" "cymacs"))
+# # (setq mail-host-address "gmail.com")
+#
+# ACCOUNT cymacs
+# HOST smtp.gmail.com
+# TLS on
+# TLS_CERTCHECK off
+# AUTH on
+# USER cymacs@gmail.com
+# PASSWORD xxxxxx
+# PORT 587
