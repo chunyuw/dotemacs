@@ -18,7 +18,7 @@ pull:;	@git pull
 push:;	@git push
 ci:;    @git commit -a -m "$(AUTOCSTR)"
 st:;	@git status
-
+sync:   pull push
 
 clean:;	-$(RM) -r {history,places,recentf,tramp} auto-save-list abbrev_defs ede-projects.el image-dired srecode-map.el url semanticdb
 
