@@ -2,12 +2,12 @@
 
 # smth.hit.edu.cn
 # 
-ACCOUNT default
-HOST smtp.hit.edu.cn
-AUTH PLAIN
-USER chunyu@hit.edu.cn
-PASSWORD spr@wang
-LOGFILE ~/.tmp/msmtp.log
+account default
+host smtp.hit.edu.cn
+auth plain
+user chunyu@hit.edu.cn
+password spr@wang
+logfile ~/.tmp/msmtp.log
 
 
 
@@ -18,11 +18,11 @@ LOGFILE ~/.tmp/msmtp.log
 # # (setq message-sendmail-extra-arguments '("-a" "cymacs"))
 # # (setq mail-host-address "gmail.com")
 #
-# ACCOUNT cymacs
-# HOST smtp.gmail.com
-# TLS on
-# TLS_CERTCHECK off
-# AUTH on
-# USER cymacs@gmail.com
-# PASSWORD xxxxxx
-# PORT 587
+# account cymacs
+# host smtp.gmail.com
+# tls on
+# tls_certcheck off
+# auth on
+# user cymacs@gmail.com
+# password xxxxxx
+# port 587
