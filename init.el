@@ -691,7 +691,7 @@ Frame must be declared as an environment."
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
-(load "~/.emacs.d/mypass" t t t)
+(load (concat "~/.emacs.d/others/init-" system-name ".el") t t t)
 ;; Loaded ;;
 
 ;; Local Variables:
