@@ -52,7 +52,7 @@
       display-time-day-and-date t)
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail
-      sendmail-program "msmtp.exe"
+      sendmail-program "msmtp"
       ;; message-sendmail-extra-arguments '("-a" "cymacs") ;; for gmail
       mail-host-address "hit.edu.cn"
       user-full-name "Chunyu Wang"
