@@ -1,3 +1,7 @@
+;; -*- mode: emacs-lisp -*-
+
+;; (set-language-environment    'UTF-8)
+;; (setq default-file-name-coding-system 'chinese-gbk)
 
 (set-language-environment    'Chinese-GB18030)
 (set-default-coding-systems  'chinese-gb18030)

@@ -20,7 +20,7 @@ ci:;    @git commit -a -m "$(AUTOCSTR)"
 st:;	@git status
 sync:   pull push
 
-clean:;	-$(RM) -rv {history,places,recentf,tramp} auto-save-list abbrev_defs ede-projects.el image-dired srecode-map.el url semanticdb
+clean:;	-@$(RM) -rv {history,places,recentf,tramp} auto-save-list abbrev_defs ede-projects.el image-dired srecode-map.el url semanticdb tutorial
 
 # Local Variables:
 # mode: makefile-gmake
