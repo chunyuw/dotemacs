@@ -113,7 +113,7 @@
 (mouse-avoidance-mode 'jump)
 (column-number-mode 1)
 (blink-cursor-mode -1)
-(display-time-mode 1)
+(display-time-mode -1)
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
@@ -193,18 +193,22 @@
       "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(eval-after-load 'org
+  '(progn
+     (require 'ob-python)))
+
 (eval-after-load 'org
   '(eval-after-load 'anything-config
       '(define-key org-mode-map "\M-a" 'anything-for-files)))
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-(add-hook 'org-mode-hook
-          (lambda ()
-	    (turn-on-auto-fill)
-	    (yas/minor-mode-on)
-	    (make-variable-buffer-local 'yas/trigger-key)
-            (org-set-local 'yas/trigger-key [tab])
-            (define-key yas/keymap [tab] 'yas/next-field)))
+(eval-after-load 'org
+  '(eval-after-load 'yasnippet
+     '(progn
+	(yas/minor-mode-on)
+	(make-variable-buffer-local 'yas/trigger-key)
+	(org-set-local 'yas/trigger-key [tab])
+	(define-key yas/keymap [tab] 'yas/next-field))))
 
 (setq googlecl-blogname "Chunyu"
       googlecl-username user-mail-address)
@@ -349,6 +353,7 @@
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\C-k" 'anything-execute-persistent-action)
   (define-key anything-map "\M-a" 'anything-next-line)
+  (define-key anything-map "\M-o" 'anything-next-source)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
@@ -543,8 +548,9 @@ Frame must be declared as an environment."
 
 (eval-after-load 'yasnippet
   '(progn (global-set-key [(C-tab)] 'yas/expand)
-	  (yas/load-directory "~/.emacs.d/snippets")
-	  (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))))
+	  (setq yas/root-directory "~/.emacs.d/yas"
+		yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
+	  (yas/load-directory yas/root-directory)))
 (when (fboundp 'yas/minor-mode-on)
   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
 	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
