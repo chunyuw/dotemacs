@@ -49,7 +49,7 @@
       save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
-      display-time-day-and-date t)
+      display-time-day-and-date nil)
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail
       sendmail-program "msmtp"
