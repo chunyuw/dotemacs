@@ -667,7 +667,6 @@ Frame must be declared as an environment."
   (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
-  ;;(set-face-attribute 'dired-directory nil :foreground "brightblue")
   (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
   (set-face-attribute 'font-lock-string-face nil :foreground "peru")
   (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
