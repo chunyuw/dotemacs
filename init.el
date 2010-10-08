@@ -13,6 +13,7 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-K" 'kill-buffer-and-window)
+(global-set-key "\M-Z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 
 (setq inhibit-startup-message t
@@ -29,12 +30,11 @@
       set-mark-command-repeat-pop t
       parens-require-spaces nil
       max-mini-window-height 1
+      kmacro-call-repeat-with-arg t
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
 	      fill-column 78)
-
-(setq kmacro-call-repeat-with-arg t)
 
 (setq makefile-electric-keys t
       apropos-do-all t
@@ -51,9 +51,13 @@
 (setq display-time-24hr-format t
       display-time-day-and-date nil)
 
+(setq calendar-latitude 45.73213
+      calendar-longitude 126.63621
+      calendar-location-name "Harbin"
+      calendar-week-start-day 1)
+
 (setq message-send-mail-function 'message-send-mail-with-sendmail
       sendmail-program "msmtp"
-      ;; message-sendmail-extra-arguments '("-a" "cymacs") ;; for gmail
       mail-host-address "hit.edu.cn"
       user-full-name "Chunyu Wang"
       user-mail-address "chunyu@hit.edu.cn")
@@ -84,16 +88,19 @@
 	try-expand-whole-kill))
 
 (setq ange-ftp-smart-gateway nil
-      ange-ftp-generate-anonymous-password "user@cyber.net")
+      ange-ftp-generate-anonymous-password "user@cyber.net"
+      tramp-backup-directory-alist backup-directory-alist)
 
-(setq tramp-backup-directory-alist backup-directory-alist)
-
-(setq view-inhibit-help-message t)
-
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-
-(setq reb-blink-delay 1
+(setq ffap-machine-p-known 'accept
+      view-inhibit-help-message t
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      reb-blink-delay 1
       reb-re-syntax 'string)
+
+(setq recentf-save-file "~/.emacs.d/recentf"
+      recentf-max-saved-items 60
+      recentf-exclude
+      '(".emacs.d/bookmark/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
@@ -200,7 +207,7 @@
 
 (eval-after-load 'org
   '(eval-after-load 'anything-config
-      '(define-key org-mode-map "\M-a" 'anything-for-files)))
+      '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu)))
 
 (eval-after-load 'org
   '(eval-after-load 'yasnippet
@@ -214,7 +221,7 @@
       googlecl-username user-mail-address)
 
 (setq file-coding-system-alist
-      (append '(("\\.ics\\'" . utf-8)) 
+      (append '(("\\.ics\\'" . utf-8))
 	      file-coding-system-alist))
 ;; Org-mode ends here ;;
 
@@ -222,16 +229,10 @@
 (setq save-place-file "~/.emacs.d/places"
       save-place-limit 20)
 (setq-default save-place t)
-(require 'saveplace)
+(add-hook 'find-file-hook 'save-place-find-file-hook t)
+(add-hook 'kill-emacs-hook 'save-place-kill-emacs-hook)
+(add-hook 'kill-buffer-hook 'save-place-to-alist)
 ;; SavePlace ends here ;;
-
-;; Recentf ;;
-(setq recentf-save-file "~/.emacs.d/recentf"
-      recentf-max-saved-items 60
-      recentf-exclude
-      '(".emacs.d/bookmark/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
-(require 'recentf)
-;; Recentf ends here ;;
 
 ;; Dired ;;
 (eval-after-load 'dired
@@ -309,6 +310,10 @@
 ;; Dired ends here ;;
 
 ;; Ido ;;
+(global-set-key "\C-x\C-f" 'ido-find-file)
+(global-set-key "\C-xb" 'ido-switch-buffer)
+(global-set-key "\C-xd" 'ido-dired)
+
 (setq ido-max-prospects 8
       ido-save-directory-list-file nil
       ido-auto-merge-delay-time 2
@@ -320,14 +325,15 @@
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb")
 	      completion-ignored-extensions))
-(require 'ido)
-(ido-everywhere 1)
-(ido-mode 1)
-(define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)
+
+(eval-after-load 'ido
+  '(progn
+     (ido-everywhere 1)
+     (ido-mode 1)
+     (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
 ;; Ido ends here ;;
 
 ;; ffap ;;
-(setq ffap-machine-p-known 'accept)
 ;; ffap ends here ;;
 
 ;; Anything ;;
@@ -347,23 +353,22 @@
 	anything-c-source-locate))
 
 (when (require 'anything-config nil t)
-  (global-set-key [(super a)] 'anything-for-files)
-  (global-set-key "\M-a" 'anything-for-files)
+
+  (defun anything-for-files-chunyu ()
+    (interactive)
+    (anything-other-buffer anything-for-files-prefered-list  " *anything*"))
+
+  (global-set-key [(super a)] 'anything-for-files-chunyu)
+  (global-set-key "\M-a" 'anything-for-files-chunyu)
   (global-set-key "\M-A" 'anything-call-source)
   (define-key anything-map " " 'anything-exit-minibuffer)
   (define-key anything-map "\C-k" 'anything-execute-persistent-action)
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\M-o" 'anything-next-source)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
-
-;; Calendar ;;
-(setq calendar-latitude 45.73213
-      calendar-longitude 126.63621
-      calendar-location-name "Harbin"
-      calendar-week-start-day 1)
-;; Calendar ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
@@ -521,7 +526,7 @@ Frame must be declared as an environment."
       (message "Kpsewhich not found: %s" filename))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
-;; Ropemacs & Pymacs ;;
+;; Ropemacs ;;
 (defun load-ropemacs ()
   "Load pymacs and ropemacs"
   (interactive)
@@ -530,32 +535,25 @@ Frame must be declared as an environment."
   (setq ropemacs-confirm-saving 'nil)
   (require 'pymacs)
   (pymacs-load "ropemacs" "rope-"))
+
 ;; (eval-after-load 'python '(load-ropemacs))
-;; Ropemacs & Pymacs end here ;;
+;; Ropemacs ends here ;;
 
-;; MISC Packages ;;
-(require 'doc-view nil t)
-(require 'misc)
-(global-set-key "\M-Z" 'zap-up-to-char)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-
-(setq template-auto-update nil
-      template-auto-insert nil
-      template-initialize '(menus))
-(when (require 'template nil t) (template-initialize))
-
+;; yasnippet ;;
 (eval-after-load 'yasnippet
   '(progn (global-set-key [(C-tab)] 'yas/expand)
 	  (setq yas/root-directory "~/.emacs.d/yas"
 		yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
 	  (yas/load-directory yas/root-directory)))
+
 (when (fboundp 'yas/minor-mode-on)
   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
-	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook 
-		      html-mode-hook css-mode-hook perl-mode-hook 
+	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook
+		      html-mode-hook css-mode-hook perl-mode-hook
 		      cperl-mode-hook csharp-mode-hook)))
+;; yasnippet ends here ;;
+
+;; MISC Packages ;;
 ;; MISC Packages end here ;;
 
 (cond
@@ -651,7 +649,7 @@ Frame must be declared as an environment."
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-  
+
   (eval-after-load 'anything-config
     '(progn
        (set-face-attribute 'anything-file-name nil :foreground "gold")
