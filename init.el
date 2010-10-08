@@ -49,7 +49,7 @@
       save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
-      display-time-day-and-date nil)
+      display-time-day-and-date t)
 
 (setq calendar-latitude 45.73213
       calendar-longitude 126.63621
