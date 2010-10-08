@@ -80,7 +80,6 @@
 	try-expand-dabbrev-visible
 	try-expand-dabbrev-all-buffers
 	try-expand-dabbrev-from-kill
-	yas/expand-1
 	try-complete-file-name
 	try-complete-file-name-partially
 	try-complete-lisp-symbol
