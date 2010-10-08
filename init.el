@@ -552,13 +552,13 @@ Frame must be declared as an environment."
 		      cperl-mode-hook csharp-mode-hook)))
 ;; yasnippet ends here ;;
 
-;; MISC Packages ;;
+;; autoloads ;;
 (autoload 'dired-jump "dired-x" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'save-place-to-alist "saveplace" nil t)
 (autoload 'save-place-find-file-hook "saveplace" nil t)
 (autoload 'save-place-kill-emacs-hook "saveplace" nil t)
-;; MISC Packages end here ;;
+;; autoloads end here ;;
 
 (cond
  ((not window-system) ;; Text-Only console
