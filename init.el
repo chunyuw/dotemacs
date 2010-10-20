@@ -631,10 +631,10 @@ Frame must be declared as an environment."
     (set-fontset-font name '(#x2018 . #x201D) "Microsoft YaHei")
     (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga")))
 
-(defun frame-face-x-darker-setup ()
+(defun frame-face-x-setup ()
   (setq default-frame-alist
 	'((background-mode . dark)
-	  (background-color . "#001515")
+	  (background-color . "#001414")
 	  (foreground-color . "Wheat")
 	  (cursor-color . "Coral")))
 
@@ -644,23 +644,6 @@ Frame must be declared as an environment."
   (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
   (set-face-attribute 'region nil :background "grey15")
-  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-  (set-face-attribute 'font-lock-comment-face nil :italic t))
-
-(defun frame-face-x-setup ()
-  (setq default-frame-alist
-	'((background-mode . dark)
-	  (background-color . "DarkSlateGrey")
-	  (foreground-color . "Wheat")
-	  (screen-gamma . 1.7)
-	  (cursor-color . "Coral")))
-  
-  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
-  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey30" :box '(:color "grey50"))
-  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey40"))
-  (set-face-attribute 'region nil :background "grey38")
   (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
   (set-face-attribute 'font-lock-comment-face nil :italic t)
 
@@ -710,7 +693,7 @@ Frame must be declared as an environment."
   (eval-after-load 'table
     '(set-face-attribute 'table-cell nil :background "aquamarine4")))
 
-(if window-system (frame-face-x-darker-setup) (frame-face-nox-setup))
+(if window-system (frame-face-x-setup) (frame-face-nox-setup))
 (when window-system (frame-font-x-setup))
 (when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
 ;; Frame configuration ends here ;;
