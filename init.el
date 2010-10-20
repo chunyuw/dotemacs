@@ -206,7 +206,7 @@
 
 (eval-after-load 'org
   '(eval-after-load 'anything-config
-      '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu)))
+     '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu)))
 
 (eval-after-load 'org
   '(eval-after-load 'yasnippet
@@ -571,13 +571,6 @@ Frame must be declared as an environment."
 		indicate-empty-lines 'left
 		indicate-buffer-boundaries 'left)
 
-  (setq default-frame-alist
-	'((background-mode . dark)
-	  (background-color . "DarkSlateGrey")
-	  (foreground-color . "Wheat")
-	  (screen-gamma . 1.7)
-	  (cursor-color . "Coral")))
-
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
   (when (eq window-system 'w32) ;; MS-Windows
@@ -625,7 +618,7 @@ Frame must be declared as an environment."
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
-(defun frame-face-x-setup () ;; Both X-window and MS-Windows
+(defun frame-font-x-setup ()
   (set-frame-font "Consolas-14" t)
 
   (set-face-attribute 'default nil :height 140)
@@ -636,8 +629,32 @@ Frame must be declared as an environment."
     (set-fontset-font name 'symbol "DejaVu Sans")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
     (set-fontset-font name '(#x2018 . #x201D) "Microsoft YaHei")
-    (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga"))
+    (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga")))
 
+(defun frame-face-x-darker-setup ()
+  (setq default-frame-alist
+	'((background-mode . dark)
+	  (background-color . "#001515")
+	  (foreground-color . "Wheat")
+	  (cursor-color . "Coral")))
+
+  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
+  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
+  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
+  (set-face-attribute 'region nil :background "grey15")
+  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+  (set-face-attribute 'font-lock-comment-face nil :italic t))
+
+(defun frame-face-x-setup ()
+  (setq default-frame-alist
+	'((background-mode . dark)
+	  (background-color . "DarkSlateGrey")
+	  (foreground-color . "Wheat")
+	  (screen-gamma . 1.7)
+	  (cursor-color . "Coral")))
+  
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray30")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
@@ -693,7 +710,8 @@ Frame must be declared as an environment."
   (eval-after-load 'table
     '(set-face-attribute 'table-cell nil :background "aquamarine4")))
 
-(if window-system (frame-face-x-setup) (frame-face-nox-setup))
+(if window-system (frame-face-x-darker-setup) (frame-face-nox-setup))
+(when window-system (frame-font-x-setup))
 (when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
 ;; Frame configuration ends here ;;
 
