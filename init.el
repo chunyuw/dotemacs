@@ -135,7 +135,8 @@
 
 (setq auto-mode-alist
       (append '(("\\.\\(cmd\\|bat\\)\\'" . dos-mode)
-		("\\.cs\\'" . csharp-mode) ("\\.php\\'" . php-mode))
+		("\\.cs\\'" . csharp-mode) ("\\.php\\'" . php-mode)
+		("\\.\\(vbs\\|bas\\)\\'" . visual-basic-mode))
 	      auto-mode-alist))
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
