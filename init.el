@@ -206,10 +206,6 @@
      (require 'ob-python)))
 
 (eval-after-load 'org
-  '(eval-after-load 'anything-config
-     '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu)))
-
-(eval-after-load 'org
   '(eval-after-load 'yasnippet
      '(progn
 	(yas/minor-mode-on)
@@ -366,6 +362,9 @@
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\M-o" 'anything-next-source)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+
+  (eval-after-load 'org
+    '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu))
 
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
