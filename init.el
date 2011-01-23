@@ -467,13 +467,6 @@
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
      (define-key TeX-mode-map [(C-tab)] 'yas/expand)
-     (define-key TeX-mode-map [(super ?\[)] 'preview-buffer)
-     (define-key TeX-mode-map [(super ?\])] 'preview-clearout-buffer)
-     (define-key TeX-mode-map [(super ?p)] 'preview-at-point)
-     (define-key TeX-mode-map [(super ?i)] 'TeX-fold-buffer)
-     ;;(define-key TeX-mode-map [(super ?o)] 'TeX-fold-clearout-buffer)
-     (define-key TeX-mode-map [(super ?k)] 'TeX-kill-job)
-     (define-key TeX-mode-map "\M-m\M-," 'TeX-view)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (when (eq window-system 'w32)
