@@ -99,7 +99,7 @@
 (setq recentf-save-file "~/.emacs.d/recentf"
       recentf-max-saved-items 60
       recentf-exclude
-      '(".emacs.d/bookmark/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
+      '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
