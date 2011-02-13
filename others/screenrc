@@ -21,7 +21,7 @@ hardstatus alwayslastline
 hardstatus  string "%{+r}%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c %{g}]"
 termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
-bind e screen -t 'emacs' emacs
+bind e screen -t 'emacs' emacsclient -ta ""
 
 bind k
 bind ^x
