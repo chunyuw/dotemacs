@@ -545,6 +545,10 @@ Frame must be declared as an environment."
 		      cperl-mode-hook csharp-mode-hook)))
 ;; yasnippet ends here ;;
 
+;; misc packages ;;
+(require 'recentf-ext nil t)
+;; misc packages end here ;;
+
 ;; autoloads ;;
 (autoload 'dired-jump "dired-x" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
