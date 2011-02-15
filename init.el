@@ -580,7 +580,10 @@ Frame must be declared as an environment."
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
-    (setq ange-ftp-ftp-program-name "gftp")
+    (setq shell-file-name "bash"
+	  ange-ftp-ftp-program-name "gftp"
+	  find-program "gfind")
+
     (setq dired-guess-shell-alist-user
 	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
@@ -592,10 +595,8 @@ Frame must be declared as an environment."
 	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
-	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
+	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1))))))
     ;; ISpell on Win32 ends here ;;
-
-    (setq find-program "gfind"))))
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
