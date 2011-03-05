@@ -62,6 +62,8 @@
       user-full-name "Chunyu Wang"
       user-mail-address "chunyu@hit.edu.cn")
 
+(setq gnus-select-method '(nntp "run.emacs.cn" (nntp-port-number 4119)))
+
 (setq version-control t
       kept-old-versions 2
       kept-new-versions 5
