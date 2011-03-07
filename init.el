@@ -212,13 +212,6 @@
 	(make-variable-buffer-local 'yas/trigger-key)
 	(org-set-local 'yas/trigger-key [tab])
 	(define-key yas/keymap [tab] 'yas/next-field))))
-
-(setq googlecl-blogname "Chunyu"
-      googlecl-username user-mail-address)
-
-(setq file-coding-system-alist
-      (append '(("\\.ics\\'" . utf-8))
-	      file-coding-system-alist))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
