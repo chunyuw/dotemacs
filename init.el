@@ -18,7 +18,6 @@
 
 (setq inhibit-startup-message t
       require-final-newline t
-      resize-mini-windows t
       track-eol t
       kill-whole-line t
       vc-follow-symlinks t
@@ -29,7 +28,8 @@
       mark-even-if-inactive t
       set-mark-command-repeat-pop t
       parens-require-spaces nil
-      max-mini-window-height 1
+      ;; resize-mini-windows t
+      ;; max-mini-window-height 1
       kmacro-call-repeat-with-arg t
       isearch-allow-scroll t)
 
@@ -121,7 +121,6 @@
 (mouse-avoidance-mode 'jump)
 (column-number-mode 1)
 (blink-cursor-mode -1)
-(display-time-mode -1)
 (show-paren-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
