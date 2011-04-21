@@ -16,3 +16,4 @@ alias  e="emacsclient"
 alias  ec='emacsclient -tca ""'
 alias  cls=clear
 alias  se='sudo `which emacs` -u `whoami`'
+alias  ip6='ip -6'
