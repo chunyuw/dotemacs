@@ -1,4 +1,4 @@
 Local Variables:
-dired-omit-files: "^\\(\\..*\\|auto-save-list\\|anything.*\\|history\\|places\\|recentf\\|tramp\\|abbrev_defs\\|ede-projects.el\\|srecode-map.el\\)$"
+dired-omit-files: "^\\(\\..*\\|auto-save-list\\|twit.gpg\\|anything.*\\|history\\|places\\|recentf\\|tramp\\|abbrev_defs\\|ede-projects.el\\|srecode-map.el\\)$"
 dired-omit-files-p: t
 End:
