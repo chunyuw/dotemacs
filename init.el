@@ -543,6 +543,12 @@ Frame must be declared as an environment."
 
 ;; misc packages ;;
 (require 'recentf-ext nil t)
+
+(setq twittering-use-master-password t
+      twittering-private-info-file (expand-file-name "~/.emacs.d/twit.gpg") 
+      twittering-proxy-use t
+      twittering-proxy-server "run.emacs.cn"
+      twittering-proxy-port 2046)
 ;; misc packages end here ;;
 
 ;; autoloads ;;
