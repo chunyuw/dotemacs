@@ -541,14 +541,21 @@ Frame must be declared as an environment."
 		      cperl-mode-hook csharp-mode-hook)))
 ;; yasnippet ends here ;;
 
-;; misc packages ;;
-(require 'recentf-ext nil t)
-
+;; twittering-mode ;;
 (setq twittering-use-master-password t
       twittering-private-info-file (expand-file-name "~/.emacs.d/twit.gpg") 
       twittering-proxy-use t
       twittering-proxy-server "run.emacs.cn"
       twittering-proxy-port 2046)
+
+(eval-after-load 'twittering-mode
+  '(progn 
+     (define-key twittering-edit-mode-map "M-k" 'twittering-edit-cancel-status)
+     (define-key twittering-mode-map "U" 'twittering-user-timeline)))
+;; twittering-mode ends here ;;
+
+;; misc packages ;;
+(require 'recentf-ext nil t)
 ;; misc packages end here ;;
 
 ;; autoloads ;;
