@@ -51,8 +51,9 @@
 (setq display-time-24hr-format t
       display-time-day-and-date nil)
 
-(setq calendar-latitude 45.73213
-      calendar-longitude 126.63621
+(setq calendar-latitude 45.74027
+      calendar-longitude 126.62766
+      
       calendar-location-name "Harbin"
       calendar-week-start-day 1)
 
