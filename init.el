@@ -550,7 +550,7 @@ Frame must be declared as an environment."
 
 (eval-after-load 'twittering-mode
   '(progn 
-     (define-key twittering-edit-mode-map "M-k" 'twittering-edit-cancel-status)
+     (define-key twittering-edit-mode-map "\M-k" 'twittering-edit-cancel-status)
      (define-key twittering-mode-map "U" 'twittering-user-timeline)))
 ;; twittering-mode ends here ;;
 
