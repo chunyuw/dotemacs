@@ -53,7 +53,6 @@
 
 (setq calendar-latitude 45.74027
       calendar-longitude 126.62766
-      
       calendar-location-name "Harbin"
       calendar-week-start-day 1)
 
