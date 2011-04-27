@@ -586,7 +586,7 @@ Frame must be declared as an environment."
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
-    (setq shell-file-name "bash"
+    (setq ;;shell-file-name "bash"
 	  ange-ftp-ftp-program-name "gftp"
 	  find-program "gfind")
 
