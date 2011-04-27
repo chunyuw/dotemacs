@@ -327,9 +327,6 @@
      (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
 ;; Ido ends here ;;
 
-;; ffap ;;
-;; ffap ends here ;;
-
 ;; Anything ;;
 (setq anything-su-or-sudo "sudo"
       anything-c-locate-command "locate -i %s"
