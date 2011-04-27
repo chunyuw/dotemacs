@@ -30,8 +30,6 @@
       mark-even-if-inactive t
       set-mark-command-repeat-pop t
       parens-require-spaces nil
-      ;; resize-mini-windows t
-      ;; max-mini-window-height 1
       kmacro-call-repeat-with-arg t
       isearch-allow-scroll t)
 
@@ -106,13 +104,6 @@
       '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-
-(set-language-environment    'UTF-8)
-(set-default-coding-systems  'utf-8)
-(set-keyboard-coding-system  'utf-8)
-(set-terminal-coding-system  'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
