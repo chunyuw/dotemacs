@@ -9,6 +9,7 @@
 (global-set-key "\C-xE" 'apply-macro-to-region-lines)
 (global-set-key "\C-\\" 'toggle-truncate-lines)
 (global-set-key "\C-z" 'set-mark-command)
+(global-set-key "\C-x5k" 'kill-emacs)
 (global-set-key "\M-%" 'query-replace-regexp)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
@@ -555,7 +556,6 @@ Frame must be declared as an environment."
 
 (cond
  ((not window-system) ;; Text-Only console
-  (global-set-key "\C-x5k" 'kill-emacs)
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
 
