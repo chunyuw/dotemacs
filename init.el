@@ -105,6 +105,7 @@
       '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
+(set-register ?w '(file . "~/rnotes/group/wletters.org"))
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -191,8 +192,8 @@
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
-      org-export-html-style
-      "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
+      ;; org-export-html-style
+      ;; "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
