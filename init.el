@@ -323,7 +323,9 @@
 ;; Anything ;;
 (setq anything-su-or-sudo "sudo"
       anything-c-locate-command "locate -i %s"
-      anything-command-map-prefix-key "M-g a"
+      anything-command-map-prefix-key "M-s M-a"
+      anything-samewindow t
+      anything-enable-shortcuts t
       anything-for-files-prefered-list
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
