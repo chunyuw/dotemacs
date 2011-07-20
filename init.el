@@ -62,11 +62,13 @@
 ;;       mail-host-address "hit.edu.cn"
 ;;       user-full-name "Chunyu Wang"
 ;;       user-mail-address "chunyu@hit.edu.cn")
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      user-full-name "Chunyu Wang"
+      user-mail-address "cymacs@gmail.com")
 
-(setq gnus-select-method '(nnimap "imap.gmail.com")
-      ;; gnus-select-method '(nntp "run.emacs.cn" (nntp-port-number 4119))
-      gnus-posting-styles
-      '((".*" (name "Chunyu Wang") (From "cymacs@gmail.com"))))
+(setq gnus-select-method '(nnimap "imap.gmail.com"))
 
 (setq version-control t
       kept-old-versions 2
