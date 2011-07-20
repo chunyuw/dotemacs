@@ -57,13 +57,16 @@
       calendar-location-name "Harbin"
       calendar-week-start-day 1)
 
-(setq message-send-mail-function 'message-send-mail-with-sendmail
-      sendmail-program "msmtp"
-      mail-host-address "hit.edu.cn"
-      user-full-name "Chunyu Wang"
-      user-mail-address "chunyu@hit.edu.cn")
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail
+;;       sendmail-program "msmtp"
+;;       mail-host-address "hit.edu.cn"
+;;       user-full-name "Chunyu Wang"
+;;       user-mail-address "chunyu@hit.edu.cn")
 
-(setq gnus-select-method '(nntp "run.emacs.cn" (nntp-port-number 4119)))
+(setq gnus-select-method '(nnimap "imap.gmail.com")
+      ;; gnus-select-method '(nntp "run.emacs.cn" (nntp-port-number 4119))
+      gnus-posting-styles
+      '((".*" (name "Chunyu Wang") (From "cymacs@gmail.com"))))
 
 (setq version-control t
       kept-old-versions 2
