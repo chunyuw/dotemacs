@@ -1,13 +1,14 @@
 ;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/gnus.el
 ;; Created on 2003/02/24 on db.hit.edu.cn
 
-(setq gnus-select-method '(nntp "news.yaako.com")
-      gnus-secondary-select-methods '((nnml "")))
+(setq gnus-select-method '(nnimap "imap.gmail.com"))
 
-(setq gnus-default-charset 'gbk
-      gnus-group-name-charset-group-alist '((".*" . gbk))
-      gnus-summary-show-article-charset-alist '((1 . gbk) (2 . big5) (3 . utf-8))
-      gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
+;; (setq gnus-ignored-newsgroups "")
+
+;; (setq gnus-default-charset 'utf-8
+;;       gnus-group-name-charset-group-alist '((".*" . utf-8))
+;;       gnus-summary-show-article-charset-alist '((1 . gbk) (2 . big5) (3 . utf-8))
+;;       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
 (setq gnus-novice-user nil
       gnus-expert-user t)
@@ -47,13 +48,6 @@
 
 (setq gnus-posting-styles
       '((".*"
-	 ;; (signature-file "~/.emacs.d/signature")
-	 (name "Õı¥∫”Ó")
-	 (address "chunyu@hit.edu.cn"))
-	("^nnml:mail.*"
-	 (name "Õı¥∫”Ó")
-	 (address "cymacs@gmail.com"))
-	("^nnml:list.*"
 	 (name "Chunyu Wang")
 	 (address "cymacs@gmail.com"))))
 
@@ -72,39 +66,22 @@
       message-send-mail-partially-limit nil
       message-forward-show-mml nil)
 
-(setq nnml-use-compressed-files t)
+;; (setq nnml-use-compressed-files t)
 
-(setq nnmail-treat-duplicates 'delete
-      nnmail-crosspost nil
-      nnmail-split-methods 'nnmail-split-fancy
-      nnmail-split-fancy-match-partial-words t
-      nnmail-split-fancy
-      '(| (to "@202.118.224.153" "mail.misc")
-	  (to "chunyu@hit.edu.cn\\|cymacs@gmail.com" "mail.misc")
-	  "misc.junk")
-      nnmail-mail-splitting-decodes t)
+;; (setq nnmail-treat-duplicates 'delete
+;;       nnmail-crosspost nil
+;;       nnmail-split-methods 'nnmail-split-fancy
+;;       nnmail-split-fancy-match-partial-words t
+;;       nnmail-split-fancy
+;;       '(| (to "@202.118.224.153" "mail.misc")
+;; 	  (to "chunyu@hit.edu.cn\\|cymacs@gmail.com" "mail.misc")
+;; 	  "misc.junk")
+;;       nnmail-mail-splitting-decodes t)
 
-(require 'message-x)
-(setq gnus-registry-max-entries 2500
-      gnus-registry-use-long-group-names t)
-(gnus-registry-initialize)
-
-(add-hook 'message-mode-hook
-	  (lambda ()
-	    (setq fill-column 72)
-	    (turn-on-auto-fill)))
-
-(setq message-x-completion-alist
-      '(("\\([rR]esent-\\|[rR]eply-\\)?[tT]o:\\|[bB]?[cC][cC]:\\|[fF]rom:" . message-x-complete-name)
-	((if (boundp 'message-newgroups-header-regexp)
-	     message-newgroups-header-regexp message-newsgroups-header-regexp)
-	 . message-expand-group)))
-
-(gnus-compile)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
-;; coding: gbk-unix
+;; coding: utf-8
 ;; End:
 
 ;; Chunyu's .emacs.d/gnus.el ends here.

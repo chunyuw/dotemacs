@@ -58,17 +58,15 @@
       calendar-week-start-day 1)
 
 ;; (setq message-send-mail-function 'message-send-mail-with-sendmail
-;;       sendmail-program "msmtp"
-;;       mail-host-address "hit.edu.cn"
-;;       user-full-name "Chunyu Wang"
-;;       user-mail-address "chunyu@hit.edu.cn")
+;;       sendmail-program "msmtp" mail-host-address "hit.edu.cn"
+;;       user-full-name "Chunyu Wang" user-mail-address "chunyu@hit.edu.cn")
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
       user-full-name "Chunyu Wang"
       user-mail-address "cymacs@gmail.com")
 
-(setq gnus-select-method '(nnimap "imap.gmail.com"))
+(setq gnus-init-file "~/.emacs.d/gnus.el")
 
 (setq version-control t
       kept-old-versions 2
