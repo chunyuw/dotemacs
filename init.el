@@ -628,7 +628,7 @@ Frame must be declared as an environment."
     (set-fontset-font name 'han "Microsoft YaHei")
     (set-fontset-font name 'symbol "DejaVu Sans")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
-    (set-fontset-font name '(#x2018 . #x201D) "Microsoft YaHei")
+    (set-fontset-font name '(#x2018 . #x201D) "SimSun")
     (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga")))
 
 (defun frame-face-x-setup ()
