@@ -274,7 +274,7 @@
 		(c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe"))
 		(g (subst-char-in-string ?/ ?\\ f)))
 	   (if (file-exists-p f)
-	       (w32-shell-execute nil c (format "/O \"%s\"" g) 1))))
+	       (w32-shell-execute nil c (format "/O %S" g) 1))))
 
        (defun chunyu/dired-win7-mklink ()
 	 "Win7 mklink wrapper"
@@ -290,7 +290,7 @@
        (defun acrobat-close-doc (&optional f)
 	 "Close documents in Acrobat."
 	 (interactive)
-	 (let* ((o "[DocOpen(\"%s\")]") (c "[DocClose(\"%s\")]")
+	 (let* ((o "[DocOpen(%S)]") (c "[DocClose(%S)]")
 		(dde (if f (format (concat o o c) f f f) (format c "NULL"))))
 	   (save-excursion
 	     (set-buffer (get-buffer-create " *ddeclient*"))
@@ -504,7 +504,7 @@ Frame must be declared as an environment."
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
   (interactive "skpsewhich: ")
-  (let* ((comm (format "kpsewhich \"%s\"" filename))
+  (let* ((comm (format "kpsewhich %S" filename))
 	 (fpath (replace-regexp-in-string
 		 "\015\\|\012" "" (shell-command-to-string comm))))
     (if (> (length fpath) 0) (find-file fpath)
