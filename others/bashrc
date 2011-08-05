@@ -12,7 +12,7 @@ export EDITOR='emacsclient -tca ""'
 
 shopt -s cdspell
 
-alias  e="emacsclient"
+alias  e="emacsclient -tca \"\""
 alias  ec='emacsclient -tca ""'
 alias  cls=clear
 alias  se='sudo `which emacs` -u `whoami`'
