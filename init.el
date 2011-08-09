@@ -66,7 +66,8 @@
       user-full-name "Chunyu Wang"
       user-mail-address "cymacs@gmail.com")
 
-(setq gnus-init-file "~/.emacs.d/gnus.el")
+(setq auth-sources '("~/.emacs.d/authinfo.gpg" "~/.netrc")
+      gnus-init-file "~/.emacs.d/gnus.el")
 
 (setq version-control t
       kept-old-versions 2
