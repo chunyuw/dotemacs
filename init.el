@@ -188,7 +188,10 @@
 ;; package ends here ;;
 
 ;; Org-mode ;;
-(setq org-goto-auto-isearch nil)
+(global-set-key "\C-ca" 'org-agenda)
+
+(setq org-use-speed-commands t
+      org-goto-auto-isearch nil)
 
 (setq org-special-ctrl-a/e t
       org-special-ctrl-k t
