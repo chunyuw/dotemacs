@@ -542,19 +542,6 @@ Frame must be declared as an environment."
 		      cperl-mode-hook csharp-mode-hook)))
 ;; yasnippet ends here ;;
 
-;; twittering-mode ;;
-(setq twittering-use-master-password t
-      twittering-private-info-file (expand-file-name "~/.emacs.d/twit.gpg") 
-      twittering-proxy-use t
-      twittering-proxy-server "run.emacs.cn"
-      twittering-proxy-port 2046)
-
-(eval-after-load 'twittering-mode
-  '(progn 
-     (define-key twittering-edit-mode-map "\M-k" 'twittering-edit-cancel-status)
-     (define-key twittering-mode-map "U" 'twittering-user-timeline)))
-;; twittering-mode ends here ;;
-
 ;; misc packages ;;
 (require 'recentf-ext nil t)
 ;; misc packages end here ;;
@@ -633,6 +620,8 @@ Frame must be declared as an environment."
     (set-fontset-font name 'symbol "DejaVu Sans")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
     (set-fontset-font name '(#x2018 . #x201D) "SimSun")
+    (set-fontset-font name '(#x1000 . #x109F) "Myanmar2")
+    (set-fontset-font name '(#xFF61 . #xFF9F) "MS PMincho")
     (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga")))
 
 (defun frame-face-x-setup ()
