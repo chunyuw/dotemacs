@@ -620,9 +620,10 @@ Frame must be declared as an environment."
     (set-fontset-font name 'symbol "DejaVu Sans")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
     (set-fontset-font name '(#x2018 . #x201D) "SimSun")
-    (set-fontset-font name '(#x1000 . #x109F) "Myanmar2")
-    (set-fontset-font name '(#xFF61 . #xFF9F) "MS PMincho")
-    (set-fontset-font name '(#x0B01 . #x0B70) "Kalinga")))
+    (set-fontset-font name 'burmese "Myanmar2")
+    (set-fontset-font name 'oriya "Kalinga")
+    (set-fontset-font name 'katakana-jisx0201 "MS PMincho")
+    (set-fontset-font name 'unicode-smp "DejaVu Sans")))
 
 (defun frame-face-x-setup ()
   (setq default-frame-alist
