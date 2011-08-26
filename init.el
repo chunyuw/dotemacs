@@ -207,14 +207,6 @@
 (eval-after-load 'org
   '(progn
      (require 'ob-python)))
-
-(eval-after-load 'org
-  '(eval-after-load 'yasnippet
-     '(progn
-	(yas/minor-mode-on)
-	(make-variable-buffer-local 'yas/trigger-key)
-	(org-set-local 'yas/trigger-key [tab])
-	(define-key yas/keymap [tab] 'yas/next-field))))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
@@ -514,19 +506,6 @@ Frame must be declared as an environment."
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
-
-;; Ropemacs ;;
-(defun load-ropemacs ()
-  "Load pymacs and ropemacs"
-  (interactive)
-  ;; (setq ropemacs-enable-shortcuts nil
-  ;;       ropemacs-local-prefix "M-g r")
-  (setq ropemacs-confirm-saving 'nil)
-  (require 'pymacs)
-  (pymacs-load "ropemacs" "rope-"))
-
-;; (eval-after-load 'python '(load-ropemacs))
-;; Ropemacs ends here ;;
 
 ;; yasnippet ;;
 (eval-after-load 'yasnippet
