@@ -17,6 +17,7 @@
 (global-set-key "\M-Z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
+(global-set-key "\C-x\C-m" 'compile)
 
 (setq inhibit-startup-message t
       require-final-newline t
