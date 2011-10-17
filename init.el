@@ -562,7 +562,8 @@ Frame must be declared as an environment."
 
     ;; ISpell on Win32 ;;
     (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
-    (setq ispell-dictionary-alist
+    (setq ispell-personal-dictionary "~/.emacs.d/ispelldic"
+	  ispell-dictionary-alist
 	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
