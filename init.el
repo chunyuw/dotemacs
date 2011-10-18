@@ -673,6 +673,7 @@ Frame must be declared as an environment."
 
 ;; Load local settings ;;
 (load (concat "~/.emacs.d/others/init-" (symbol-name window-system) ".el") t t t)
+(load (concat "~/.emacs.d/others/init-" system-name ".el") t t t)
 ;; Loaded ;;
 
 (custom-set-variables

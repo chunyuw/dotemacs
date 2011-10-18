@@ -11,7 +11,7 @@ endif
 all:
 	@echo "Usage:"
 	@echo "    make pull/push/ci/up/st | clean"
-	@echo "$(AUTOCSTR)"
+	@echo "    $(AUTOCSTR)"
 
 up:;	@git update-index
 pull:;	@git pull
