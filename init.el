@@ -581,7 +581,7 @@ Frame must be declared as an environment."
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
 (mapc (lambda (var) (put var 'safe-local-variable 'string-or-null-p))
-      '(dired-omit-files
+      '(dired-omit-files TeX-master
 	org-export-html-style org-export-publishing-directory
 	TeX-header-end TeX-trailer-start))
 
