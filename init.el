@@ -328,7 +328,7 @@
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
 	anything-c-source-org-headline
-	anything-c-source-buffers+
+	;anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
 	anything-c-source-files-in-all-dired
