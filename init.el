@@ -318,6 +318,11 @@
      (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
 ;; Ido ends here ;;
 
+;; magit ;;
+(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d"))
+
+;; magit ends here ;;
+
 ;; Anything ;;
 (setq anything-su-or-sudo "sudo"
       anything-c-locate-command "locate -i %s"
@@ -328,7 +333,7 @@
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
 	anything-c-source-org-headline
-	;anything-c-source-buffers+
+	anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
 	anything-c-source-files-in-all-dired
@@ -350,6 +355,15 @@
   (define-key anything-map "\M-a" 'anything-next-line)
   (define-key anything-map "\M-o" 'anything-next-source)
   (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
+  (define-key anything-map "\M-1" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-2" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-3" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-4" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-5" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-6" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-7" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-8" 'anything-select-with-digit-shortcut)
+  (define-key anything-map "\M-9" 'anything-select-with-digit-shortcut)
 
   (eval-after-load 'org
     '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu))
