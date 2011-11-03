@@ -15,6 +15,7 @@
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-Z" 'zap-up-to-char)
+(global-set-key "\M-st" 'twit)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
 
@@ -537,6 +538,22 @@ Frame must be declared as an environment."
 ;; misc packages ;;
 (require 'recentf-ext nil t)
 ;; misc packages end here ;;
+
+;; twit ;;
+(setq twittering-initial-timeline-spec-string `(":home@sina")
+      twittering-use-master-password t
+      twittering-allow-insecure-server-cert t
+      twittering-oauth-use-ssl nil
+      twittering-use-ssl nil)
+
+(setq-default twittering-icon-mode nil)
+
+(eval-after-load 'twittering-mode
+  '(progn
+     (twittering-enable-unread-status-notifier)
+     (set-face-attribute 'twittering-zebra-1-face nil :background nil)
+     (set-face-attribute 'twittering-zebra-2-face nil :background nil)))
+;; twit ends here ;;
 
 ;; autoloads ;;
 (autoload 'dired-jump "dired-x" nil t)
