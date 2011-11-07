@@ -149,8 +149,11 @@
 
 (eval-after-load 'help-mode
   '(progn
+     (define-key help-mode-map "j" 'scroll-up-line)
+     (define-key help-mode-map "k" 'scroll-down-line)
      (define-key help-mode-map "b" 'help-go-back)
      (define-key help-mode-map "f" 'help-go-forward)
+     (define-key help-mode-map "l" 'forward-char)
      (define-key help-mode-map "h" 'backward-char)))
 
 (eval-after-load 'view
