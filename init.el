@@ -322,6 +322,9 @@
 ;; magit ;;
 (setq magit-repo-dirs '("~/rnotes" "~/.emacs.d"))
 
+(eval-after-load 'magit
+  '(progn
+     (set-face-attribute 'magit-item-highlight nil :background "grey14")))
 ;; magit ends here ;;
 
 ;; Anything ;;
