@@ -324,7 +324,7 @@
 
 (eval-after-load 'magit
   '(progn
-     (set-face-attribute 'magit-item-highlight nil :background "grey14")))
+     (set-face-attribute 'magit-item-highlight nil :background "dark slate grey")))
 ;; magit ends here ;;
 
 ;; Anything ;;
