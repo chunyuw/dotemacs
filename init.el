@@ -658,6 +658,9 @@ Frame must be declared as an environment."
   (eval-after-load 'org-faces
     '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
 
+  (eval-after-load 'preview
+    '(progn (set-face-attribute 'preview-reference-face nil :background "PeachPuff")))
+
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
