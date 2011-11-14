@@ -190,8 +190,10 @@
 
 ;; Org-mode ;;
 (global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cl" 'org-store-link)
 
-(setq org-use-speed-commands t
+(setq system-time-locale "C"
+      org-use-speed-commands t
       org-goto-auto-isearch nil)
 
 (setq org-special-ctrl-a/e t
@@ -203,6 +205,16 @@
       ;; org-export-html-style
       ;; "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
+
+(setq org-latex-to-pdf-process 
+      '("xelatex -interaction nonstopmode -output-directory %o %f"
+	"xelatex -interaction nonstopmode -output-directory %o %f")
+      org-export-latex-default-packages-alist
+      '(("" "fontspec" t) ("" "xunicode" t) ("" "url" t) ("" "rotating" t)
+	("american" "babel" t) ("babel" "csquotes" t) ("" "soul" t)
+	("xetex" "hyperref" nil))
+      org-export-latex-packages-alist
+      '(("" "graphicx" t) ("" "longtable" nil) ("" "float" nil)))
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (eval-after-load 'org
