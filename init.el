@@ -14,7 +14,8 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-k" 'kill-this-buffer)
 (global-set-key "\M-K" 'kill-buffer-and-window)
-(global-set-key "\M-Z" 'zap-up-to-char)
+(global-set-key "\M-Z" 'zap-to-char)
+(global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-st" 'twit)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
@@ -185,7 +186,8 @@
 
 ;; package ;;
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("tromey" . "http://tromey.com/elpa/")))
+			 ("tromey" . "http://tromey.com/elpa/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 ;; package ends here ;;
 
 ;; Org-mode ;;
@@ -333,7 +335,8 @@
 ;; Ido ends here ;;
 
 ;; magit ;;
-(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d"))
+(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d")
+      magit-process-popup-time 10)
 
 (eval-after-load 'magit
   '(progn
