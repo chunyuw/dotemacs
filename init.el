@@ -29,7 +29,6 @@
       enable-recursive-minibuffers t
       disabled-command-function nil
       history-delete-duplicates t
-      mark-even-if-inactive t
       set-mark-command-repeat-pop t
       parens-require-spaces nil
       kmacro-call-repeat-with-arg t
@@ -208,7 +207,7 @@
       ;; "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 
-(setq org-latex-to-pdf-process 
+(setq org-latex-to-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
 	"xelatex -interaction nonstopmode -output-directory %o %f")
       org-export-latex-default-packages-alist
@@ -337,10 +336,6 @@
 ;; magit ;;
 (setq magit-repo-dirs '("~/rnotes" "~/.emacs.d")
       magit-process-popup-time 10)
-
-(eval-after-load 'magit
-  '(progn
-     (set-face-attribute 'magit-item-highlight nil :background "dark slate grey")))
 ;; magit ends here ;;
 
 ;; Anything ;;
@@ -566,16 +561,9 @@ Frame must be declared as an environment."
       twittering-use-ssl nil)
 
 (setq-default twittering-icon-mode nil)
-
-(eval-after-load 'twittering-mode
-  '(progn
-     (twittering-enable-unread-status-notifier)
-     (set-face-attribute 'twittering-zebra-1-face nil :background nil)
-     (set-face-attribute 'twittering-zebra-2-face nil :background nil)))
 ;; twit ends here ;;
 
 ;; autoloads ;;
-(autoload 'dired-jump "dired-x" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 ;; autoloads end here ;;
 
@@ -679,6 +667,16 @@ Frame must be declared as an environment."
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+
+  (eval-after-load 'magit
+    '(progn
+       (set-face-attribute 'magit-item-highlight nil :background "dark slate grey")))
+
+  (eval-after-load 'twittering-mode
+    '(progn
+       (twittering-enable-unread-status-notifier)
+       (set-face-attribute 'twittering-zebra-1-face nil :background nil)
+       (set-face-attribute 'twittering-zebra-2-face nil :background nil)))
 
   (eval-after-load 'anything-config
     '(progn
