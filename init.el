@@ -106,7 +106,6 @@
       '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?w '(file . "~/rnotes/group/wletters.org"))
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
