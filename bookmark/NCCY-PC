@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("mypass"
+(("org-capture-last-stored"
+ (filename . "~/rnotes/misc/misc.org")
+ (front-context-string . "** sdf\n* 2011\n**")
+ (rear-context-string . "* ifjiosidf\n** \n")
+ (position . 336))
+("mypass"
  (filename . "~/.emacs.d/mypass")
  (front-context-string)
  (rear-context-string . "se/test/src\"))\n\n")

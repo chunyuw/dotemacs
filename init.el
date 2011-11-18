@@ -190,10 +190,12 @@
 ;; package ends here ;;
 
 ;; Org-mode ;;
+(global-set-key "\M-sc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cl" 'org-store-link)
 
-(setq system-time-locale "C"
+(setq org-directory "~/rnotes"
+      system-time-locale "C"
       org-use-speed-commands t
       org-goto-auto-isearch nil)
 
@@ -203,24 +205,25 @@
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
-      ;; org-export-html-style
-      ;; "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
+      ;; org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
+
+(setq org-capture-templates
+      '(("c" "misc" entry (file+headline "~/rnotes/misc/misc.org" "Notes") "* %?\n  %i")
+        ("j" "Journal" entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")))
+
+(setq org-babel-load-languages '((sh . t) (python . t)))
 
 (setq org-latex-to-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
 	"xelatex -interaction nonstopmode -output-directory %o %f")
       org-export-latex-default-packages-alist
       '(("" "fontspec" t) ("" "xunicode" t) ("" "url" t) ("" "rotating" t)
-	("american" "babel" t) ("babel" "csquotes" t) ("" "soul" t)
-	("xetex" "hyperref" nil))
+	("american" "babel" t) ("babel" "csquotes" t) ("" "soul" t) ("xetex" "hyperref" nil))
       org-export-latex-packages-alist
       '(("" "graphicx" t) ("" "longtable" nil) ("" "float" nil)))
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
-(eval-after-load 'org
-  '(progn
-     (require 'ob-python)))
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
