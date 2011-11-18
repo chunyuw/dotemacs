@@ -16,7 +16,7 @@ all:
 up:;	@git update-index
 pull:;	@git pull
 push:;	@git push
-ci:;    @git commit -m "$(AUTOCSTR)"
+ci:;    @git commit -a -m "$(AUTOCSTR)"
 st:;	@git status
 sync:   pull push
 
