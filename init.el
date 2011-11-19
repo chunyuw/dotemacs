@@ -76,19 +76,7 @@
       backup-by-copying-when-mismatch t)
 
 (setq hippie-expand-try-functions-list
-      '(try-expand-line
-	try-expand-line-all-buffers
-	try-expand-list
-	try-expand-list-all-buffers
-	try-expand-dabbrev
-	try-expand-dabbrev-visible
-	try-expand-dabbrev-all-buffers
-	try-expand-dabbrev-from-kill
-	try-complete-file-name
-	try-complete-file-name-partially
-	try-complete-lisp-symbol
-	try-complete-lisp-symbol-partially
-	try-expand-whole-kill))
+      (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))
 
 (setq ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net"
@@ -451,7 +439,6 @@
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
-	("cjk" "CJKindent" "\\CJKindent ?" cdlatex-position-cursor nil t nil)
 	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
@@ -485,7 +472,6 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
-     (define-key TeX-mode-map [(C-tab)] 'yas/expand)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (when (eq window-system 'w32)
@@ -513,20 +499,6 @@
       (TeX-pin-region begin end))
     (TeX-command-region)))
 
-(defun LaTeX-mark-build-frame2 ()
-  "Run pdflatex on current frame.
-Frame must be declared as an environment."
-  (interactive)
-  (let (beg)
-    (save-excursion
-      (search-backward "\\begin{frame}")
-      (setq beg (point))
-      (forward-char 1)
-      (LaTeX-find-matching-end)
-      (TeX-pin-region beg (point))
-      (letf (( (symbol-function 'TeX-command-query) (lambda (x) "LaTeX")))
-        (TeX-command-region)))))
-
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
   (interactive "skpsewhich: ")
@@ -538,12 +510,10 @@ Frame must be declared as an environment."
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; yasnippet ;;
+(setq yas/root-directory "~/.emacs.d/yas"
+      yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
 (eval-after-load 'yasnippet
-  '(progn (global-set-key [(C-tab)] 'yas/expand)
-	  (setq yas/root-directory "~/.emacs.d/yas"
-		yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
-	  (yas/load-directory yas/root-directory)))
-
+  '(progn (yas/load-directory yas/root-directory)))
 (when (fboundp 'yas/minor-mode-on)
   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
 	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook
