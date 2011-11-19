@@ -46,7 +46,7 @@
       comment-style 'extra-line)
 
 (setq bookmark-save-flag 1
-      bookmark-default-file (concat "~/.emacs.d/bookmark/" system-name)
+      bookmark-default-file "~/.emacs.d/bookmark"
       save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
@@ -196,8 +196,10 @@
       org-log-done t)
 
 (setq org-capture-templates
-      '(("c" "misc" entry (file+headline "~/rnotes/misc/misc.org" "Notes") "* %?\n  %i")
-        ("j" "Journal" entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")))
+      '(("r" "Research" entry (file+headline "~/rnotes/misc/research.org" "Research") "* %?\n  %i")
+	("c" "Misc"     entry (file+headline "~/rnotes/misc/misc.org" "Notes") "* %?\n  %i")
+        ("j" "Journal"  entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")
+	("i" "Personal" entry (file+headline "~/rnotes/misc/personal.org" "Personal") "* %?\n  %i")))
 
 (setq org-babel-load-languages '((sh . t) (python . t)))
 
