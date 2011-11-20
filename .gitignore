@@ -1,9 +1,10 @@
-*.elc
+0*.elc
 *~
 abbrev_defs
 anything*
 auto-install
 auto-save-list
+bookmarks
 ede-projects.el
 elpa
 history
@@ -17,6 +18,5 @@ srecode-map.el
 thumbs
 tramp
 tutorial
-twit.gpg
-url
 twit*
+url

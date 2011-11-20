@@ -43,10 +43,7 @@
       scroll-preserve-screen-position 'keep
       Man-notify-method 'pushy
       comment-auto-fill-only-comments t
-      comment-style 'extra-line)
-
-(setq bookmark-save-flag 1
-      bookmark-default-file "~/.emacs.d/bookmark"
+      comment-style 'extra-line
       save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
