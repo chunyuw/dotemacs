@@ -520,6 +520,8 @@
 
 ;; misc packages ;;
 (require 'recentf-ext nil t)
+(eval-after-load 'calc
+  '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
 (eval-after-load 'calc-ext
   '(progn 
      (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)
@@ -696,8 +698,7 @@
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
-(load (concat "~/.emacs.d/others/init-" (symbol-name window-system) ".el") t t t)
-(load (concat "~/.emacs.d/others/init-" system-name ".el") t t t)
+(load "~/.emacs.d/others/host.el") t t t)
 ;; Loaded ;;
 
 (custom-set-variables
