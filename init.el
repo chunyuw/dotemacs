@@ -175,8 +175,6 @@
 
 ;; Org-mode ;;
 (global-set-key "\M-sc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cl" 'org-store-link)
 
 (setq org-directory "~/rnotes"
       system-time-locale "C"
@@ -522,6 +520,10 @@
 
 ;; misc packages ;;
 (require 'recentf-ext nil t)
+(eval-after-load 'calc-ext
+  '(progn 
+     (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)
+     (define-key calc-mode-map "\C-\M-k" 'calc-copy-as-kill)))
 ;; misc packages end here ;;
 
 ;; twit ;;
