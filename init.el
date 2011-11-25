@@ -698,7 +698,7 @@
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
-(load "~/.emacs.d/others/host.el" t t t)
+(load "~/.emacs.d/others/local.el" t t t)
 ;; Loaded ;;
 
 (custom-set-variables
