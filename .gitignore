@@ -1,4 +1,4 @@
-0*.elc
+*.elc
 *~
 abbrev_defs
 anything*
@@ -20,3 +20,4 @@ tramp
 tutorial
 twit*
 url
+/others/host.el
