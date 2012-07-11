@@ -72,8 +72,8 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq hippie-expand-try-functions-list
-      (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))
+;; (setq hippie-expand-try-functions-list
+;;       (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))
 
 (setq ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net"
@@ -342,33 +342,25 @@
 	anything-c-source-file-cache
 	anything-c-source-locate))
 
+(eval-after-load 'anything
+  '(progn
+     (define-key anything-map " " 'anything-exit-minibuffer)
+     (define-key anything-map "\C-k" 'anything-execute-persistent-action)
+     (define-key anything-map "\M-a" 'anything-next-line)
+     (define-key anything-map "\M-o" 'anything-next-source)
+     (define-key anything-map "\C-z" 'anything-toggle-visible-mark)))
+
+(defun anything-for-files-chunyu ()
+  (interactive)
+  (anything-other-buffer anything-for-files-prefered-list  " *anything*"))
+
 (when (require 'anything-config nil t)
-
-  (defun anything-for-files-chunyu ()
-    (interactive)
-    (anything-other-buffer anything-for-files-prefered-list  " *anything*"))
-
-  (global-set-key [(super a)] 'anything-for-files-chunyu)
   (global-set-key "\M-a" 'anything-for-files-chunyu)
   (global-set-key "\M-A" 'anything-call-source)
-  (define-key anything-map " " 'anything-exit-minibuffer)
-  (define-key anything-map "\C-k" 'anything-execute-persistent-action)
-  (define-key anything-map "\M-a" 'anything-next-line)
-  (define-key anything-map "\M-o" 'anything-next-source)
-  (define-key anything-map "\C-z" 'anything-toggle-visible-mark)
-  (define-key anything-map "\M-1" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-2" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-3" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-4" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-5" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-6" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-7" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-8" 'anything-select-with-digit-shortcut)
-  (define-key anything-map "\M-9" 'anything-select-with-digit-shortcut)
-
+  
   (eval-after-load 'org
     '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu))
-
+  
   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
 ;; Anything ends here ;;
 
@@ -506,15 +498,15 @@
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; yasnippet ;;
-(setq yas/root-directory "~/.emacs.d/yas"
-      yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
-(eval-after-load 'yasnippet
-  '(progn (yas/load-directory yas/root-directory)))
-(when (fboundp 'yas/minor-mode-on)
-  (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
-	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook
-		      html-mode-hook css-mode-hook perl-mode-hook
-		      cperl-mode-hook csharp-mode-hook)))
+;; (setq yas/root-directory "~/.emacs.d/yas"
+;;       yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
+;; (eval-after-load 'yasnippet
+;;   '(progn (yas/load-directory yas/root-directory)))
+;; (when (fboundp 'yas/minor-mode-on)
+;;   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
+;; 	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook
+;; 		      html-mode-hook css-mode-hook perl-mode-hook
+;; 		      cperl-mode-hook csharp-mode-hook)))
 ;; yasnippet ends here ;;
 
 ;; misc packages ;;
@@ -650,13 +642,7 @@
     '(progn
        (twittering-enable-unread-status-notifier)
        (set-face-attribute 'twittering-zebra-1-face nil :background nil)
-       (set-face-attribute 'twittering-zebra-2-face nil :background nil)))
-
-  (eval-after-load 'anything-config
-    '(progn
-       (set-face-attribute 'anything-file-name nil :foreground "gold")
-       (set-face-attribute 'anything-dir-priv nil :foreground "SkyBlue" :background "gray20")
-       (set-face-attribute 'anything-visible-mark nil :foreground "firebrick" :background "DarkSlateGray3"))))
+       (set-face-attribute 'twittering-zebra-2-face nil :background nil))))
 
 (defun frame-face-nox-setup () ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
