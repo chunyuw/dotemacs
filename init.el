@@ -660,12 +660,12 @@
   (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
   (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
 
-  (eval-after-load 'anything-config
-    '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
-	    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
-	    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
-	    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
-	    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
+  ;; (eval-after-load 'anything-config
+  ;;   '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
+  ;; 	    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
+  ;; 	    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
+  ;; 	    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
+  ;; 	    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
 
   (eval-after-load 'diff-mode
     '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
