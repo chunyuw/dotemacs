@@ -115,8 +115,7 @@
       '(ido-file-history ido-buffer-history file-name-history))
 
 (setq auto-mode-alist
-      (append '(("\\.\\(cmd\\|bat\\)\\'" . dos-mode)
-		("\\.cs\\'" . csharp-mode) ("\\.php\\'" . php-mode)
+      (append '(("\\.\\(cmd\\|bat\\)\\'" . dos-mode) ("\\.php\\'" . php-mode)
 		("\\.\\(vbs\\|bas\\)\\'" . visual-basic-mode))
 	      auto-mode-alist))
 
