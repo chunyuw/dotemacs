@@ -320,7 +320,7 @@
 ;; Ido ends here ;;
 
 ;; magit ;;
-(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d" "~/public_html/baby")
+(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d" "~/public_html/baby" "~/csharp")
       magit-process-popup-time 10)
 ;; magit ends here ;;
 
