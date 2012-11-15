@@ -6,8 +6,6 @@ colo desert
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-set lines=43
-set co=130
 set go=
 set guifont=Consolas:h14:cANSI
 
