@@ -195,7 +195,7 @@
         ("j" "Journal"  entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")
 	("i" "Personal" entry (file+headline "~/rnotes/misc/personal.org" "Personal") "* %?\n  %i")))
 
-(setq org-babel-load-languages '((sh . t) (python . t)))
+;;(setq org-babel-load-languages '((sh . t) (python . t)))
 
 (setq org-latex-to-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
