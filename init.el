@@ -71,9 +71,6 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-;; (setq hippie-expand-try-functions-list
-;;       (cons 'yas/hippie-try-expand hippie-expand-try-functions-list))
-
 (setq ange-ftp-smart-gateway nil
       ange-ftp-generate-anonymous-password "user@cyber.net"
       tramp-backup-directory-alist backup-directory-alist)
@@ -185,7 +182,6 @@
       org-export-email-info nil
       org-export-creator-info nil
       org-export-time-stamp-file nil
-      ;; org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\">"
       org-log-done t)
 
 (setq org-capture-templates
@@ -193,8 +189,6 @@
 	("c" "Misc"     entry (file+headline "~/rnotes/misc/misc.org" "Notes") "* %?\n  %i")
         ("j" "Journal"  entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")
 	("i" "Personal" entry (file+headline "~/rnotes/misc/personal.org" "Personal") "* %?\n  %i")))
-
-;;(setq org-babel-load-languages '((sh . t) (python . t)))
 
 (setq org-latex-to-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
@@ -495,18 +489,6 @@
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
-
-;; yasnippet ;;
-;; (setq yas/root-directory "~/.emacs.d/yas"
-;;       yas/prompt-functions '(yas/ido-prompt yas/completing-prompt yas/no-prompt))
-;; (eval-after-load 'yasnippet
-;;   '(progn (yas/load-directory yas/root-directory)))
-;; (when (fboundp 'yas/minor-mode-on)
-;;   (mapc (lambda (hook) (add-hook hook 'yas/minor-mode-on))
-;; 	'(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook
-;; 		      html-mode-hook css-mode-hook perl-mode-hook
-;; 		      cperl-mode-hook csharp-mode-hook)))
-;; yasnippet ends here ;;
 
 ;; misc packages ;;
 (require 'recentf-ext nil t)
