@@ -16,7 +16,6 @@
 (global-set-key "\M-K" 'kill-buffer-and-window)
 (global-set-key "\M-Z" 'zap-to-char)
 (global-set-key "\M-z" 'zap-up-to-char)
-(global-set-key "\M-st" 'twit)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
 
@@ -519,16 +518,6 @@
      (define-key calc-mode-map "\C-\M-k" 'calc-copy-as-kill)))
 ;; misc packages end here ;;
 
-;; twit ;;
-(setq twittering-initial-timeline-spec-string `(":home@sina")
-      twittering-use-master-password t
-      twittering-allow-insecure-server-cert t
-      twittering-oauth-use-ssl nil
-      twittering-use-ssl nil)
-
-(setq-default twittering-icon-mode nil)
-;; twit ends here ;;
-
 ;; autoloads ;;
 (autoload 'zap-up-to-char "misc" nil t)
 ;; autoloads end here ;;
@@ -636,13 +625,7 @@
 
   (eval-after-load 'magit
     '(progn
-       (set-face-attribute 'magit-item-highlight nil :background "dark slate grey")))
-
-  (eval-after-load 'twittering-mode
-    '(progn
-       (twittering-enable-unread-status-notifier)
-       (set-face-attribute 'twittering-zebra-1-face nil :background nil)
-       (set-face-attribute 'twittering-zebra-2-face nil :background nil))))
+       (set-face-attribute 'magit-item-highlight nil :background "dark slate grey"))))
 
 (defun frame-face-nox-setup () ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
