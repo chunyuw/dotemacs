@@ -13,6 +13,7 @@ all:
 	@echo "    make pull/push/ci/up/st | clean"
 	@echo "    $(AUTOCSTR)"
 
+upall:; @for x in s1 s2 s3 s4 nc1 nc2 cstgw cst ; do ssh $$x "cd .emacs.d; git pull" ; done
 up:;	@git update-index
 pull:;	@git pull
 push:;	@git push
