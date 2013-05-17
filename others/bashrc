@@ -18,4 +18,4 @@ alias  cls=clear
 alias  se='sudo `which emacs` -u `whoami`'
 alias  ip6='ip -6'
 
-syncphotos () { (cd ~/1baby ; rsync -avr --delete --size-only galleries/ galleries-bak) ; }
+babysync () { (cd ~/1baby ; rsync -avr --delete --size-only galleries/ galleries-bak) ; }
