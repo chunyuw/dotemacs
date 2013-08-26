@@ -81,8 +81,7 @@
       reb-blink-delay 1
       reb-re-syntax 'string)
 
-(setq recentf-save-file "~/.emacs.d/recentf"
-      recentf-max-saved-items 60
+(setq recentf-max-saved-items 60
       recentf-exclude
       '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
@@ -203,10 +202,7 @@
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
-(setq save-place-file "~/.emacs.d/places"
-      save-place-limit 20)
 (setq-default save-place t)
-
 (require 'saveplace)
 (add-hook 'find-file-hook 'save-place-find-file-hook t)
 (add-hook 'kill-emacs-hook 'save-place-kill-emacs-hook)
