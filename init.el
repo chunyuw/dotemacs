@@ -402,6 +402,10 @@
 
 (setq cdlatex-math-modify-prefix [(super ?')]
       ;; cdlatex-math-symbol-prefix [(super ?`)]
+      cdlatex-math-symbol-alist
+      '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
+	(?d ("\\delta" "\\hat\\delta" "\\partial"))
+	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(<|"
       ;; cdlatex-math-symbol-alist
       ;; '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
