@@ -457,8 +457,10 @@
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (when (eq window-system 'w32)
-       (setq TeX-output-view-style
-	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style)))
+       ;; (setq TeX-output-view-style
+       ;; 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
+       (setq TeX-view-program-list '(("SumatraPDF" "SumatraPDF.exe %o"))
+	     TeX-view-program-selection '((output-pdf "SumatraPDF"))))
      ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
