@@ -364,7 +364,10 @@
       TeX-parse-self t
       TeX-auto-untabify t
       TeX-region "z_region"
-      TeX-fold-type-list '(env math))
+      TeX-fold-type-list '(env math)
+      TeX-fold-env-spec-list
+      '(("[comment]" ("comment"))
+	("[tikzpicture]" ("tikzpicture"))))
 
 (setq preview-scale-function 2
       preview-image-type 'dvipng
