@@ -357,14 +357,11 @@
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
 
-(load "preview-latex.el" t t t)
-(load "auctex.el" t t t)
-
 (setq TeX-auto-save t
       TeX-parse-self t
       TeX-auto-untabify t
       TeX-region "z_region"
-      TeX-fold-type-list '(env math)
+      TeX-fold-type-list '(env macro math)
       TeX-fold-env-spec-list
       '(("[comment]" ("comment"))
 	("[tikzpicture]" ("tikzpicture"))))
@@ -374,6 +371,9 @@
       preview-auto-cache-preamble nil)
 
 (setq tool-bar-mode nil
+      LaTeX-math-list
+      '((nil "derive" "Arrows" 8658)
+	(nil "derives" "Arrows" 8658))
       LaTeX-enable-toolbar nil
       LaTeX-document-regexp "document\\|CJK\\*?\\|frame")
 
@@ -497,6 +497,9 @@
 		 "\015\\|\012" "" (shell-command-to-string comm))))
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
+
+(load "preview-latex.el" t t t)
+(load "auctex.el" t t t)
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
 ;; misc packages ;;
