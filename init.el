@@ -408,7 +408,7 @@
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
 	(?d ("\\delta" "\\hat\\delta" "\\partial"))
-	(?\; ("\\sderive" "\\sgderive" "\\gderive"))
+	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(<|"
       ;; cdlatex-math-symbol-alist
@@ -427,7 +427,7 @@
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
 	 cdlatex-position-cursor nil t nil)
-	("gra" "grammar" "\\begin{enumerate}[label={},leftmargin=6em]\n\\item ?\n\\end{enumerate}"
+	("cfg" "grammar" "\\begin{enumerate}[label={},leftmargin=6em,noitemsep]\n\\item ?\n\\end{enumerate}"
 	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
@@ -580,7 +580,7 @@
 
   (let ((name (frame-parameter nil 'font)))
     (set-fontset-font name 'han "Microsoft YaHei")
-    (set-fontset-font name 'symbol "DejaVu Sans")
+    (set-fontset-font name 'symbol "Symbola")
     (set-fontset-font name 'cjk-misc "Microsoft YaHei")
     (set-fontset-font name '(#x2018 . #x201D) "SimSun")
     (set-fontset-font name 'burmese "Myanmar2")
