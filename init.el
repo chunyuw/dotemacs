@@ -241,17 +241,15 @@
 
        (setq browse-url-generic-program
 	     (substitute-in-file-name
-	      "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe"))
+	      "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"))
+
+       (add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
 
        (defun chunyu/customize-dired-face ()
 	 (font-lock-add-keywords
 	  nil `(("^  .*\\.\\(pdf\\|djvu\\)$"
-		 (".+"
-		  (dired-move-to-filename)
-		  nil
-		  (0 'font-lock-string-face)))))) ; font-lock-doc-face
-
-       (add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
+		 (".+" (dired-move-to-filename) nil
+		  (0 'font-lock-string-face))))))
 
        (defun chunyu/dired-open-explorer ()
 	 (interactive)
