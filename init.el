@@ -230,6 +230,7 @@
      (define-key dired-mode-map "K" 'dired-kill-subdir)
      (define-key dired-mode-map "h" 'dired-mark-files-regexp)
 
+
      (when window-system
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
@@ -241,6 +242,16 @@
        (setq browse-url-generic-program
 	     (substitute-in-file-name
 	      "$LOCALAPPDATA/Google/Chrome/Application/chrome.exe"))
+
+       (defun chunyu/customize-dired-face ()
+	 (font-lock-add-keywords
+	  nil `(("^  .*\\.\\(pdf\\|djvu\\)$"
+		 (".+"
+		  (dired-move-to-filename)
+		  nil
+		  (0 'font-lock-string-face)))))) ; font-lock-doc-face
+
+       (add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
 
        (defun chunyu/dired-open-explorer ()
 	 (interactive)
@@ -271,18 +282,7 @@
 		(option (if (file-directory-p file-name) "/J" "/H"))
 		(filenm (replace-regexp-in-string
 			 "/" "\\\\" (format "%s %s" target file-name))))
-	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0)))
-
-       (defun acrobat-close-doc (&optional f)
-	 "Close documents in Acrobat."
-	 (interactive)
-	 (let* ((o "[DocOpen(%S)]") (c "[DocClose(%S)]")
-		(dde (if f (format (concat o o c) f f f) (format c "NULL"))))
-	   (save-excursion
-	     (set-buffer (get-buffer-create " *ddeclient*"))
-	     (erase-buffer) (message (concat "DDE:" dde)) (insert dde)
-	     (call-process-region (point-min) (point-max) "ddeclient"
-				  nil t nil "acroview" "control")))))))
+	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0))))))
 ;; Dired ends here ;;
 
 ;; Ido ;;
@@ -465,8 +465,11 @@
      (when (eq window-system 'w32)
        ;; (setq TeX-output-view-style
        ;; 	     (cons '("^pdf$" "." "start \"title\" %o") TeX-output-view-style))
-       (setq TeX-view-program-list '(("SumatraPDF" "SumatraPDF.exe %o"))
-	     TeX-view-program-selection '((output-pdf "SumatraPDF"))))
+       ;; (setq TeX-view-program-list '(("SumatraPDF" "SumatraPDF.exe -reuse-instance %o"))
+       ;; 	     TeX-view-program-selection '((output-pdf "SumatraPDF")))
+       )
+
+
      ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
@@ -532,9 +535,9 @@
     (global-unset-key "\C-x\C-z")
     (global-set-key [(control return)] [(return)])
 
-    (setq w32-lwindow-modifier 'hyper
-	  w32-apps-modifier 'super
-	  w32-pass-lwindow-to-system t
+    (setq w32-lwindow-modifier 'super
+	  w32-apps-modifier 'hyper
+	  w32-pass-lwindow-to-system nil
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
@@ -668,7 +671,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(TeX-source-correlate-mode t)
+ '(TeX-source-correlate-start-server t)
+ '(TeX-view-program-list
+   (quote
+    (("SumatraPDF"
+      ("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o")))))
+ '(TeX-view-program-selection
+   (quote
+    (((output-dvi style-pstricks)
+      "dvips and start")
+     (output-dvi "Yap")
+     (output-pdf "SumatraPDF")
+     (output-html "start")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
