@@ -1,5 +1,21 @@
 ﻿# For documentation, see http://blog.kowalczyk.info/software/sumatrapdf/settings2.4.html
 
+# 当前源文件 SumatraPDF-2.4-source.zip
+# 
+# 修改如下文件，删除该行的特殊字符，保存为 utf-8 编码
+# 
+#   : line   3     sumatrapdf-2.4-cy/src/browserplugin/npapi/npruntime.h  
+#   : line 1058    sumatrapdf-2.4-cy/ext/synctex/synctex_parser.c  
+#   : line 1165    sumatrapdf-2.4-cy/ext/openjpeg/jp2.c  
+# 
+# 使用 vs2012 命令行编译
+# 
+#  : nmake -f makefile.msvc CFG=rel NASM=bin\nasm.exe 
+#  :       "EXTCFLAGS=/D ENABLE_SUMATRAPDF_USER_INI /D ABOUT_USE_LESS_COLORS
+#  :        /D ENABLE_EXTENDED_PROPERTIES /D DISABLE_DOCUMENT_RESTRICTIONS
+#  :        /D ENABLE_SAVE_SHORTCUT"
+
+
 MainWindowBackground = #30669200
 EscToExit = false
 ReuseInstance = false
