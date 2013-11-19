@@ -666,6 +666,7 @@
  '(TeX-view-program-list
    (quote
     (("SumatraPDF"
+      ;;("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o")
       ("SumatraPDF.exe -set-color-range #f5deb3 #001414 -reuse-instance" " -forward-search %b %n" " %o")))))
  '(TeX-view-program-selection
    (quote
