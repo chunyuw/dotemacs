@@ -422,7 +422,9 @@
       cdlatex-command-alist
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
+	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
 	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
 	 cdlatex-position-cursor nil t nil)
 	("cfg" "grammar" "\\begin{enumerate}[label={},leftmargin=6em,noitemsep]\n\\item ?\n\\end{enumerate}"
@@ -666,8 +668,8 @@
  '(TeX-view-program-list
    (quote
     (("SumatraPDF"
-      ;;("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o")
-      ("SumatraPDF.exe -set-color-range #f5deb3 #001414 -reuse-instance" " -forward-search %b %n" " %o")))))
+      ;;("SumatraPDF.exe -set-color-range #f5deb3 #001414 -reuse-instance" " -forward-search %b %n" " %o")
+      ("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o")))))
  '(TeX-view-program-selection
    (quote
     (((output-dvi style-pstricks)
