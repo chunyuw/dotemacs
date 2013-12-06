@@ -1,0 +1,2 @@
+$pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode %O %S';
+$pdf_previewer = 'SumatraPDF.exe -reuse-instance %O %S';
