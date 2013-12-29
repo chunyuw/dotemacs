@@ -321,7 +321,7 @@
       anything-for-files-prefered-list
       '(anything-c-source-ffap-line
 	anything-c-source-ffap-guesser
-	anything-c-source-org-headline
+	;;anything-c-source-org-headline
 	anything-c-source-buffers+
 	anything-c-source-recentf
 	anything-c-source-files-in-current-dir+
@@ -516,17 +516,26 @@
   (setq frame-background-mode 'dark)
   (setq Info-use-header-line nil))
 
- (window-system	;; BOTH X-Window and MS-Windows
+ (window-system	;; For w32, mac or X
   (setq-default mouse-yank-at-point t
 		indicate-empty-lines 'left
 		indicate-buffer-boundaries 'left)
 
   (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
-  (when (eq window-system 'w32) ;; MS-Windows
-    (global-unset-key "\C-x\C-z")
-    (global-set-key [(control return)] [(return)])
+  (global-unset-key "\C-x\C-z")
+  (global-set-key [(control return)] [(return)])
 
+  (when (eq window-system 'ns) ;; Mac OS X
+    (menu-bar-mode 1)
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)
+    (setq mac-option-modifier 'meta
+	  mac-command-modifier 'meta
+	  mac-right-command-modifier 'super
+	  mac-right-option-modifier 'control))
+
+  (when (eq window-system 'w32) ;; MS-Windows
     (setq w32-lwindow-modifier 'super
 	  w32-apps-modifier 'hyper
 	  w32-pass-lwindow-to-system nil
@@ -534,8 +543,8 @@
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
     (setq ;;shell-file-name "bash"
-	  ange-ftp-ftp-program-name "gftp"
-	  find-program "gfind")
+     ange-ftp-ftp-program-name "gftp"
+     find-program "gfind")
 
     (setq dired-guess-shell-alist-user
 	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
@@ -550,7 +559,7 @@
 	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1))))))
-    ;; ISpell on Win32 ends here ;;
+;; ISpell on Win32 ends here ;;
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
@@ -564,13 +573,34 @@
 
 (mapc (lambda (var) (put var 'safe-local-variable 'string-or-null-p))
       '(dired-omit-files TeX-master
-	org-export-html-style org-export-publishing-directory
-	TeX-header-end TeX-trailer-start))
+			 org-export-html-style org-export-publishing-directory
+			 TeX-header-end TeX-trailer-start))
 
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
-(defun frame-font-x-setup ()
+(defun frame-font-mac-setup ()
+  (set-frame-font "Monaco-15" t)
+
+  ;; (set-face-attribute 'default nil :height 150)
+  ;; (set-face-attribute 'mode-line nil :height 120)
+
+  ;;(setq face-font-rescale-alist '(("Monaco" . 1.2)))
+
+  (let ((name (frame-parameter nil 'font)))
+    (set-fontset-font name 'han "Hannotate_SC")
+    (set-fontset-font name 'cjk-misc "Hannotate_SC")
+    (set-fontset-font name '(#x2018 . #x201D) "Hannotate_SC")
+    (set-fontset-font name 'unicode-smp "DejaVu Sans")))
+
+(defun frame-face-mac-setup ()
+  (setq default-frame-alist
+	'((background-mode . dark)
+	  (background-color . "#002020")
+	  (foreground-color . "Wheat")
+	  (cursor-color . "Coral"))))
+
+(defun frame-font-w32-setup ()
   (set-frame-font "Consolas-14" t)
 
   (set-face-attribute 'default nil :height 140)
@@ -586,7 +616,7 @@
     (set-fontset-font name 'katakana-jisx0201 "MS PMincho")
     (set-fontset-font name 'unicode-smp "DejaVu Sans")))
 
-(defun frame-face-x-setup ()
+(defun frame-face-w32-setup ()
   (setq default-frame-alist
 	'((background-mode . dark)
 	  (background-color . "#001414")
@@ -632,13 +662,6 @@
   (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
   (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
 
-  ;; (eval-after-load 'anything-config
-  ;;   '(progn (set-face-attribute 'anything-header nil :underline nil :background "black" :foreground "color-75")
-  ;; 	    (set-face-attribute 'anything-dir-heading nil  :foreground "color-183" :background "color-236")
-  ;; 	    (set-face-attribute 'anything-dir-priv    nil  :foreground "color-136" :background "color-236")
-  ;; 	    (set-face-attribute 'anything-file-name   nil  :foreground "color-48"  :background "black")
-  ;; 	    (set-face-attribute 'anything-visible-mark nil :foreground "red" :background "color-18")))
-
   (eval-after-load 'diff-mode
     '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
 	    (set-face-attribute 'diff-header nil :background "grey20")
@@ -649,9 +672,11 @@
   (eval-after-load 'table
     '(set-face-attribute 'table-cell nil :background "aquamarine4")))
 
-(if window-system (frame-face-x-setup) (frame-face-nox-setup))
-(when window-system (frame-font-x-setup))
-(when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
+(when (eq window-system 'nil) (frame-face-nox-setup))
+(when (eq window-system 'ns)  (frame-face-mac-setup) (frame-font-mac-setup))
+(when (eq window-system 'w32) (frame-face-w32-setup) (frame-font-w32-setup))
+;(when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
+
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
