@@ -594,11 +594,17 @@
     (set-fontset-font name 'unicode-smp "DejaVu Sans")))
 
 (defun frame-face-mac-setup ()
+  ;; (setq initial-frame-alist
+  ;; 	'((top . 30) (left . 30) (width . 80) (height . 55)))
+
   (setq default-frame-alist
 	'((background-mode . dark)
 	  (background-color . "#002020")
 	  (foreground-color . "Wheat")
-	  (cursor-color . "Coral"))))
+	  (cursor-color . "Coral")
+	  (height . 30)
+	  (width . 100)
+	  )))
 
 (defun frame-font-w32-setup ()
   (set-frame-font "Consolas-14" t)
