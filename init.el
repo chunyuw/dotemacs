@@ -1,5 +1,4 @@
-;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs
-;; Created on 2001-12-11 on db.hit.edu.cn
+;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs, since 2001-12-11
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
@@ -233,7 +232,7 @@
      (define-key dired-mode-map "h" 'dired-mark-files-regexp)
 
 
-     (when window-system
+     (when (eq window-system 'w32)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
        (define-key dired-mode-map "Y" 'chunyu/dired-win7-mklink)
@@ -530,12 +529,24 @@
 
   (when (eq window-system 'ns) ;; Mac OS X
     (menu-bar-mode 1)
-    (tool-bar-mode -1)
+    ;(tool-bar-mode -1)
     (scroll-bar-mode -1)
+    ;(setq ns-auto-hide-menu-bar t)
+
     (setq mac-option-modifier 'meta
 	  mac-command-modifier 'meta
 	  mac-right-command-modifier 'super
-	  mac-right-option-modifier 'control))
+	  mac-right-option-modifier 'control)
+
+    (defun set-exec-path-from-shell-PATH ()
+      (interactive)
+      (let ((path-from-shell 
+	     (replace-regexp-in-string 
+	      "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+	(setenv "PATH" path-from-shell)
+	(setq exec-path (split-string path-from-shell path-separator))))
+
+    (set-exec-path-from-shell-PATH))
 
   (when (eq window-system 'w32) ;; MS-Windows
     (setq w32-lwindow-modifier 'super
@@ -582,7 +593,7 @@
 
 ;; Frame configuration ;;
 (defun frame-font-mac-setup ()
-  (set-frame-font "Monaco-15" t)
+  (set-frame-font "Monaco-16" t)
 
   ;; (set-face-attribute 'default nil :height 150)
   ;; (set-face-attribute 'mode-line nil :height 120)
