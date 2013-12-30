@@ -599,6 +599,9 @@
   ;; (set-face-attribute 'mode-line nil :height 120)
 
   ;;(setq face-font-rescale-alist '(("Monaco" . 1.2)))
+  ;;(setq face-font-rescale-alist '(("Hannotate.*" . 1.2)))
+  ;; (create-fontset-from-ascii-font "-apple-Monaco-medium-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil  "applemonaco")
+  ;;(set-frame-font "fontset-applemonaco" t)
 
   (let ((name (frame-parameter nil 'font)))
     (set-fontset-font name 'han "Hannotate_SC")
