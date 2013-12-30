@@ -82,6 +82,7 @@
       reb-re-syntax 'string)
 
 (setq recentf-max-saved-items 60
+      recentf-save-file "~/.emacs.d/recentf"
       recentf-exclude
       '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
 
@@ -203,6 +204,7 @@
 ;; Org-mode ends here ;;
 
 ;; SavePlace ;;
+(setq save-place-file "~/.emacs.d/places")
 (setq-default save-place t)
 (require 'saveplace)
 (add-hook 'find-file-hook 'save-place-find-file-hook t)
