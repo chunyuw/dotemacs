@@ -428,8 +428,6 @@
 	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
 	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
 	 cdlatex-position-cursor nil t nil)
-	("cfg" "grammar" "\\begin{enumerate}[label={},leftmargin=6em,noitemsep]\n\\item ?\n\\end{enumerate}"
-	 cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("lst" "lstlisting" "" cdlatex-environment ("lstlisting") t nil)
@@ -445,12 +443,6 @@
 (add-hook 'LaTeX-mode-hook
 	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (beamer-setup)
 	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) ))
-
-;; (eval-after-load 'cdlatex
-;;   '(progn
-;;      (define-key cdlatex-mode-map "^" 'self-insert-command)
-;;      (define-key cdlatex-mode-map "_" 'self-insert-command)
-;;      ))
 
 (eval-after-load 'latex
   '(progn
@@ -522,32 +514,24 @@
 		indicate-empty-lines 'left
 		indicate-buffer-boundaries 'left)
 
-  (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
-
   (global-unset-key "\C-x\C-z")
   (global-set-key [(control return)] [(return)])
 
   (when (eq window-system 'ns) ;; Mac OS X
     (menu-bar-mode 1)
-    ;(tool-bar-mode -1)
     (scroll-bar-mode -1)
-    ;(setq ns-auto-hide-menu-bar t)
 
     (setq mac-option-modifier 'meta
 	  mac-command-modifier 'meta
 	  mac-right-command-modifier 'super
 	  mac-right-option-modifier 'control)
 
-    (defun set-exec-path-from-shell-PATH ()
-      (interactive)
-      (let ((path-from-shell 
-	     (replace-regexp-in-string 
-	      "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-	(setenv "PATH" path-from-shell)
-	(setq exec-path (split-string path-from-shell path-separator))))
-
-    (set-exec-path-from-shell-PATH))
-
+    (let ((path-from-shell 
+	   (replace-regexp-in-string 
+	    "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+      (setenv "PATH" path-from-shell)
+      (setq exec-path (split-string path-from-shell path-separator))))
+  
   (when (eq window-system 'w32) ;; MS-Windows
     (setq w32-lwindow-modifier 'super
 	  w32-apps-modifier 'hyper
@@ -555,15 +539,16 @@
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
-    (setq ;;shell-file-name "bash"
-     ange-ftp-ftp-program-name "gftp"
-     find-program "gfind")
+    (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
+
+    (setq ange-ftp-ftp-program-name "gftp"
+	  find-program "gfind")
 
     (setq dired-guess-shell-alist-user
 	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
 	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
-
+    
     ;; ISpell on Win32 ;;
     (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
     (setq ispell-personal-dictionary "~/.emacs.d/ispelldic"
@@ -592,58 +577,33 @@
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
-(defun frame-font-mac-setup ()
-  (set-frame-font "Monaco-16" t)
+(when (eq window-system 'ns) ;; on OS X frame
+  (setq face-font-rescale-alist
+	'(("Hannotate" . 1.2) ("SimSun" . 1.2)))
 
-  ;; (set-face-attribute 'default nil :height 150)
-  ;; (set-face-attribute 'mode-line nil :height 120)
+  (set-face-attribute 'default nil :family "Monaco" :height 160 :background "#002020" :foreground "Wheat")
 
-  ;;(setq face-font-rescale-alist '(("Monaco" . 1.2)))
-  ;;(setq face-font-rescale-alist '(("Hannotate.*" . 1.2)))
-  ;; (create-fontset-from-ascii-font "-apple-Monaco-medium-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil  "applemonaco")
-  ;;(set-frame-font "fontset-applemonaco" t)
+  (set-fontset-font "fontset-default" 'han "Hannotate_SC")
+  (set-fontset-font "fontset-default" 'symbol "Symbola")
+  (set-fontset-font "fontset-default" 'cjk-misc "Hannotate_SC")
+  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate_SC")
+  (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
-  (let ((name (frame-parameter nil 'font)))
-    (set-fontset-font name 'han "Hannotate_SC")
-    (set-fontset-font name 'cjk-misc "Hannotate_SC")
-    (set-fontset-font name '(#x2018 . #x201D) "Hannotate_SC")
-    (set-fontset-font name 'unicode-smp "DejaVu Sans")))
+(when (eq window-system 'w32) ;; on Windows frame
+  (setq face-font-rescale-alist
+	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
-(defun frame-face-mac-setup ()
-  ;; (setq initial-frame-alist
-  ;; 	'((top . 30) (left . 30) (width . 80) (height . 55)))
+  (set-face-attribute 'default nil :family "Consolas" :height 140 :background "#001414" :foreground "Wheat")
 
+  (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
+  (set-fontset-font "fontset-default" 'symbol "Symbola")
+  (set-fontset-font "fontset-default" 'cjk-misc "SimHei")
+  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
+  (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
+
+(when (member window-system '(ns w32))
   (setq default-frame-alist
-	'((background-mode . dark)
-	  (background-color . "#002020")
-	  (foreground-color . "Wheat")
-	  (cursor-color . "Coral")
-	  (height . 30)
-	  (width . 100)
-	  )))
-
-(defun frame-font-w32-setup ()
-  (set-frame-font "Consolas-14" t)
-
-  (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'mode-line nil :height 120)
-
-  (let ((name (frame-parameter nil 'font)))
-    (set-fontset-font name 'han "Microsoft YaHei")
-    (set-fontset-font name 'symbol "Symbola")
-    (set-fontset-font name 'cjk-misc "Microsoft YaHei")
-    (set-fontset-font name '(#x2018 . #x201D) "SimSun")
-    (set-fontset-font name 'burmese "Myanmar2")
-    (set-fontset-font name 'oriya "Kalinga")
-    (set-fontset-font name 'katakana-jisx0201 "MS PMincho")
-    (set-fontset-font name 'unicode-smp "DejaVu Sans")))
-
-(defun frame-face-w32-setup ()
-  (setq default-frame-alist
-	'((background-mode . dark)
-	  (background-color . "#001414")
-	  (foreground-color . "Wheat")
-	  (cursor-color . "Coral")))
+	'((background-mode . dark) (cursor-color . "Coral") (width . 120)))
 
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
@@ -668,12 +628,14 @@
     '(progn
        (set-face-attribute 'magit-item-highlight nil :background "dark slate grey"))))
 
-(defun frame-face-nox-setup () ;; Text only console frame
+(when (eq window-system 'nil) ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
   (set-face-attribute 'region nil :background "blue")
   (set-face-attribute 'font-lock-comment-face nil :foreground "red"))
 
-(defun frame-face-nox256-setup () ;; Text only 256color console frame
+(when ;; Text only 256color console frame
+    (and (eq system-type 'gnu/linux)
+	 (string-match "256color" (getenv "TERM")))
   (set-face-attribute 'region nil :background "color-24")
   (set-face-attribute 'mode-line nil :background "color-180")
   (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
@@ -693,12 +655,6 @@
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
   (eval-after-load 'table
     '(set-face-attribute 'table-cell nil :background "aquamarine4")))
-
-(when (eq window-system 'nil) (frame-face-nox-setup))
-(when (eq window-system 'ns)  (frame-face-mac-setup) (frame-font-mac-setup))
-(when (eq window-system 'w32) (frame-face-w32-setup) (frame-font-w32-setup))
-;(when (string-match "256color" (getenv "TERM")) (frame-face-nox256-setup))
-
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
@@ -730,6 +686,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral")))))
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; coding: utf-8
