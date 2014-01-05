@@ -2,7 +2,7 @@
 
 startup_message off
 nethack off
-deflogin on
+#deflogin on
 defflow off
 vbell off
 vbell_msg "   -- Ring, Ring!! --   "
