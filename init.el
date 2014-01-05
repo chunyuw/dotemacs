@@ -578,8 +578,12 @@
 
 ;; Frame configuration ;;
 (when (eq window-system 'ns) ;; on OS X frame
-  (setq face-font-rescale-alist
-	'(("Hannotate" . 1.2) ("SimSun" . 1.2)))
+  (setq default-directory "~/")
+  (tool-bar-mode 1) (tool-bar-mode -1)
+  (setq default-frame-alist
+	'((background-mode . dark) (cursor-color . "Coral") (width . 125) (height . 33))
+	face-font-rescale-alist
+	'(("Hannotate" . 1.25) ("Hannotate_SC" . 1.25)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160 :background "#002020" :foreground "Wheat")
 
@@ -590,7 +594,9 @@
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
 (when (eq window-system 'w32) ;; on Windows frame
-  (setq face-font-rescale-alist
+  (setq default-frame-alist
+	'((background-mode . dark) (cursor-color . "Coral") (width . 120))
+	face-font-rescale-alist
 	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
   (set-face-attribute 'default nil :family "Consolas" :height 140 :background "#001414" :foreground "Wheat")
@@ -602,9 +608,6 @@
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
 (when (member window-system '(ns w32))
-  (setq default-frame-alist
-	'((background-mode . dark) (cursor-color . "Coral") (width . 120)))
-
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
