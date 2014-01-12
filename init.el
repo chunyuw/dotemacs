@@ -363,7 +363,17 @@
       TeX-fold-type-list '(env math)
       TeX-fold-env-spec-list
       '(("[comment]" ("comment"))
-	("[tikzpicture]" ("tikzpicture"))))
+	("[tikzpicture]" ("tikzpicture")))
+      TeX-source-correlate-mode t
+      TeX-source-correlate-start-server t
+      TeX-view-program-list
+      '(("SumatraPDF" ;; -set-color-range #f5deb3 #001414
+	 ("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o"))
+	("Skim"
+	 ("/Applications/Skim.app/Contents/SharedSupport/displayline" " %n %o %b")))
+      TeX-view-program-selection
+      (cond ((eq window-system 'w32) '((output-pdf "SumatraPDF")))
+	    ((eq window-system 'ns) '((output-pdf "Skim")))))
 
 (setq preview-scale-function 2
       preview-image-type 'dvipng
@@ -583,11 +593,11 @@
   (setq default-frame-alist
 	'((background-mode . dark) (cursor-color . "Coral") (width . 125) (height . 33))
 	face-font-rescale-alist
-	'(("Hannotate" . 1.25) ("Hannotate_SC" . 1.25)))
+	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160 :background "#002020" :foreground "Wheat")
 
-  (set-fontset-font "fontset-default" 'han "Hannotate_SC")
+  (set-fontset-font "fontset-default" 'han "Lantinghei_SC") ;"Hannotate_SC"
   (set-fontset-font "fontset-default" 'symbol "Symbola")
   (set-fontset-font "fontset-default" 'cjk-misc "Hannotate_SC")
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate_SC")
@@ -669,20 +679,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-source-correlate-mode t)
- '(TeX-source-correlate-start-server t)
- '(TeX-view-program-list
-   (quote
-    (("SumatraPDF"
-      ;;("SumatraPDF.exe -set-color-range #f5deb3 #001414 -reuse-instance" " -forward-search %b %n" " %o")
-      ("SumatraPDF.exe -reuse-instance" " -forward-search %b %n" " %o")))))
- '(TeX-view-program-selection
-   (quote
-    (((output-dvi style-pstricks)
-      "dvips and start")
-     (output-dvi "Yap")
-     (output-pdf "SumatraPDF")
-     (output-html "start")))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
