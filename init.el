@@ -27,6 +27,7 @@
       enable-recursive-minibuffers t
       disabled-command-function nil
       history-delete-duplicates t
+      history-length 1000
       set-mark-command-repeat-pop t
       parens-require-spaces nil
       kmacro-call-repeat-with-arg t
