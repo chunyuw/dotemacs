@@ -1,7 +1,10 @@
 
+bioinformatics
+bp
 Bruijn
 cDNA
 cDNAs
+Celera
 Chunyu
 CloudBurst
 clust
@@ -15,6 +18,7 @@ exon
 exons
 extrons
 FASTA
+Gbp
 genome
 genomic
 genotyping
@@ -29,20 +33,29 @@ Hadoop
 hashtable
 HDFS
 Heilongjiang
+HiSeq
+Illumina
 introns
 Linux
 Liu
 maize
 Maozu
+mapper
 MapReduce
 mers
 mrClust
-mRNA
 mrna
+mRNA
 mRNAs
+Newbler
+NGS
 OffsetInfo
+OLC
+petabytes
 Pthreads
+RC
 resp
+Sanger
 SGS
 SNP
 TB
@@ -53,4 +66,5 @@ TODO
 Unigene
 unsupervised
 utilizing
+WGS
 Yahoo

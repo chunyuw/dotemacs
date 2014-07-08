@@ -223,6 +223,7 @@
 	   wdired-use-dired-vertical-movement 'sometime)
 
      (require 'dired-x)
+     (define-key dired-mode-map "\M-O" 'dired-omit-mode)
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
@@ -363,7 +364,8 @@
       TeX-region "z_region"
       TeX-fold-type-list '(env math)
       TeX-fold-env-spec-list
-      '(("[comment]" ("comment"))
+      '(("[algorithmic]" ("algorithmic"))
+	("[comment]" ("comment"))
 	("[tikzpicture]" ("tikzpicture")))
       TeX-source-correlate-mode t
       TeX-source-correlate-start-server t
