@@ -227,12 +227,9 @@
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
-     (define-key dired-mode-map "J" 'dired-mark-files-regexp)
      (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
-     (define-key dired-mode-map "h" 'dired-mark-files-regexp)
-
 
      (when (eq window-system 'w32)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)

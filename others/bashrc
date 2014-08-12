@@ -19,3 +19,4 @@ alias  se='sudo `which emacs` -u `whoami`'
 alias  ip6='ip -6'
 
 babysync () { (cd ~/1baby ; rsync -avr --delete --size-only galleries/ galleries-bak) ; }
+babyussync () {             rsync -avr --delete --size-only ~/0photos/ babyus.emacs.cn:photos/ ; }
