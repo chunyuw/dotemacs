@@ -432,6 +432,7 @@
 	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
 	("lstlisting" "\\begin{lstlisting}\n?\n\\end{lstlisting}" nil)
 	("alertblock" "\\begin{alertblock}{?}\n\n\\end{alertblock}\n" nil)
+	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" "\\item ?")
 	("exampleblock" "\\begin{exampleblock}{?}\n\n\\end{exampleblock}\n" nil))
       cdlatex-command-alist
       '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
