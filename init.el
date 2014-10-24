@@ -595,7 +595,7 @@
   (setq default-directory "~/")
   (tool-bar-mode 1) (tool-bar-mode -1)
   (setq default-frame-alist
-	'((background-mode . dark) (cursor-color . "Coral") (width . 125) (height . 34))
+	'((background-mode . dark) (cursor-color . "Coral") (width . 119) (height . 35))
 	face-font-rescale-alist
 	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
 
