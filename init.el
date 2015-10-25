@@ -93,7 +93,8 @@
 (find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
-(minibuffer-depth-indicate-mode 1)
+(when (fboundp 'minibuffer-depth-indicate-mode)
+  (minibuffer-depth-indicate-mode 1))
 (mouse-avoidance-mode 'jump)
 (column-number-mode 1)
 (blink-cursor-mode -1)
