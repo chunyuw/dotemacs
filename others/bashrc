@@ -9,6 +9,7 @@ export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 # export ADMIN=chunyu@hit.edu.cn
 export EDITOR='emacsclient -tca ""' 
 #export XDG_CONFIG_HOME=$HOME/.google
+export NCURSES_NO_UTF8_ACS=1
 
 shopt -s cdspell
 
