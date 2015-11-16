@@ -1,5 +1,7 @@
 ;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs, since 2001-12-11
 
+(package-initialize)
+
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
 (global-set-key "\C-x\C-b" 'bs-show)
@@ -163,12 +165,11 @@
      (define-key diff-mode-map "\C-K" 'diff-file-kill)
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
 
-;; package ;;
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("tromey" . "http://tromey.com/elpa/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
-;; package ends here ;;
+;; ;; package ;;
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+;; ;; package ends here ;;
 
 ;; Org-mode ;;
 (global-set-key "\M-sc" 'org-capture)
@@ -513,7 +514,9 @@
 ;; misc packages end here ;;
 
 ;; autoloads ;;
+(autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
+(autoload 'dired-jump "dired-x" nil t)
 ;; autoloads end here ;;
 
 (cond
@@ -623,6 +626,7 @@
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+  (set-face-attribute 'mode-line-buffer-id nil :height 130 :weight 'normal)
   (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
   (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
   (set-face-attribute 'region nil :background "grey15")
@@ -637,11 +641,7 @@
 
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-
-  (eval-after-load 'magit
-    '(progn
-       (set-face-attribute 'magit-item-highlight nil :background "dark slate grey"))))
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1"))))
 
 (when (eq window-system 'nil) ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
