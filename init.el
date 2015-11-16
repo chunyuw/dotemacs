@@ -225,7 +225,7 @@
 	   wdired-use-dired-vertical-movement 'sometime)
 
      (require 'dired-x)
-     (define-key dired-mode-map "\M-O" 'dired-omit-mode)
+     (define-key dired-mode-map "." 'dired-omit-mode)
      (define-key dired-mode-map "b" 'dired-mark-extension)
      (define-key dired-mode-map "c" 'dired-up-directory)
      (define-key dired-mode-map "e" 'dired-mark-files-containing-regexp)
