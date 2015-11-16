@@ -517,6 +517,8 @@
 (autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
+(autoload 'cdlatex-mode "cdlatex" nil t)
+(autoload 'turn-on-cdlatex "cdlatex" nil t)
 ;; autoloads end here ;;
 
 (cond
