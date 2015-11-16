@@ -554,10 +554,10 @@
 	  w32-charset-info-alist
 	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
 
-    (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
+    ;; (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
 
-    (setq ange-ftp-ftp-program-name "gftp"
-	  find-program "gfind")
+    ;; (setq ange-ftp-ftp-program-name "gftp"
+    ;; 	  find-program "gfind")
 
     (setq dired-guess-shell-alist-user
 	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
