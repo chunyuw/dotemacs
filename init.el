@@ -566,15 +566,17 @@
 	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
 	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
     
-    ;; ISpell on Win32 ;;
-    (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
-    (setq ispell-personal-dictionary "~/.emacs.d/ispelldic"
-	  ispell-dictionary-alist
-	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
-	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1))))))
-;; ISpell on Win32 ends here ;;
+    ;; ;; ISpell on Win32 ;;
+    ;; (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
+    ;; (setq ispell-personal-dictionary "~/.emacs.d/ispelldic"
+    ;; 	  ispell-dictionary-alist
+    ;; 	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+    ;; 	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
+    ;; 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
+    ;; 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
+    ;;  ;; ISpell on Win32 ends here ;;
+
+    )))
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
