@@ -1,6 +1,6 @@
 ;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs, since 2001-12-11
 
-(package-initialize)
+;(package-initialize)
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
