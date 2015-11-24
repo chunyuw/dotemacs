@@ -1,0 +1,15 @@
+# 
+
+# mpack.exe -s "title" -o mail.txt photo.jpg
+#
+# curl -K curlsmtp-163 -T mail.txt
+#    or 
+# curl -s smtp://smtp.163.com --anyauth -u cymacs:mypasswd --mail-from "<cymacs@163.com>" --mail-rcpt cymacs@163.com  -T mail.txt
+
+
+silent
+url  =  "smtp://smtp.163.com"
+anyauth
+user = "cymacs:mypasswd"
+mail-from = "<cymacs@163.com>"
+mail-rcpt = "cymacs@163.com"
