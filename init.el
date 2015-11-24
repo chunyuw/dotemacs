@@ -653,7 +653,7 @@
   (set-face-attribute 'font-lock-comment-face nil :foreground "red"))
 
 (when ;; Text only 256color console frame
-    (and (eq system-type 'gnu/linux)
+    (and (or (eq system-type 'gnu/linux) (eq system-type 'darwin))
 	 (string-match "256color" (getenv "TERM")))
   (set-face-attribute 'region nil :background "color-24")
   (set-face-attribute 'mode-line nil :background "color-180")
