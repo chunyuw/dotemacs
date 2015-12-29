@@ -81,11 +81,6 @@
       reb-blink-delay 1
       reb-re-syntax 'string)
 
-(setq recentf-max-saved-items 60
-      recentf-save-file "~/.emacs.d/recentf"
-      recentf-exclude
-      '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
-
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (when (fboundp 'set-message-beep) (set-message-beep 'silent))
@@ -283,36 +278,14 @@
 	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0))))))
 ;; Dired ends here ;;
 
-;; ;; Ido ;;
-;; (global-set-key "\C-x\C-f" 'ido-find-file) 
-;; (global-set-key "\C-xb" 'ido-switch-buffer)
-;; (global-set-key "\C-xd" 'ido-dired)
-;; 
-;; (setq ido-max-prospects 8
-;;       ido-save-directory-list-file nil
-;;       ido-auto-merge-delay-time 2
-;;       ido-enable-flex-matching t
-;;       ido-enable-prefix nil
-;;       ido-enable-regexp t
-;;       ido-create-new-buffer 'always
-;;       ido-use-virtual-buffers t
-;;       completion-ignored-extensions
-;;       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb")
-;; 	      completion-ignored-extensions))
-;; 
-;; (eval-after-load 'ido
-;;   '(progn
-;;      (ido-everywhere 1)
-;;      (ido-mode 1)
-;;      (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
-;; ;; Ido ends here ;;
-
 ;; magit ;;
 (setq magit-repo-dirs '("~/rnotes" "~/.emacs.d" "~/public_html/baby" "~/csharp" "~/automata")
       magit-process-popup-time 10)
 ;; magit ends here ;;
 
 ;; helm ;;
+(setq helm-split-window-default-side 'same)
+
 (eval-after-load 'helm
   '(progn
      ;(define-key helm-map " " 'helm-maybe-exit-minibuffer)
@@ -323,60 +296,17 @@
      (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
      (global-set-key "\M-x" 'helm-M-x)
      (global-set-key "\M-a" 'helm-for-files)
-     (global-set-key "\M-a" 'helm-find-files)
+     ;;(global-set-key "\M-a" 'helm-find-files)
 
-     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-     (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+     (define-key helm-map (kbd "C-z")  'helm-select-action)))
 
-))
-(require 'helm-config)
-(helm-mode 1)
-(helm-autoresize-mode t)
-(unless (boundp 'completion-in-region-function)
-  (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
-  (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
+(when (require 'helm-config nil t)
+  (helm-mode 1)
+;  (helm-autoresize-mode t)
+)
 ;; helm ends here ;;
-
-;; ;; Anything ;;
-;; (setq anything-su-or-sudo "sudo"
-;;       anything-c-locate-command "locate -i %s"
-;;       anything-command-map-prefix-key "M-s M-a"
-;;       anything-samewindow t
-;;       anything-enable-shortcuts t
-;;       anything-for-files-prefered-list
-;;       '(anything-c-source-ffap-line
-;; 	anything-c-source-ffap-guesser
-;; 	;;anything-c-source-org-headline
-;; 	anything-c-source-buffers+
-;; 	anything-c-source-recentf
-;; 	anything-c-source-files-in-current-dir+
-;; 	anything-c-source-files-in-all-dired
-;; 	anything-c-source-bookmarks
-;; 	anything-c-source-file-cache
-;; 	anything-c-source-locate))
-;; 
-;; (eval-after-load 'anything
-;;   '(progn
-;;      (define-key anything-map " " 'anything-exit-minibuffer)
-;;      (define-key anything-map "\C-k" 'anything-execute-persistent-action)
-;;      (define-key anything-map "\M-a" 'anything-next-line)
-;;      (define-key anything-map "\M-o" 'anything-next-source)
-;;      (define-key anything-map "\C-z" 'anything-toggle-visible-mark)))
-;; 
-;; (defun anything-for-files-chunyu ()
-;;   (interactive)
-;;   (anything-other-buffer anything-for-files-prefered-list  " *anything*"))
-;; 
-;; (when (require 'anything-config nil t)
-;;   (global-set-key "\M-a" 'anything-for-files-chunyu)
-;;   (global-set-key "\M-A" 'anything-call-source)
-;;   
-;;   (eval-after-load 'org
-;;     '(define-key org-mode-map "\M-a" 'anything-for-files-chunyu))
-;;   
-;;   (remove-hook 'kill-emacs-hook 'anything-c-adaptive-save-history))
-;; ;; Anything ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
@@ -527,8 +457,15 @@
 (load "auctex.el" t t t)
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
 
-;; misc packages ;;
+;; recentf ;;
+(setq recentf-max-saved-items 60
+      recentf-save-file "~/.emacs.d/recentf"
+      recentf-exclude '(".emacs.d/" "\\.tmp/" "z_region" "drive_[cCdDeEfF]"))
+(recentf-mode 1)
 (require 'recentf-ext nil t)
+;; recentf ends here ;;
+
+;; misc packages ;;
 (eval-after-load 'calc
   '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
 (eval-after-load 'calc-ext
@@ -669,7 +606,9 @@
 
   (eval-after-load 'font-latex
     '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1"))))
+	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+  (eval-after-load 'helm
+    '(progn (set-face-attribute 'helm-source-header nil :height 1))))
 
 (when (eq window-system 'nil) ;; Text only console frame
   (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
