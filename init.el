@@ -284,7 +284,8 @@
 ;; magit ends here ;;
 
 ;; helm ;;
-(setq helm-split-window-default-side 'same)
+(setq helm-split-window-default-side 'same
+      helm-ff-newfile-prompt-p nil)
 
 (eval-after-load 'helm
   '(progn
