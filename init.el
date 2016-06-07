@@ -289,7 +289,7 @@
 
 (eval-after-load 'helm
   '(progn
-     ;(define-key helm-map " " 'helm-maybe-exit-minibuffer)
+     (define-key helm-map " " 'helm-maybe-exit-minibuffer)
      ;;(define-key helm-map " " 'helm-maybe-exit-minibuffer)
      (define-key global-map [remap find-file] 'helm-find-files)
      (define-key global-map [remap occur] 'helm-occur)
@@ -305,8 +305,7 @@
 
 (when (require 'helm-config nil t)
   (helm-mode 1)
-;  (helm-autoresize-mode t)
-)
+  (helm-autoresize-mode t))
 ;; helm ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
