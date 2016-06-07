@@ -287,10 +287,12 @@
 (setq helm-split-window-default-side 'same
       helm-ff-newfile-prompt-p nil)
 
+(eval-after-load 'helm-buffers
+  '(progn
+     (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
+
 (eval-after-load 'helm
   '(progn
-     (define-key helm-map " " 'helm-maybe-exit-minibuffer)
-     ;;(define-key helm-map " " 'helm-maybe-exit-minibuffer)
      (define-key global-map [remap find-file] 'helm-find-files)
      (define-key global-map [remap occur] 'helm-occur)
      (define-key global-map [remap list-buffers] 'helm-buffers-list)

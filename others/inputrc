@@ -12,9 +12,9 @@ set completion-query-item 500
 #"\M-s": menu-complete
 "\C-z": set-mark-command
 "\C-\M-e": "emacsclient -tca ''\n"
-"\C-\M-f": "fg\n"
+#"\C-\M-f": "fg\n"
 "\C-\M-r": "screen -R\n"
-
+"\C-\M-f": "(tmux ls | grep -vq attached && tmux at) || tmux\n"
 
 # Back to the last space
 #"\M-s": "\M-\C-] "
