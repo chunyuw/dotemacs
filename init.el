@@ -1,5 +1,7 @@
 ;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs, since 2001-12-11
 
+(package-initialize)
+
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
 (global-set-key "\C-x\C-b" 'bs-show)
@@ -159,9 +161,9 @@
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
 
 ;; ;; package ;;
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
 ;; ;; package ends here ;;
 
 ;; Org-mode ;;
@@ -568,7 +570,7 @@
   (setq default-directory "~/")
   (tool-bar-mode 1) (tool-bar-mode -1)
   (setq default-frame-alist
-	'((background-mode . dark) (cursor-color . "Coral") (width . 119) (height . 35))
+	'((background-mode . dark) (cursor-color . "Coral") (width . 125) (height . 35))
 	face-font-rescale-alist
 	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
 
@@ -655,7 +657,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages (quote (magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
