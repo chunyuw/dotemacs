@@ -288,8 +288,13 @@
       helm-ff-newfile-prompt-p nil)
 
 (eval-after-load 'helm-buffers
-  '(progn
-     (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
+  '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
+
+(eval-after-load 'helm-locate
+  '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
+
+(eval-after-load 'helm-files
+  '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
 
 (eval-after-load 'helm
   '(progn

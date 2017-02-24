@@ -7,23 +7,8 @@ set visible-stats on
 set bell-style none
 set show-all-if-ambiguous on
 
-set completion-query-item 500
+#set completion-query-item 500
 
-#"\M-s": menu-complete
 "\C-z": set-mark-command
-"\C-\M-e": "emacsclient -tca ''\n"
-#"\C-\M-f": "fg\n"
-"\C-\M-r": "screen -R\n"
-"\C-\M-f": "(tmux ls | grep -vq attached && tmux at) || tmux\n"
-
-# Back to the last space
-#"\M-s": "\M-\C-] "
-# Forward to the next space
-#"\M-t": "\C-] "
-
-$if lftp
-"\C-xg": "get \M-?"
-"\C-xt": "put \M-?"
-$endif
-
-
+"\C-\M-e": " emacsclient -tca '' .\n"
+"\C-\M-r": " screen -R\n"
