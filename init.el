@@ -187,7 +187,11 @@
 
 ;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/places")
-(save-place-mode 1)
+(setq-default save-place t)
+(require 'saveplace)
+(add-hook 'find-file-hook 'save-place-find-file-hook t)
+(add-hook 'kill-emacs-hook 'save-place-kill-emacs-hook)
+(add-hook 'kill-buffer-hook 'save-place-to-alist)
 ;; SavePlace ends here ;;
 
 ;; Dired ;;
