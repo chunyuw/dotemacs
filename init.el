@@ -631,6 +631,8 @@
 (add-hook 'after-make-frame-functions 'chunyu/term-frame-setup)
 ;; Frame configuration ends here ;;
 
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
 ;; Load local settings ;;
 (load "~/.emacs.d/others/local.el" t t t)
 ;; Loaded ;;
