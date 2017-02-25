@@ -92,7 +92,6 @@
 (blink-cursor-mode -1)
 (show-paren-mode 1)
 (icomplete-mode 1)
-(menu-bar-mode -1)
 (savehist-mode 1)
 
 (setq completion-styles '(partial-completion initials))
@@ -568,67 +567,64 @@
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
 (when (member system-type '(darwin windows-nt))
-  (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
-  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-  (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-  (set-face-attribute 'mode-line-buffer-id nil :height 130 :weight 'normal)
-  (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
-  (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
-  (set-face-attribute 'region nil :background "grey15")
-  (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-  (set-face-attribute 'font-lock-comment-face nil :italic t)
 
-  (eval-after-load 'org-faces
-    '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
+)
 
-  (eval-after-load 'preview
-    '(progn (set-face-attribute 'preview-reference-face nil :background "PeachPuff")))
+(defun chunyu/term-frame-setup (frame)
+  (when (not (window-system frame))
+    (set-face-attribute 'region nil :background "color-24")
+    (set-face-attribute 'mode-line nil :background "color-180")
+    (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
+    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
+    (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
+    (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
+    (set-face-attribute 'font-lock-string-face nil :foreground "peru")
+    (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
+    (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
 
-  (eval-after-load 'font-latex
-    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-  (eval-after-load 'helm
-    '(progn (set-face-attribute 'helm-source-header nil :height 1))))
+    (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
+    (set-face-attribute 'region nil :background "blue")
+    (set-face-attribute 'font-lock-comment-face nil :foreground "red")
 
-(when (eq window-system 'nil) ;; Text only console frame
-  (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
-  (set-face-attribute 'region nil :background "blue")
-  (set-face-attribute 'font-lock-comment-face nil :foreground "red"))
+    (eval-after-load 'diff-mode
+      '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
+	      (set-face-attribute 'diff-header nil :background "grey20")
+	      (set-face-attribute 'diff-file-header nil :background "grey30")))
+    (eval-after-load 'font-latex
+      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+    (eval-after-load 'table
+      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))
+    (remove-hook 'after-make-frame-functions 'chunyu/term-frame-setup)))
 
-(when ;; Text only 256color console frame
-    (and (or (eq system-type 'gnu/linux) (and (eq system-type 'darwin) (eq window-system 'nil)))
-	 (string-match "256color" (getenv "TERM")))
-  (set-face-attribute 'region nil :background "color-24")
-  (set-face-attribute 'mode-line nil :background "color-180")
-  (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
-  (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-  (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
-  (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
-  (set-face-attribute 'font-lock-string-face nil :foreground "peru")
-  (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
-  (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
-
-  (eval-after-load 'diff-mode
-    '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
-	    (set-face-attribute 'diff-header nil :background "grey20")
-	    (set-face-attribute 'diff-file-header nil :background "grey30")))
-  (eval-after-load 'font-latex
-    '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-  (eval-after-load 'table
-    '(set-face-attribute 'table-cell nil :background "aquamarine4")))
-
-(defun chunyu/window-frame-modeline-setup (frame)
-  (select-frame frame)
+(defun chunyu/window-frame-setup (frame)
   (when (window-system frame)
-    (scroll-bar-mode -1)
+    (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
+    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
     (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
     (set-face-attribute 'mode-line-buffer-id nil :height 130 :weight 'normal)
     (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
     (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
-    (set-face-attribute 'region nil :background "grey15")))
+    (set-face-attribute 'region nil :background "grey15")
+    (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
+    (set-face-attribute 'font-lock-comment-face nil :italic t)
 
-(add-hook 'after-make-frame-functions 'chunyu/window-frame-modeline-setup)
+    (eval-after-load 'org-faces
+      '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
+
+    (eval-after-load 'preview
+      '(progn (set-face-attribute 'preview-reference-face nil :background "PeachPuff")))
+
+    (eval-after-load 'font-latex
+      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
+	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
+    (eval-after-load 'helm
+      '(progn (set-face-attribute 'helm-source-header nil :height 1)))
+
+    (remove-hook 'after-make-frame-functions 'chunyu/window-frame-setup)))
+
+(add-hook 'after-make-frame-functions 'chunyu/window-frame-setup)
+(add-hook 'after-make-frame-functions 'chunyu/term-frame-setup)
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
