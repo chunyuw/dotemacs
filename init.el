@@ -33,6 +33,7 @@
       set-mark-command-repeat-pop t
       parens-require-spaces nil
       kmacro-call-repeat-with-arg t
+      ring-bell-function 'ignore
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
@@ -73,10 +74,6 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq ange-ftp-smart-gateway nil
-      ange-ftp-generate-anonymous-password "user@cyber.net"
-      tramp-backup-directory-alist backup-directory-alist)
-
 (setq ffap-machine-p-known 'accept
       view-inhibit-help-message t
       ediff-window-setup-function 'ediff-setup-windows-plain
@@ -85,9 +82,7 @@
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
-(when (fboundp 'set-message-beep) (set-message-beep 'silent))
 (fset 'yes-or-no-p 'y-or-n-p)
-(find-function-setup-keys)
 
 (minibuffer-electric-default-mode 1)
 (when (fboundp 'minibuffer-depth-indicate-mode)
@@ -100,21 +95,11 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 
-(windmove-default-keybindings 'super)
-
 (setq completion-styles '(partial-completion initials))
 (setq completion-pcm-complete-word-inserts-delimiters t)
 
 (setq savehist-ignored-variables
       '(ido-file-history ido-buffer-history file-name-history))
-
-(setq auto-mode-alist
-      (append '(("\\.\\(cmd\\|bat\\)\\'" . dos-mode) ("\\.php\\'" . php-mode)
-		("\\.\\(vbs\\|bas\\)\\'" . visual-basic-mode))
-	      auto-mode-alist))
-
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-(add-hook 'bs-mode-hook 'hl-line-mode)
 
 (eval-after-load 'man
   '(progn
@@ -161,9 +146,10 @@
      (define-key diff-mode-map "\C-\M-k" 'kill-line)))
 
 ;; ;; package ;;
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+	("marmalade" . "http://marmalade-repo.org/packages/")
+	("melpa" . "http://melpa.org/packages/")))
 ;; ;; package ends here ;;
 
 ;; Org-mode ;;
@@ -202,11 +188,7 @@
 
 ;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/places")
-(setq-default save-place t)
-(require 'saveplace)
-(add-hook 'find-file-hook 'save-place-find-file-hook t)
-(add-hook 'kill-emacs-hook 'save-place-kill-emacs-hook)
-(add-hook 'kill-buffer-hook 'save-place-to-alist)
+(save-place-mode 1)
 ;; SavePlace ends here ;;
 
 ;; Dired ;;
@@ -228,7 +210,17 @@
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
 
-     (when (eq window-system 'w32)
+     (setq dired-guess-shell-alist-user
+	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf")))
+     
+     (when (eq system-type 'darwin)
+       (define-key dired-mode-map "O"
+	 (lambda () (interactive) (shell-command "open .")))
+       (define-key dired-mode-map "o"
+	 (lambda () (interactive)
+	   (shell-command (concat "open \"" (dired-get-filename) "\"")))))
+
+     (when (eq system-type 'windows-nt)
        (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
        (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
        (define-key dired-mode-map "Y" 'chunyu/dired-win7-mklink)
@@ -281,7 +273,7 @@
 ;; Dired ends here ;;
 
 ;; magit ;;
-(setq magit-repo-dirs '("~/rnotes" "~/.emacs.d" "~/public_html/baby" "~/csharp" "~/automata")
+(setq magit-repo-dirs '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
       magit-process-popup-time 10)
 ;; magit ends here ;;
 
@@ -491,62 +483,39 @@
 (autoload 'turn-on-cdlatex "cdlatex" nil t)
 ;; autoloads end here ;;
 
-(cond
- ((not window-system) ;; Text-Only console
-  (setq frame-background-mode 'dark)
+;; (global-unset-key "\C-x\C-z")
+(global-set-key [(control return)] [(return)])
+
+(setq w32-lwindow-modifier 'super
+      w32-apps-modifier 'hyper
+      w32-pass-lwindow-to-system nil)
+
+(setq mac-option-modifier 'meta
+      mac-command-modifier 'meta
+      mac-right-command-modifier 'super
+      mac-right-option-modifier 'control)
+
+(when (eq system-type 'darwin) ;; macOS
+  (menu-bar-mode 1)
+  (scroll-bar-mode -1)
+
+  (let ((path-from-shell 
+	 (replace-regexp-in-string 
+	  "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when (eq system-type 'windows-nt)
+  (setq w32-charset-info-alist
+	(cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist)))
+
+(when (not window-system) ;; Text-Only console
   (setq Info-use-header-line nil))
 
- (window-system	;; For w32, mac or X
+(when (window-system)	;; For w32, mac or X
   (setq-default mouse-yank-at-point t
 		indicate-empty-lines 'left
-		indicate-buffer-boundaries 'left)
-
-  (global-unset-key "\C-x\C-z")
-  (global-set-key [(control return)] [(return)])
-
-  (when (eq window-system 'ns) ;; Mac OS X
-    (menu-bar-mode 1)
-    (scroll-bar-mode -1)
-
-    (setq mac-option-modifier 'meta
-	  mac-command-modifier 'meta
-	  mac-right-command-modifier 'super
-	  mac-right-option-modifier 'control)
-
-    (let ((path-from-shell 
-	   (replace-regexp-in-string 
-	    "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-      (setenv "PATH" path-from-shell)
-      (setq exec-path (split-string path-from-shell path-separator))))
-  
-  (when (eq window-system 'w32) ;; MS-Windows
-    (setq w32-lwindow-modifier 'super
-	  w32-apps-modifier 'hyper
-	  w32-pass-lwindow-to-system nil
-	  w32-charset-info-alist
-	  (cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist))
-
-    ;; (modify-coding-system-alist 'process "gftp" '(gbk . gbk))
-
-    ;; (setq ange-ftp-ftp-program-name "gftp"
-    ;; 	  find-program "gfind")
-
-    (setq dired-guess-shell-alist-user
-	  '(("\\.ps\\'"  "gsview32") ("\\.\\(7z\\|bz2\\|tar\\)\\'" "7z x -y")
-	    ("\\.rar\\'" "rar x"   ) ("\\.mp\\'"  "mptopdf")
-	    ("\\.dvi\\'" "dvipdfm" ) ("\\.[0-9]+\\'" "epstopdf")))
-    
-    ;; ;; ISpell on Win32 ;;
-    ;; (setenv "ISPELLDICTDIR" (substitute-in-file-name "$emacs_dir/var/ispell"))
-    ;; (setq ispell-personal-dictionary "~/.emacs.d/ispelldic"
-    ;; 	  ispell-dictionary-alist
-    ;; 	  '((nil	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-    ;; 	    ("english"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B") nil iso-8859-1)
-    ;; 	    ("american" "[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "american") nil iso-8859-1)
-    ;; 	    ("US-xlg"	"[A-Za-z]" "[^A-Za-z]" "[']" nil ("-B" "-d" "US-xlg") nil iso-8859-1)))
-    ;;  ;; ISpell on Win32 ends here ;;
-
-    )))
+		indicate-buffer-boundaries 'left))
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
@@ -566,15 +535,20 @@
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
-(when (eq window-system 'ns) ;; on OS X frame
+(setq default-frame-alist
+      '((background-mode . dark) (cursor-color. "Coral")))
+
+(setq window-system-default-frame-alist
+      '((t . ((background-color . "black") (foreground-color . "white")))
+	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120)))))
+
+(when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~/")
   (tool-bar-mode 1) (tool-bar-mode -1)
-  (setq default-frame-alist
-	'((background-mode . dark) (cursor-color . "Coral") (width . 125) (height . 35))
-	face-font-rescale-alist
-	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
+  (setq face-font-rescale-alist	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
 
-  (set-face-attribute 'default nil :family "Monaco" :height 160 :background "#002020" :foreground "Wheat")
+  (set-face-attribute 'default nil :family "Monaco" :height 160)
 
   (set-fontset-font "fontset-default" 'han "Lantinghei_SC") ;"Hannotate_SC"
   (set-fontset-font "fontset-default" 'symbol "Symbola")
@@ -583,12 +557,9 @@
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
 (when (eq window-system 'w32) ;; on Windows frame
-  (setq default-frame-alist
-	'((background-mode . dark) (cursor-color . "Coral") (width . 120))
-	face-font-rescale-alist
-	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
+  (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
-  (set-face-attribute 'default nil :family "Consolas" :height 140 :background "#001414" :foreground "Wheat")
+  (set-face-attribute 'default nil :family "Consolas" :height 140)
 
   (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
   (set-fontset-font "fontset-default" 'symbol "Symbola")
@@ -596,7 +567,7 @@
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
-(when (member window-system '(ns w32))
+(when (member system-type '(darwin windows-nt))
   (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
   (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
   (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
@@ -646,6 +617,18 @@
 	    (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
   (eval-after-load 'table
     '(set-face-attribute 'table-cell nil :background "aquamarine4")))
+
+(defun chunyu/window-frame-modeline-setup (frame)
+  (select-frame frame)
+  (when (window-system frame)
+    (scroll-bar-mode -1)
+    (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+    (set-face-attribute 'mode-line-buffer-id nil :height 130 :weight 'normal)
+    (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
+    (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
+    (set-face-attribute 'region nil :background "grey15")))
+
+(add-hook 'after-make-frame-functions 'chunyu/window-frame-modeline-setup)
 ;; Frame configuration ends here ;;
 
 ;; Load local settings ;;
