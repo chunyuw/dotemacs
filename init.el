@@ -4,7 +4,7 @@
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
-(global-set-key "\C-x\C-b" 'bs-show)
+;(global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-x5k" 'kill-emacs)
 (global-set-key "\C-xk" 'kill-this-buffer)
@@ -38,6 +38,10 @@
 
 (setq-default major-mode 'text-mode
 	      fill-column 78)
+
+(setq-default mouse-yank-at-point t
+	      indicate-empty-lines 'left
+	      indicate-buffer-boundaries 'left)
 
 (setq makefile-electric-keys t
       apropos-do-all t
@@ -498,28 +502,6 @@
       mac-right-command-modifier 'super
       mac-right-option-modifier 'control)
 
-(when (eq system-type 'darwin) ;; macOS
-  (menu-bar-mode 1)
-  (scroll-bar-mode -1)
-
-  (let ((path-from-shell 
-	 (replace-regexp-in-string 
-	  "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(when (eq system-type 'windows-nt)
-  (setq w32-charset-info-alist
-	(cons '("gbk" w32-charset-gb2312 . 936) w32-charset-info-alist)))
-
-(when (not window-system) ;; Text-Only console
-  (setq Info-use-header-line nil))
-
-(when (window-system)	;; For w32, mac or X
-  (setq-default mouse-yank-at-point t
-		indicate-empty-lines 'left
-		indicate-buffer-boundaries 'left))
-
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
 (defun chunyu/other-window (&optional size)
@@ -538,8 +520,7 @@
 (setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
-(setq default-frame-alist
-      '((background-mode . dark) (cursor-color. "Coral")))
+(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral")))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
@@ -547,8 +528,8 @@
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120)))))
 
 (when (eq system-type 'darwin) ;; macOS
-  (setq default-directory "~/")
-  (tool-bar-mode 1) (tool-bar-mode -1)
+  (setq default-directory "~")
+  (menu-bar-mode 1) (scroll-bar-mode -1)
   (setq face-font-rescale-alist	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
@@ -559,7 +540,7 @@
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate_SC")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
-(when (eq window-system 'w32) ;; on Windows frame
+(when (eq window-system 'w32) ;; Windows
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
   (set-face-attribute 'default nil :family "Consolas" :height 140)
@@ -570,85 +551,17 @@
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
-(when (member system-type '(darwin windows-nt))
+(set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+(set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
+(set-face-attribute 'region nil :background "grey15")
+(set-face-attribute 'font-lock-comment-face nil :italic t)
 
-)
-
-(defun chunyu/term-frame-setup (frame)
-  (when (not (window-system frame))
-    (set-face-attribute 'region nil :background "color-24")
-    (set-face-attribute 'mode-line nil :background "color-180")
-    (set-face-attribute 'header-line nil :background "color-23" :foreground "white" :underline nil)
-    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-    (set-face-attribute 'font-lock-comment-face nil :foreground "chocolate")
-    (set-face-attribute 'font-lock-keyword-face nil :foreground "Cyan1")
-    (set-face-attribute 'font-lock-string-face nil :foreground "peru")
-    (set-face-attribute 'font-lock-function-name-face nil :foreground "DeepSkyBlue")
-    (set-face-attribute 'font-lock-doc-face nil :foreground "color-174")
-
-    (set-face-attribute 'highlight nil :foreground "white" :background "grey35" :underline nil :weight 'normal)
-    (set-face-attribute 'region nil :background "blue")
-    (set-face-attribute 'font-lock-comment-face nil :foreground "red")
-
-    (eval-after-load 'diff-mode
-      '(progn (set-face-attribute 'diff-changed nil :foreground "salmon")
-	      (set-face-attribute 'diff-header nil :background "grey20")
-	      (set-face-attribute 'diff-file-header nil :background "grey30")))
-    (eval-after-load 'font-latex
-      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-    (eval-after-load 'table
-      '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))
-
-    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-    (remove-hook 'after-make-frame-functions 'chunyu/term-frame-setup)))
-
-(defun chunyu/window-frame-setup (frame)
-  (when (window-system frame)
-    (set-face-attribute 'fringe nil :foreground "limegreen" :background "gray10")
-    (set-face-attribute 'minibuffer-prompt nil :foreground "chocolate1")
-    (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-    (set-face-attribute 'mode-line-buffer-id nil :height 130 :weight 'normal)
-    (set-face-attribute 'mode-line-inactive nil :foreground "grey90" :background "grey10" :box '(:color "grey30"))
-    (set-face-attribute 'mode-line-highlight nil :box '(:line-width 1 :color "grey20"))
-    (set-face-attribute 'region nil :background "grey15")
-    (set-face-attribute 'trailing-whitespace nil :background "SeaGreen1")
-    (set-face-attribute 'font-lock-comment-face nil :italic t)
-
-    (eval-after-load 'org-faces
-      '(progn (set-face-attribute 'org-document-title nil :height 1.2)))
-
-    (eval-after-load 'preview
-      '(progn (set-face-attribute 'preview-reference-face nil :background "PeachPuff")))
-
-    (eval-after-load 'font-latex
-      '(progn (set-face-attribute 'font-latex-italic-face nil :foreground "RosyBrown1")
-	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
-    (eval-after-load 'helm
-      '(progn (set-face-attribute 'helm-source-header nil :height 1)))
-
-    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-    (remove-hook 'after-make-frame-functions 'chunyu/window-frame-setup)))
-
-(add-hook 'after-make-frame-functions 'chunyu/window-frame-setup)
-(add-hook 'after-make-frame-functions 'chunyu/term-frame-setup)
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 ;; Frame configuration ends here ;;
 
-;; Load local settings ;;
-(load "~/.emacs.d/others/local.el" t t t)
-;; Loaded ;;
-
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(package-selected-packages (quote (magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral")))))
 
 ;; Local Variables:
