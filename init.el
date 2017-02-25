@@ -599,6 +599,8 @@
 	      (set-face-attribute 'font-latex-bold-face nil :foreground "RosyBrown1")))
     (eval-after-load 'table
       '(progn (set-face-attribute 'table-cell nil :background "aquamarine4")))
+
+    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
     (remove-hook 'after-make-frame-functions 'chunyu/term-frame-setup)))
 
 (defun chunyu/window-frame-setup (frame)
@@ -625,13 +627,12 @@
     (eval-after-load 'helm
       '(progn (set-face-attribute 'helm-source-header nil :height 1)))
 
+    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
     (remove-hook 'after-make-frame-functions 'chunyu/window-frame-setup)))
 
 (add-hook 'after-make-frame-functions 'chunyu/window-frame-setup)
 (add-hook 'after-make-frame-functions 'chunyu/term-frame-setup)
 ;; Frame configuration ends here ;;
-
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;; Load local settings ;;
 (load "~/.emacs.d/others/local.el" t t t)
