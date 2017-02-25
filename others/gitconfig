@@ -1,0 +1,9 @@
+[user]
+	name = Chunyu Wang
+	email = cymacs@gmail.com
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+[push]
+	default = simple
