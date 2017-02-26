@@ -34,12 +34,12 @@
       parens-require-spaces nil
       kmacro-call-repeat-with-arg t
       ring-bell-function 'ignore
+      Info-use-header-line nil
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
-	      fill-column 78)
-
-(setq-default mouse-yank-at-point t
+	      fill-column 78
+	      mouse-yank-at-point t
 	      indicate-empty-lines 'left
 	      indicate-buffer-boundaries 'left)
 
@@ -529,15 +529,17 @@
 
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~")
-  (menu-bar-mode 1) (scroll-bar-mode -1)
-  (setq face-font-rescale-alist	'(("Hannotate_SC" . 1.25) ("Lantinghei_SC" . 1.25)))
+  (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
+  (setq face-font-rescale-alist
+	'(("Hannotate SC" . 1.25) ("Lantinghei SC" . 1.25) ("PingFang SC" . 1.25)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  (set-fontset-font "fontset-default" 'han "Lantinghei_SC") ;"Hannotate_SC"
-  (set-fontset-font "fontset-default" 'symbol "Symbola")
-  (set-fontset-font "fontset-default" 'cjk-misc "Hannotate_SC")
-  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate_SC")
+  ;; List font name with (print (font-family-list)) “” 中文
+  (set-fontset-font "fontset-default" 'han "Lantinghei SC")
+  (set-fontset-font "fontset-default" 'symbol "Symobla")
+  (set-fontset-font "fontset-default" 'cjk-misc  "Hannotate SC")
+  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate SC")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
 (when (eq window-system 'w32) ;; Windows
