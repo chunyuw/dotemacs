@@ -4,7 +4,7 @@
 
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
-;(global-set-key "\C-x\C-b" 'bs-show)
+(global-set-key [(control return)] [(return)])
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-x5k" 'kill-emacs)
 (global-set-key "\C-xk" 'kill-this-buffer)
@@ -19,6 +19,17 @@
 (global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
+
+(defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
+
+(setq w32-lwindow-modifier 'super
+      w32-apps-modifier 'hyper
+      w32-pass-lwindow-to-system nil)
+
+(setq mac-option-modifier 'meta
+      mac-command-modifier 'meta
+      mac-right-command-modifier 'super
+      mac-right-option-modifier 'control)
 
 (setq inhibit-startup-message t
       require-final-newline t
@@ -50,6 +61,7 @@
       Man-notify-method 'pushy
       comment-auto-fill-only-comments t
       comment-style 'extra-line
+      view-inhibit-help-message t
       save-abbrevs 'silently)
 
 (setq display-time-24hr-format t
@@ -60,10 +72,7 @@
       calendar-location-name "Harbin"
       calendar-week-start-day 1)
 
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587
-      user-full-name "Chunyu Wang"
+(setq user-full-name "Chunyu Wang"
       user-mail-address "cymacs@gmail.com")
 
 (setq auth-sources '("~/.emacs.d/authinfo.gpg" "~/.netrc")
@@ -78,15 +87,16 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq ffap-machine-p-known 'accept
-      view-inhibit-help-message t
-      ediff-window-setup-function 'ediff-setup-windows-plain
-      reb-blink-delay 1
-      reb-re-syntax 'string)
+(setq safe-local-variable-values '((dired-omit-mode . t))
+      completion-styles '(partial-completion initials)
+      completion-pcm-complete-word-inserts-delimiters t
+      savehist-ignored-variables '(file-name-history))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 (minibuffer-electric-default-mode 1)
 (when (fboundp 'minibuffer-depth-indicate-mode)
@@ -97,12 +107,6 @@
 (show-paren-mode 1)
 (icomplete-mode 1)
 (savehist-mode 1)
-
-(setq completion-styles '(partial-completion initials))
-(setq completion-pcm-complete-word-inserts-delimiters t)
-
-(setq savehist-ignored-variables
-      '(ido-file-history ido-buffer-history file-name-history))
 
 (eval-after-load 'man
   '(progn
@@ -154,40 +158,6 @@
 	("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.org/packages/")))
 ;; ;; package ends here ;;
-
-;; Org-mode ;;
-(global-set-key "\M-sc" 'org-capture)
-
-(setq org-directory "~/rnotes"
-      system-time-locale "C"
-      org-use-speed-commands t
-      org-goto-auto-isearch nil)
-
-(setq org-special-ctrl-a/e t
-      org-special-ctrl-k t
-      org-export-author-info nil
-      org-export-email-info nil
-      org-export-creator-info nil
-      org-export-time-stamp-file nil
-      org-log-done t)
-
-(setq org-capture-templates
-      '(("r" "Research" entry (file+headline "~/rnotes/misc/research.org" "Research") "* %?\n  %i")
-	("c" "Misc"     entry (file+headline "~/rnotes/misc/misc.org" "Notes") "* %?\n  %i")
-        ("j" "Journal"  entry (file+datetree "~/rnotes/misc/misc.org") "* %?\nEntered on %U\n  %i")
-	("i" "Personal" entry (file+headline "~/rnotes/misc/personal.org" "Personal") "* %?\n  %i")))
-
-(setq org-latex-to-pdf-process
-      '("xelatex -interaction nonstopmode -output-directory %o %f"
-	"xelatex -interaction nonstopmode -output-directory %o %f")
-      org-export-latex-default-packages-alist
-      '(("" "fontspec" t) ("" "xunicode" t) ("" "url" t) ("" "rotating" t)
-	("american" "babel" t) ("babel" "csquotes" t) ("" "soul" t) ("xetex" "hyperref" nil))
-      org-export-latex-packages-alist
-      '(("" "graphicx" t) ("" "longtable" nil) ("" "float" nil)))
-
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-;; Org-mode ends here ;;
 
 ;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/places")
@@ -492,25 +462,6 @@
 (autoload 'turn-on-cdlatex "cdlatex" nil t)
 ;; autoloads end here ;;
 
-;; (global-unset-key "\C-x\C-z")
-(global-set-key [(control return)] [(return)])
-
-(setq w32-lwindow-modifier 'super
-      w32-apps-modifier 'hyper
-      w32-pass-lwindow-to-system nil)
-
-(setq mac-option-modifier 'meta
-      mac-command-modifier 'meta
-      mac-right-command-modifier 'super
-      mac-right-option-modifier 'control)
-
-(defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
-
-(defun chunyu/other-window (&optional size)
-  (interactive "P")
-  (if (< (count-windows) 2) (split-window-vertically))
-  (other-window 1))
-
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
@@ -518,8 +469,6 @@
       '(dired-omit-files TeX-master
 			 org-export-html-style org-export-publishing-directory
 			 TeX-header-end TeX-trailer-start))
-
-(setq safe-local-variable-values '((dired-omit-mode . t)))
 
 ;; Frame configuration ;;
 (setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral")))
@@ -529,6 +478,11 @@
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120)))))
 
+(set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
+(set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
+(set-face-attribute 'region nil :background "grey15")
+(set-face-attribute 'font-lock-comment-face nil :italic t)
+
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~")
   (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
@@ -537,7 +491,7 @@
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  ;; List font name with (print (font-family-list)) “” 中文
+  ;; List font name with (print (font-family-list)) “中文”
   (set-fontset-font "fontset-default" 'han "Lantinghei SC")
   (set-fontset-font "fontset-default" 'symbol "Symobla")
   (set-fontset-font "fontset-default" 'cjk-misc  "Hannotate SC")
@@ -554,18 +508,21 @@
   (set-fontset-font "fontset-default" 'cjk-misc "SimHei")
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
-
-(set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-(set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
-(set-face-attribute 'region nil :background "grey15")
-(set-face-attribute 'font-lock-comment-face nil :italic t)
-
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 ;; Frame configuration ends here ;;
 
 (custom-set-variables
- '(package-selected-packages (quote (magit auctex-latexmk auctex cdlatex helm))))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (recentf-ext magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral")))))
 
 ;; Local Variables:
