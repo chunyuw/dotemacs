@@ -211,7 +211,7 @@
 	     (substitute-in-file-name
 	      "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"))
 
-       (add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
+       ;;(add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
 
        (defun chunyu/customize-dired-face ()
 	 (font-lock-add-keywords
@@ -225,10 +225,10 @@
 	   (if (file-exists-p file-name)
 	       (w32-shell-execute "open" file-name nil 1))))
 
-       (defun dired-execute-file (&optional arg)
-	 (interactive "P")
-	 (mapcar (lambda (file) (w32-shell-execute "open" file))
-		 (dired-get-marked-files nil arg)))
+       ;; (defun dired-execute-file (&optional arg)
+       ;; 	 (interactive "P")
+       ;; 	 (mapcar (lambda (file) (w32-shell-execute "open" file))
+       ;; 		 (dired-get-marked-files nil arg)))
 
        (defun chunyu/totalcmd-open ()
 	 "Open dir in Total Commander."
@@ -476,7 +476,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 130) (height . 44)))))
 
 (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
 (set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
@@ -498,7 +498,7 @@
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate SC")
   (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
 
-(when (eq window-system 'w32) ;; Windows
+(when (eq system-type 'windows-nt) ;; Windows
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
   (set-face-attribute 'default nil :family "Consolas" :height 140)
