@@ -19,6 +19,10 @@
 (global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
+(global-set-key "\M-a" 'helm-for-files)
+(global-set-key "\C-x\C-f" 'ido-find-file)
+(global-set-key "\C-xb" 'ido-switch-buffer)
+(global-set-key "\C-xd" 'ido-dired)
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
@@ -251,10 +255,6 @@
 ;; Dired ends here ;;
 
 ;; Ido ;;
-(global-set-key "\C-x\C-f" 'ido-find-file)
-(global-set-key "\C-xb" 'ido-switch-buffer)
-(global-set-key "\C-xd" 'ido-dired)
-
 (setq ido-max-prospects 8
       ido-save-directory-list-file nil
       ido-auto-merge-delay-time 2
@@ -283,28 +283,12 @@
 (setq helm-split-window-default-side 'same
       helm-ff-newfile-prompt-p nil)
 
-;; (eval-after-load 'helm-buffers
-;;   '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)
-;; 	  (define-key helm-buffer-map (kbd "C-j") 'helm-confirm-and-exit-minibuffer)))
-
-;; (eval-after-load 'helm-locate
-;;   '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
-
-;; (eval-after-load 'helm-files
-;;   '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
-
-;; (eval-after-load 'helm
-;;   '(progn
-;;      ;; (global-set-key "\M-x" 'helm-M-x)
-;;      ;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-;;      ;; (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
-;;      ;; (define-key helm-map (kbd "C-z")  'helm-select-action)
-;;      (global-set-key "\M-a" 'helm-for-files)))
-
-(global-set-key "\M-a" 'helm-for-files)
-
-;; (when (require 'helm-config nil t) (helm-mode 1) (helm-autoresize-mode t))
-
+(eval-after-load 'helm-buffers
+  '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
+(eval-after-load 'helm-locate
+  '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
+(eval-after-load 'helm-files
+  '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
 ;; helm ends here ;;
 
 ;; org ;;
@@ -479,6 +463,7 @@
 ;; misc packages end here ;;
 
 ;; autoloads ;;
+(autoload 'helm-fild-files "helm-files" nil t)
 (autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
@@ -515,7 +500,7 @@
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  ;; List font name with (print (font-family-list)) “中文”
+  ;; List font name with (print (font-family-list)) [“字体123”]
   (set-fontset-font "fontset-default" 'han "Lantinghei SC")
   (set-fontset-font "fontset-default" 'symbol "Symobla")
   (set-fontset-font "fontset-default" 'cjk-misc  "Hannotate SC")
