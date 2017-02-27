@@ -99,8 +99,7 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 (minibuffer-electric-default-mode 1)
-(when (fboundp 'minibuffer-depth-indicate-mode)
-  (minibuffer-depth-indicate-mode 1))
+(minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
 (column-number-mode 1)
 (blink-cursor-mode -1)
@@ -251,6 +250,30 @@
 	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0))))))
 ;; Dired ends here ;;
 
+;; Ido ;;
+(global-set-key "\C-x\C-f" 'ido-find-file)
+(global-set-key "\C-xb" 'ido-switch-buffer)
+(global-set-key "\C-xd" 'ido-dired)
+
+(setq ido-max-prospects 8
+      ido-save-directory-list-file nil
+      ido-auto-merge-delay-time 2
+      ido-enable-flex-matching t
+      ido-enable-prefix nil
+      ido-enable-regexp t
+      ido-create-new-buffer 'always
+      ido-use-virtual-buffers t
+      completion-ignored-extensions
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb")
+	      completion-ignored-extensions))
+
+(eval-after-load 'ido
+  '(progn
+     (ido-everywhere 1)
+     (ido-mode 1)
+     (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
+;; Ido ends here ;;
+
 ;; magit ;;
 (setq magit-repo-dirs '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
       magit-process-popup-time 10)
@@ -260,33 +283,34 @@
 (setq helm-split-window-default-side 'same
       helm-ff-newfile-prompt-p nil)
 
-(eval-after-load 'helm-buffers
-  '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
+;; (eval-after-load 'helm-buffers
+;;   '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)
+;; 	  (define-key helm-buffer-map (kbd "C-j") 'helm-confirm-and-exit-minibuffer)))
 
-(eval-after-load 'helm-locate
-  '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
+;; (eval-after-load 'helm-locate
+;;   '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
 
-(eval-after-load 'helm-files
-  '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
+;; (eval-after-load 'helm-files
+;;   '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
 
-(eval-after-load 'helm
-  '(progn
-     (define-key global-map [remap find-file] 'helm-find-files)
-     (define-key global-map [remap occur] 'helm-occur)
-     (define-key global-map [remap list-buffers] 'helm-buffers-list)
-     (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
-     (global-set-key "\M-x" 'helm-M-x)
-     (global-set-key "\M-a" 'helm-for-files)
-     ;;(global-set-key "\M-a" 'helm-find-files)
+;; (eval-after-load 'helm
+;;   '(progn
+;;      ;; (global-set-key "\M-x" 'helm-M-x)
+;;      ;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+;;      ;; (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
+;;      ;; (define-key helm-map (kbd "C-z")  'helm-select-action)
+;;      (global-set-key "\M-a" 'helm-for-files)))
 
-     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-z")  'helm-select-action)))
+(global-set-key "\M-a" 'helm-for-files)
 
-(when (require 'helm-config nil t)
-  (helm-mode 1)
-  (helm-autoresize-mode t))
+;; (when (require 'helm-config nil t) (helm-mode 1) (helm-autoresize-mode t))
+
 ;; helm ends here ;;
+
+;; org ;;
+(eval-after-load 'org
+  '(progn (define-key org-mode-map "\M-a" 'helm-for-files)))
+;; org ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
 (setq TeX-engine 'xetex)
@@ -515,6 +539,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(global-eldoc-mode nil)
  '(package-selected-packages
    (quote
     (recentf-ext magit auctex-latexmk auctex cdlatex helm))))
