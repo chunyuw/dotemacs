@@ -490,7 +490,6 @@
 (set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
 (set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
 (set-face-attribute 'region nil :background "grey15")
-(set-face-attribute 'font-lock-comment-face nil :italic t)
 
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~")
@@ -533,7 +532,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "coral")))))
+ '(cursor ((t (:background "coral"))))
+ '(font-lock-comment-face ((t (:foreground "chocolate1" :slant italic)))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
