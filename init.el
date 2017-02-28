@@ -492,7 +492,7 @@
 (set-face-attribute 'region nil :background "grey15")
 
 (when (eq system-type 'darwin) ;; macOS
-  (setq default-directory "~")
+  (setq default-directory "~/")
   (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
   (setq face-font-rescale-alist
 	'(("Hannotate SC" . 1.25) ("Lantinghei SC" . 1.25) ("PingFang SC" . 1.25)))
