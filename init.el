@@ -5,6 +5,7 @@
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
 (global-set-key [(control return)] [(return)])
+(global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-x5k" 'kill-emacs)
 (global-set-key "\C-xk" 'kill-this-buffer)
@@ -19,6 +20,7 @@
 (global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
+(global-set-key "\M-s\M-g" 'magit-dispatch-popup)
 (global-set-key "\M-a" 'helm-for-files)
 (global-set-key "\C-x\C-f" 'ido-find-file)
 (global-set-key "\C-xb" 'ido-switch-buffer)
@@ -101,6 +103,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+(add-hook 'bs-mode-hook 'hl-line-mode)
 
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
@@ -271,11 +274,16 @@
   '(progn
      (ido-everywhere 1)
      (ido-mode 1)
+     (define-key ido-common-completion-map "\M-j" 'ido-enter-magit-status)
      (define-key ido-buffer-completion-map " " 'ido-exit-minibuffer)))
 ;; Ido ends here ;;
 
 ;; magit ;;
-(setq magit-repo-dirs '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
+(setq magit-repository-directories
+      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
+      magit-auto-revert-immediately nil
+      auto-revert-interval 2
+      ;magit-display-buffer-noselect t
       magit-process-popup-time 10)
 ;; magit ends here ;;
 
