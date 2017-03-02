@@ -280,7 +280,7 @@
 
 ;; magit ;;
 (setq magit-repository-directories
-      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
+      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite" "~/mitoman")
       magit-auto-revert-immediately nil
       auto-revert-interval 2
       ;magit-display-buffer-noselect t

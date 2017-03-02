@@ -1,16 +1,11 @@
 ### Makefile for .emacs.d by Chunyu Wang <cymacs@gmail.com>
 
-AUTOCSTR  = Batch checkin for .emacs.d ($(shell $(DATE) '+%Y-%m-%d %H:%M') on $(shell uname -n)).
-
-ifeq ($(shell uname -s), windows32)
-  DATE    = gdate
-else 
-  DATE    = date
-endif
+AUTOCSTR  = Batch commit. ($(shell date '+%Y-%m-%d %H:%M') on $(shell uname -n))
 
 all:
 	@echo "Usage:"
 	@echo "    make pull/push/ci/up/st/upall/cleanall | clean"
+	@echo ""
 	@echo "    $(AUTOCSTR)"
 
 up:;	@git update-index
