@@ -105,6 +105,8 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
@@ -477,15 +479,15 @@
 (autoload 'dired-jump "dired-x" nil t)
 (autoload 'cdlatex-mode "cdlatex" nil t)
 (autoload 'turn-on-cdlatex "cdlatex" nil t)
+(autoload 'markdown-mode "markdown-mode" nil t)
 ;; autoloads end here ;;
 
 (mapc (lambda (func) (put func 'disabled t))
       '(overwrite-mode rmail iconify-or-deiconify-frame))
 
 (mapc (lambda (var) (put var 'safe-local-variable 'string-or-null-p))
-      '(dired-omit-files TeX-master
-			 org-export-html-style org-export-publishing-directory
-			 TeX-header-end TeX-trailer-start))
+      '(TeX-master TeX-header-end TeX-trailer-start dired-omit-files
+		   org-export-html-style org-export-publishing-directory))
 
 ;; Frame configuration ;;
 (setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral")))
@@ -534,7 +536,7 @@
  '(global-eldoc-mode nil)
  '(package-selected-packages
    (quote
-    (recentf-ext magit auctex-latexmk auctex cdlatex helm))))
+    (markdown-mode recentf-ext magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
