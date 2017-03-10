@@ -105,8 +105,6 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 (add-hook 'bs-mode-hook 'hl-line-mode)
 
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
 (minibuffer-electric-default-mode 1)
 (minibuffer-depth-indicate-mode 1)
 (mouse-avoidance-mode 'jump)
@@ -166,6 +164,14 @@
 	("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.org/packages/")))
 ;; ;; package ends here ;;
+
+;; Python ;;
+(setq python-indent-guess-indent-offset-verbose nil)
+;; (when (eq system-type 'gnu/linux)
+;;   (setq python-shell-interpreter "ipython"
+;; 	python-shell-interpreter-args "-i"))
+
+;; Python ends here ;;
 
 ;; SavePlace ;;
 (setq save-place-file "~/.emacs.d/places")
@@ -282,7 +288,7 @@
 
 ;; magit ;;
 (setq magit-repository-directories
-      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite" "~/mitoman")
+      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite" "~/mitox")
       magit-auto-revert-immediately nil
       auto-revert-interval 2
       ;magit-display-buffer-noselect t
@@ -471,6 +477,8 @@
      (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)
      (define-key calc-mode-map "\C-\M-k" 'calc-copy-as-kill)))
 ;; misc packages end here ;;
+
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; autoloads ;;
 (autoload 'helm-fild-files "helm-files" nil t)
