@@ -11,5 +11,5 @@ set show-all-if-ambiguous on
 
 "\C-z": set-mark-command
 "\C-\M-w": " emacsclient -nca '' .\n"
-"\C-\M-e": " emacsclient -tca '' .\n"
+"\C-\M-e": " emacsclient -tca '' \n"
 "\C-\M-r": " screen -R\n"
