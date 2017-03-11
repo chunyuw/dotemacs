@@ -4,22 +4,20 @@
 #     . "$HOME/.emacs.d/others/bashrc"
 # fi
 
-export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
+#export PATH=$PATH:/usr/local/sbin:/usr/sbin::/sbin
 # export DGROOT=$HOME/.dgroot
 # export ADMIN=chunyu@hit.edu.cn
+
 export EDITOR='emacsclient -tca ""' 
+
 #export XDG_CONFIG_HOME=$HOME/.google
 export NCURSES_NO_UTF8_ACS=1
 
-export SFK_COLORS=theme:black
+export SFK_COLORS=Theme:black
 
 shopt -s cdspell
 
-alias  e="emacsclient -tca \"\""
-alias  ec='emacsclient -tca ""'
 alias  cls=clear
+alias  e='emacsclient -tca ""'
+alias  ec='emacsclient -tca ""'
 alias  se='sudo `which emacs` -u `whoami`'
-alias  ip6='ip -6'
-
-babysync () { (cd ~/1baby ; rsync -avr --delete --size-only galleries/ galleries-bak) ; }
-babyussync () {             rsync -avr --delete --size-only ~/0photos/ babyus.emacs.cn:photos/ ; }
