@@ -512,6 +512,9 @@
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~/")
   (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
+  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+  (setq exec-path (split-string (getenv "PATH") ":"))
+
   (setq face-font-rescale-alist
 	'(("Hannotate SC" . 1.25) ("Lantinghei SC" . 1.25) ("PingFang SC" . 1.25)))
 
