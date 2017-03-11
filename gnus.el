@@ -2,19 +2,6 @@
 ;; Created on 2003/02/24 on db.hit.edu.cn
 
 (setq gnus-select-method '(nnimap "imap.gmail.com"))
-;; (setq gnus-select-method '(nntp "run.emacs.cn"
-;;                           (nntp-port-number 4119))
-;;       gnus-secondary-select-methods
-;;       '((nnimap "Gmail"
-;; 		(nnimap-address "imap.gmail.com")
-;; 		(nnimap-inbox "INBOX"))))
-
-;; (setq gnus-ignored-newsgroups "")
-
-;; (setq gnus-default-charset 'utf-8
-;;       gnus-group-name-charset-group-alist '((".*" . utf-8))
-;;       gnus-summary-show-article-charset-alist '((1 . gbk) (2 . big5) (3 . utf-8))
-;;       gnus-newsgroup-ignored-charsets '(unknown-8bit x-unknown iso-8859-1))
 
 (setq gnus-novice-user nil
       gnus-expert-user t)
@@ -73,18 +60,6 @@
       message-forward-show-mml nil)
 
 (setq canlock-password "c3a42c5a00ad79b5b1e8dbbc4fd73a2cb597ddfa")
-
-;; (setq nnml-use-compressed-files t)
-
-;; (setq nnmail-treat-duplicates 'delete
-;;       nnmail-crosspost nil
-;;       nnmail-split-methods 'nnmail-split-fancy
-;;       nnmail-split-fancy-match-partial-words t
-;;       nnmail-split-fancy
-;;       '(| (to "@202.118.224.153" "mail.misc")
-;; 	  (to "chunyu@hit.edu.cn\\|cymacs@gmail.com" "mail.misc")
-;; 	  "misc.junk")
-;;       nnmail-mail-splitting-decodes t)
 
 ;; Local Variables:
 ;; mode: emacs-lisp

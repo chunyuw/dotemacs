@@ -52,6 +52,7 @@
       kmacro-call-repeat-with-arg t
       ring-bell-function 'ignore
       Info-use-header-line nil
+      max-mini-window-height 3
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
@@ -299,12 +300,10 @@
 (setq helm-split-window-default-side 'same
       helm-ff-newfile-prompt-p nil)
 
-(eval-after-load 'helm-buffers
-  '(progn (define-key helm-buffer-map " " 'helm-maybe-exit-minibuffer)))
-(eval-after-load 'helm-locate
-  '(progn (define-key helm-generic-files-map " " 'helm-maybe-exit-minibuffer)))
-(eval-after-load 'helm-files
-  '(progn (define-key helm-find-files-map " " 'helm-maybe-exit-minibuffer)))
+(eval-after-load 'helm
+  '(progn (global-set-key "\M-sb" 'helm-buffers-list)
+	  (global-set-key "\M-sl" 'helm-locate)
+	  (define-key helm-map " " 'helm-maybe-exit-minibuffer)))
 ;; helm ends here ;;
 
 ;; org ;;
