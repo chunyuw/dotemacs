@@ -554,7 +554,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral"))))
- '(font-lock-comment-face ((t (:foreground "chocolate1" :slant italic)))))
+ '(font-lock-comment-face ((t (:foreground "chocolate1")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
