@@ -13,7 +13,7 @@ export EDITOR='emacsclient -tca ""'
 #export XDG_CONFIG_HOME=$HOME/.google
 export NCURSES_NO_UTF8_ACS=1
 
-export SFK_COLORS=Theme:black
+export SFK_COLORS=theme:black
 
 shopt -s cdspell
 
