@@ -300,9 +300,16 @@
 (setq helm-split-window-default-side 'same
       helm-ff-newfile-prompt-p nil)
 
+(eval-after-load 'helm-buffers
+'(progn
+   (define-key helm-buffer-map "\M-a" 'helm-display-all-sources)
+   (define-key helm-buffer-map "\M-e" 'helm-show-all-in-this-source-only)))
+
 (eval-after-load 'helm
   '(progn (global-set-key "\M-sb" 'helm-buffers-list)
 	  (global-set-key "\M-sl" 'helm-locate)
+	  (define-key helm-map "\M-a" 'helm-display-all-sources)
+	  (define-key helm-map "\M-e" 'helm-show-all-in-this-source-only)
 	  (define-key helm-map " " 'helm-maybe-exit-minibuffer)))
 ;; helm ends here ;;
 
@@ -504,10 +511,6 @@
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 130) (height . 44)))))
 
-(set-face-attribute 'mode-line nil :foreground "black" :background "wheat" :box nil)
-(set-face-attribute 'minibuffer-prompt nil :foreground "cyan")
-(set-face-attribute 'region nil :background "grey15")
-
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~/")
   (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
@@ -553,7 +556,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral"))))
- '(font-lock-comment-face ((t (:foreground "chocolate1")))))
+ '(font-lock-comment-face ((t (:foreground "chocolate1"))))
+ '(helm-buffer-directory ((t (:inherit font-lock-function-name-face))))
+ '(helm-buffer-file ((t (:inherit default))))
+ '(helm-ff-directory ((t (:inherit font-lock-function-name-face))))
+ '(helm-ff-file ((t (:inherit default))))
+ '(helm-ff-symlink ((t (:foreground "Cyan"))))
+ '(helm-selection ((t (:background "#af8700"))))
+ '(helm-visible-mark ((t (:background "dark green"))))
+ '(mode-line ((t (:background "wheat" :foreground "black"))))
+ '(region ((t (:background "gray15")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
