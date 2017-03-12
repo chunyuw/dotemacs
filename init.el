@@ -302,12 +302,14 @@
 
 (eval-after-load 'helm-buffers
 '(progn
+   (define-key helm-buffer-map "\M-A" 'helm-mark-all)
    (define-key helm-buffer-map "\M-a" 'helm-display-all-sources)
    (define-key helm-buffer-map "\M-e" 'helm-show-all-in-this-source-only)))
 
 (eval-after-load 'helm
   '(progn (global-set-key "\M-sb" 'helm-buffers-list)
 	  (global-set-key "\M-sl" 'helm-locate)
+	  (define-key helm-map "\M-A" 'helm-mark-all)
 	  (define-key helm-map "\M-a" 'helm-display-all-sources)
 	  (define-key helm-map "\M-e" 'helm-show-all-in-this-source-only)
 	  (define-key helm-map " " 'helm-maybe-exit-minibuffer)))
