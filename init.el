@@ -168,9 +168,8 @@
 
 ;; Python ;;
 (setq python-indent-guess-indent-offset-verbose nil)
-;; (when (eq system-type 'gnu/linux)
-;;   (setq python-shell-interpreter "ipython"
-;; 	python-shell-interpreter-args "-i"))
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i")
 
 ;; Python ends here ;;
 
