@@ -168,8 +168,9 @@
 
 ;; Python ;;
 (setq python-indent-guess-indent-offset-verbose nil)
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i")
+;; (when (eq system-type 'gnu/linux)
+;;   (setq python-shell-interpreter "ipython"
+;; 	python-shell-interpreter-args "-i"))
 
 ;; Python ends here ;;
 
@@ -192,6 +193,7 @@
 	   directory-free-space-args "-Ph"
 	   dired-bind-man nil
 	   dired-bind-vm nil
+           dired-isearch-filenames 'dwim
 	   wdired-use-dired-vertical-movement 'sometime)
 
      (require 'dired-x)
