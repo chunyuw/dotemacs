@@ -559,6 +559,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "coral"))))
+ '(diff-added ((t (:inherit diff-changed :background "#005f00"))))
+ '(diff-file-header ((t (:background "#303030" :weight bold))))
+ '(diff-header ((t (:background "#585858"))))
+ '(diff-refine-added ((t (:inherit diff-refine-change :background "#87af00"))))
+ '(diff-refine-changed ((t (:background "#af8700"))))
+ '(diff-refine-removed ((t (:inherit diff-refine-change :background "#af0087"))))
+ '(diff-removed ((t (:inherit diff-changed :background "#af5f5f"))))
  '(font-lock-comment-face ((t (:foreground "chocolate1"))))
  '(helm-buffer-directory ((t (:inherit font-lock-function-name-face))))
  '(helm-buffer-file ((t (:inherit default))))
