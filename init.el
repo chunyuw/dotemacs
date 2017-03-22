@@ -562,10 +562,10 @@
  '(diff-added ((t (:inherit diff-changed :background "#005f00"))))
  '(diff-file-header ((t (:background "#303030" :weight bold))))
  '(diff-header ((t (:background "#585858"))))
- '(diff-refine-added ((t (:inherit diff-refine-change :background "#87af00"))))
+ '(diff-refine-added ((t (:inherit diff-refine-change :background "#00af00"))))
  '(diff-refine-changed ((t (:background "#af8700"))))
- '(diff-refine-removed ((t (:inherit diff-refine-change :background "#af0087"))))
- '(diff-removed ((t (:inherit diff-changed :background "#af5f5f"))))
+ '(diff-refine-removed ((t (:inherit diff-refine-change :background "#ff0000"))))
+ '(diff-removed ((t (:inherit diff-changed :background "#af0000"))))
  '(font-lock-comment-face ((t (:foreground "chocolate1"))))
  '(helm-buffer-directory ((t (:inherit font-lock-function-name-face))))
  '(helm-buffer-file ((t (:inherit default))))
@@ -574,8 +574,11 @@
  '(helm-ff-symlink ((t (:foreground "Cyan"))))
  '(helm-selection ((t (:background "#af8700"))))
  '(helm-visible-mark ((t (:background "dark green"))))
+ '(lazy-highlight ((t (:background "cyan"))))
+ '(match ((t (:background "color-178"))))
  '(mode-line ((t (:background "wheat" :foreground "black"))))
- '(region ((t (:background "gray15")))))
+ '(region ((t (:background "gray15"))))
+ '(vc-removed-state ((t (:inherit vc-state-base :foreground "#87ff5f")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
