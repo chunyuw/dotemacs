@@ -577,8 +577,7 @@
  '(lazy-highlight ((t (:background "cyan"))))
  '(match ((t (:background "color-178"))))
  '(mode-line ((t (:background "wheat" :foreground "black"))))
- '(region ((t (:background "gray15"))))
- '(vc-removed-state ((t (:inherit vc-state-base :foreground "#87ff5f")))))
+ '(region ((t (:background "gray15")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
