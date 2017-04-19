@@ -558,6 +558,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Info-quoted ((t (:family "courier new"))))
  '(cursor ((t (:background "coral"))))
  '(diff-added ((t (:inherit diff-changed :background "#005f00"))))
  '(diff-file-header ((t (:background "#303030" :weight bold))))
