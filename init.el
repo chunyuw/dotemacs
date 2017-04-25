@@ -175,7 +175,7 @@
 ;; Python ends here ;;
 
 ;; SavePlace ;;
-(setq save-place-file "~/.emacs.d/places")
+;(setq save-place-file "~/.emacs.d/places")
 (if (fboundp 'save-place-mode)
     (save-place-mode 1)
   (setq-default save-place t)
