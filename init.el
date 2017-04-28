@@ -21,7 +21,8 @@
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
 (global-set-key "\M-s\M-g" 'magit-dispatch-popup)
-(global-set-key "\M-a" 'helm-for-files)
+(global-set-key "\M-a" 'helm-multi-files)
+(global-set-key "\M-A" 'helm-find-files)
 (global-set-key "\C-x\C-f" 'ido-find-file)
 (global-set-key "\C-xb" 'ido-switch-buffer)
 (global-set-key "\C-xd" 'ido-dired)
@@ -299,7 +300,16 @@
 
 ;; helm ;;
 (setq helm-split-window-default-side 'same
-      helm-ff-newfile-prompt-p nil)
+      helm-ff-guess-ffap-filenames t)
+
+;; (setq helm-for-files-preferred-list
+;;       '(;;helm-source-ffap-guesser
+;; 	helm-source-buffers-list
+;; 	helm-source-recentf 
+;; 	helm-source-bookmarks 
+;; 	helm-source-file-cache 
+;; 	helm-source-files-in-current-dir 
+;; 	helm-source-locate))
 
 (eval-after-load 'helm-buffers
 '(progn
@@ -375,7 +385,7 @@
       reftex-section-levels
       '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
 	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
-	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
+	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2))))
 
 (setq font-latex-fontify-script nil
       font-latex-fontify-sectioning 1.01
