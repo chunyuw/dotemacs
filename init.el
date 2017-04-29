@@ -385,7 +385,7 @@
       reftex-section-levels
       '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
 	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
-	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2))))
+	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
 (setq font-latex-fontify-script nil
       font-latex-fontify-sectioning 1.01
