@@ -531,16 +531,16 @@
   (setq exec-path (split-string (getenv "PATH") ":"))
 
   (setq face-font-rescale-alist
-	'(("Hannotate SC" . 1.25) ("Lantinghei SC" . 1.25) ("PingFang SC" . 1.25)))
+	'(("Noto Sans CJK SC Thin" . 1.2)("PingFang SC" . 1.2)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  ;; List font name with (print (font-family-list)) [“字体123”]
-  (set-fontset-font "fontset-default" 'han "Lantinghei SC")
-  (set-fontset-font "fontset-default" 'symbol "Symobla")
-  (set-fontset-font "fontset-default" 'cjk-misc  "Hannotate SC")
-  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "Hannotate SC")
-  (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
+  ;; List font name with (print (font-family-list)) [“字体‘123’”]“‘’”
+  (set-fontset-font "fontset-default" 'han "PingFang SC")
+  (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
+  (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC")
+  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "PingFang SC")
+  (set-fontset-font "fontset-default" 'unicode-smp "Noto Sans Symbols"))
 
 (when (eq system-type 'windows-nt) ;; Windows
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
@@ -548,10 +548,10 @@
   (set-face-attribute 'default nil :family "Consolas" :height 140)
 
   (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
-  (set-fontset-font "fontset-default" 'symbol "Symbola")
+  (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
   (set-fontset-font "fontset-default" 'cjk-misc "SimHei")
   (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
-  (set-fontset-font "fontset-default" 'unicode-smp "DejaVu Sans"))
+  (set-fontset-font "fontset-default" 'unicode-smp "Noto Sans Symbols"))
 ;; Frame configuration ends here ;;
 
 (custom-set-variables
