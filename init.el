@@ -154,11 +154,11 @@
 
 (eval-after-load 'diff-mode
   '(progn
-     (define-key diff-mode-map "\M-k" 'kill-this-buffer)
-     (define-key diff-mode-map "\M-K" 'kill-buffer-and-window)
-     (define-key diff-mode-map "\C-k" 'diff-hunk-kill)
-     (define-key diff-mode-map "\C-K" 'diff-file-kill)
-     (define-key diff-mode-map "\C-\M-k" 'kill-line)))
+     (define-key diff-mode-map "j" 'scroll-up-line)
+     (define-key diff-mode-map "k" 'scroll-down-line)
+     (define-key diff-mode-shared-map "k" 'scroll-down-line)
+     (define-key diff-mode-map "\M-K" 'kill-this-buffer)
+     (define-key diff-mode-map "\M-k" 'kill-buffer-and-window)))
 
 ;; ;; package ;;
 (setq package-archives
@@ -208,7 +208,7 @@
 
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf")))
-     
+
      (when (eq system-type 'darwin)
        (define-key dired-mode-map "O"
 	 (lambda () (interactive) (shell-command "open .")))
@@ -305,10 +305,10 @@
 ;; (setq helm-for-files-preferred-list
 ;;       '(;;helm-source-ffap-guesser
 ;; 	helm-source-buffers-list
-;; 	helm-source-recentf 
-;; 	helm-source-bookmarks 
-;; 	helm-source-file-cache 
-;; 	helm-source-files-in-current-dir 
+;; 	helm-source-recentf
+;; 	helm-source-bookmarks
+;; 	helm-source-file-cache
+;; 	helm-source-files-in-current-dir
 ;; 	helm-source-locate))
 
 (eval-after-load 'helm-buffers
@@ -492,7 +492,7 @@
 (eval-after-load 'calc
   '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
 (eval-after-load 'calc-ext
-  '(progn 
+  '(progn
      (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)
      (define-key calc-mode-map "\C-\M-k" 'calc-copy-as-kill)))
 ;; misc packages end here ;;
