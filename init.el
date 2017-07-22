@@ -72,9 +72,6 @@
       view-inhibit-help-message t
       save-abbrevs 'silently)
 
-(setq display-time-24hr-format t
-      display-time-day-and-date nil)
-
 (setq calendar-latitude 45.74027
       calendar-longitude 126.62766
       calendar-location-name "Harbin"
@@ -82,9 +79,6 @@
 
 (setq user-full-name "Chunyu Wang"
       user-mail-address "cymacs@gmail.com")
-
-(setq auth-sources '("~/.emacs.d/authinfo.gpg" "~/.netrc")
-      gnus-init-file "~/.emacs.d/gnus.el")
 
 (setq version-control t
       kept-old-versions 2
@@ -169,14 +163,9 @@
 
 ;; Python ;;
 (setq python-indent-guess-indent-offset-verbose nil)
-;; (when (eq system-type 'gnu/linux)
-;;   (setq python-shell-interpreter "ipython"
-;; 	python-shell-interpreter-args "-i"))
-
 ;; Python ends here ;;
 
 ;; SavePlace ;;
-;(setq save-place-file "~/.emacs.d/places")
 (if (fboundp 'save-place-mode)
     (save-place-mode 1)
   (setq-default save-place t)
@@ -217,55 +206,26 @@
 	   (shell-command (concat "open \"" (dired-get-filename) "\"")))))
 
      (when (eq system-type 'windows-nt)
-       (define-key dired-mode-map "O" 'chunyu/dired-open-explorer)
-       (define-key dired-mode-map "o" 'chunyu/totalcmd-open)
-       (define-key dired-mode-map "Y" 'chunyu/dired-win7-mklink)
+       (define-key dired-mode-map "O" 'my-dired-open-explorer)
+       (define-key dired-mode-map "o" 'my-totalcmd-open)
        (define-key dired-mode-map "W"
 	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
 
-       (setq browse-url-generic-program
-	     (substitute-in-file-name
-	      "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"))
-
-       ;;(add-hook 'dired-mode-hook 'chunyu/customize-dired-face)
-
-       (defun chunyu/customize-dired-face ()
-	 (font-lock-add-keywords
-	  nil `(("^  .*\\.\\(pdf\\|djvu\\)$"
-		 (".+" (dired-move-to-filename) nil
-		  (0 'font-lock-string-face))))))
-
-       (defun chunyu/dired-open-explorer ()
+       (defun my-dired-open-explorer ()
 	 (interactive)
 	 (let ((file-name (dired-get-file-for-visit)))
 	   (if (file-exists-p file-name)
 	       (w32-shell-execute "open" file-name nil 1))))
 
-       ;; (defun dired-execute-file (&optional arg)
-       ;; 	 (interactive "P")
-       ;; 	 (mapcar (lambda (file) (w32-shell-execute "open" file))
-       ;; 		 (dired-get-marked-files nil arg)))
-
-       (defun chunyu/totalcmd-open ()
+       (defun my-totalcmd-open ()
 	 "Open dir in Total Commander."
 	 (interactive)
 	 (let* ((f (subst-char-in-string ?\\ ?/ (dired-get-filename)))
 		(c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd.exe"))
 		(g (subst-char-in-string ?/ ?\\ f)))
 	   (if (file-exists-p f)
-	       (w32-shell-execute nil c (format "/O %S" g) 1))))
-
-       (defun chunyu/dired-win7-mklink ()
-	 "Win7 mklink wrapper"
-	 (interactive)
-	 (let* ((file-name (dired-get-file-for-visit))
-		(target-dir (dired-dwim-target-directory))
-		(target (read-file-name "MkLink to:" target-dir))
-		(option (if (file-directory-p file-name) "/J" "/H"))
-		(filenm (replace-regexp-in-string
-			 "/" "\\\\" (format "%s %s" target file-name))))
-	   (w32-shell-execute nil "cmd" (format "/c mklink %s %s" option filenm) 0))))))
+	       (w32-shell-execute nil c (format "/O %S" g) 1)))))))
 ;; Dired ends here ;;
 
 ;; Ido ;;
@@ -301,15 +261,6 @@
 ;; helm ;;
 (setq helm-split-window-default-side 'same
       helm-ff-guess-ffap-filenames t)
-
-;; (setq helm-for-files-preferred-list
-;;       '(;;helm-source-ffap-guesser
-;; 	helm-source-buffers-list
-;; 	helm-source-recentf
-;; 	helm-source-bookmarks
-;; 	helm-source-file-cache
-;; 	helm-source-files-in-current-dir
-;; 	helm-source-locate))
 
 (eval-after-load 'helm-buffers
 '(progn
@@ -445,7 +396,6 @@
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
-     ;;(TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
 (defun beamer-setup ()
@@ -535,7 +485,6 @@
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  ;; List font name with (print (font-family-list)) [“字体‘123’”]“‘’”
   (set-fontset-font "fontset-default" 'han "PingFang SC")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
   (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC")
