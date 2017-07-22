@@ -112,8 +112,8 @@
 
 (eval-after-load 'man
   '(progn
-     (define-key Man-mode-map "j"  'scroll-up-line)
-     (define-key Man-mode-map "k"  'scroll-down-line)))
+     (define-key Man-mode-map "j" 'scroll-up-line)
+     (define-key Man-mode-map "k" 'scroll-down-line)))
 
 (eval-after-load 'help-mode
   '(progn
@@ -378,11 +378,11 @@
 	("alb" "alertblock" "" cdlatex-environment ("alertblock") t nil)))
 
 (add-hook 'TeX-mode-hook
-	  (lambda () ;; (flyspell-mode 1)
+	  (lambda ()
 	    (turn-on-reftex) (auto-fill-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
-	  (lambda () ;; (outline-minor-mode 1) (flyspell-mode 1) (beamer-setup)
+	  (lambda ()
 	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) ))
 
 (eval-after-load 'latex
