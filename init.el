@@ -195,6 +195,9 @@
      (define-key dired-mode-map "/" 'dired-mark-directories)
      (define-key dired-mode-map "K" 'dired-kill-subdir)
 
+     (setq dired-omit-files
+	   (concat dired-omit-files "\\|^__init__.py$\\|^__pycache__$"))
+
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf")))
 
