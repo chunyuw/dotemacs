@@ -20,6 +20,7 @@
 (global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
+(global-set-key "\M-s\M-f" 'magit-file-popup)
 (global-set-key "\M-s\M-g" 'magit-dispatch-popup)
 (global-set-key "\M-a" 'helm-multi-files)
 (global-set-key "\M-A" 'helm-find-files)
