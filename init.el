@@ -197,7 +197,7 @@
      (define-key dired-mode-map "K" 'dired-kill-subdir)
 
      (setq dired-omit-files
-	   (concat dired-omit-files "\\|^__init__.py$\\|^__pycache__$"))
+	   (concat dired-omit-files "\\|^__init__.py$\\|^__pycache__$\\|\\.localized\\|.DS_Store"))
 
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf")))
