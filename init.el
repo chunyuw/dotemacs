@@ -306,8 +306,8 @@
 	("Skim"
 	 ("/Applications/Skim.app/Contents/SharedSupport/displayline" " %n %o %b")))
       TeX-view-program-selection
-      (cond ((eq window-system 'w32) '((output-pdf "SumatraPDF")))
-	    ((eq window-system 'ns) '((output-pdf "Skim")))))
+      (cond ((eq system-type 'windows-nt) '((output-pdf "SumatraPDF")))
+	    ((eq system-type 'darwin) '((output-pdf "Skim")))))
 
 (setq preview-scale-function 2
       preview-image-type 'dvipng
