@@ -515,7 +515,7 @@
  '(global-eldoc-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode recentf-ext magit auctex-latexmk auctex cdlatex helm))))
+    (auctex-lua markdown-mode recentf-ext magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
