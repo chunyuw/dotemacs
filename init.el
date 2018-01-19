@@ -471,7 +471,7 @@
 		   org-export-html-style org-export-publishing-directory))
 
 ;; Frame configuration ;;
-(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral")))
+(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral") (top . 0) (left . 120)))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
