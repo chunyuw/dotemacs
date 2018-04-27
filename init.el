@@ -293,7 +293,7 @@
       TeX-parse-self t
       TeX-auto-untabify t
       TeX-region "z_region"
-      TeX-fold-type-list '(env math)
+      TeX-fold-type-list '(env)
       TeX-fold-env-spec-list
       '(("[algorithmic]" ("algorithmic"))
 	("[comment]" ("comment"))
@@ -342,8 +342,8 @@
 	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
 	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
-(setq font-latex-fontify-script nil
-      font-latex-fontify-sectioning 1.01
+(setq font-latex-fontify-script 'invisible
+      font-latex-fontify-sectioning 'color
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
@@ -383,11 +383,11 @@
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
-	    (turn-on-reftex) (auto-fill-mode 1)))
+	    (turn-on-reftex) (auto-fill-mode 1) (prettify-symbols-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer) ))
+	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
 
 (eval-after-load 'latex
   '(progn
