@@ -471,12 +471,12 @@
 		   org-export-html-style org-export-publishing-directory))
 
 ;; Frame configuration ;;
-(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral") (top . 0) (left . 120)))
+(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral") (top . 0) (left . 300)))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 130) (height . 44)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 44)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (setq default-directory "~/")
