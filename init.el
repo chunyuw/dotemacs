@@ -204,7 +204,8 @@
 
      (when (eq system-type 'darwin)
        (define-key dired-mode-map "O"
-	 (lambda () (interactive) (shell-command "open .")))
+	 (lambda () (interactive) ;; (shell-command "open .")
+	   (shell-command (concat "open \"" (dired-get-filename) "\""))))
        (define-key dired-mode-map "o"
 	 (lambda () (interactive)
 	   (shell-command (concat "open \"" (dired-get-filename) "\"")))))
