@@ -1,4 +1,3 @@
-$pdflatex = 'xelatex -synctex=1 -interaction=nonstopmode %O %S';
-#$pdf_previewer = 'SumatraPDF.exe -reuse-instance %O %S';
-# $pdf_update_method = 4;
-# $pdf_update_command = "SumatraPDF.exe -reuse-instance %O %S";
+$pdflatex = "xelatex %O %S";
+$pdf_mode = 1;
+$dvi_mode = $postscript_mode = 0;
