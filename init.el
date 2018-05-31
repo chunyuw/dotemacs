@@ -480,7 +480,8 @@
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 44)))))
 
 (when (eq system-type 'darwin) ;; macOS
-  (setq default-directory "~/")
+  (setq default-directory "~/"
+	ns-use-thin-smoothing t)
   (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
   (setenv "PATH" (concat "/usr/local/bin:/Library/TeX/texbin:" (getenv "PATH")))
   (setq exec-path (split-string (getenv "PATH") ":"))
