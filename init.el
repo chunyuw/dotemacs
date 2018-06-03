@@ -472,17 +472,19 @@
 		   org-export-html-style org-export-publishing-directory))
 
 ;; Frame configuration ;;
-(setq default-frame-alist '((background-mode . dark) (cursor-color. "Coral") (top . 0) (left . 300)))
+(setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral") (auto-raise . t)))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
-	(ns . ((background-color . "#002020") (foreground-color . "wheat") (width . 125) (height . 35)))
+	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 44)))))
 
 (when (eq system-type 'darwin) ;; macOS
-  (setq default-directory "~/"
-	ns-use-thin-smoothing t)
-  (menu-bar-mode -1) (scroll-bar-mode -1) (tool-bar-mode -1)
+  (add-to-list 'default-frame-alist '(top . 1))
+  (add-to-list 'default-frame-alist '(left . 5))
+
+  (scroll-bar-mode -1) (tool-bar-mode -1)
+  (setq default-directory "~/" ns-use-thin-smoothing t)
   (setenv "PATH" (concat "/usr/local/bin:/Library/TeX/texbin:" (getenv "PATH")))
   (setq exec-path (split-string (getenv "PATH") ":"))
 
@@ -498,6 +500,9 @@
   (set-fontset-font "fontset-default" 'unicode-smp "Noto Sans Symbols"))
 
 (when (eq system-type 'windows-nt) ;; Windows
+  (add-to-list 'default-frame-alist '(top . 1))
+  (add-to-list 'default-frame-alist '(left . 300))
+
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
   (set-face-attribute 'default nil :family "Consolas" :height 140)
