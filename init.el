@@ -256,10 +256,9 @@
 
 ;; magit ;;
 (setq magit-repository-directories
-      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite" "~/mitox")
+      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
       magit-auto-revert-immediately nil
       auto-revert-interval 2
-      ;magit-display-buffer-noselect t
       magit-process-popup-time 10)
 ;; magit ends here ;;
 
@@ -320,7 +319,7 @@
       '((nil "derive" "Arrows" 8658)
 	(nil "derives" "Arrows" 8658))
       LaTeX-enable-toolbar nil
-      LaTeX-document-regexp "document\\|CJK\\*?\\|frame")
+      LaTeX-document-regexp "document\\|frame")
 
 (setq bibtex-autokey-names 1
       bibtex-autokey-names-stretch 1
@@ -349,39 +348,12 @@
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
-      ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
 	(?d ("\\delta" "\\hat\\delta" "\\partial"))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?{ ("\\subset" "\\{?\\}")))
-      cdlatex-paired-parens "$[{(<|"
-      ;; cdlatex-math-symbol-alist
-      ;; '((?< ("\\leftarrow" "\\Leftarrow" "\\longleftarrow" "\\Longleftarrow"))
-      ;;   (?> ("\\rightarrow" "\\Rightarrow" "\\longrightarrow" "\\Longrightarrow")))
-      cdlatex-env-alist
-      '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
-	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil)
-	("block" "\\begin{block}{?}\n\n\\end{block}\n" nil)
-	("lstlisting" "\\begin{lstlisting}\n?\n\\end{lstlisting}" nil)
-	("alertblock" "\\begin{alertblock}{?}\n\n\\end{alertblock}\n" nil)
-	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" "\\item ?")
-	("exampleblock" "\\begin{exampleblock}{?}\n\n\\end{exampleblock}\n" nil))
-      cdlatex-command-alist
-      '(("fr"  "frame" "" cdlatex-environment ("frame") t nil)
-	("frm" "frame" "" cdlatex-environment ("frame") t nil)
-	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
-	("col" "columns" "" cdlatex-environment ("columns") t nil)
-	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
-	("ctl" "ctlgraph" "\\centerline{\\includegraphics[width=8cm]{?}}\n%\\centerline{}\n"
-	 cdlatex-position-cursor nil t nil)
-	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
-	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)
-	("lst" "lstlisting" "" cdlatex-environment ("lstlisting") t nil)
-	("lsti" "lstinline" "\\lstinline|?|" cdlatex-position-cursor nil t nil)
-	("blk" "block" "" cdlatex-environment ("block") t nil)
-	("exb" "exampleblock" "" cdlatex-environment ("exampleblock") t nil)
-	("alb" "alertblock" "" cdlatex-environment ("alertblock") t nil)))
+      cdlatex-paired-parens "$[{(<|")
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
