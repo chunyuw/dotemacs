@@ -477,7 +477,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 44)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 46)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(top . 1))
@@ -501,7 +501,7 @@
 
 (when (eq system-type 'windows-nt) ;; Windows
   (add-to-list 'default-frame-alist '(top . 1))
-  (add-to-list 'default-frame-alist '(left . 300))
+  (add-to-list 'default-frame-alist '(left . 220))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
