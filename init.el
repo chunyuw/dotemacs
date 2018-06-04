@@ -285,6 +285,7 @@
 ;; org ;;
 (eval-after-load 'org
   '(progn (define-key org-mode-map "\M-a" 'helm-for-files)))
+(setq org-html-postamble nil)
 ;; org ends here ;;
 
 ;; AUCTeX, RefTeX, CDLaTeX etc. ;;
@@ -495,9 +496,7 @@
 
   (set-fontset-font "fontset-default" 'han "PingFang SC")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
-  (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC")
-  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "PingFang SC")
-  (set-fontset-font "fontset-default" 'unicode-smp "Noto Sans Symbols"))
+  (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
   (add-to-list 'default-frame-alist '(top . 1))
@@ -509,9 +508,7 @@
 
   (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
-  (set-fontset-font "fontset-default" 'cjk-misc "SimHei")
-  (set-fontset-font "fontset-default" '(#x2018 . #x201D) "SimHei")
-  (set-fontset-font "fontset-default" 'unicode-smp "Noto Sans Symbols"))
+  (set-fontset-font "fontset-default" 'cjk-misc "SimHei"))
 ;; Frame configuration ends here ;;
 
 (custom-set-variables
