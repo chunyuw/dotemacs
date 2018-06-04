@@ -311,7 +311,7 @@
       (cond ((eq system-type 'windows-nt) '((output-pdf "SumatraPDF")))
 	    ((eq system-type 'darwin) '((output-pdf "Skim")))))
 
-(setq preview-scale-function 2
+(setq preview-scale-function 1.5
       preview-image-type 'dvipng
       preview-auto-cache-preamble nil)
 
@@ -554,6 +554,7 @@
  '(magit-section-highlight ((t (:background "#262626"))))
  '(match ((t (:background "color-178"))))
  '(mode-line ((t (:background "wheat" :foreground "black"))))
+ '(preview-reference-face ((t (:background "#001414" :foreground "wheat"))))
  '(region ((t (:background "gray15")))))
 
 ;; Local Variables:
