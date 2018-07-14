@@ -348,12 +348,23 @@
       font-latex-match-slide-title-keywords '("frametitle"))
 
 (setq cdlatex-math-modify-prefix [(super ?')]
+      ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
 	(?d ("\\delta" "\\hat\\delta" "\\partial"))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?{ ("\\subset" "\\{?\\}")))
-      cdlatex-paired-parens "$[{(<|")
+      cdlatex-paired-parens "$[{(<|"
+      cdlatex-env-alist
+      '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
+	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil))
+      cdlatex-command-alist
+      '(("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
+	("col" "columns" "" cdlatex-environment ("columns") t nil)
+	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
+	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
+	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
@@ -450,7 +461,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 46)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 140) (height . 64)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(top . 1))
@@ -472,7 +483,7 @@
 
 (when (eq system-type 'windows-nt) ;; Windows
   (add-to-list 'default-frame-alist '(top . 1))
-  (add-to-list 'default-frame-alist '(left . 220))
+  (add-to-list 'default-frame-alist '(left . 2015))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
