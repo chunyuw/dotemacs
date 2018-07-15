@@ -482,8 +482,8 @@
   (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(top . 1))
-  (add-to-list 'default-frame-alist '(left . 2015))
+  (add-to-list 'default-frame-alist '(top . (+ 0)))
+  (add-to-list 'default-frame-alist '(left . (- 0)))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
