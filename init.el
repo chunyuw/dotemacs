@@ -456,7 +456,7 @@
 		   org-export-html-style org-export-publishing-directory))
 
 ;; Frame configuration ;;
-(setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral") (auto-raise . t)))
+(setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral") (auto-raise . t) (top . 0)))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
@@ -464,7 +464,6 @@
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 140) (height . 64)))))
 
 (when (eq system-type 'darwin) ;; macOS
-  (add-to-list 'default-frame-alist '(top . 1))
   (add-to-list 'default-frame-alist '(left . 5))
 
   (scroll-bar-mode -1) (tool-bar-mode -1)
@@ -482,7 +481,6 @@
   (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(top . (+ 0)))
   (add-to-list 'default-frame-alist '(left . (- 0)))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
