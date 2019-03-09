@@ -340,7 +340,7 @@
       reftex-plug-into-AUCTeX t
       reftex-section-levels
       '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
-	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
+	("frametitle" . 4) ("subsubsection" . 4) ("paragraph" . 5)
 	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
 (setq font-latex-fontify-script 'invisible
@@ -359,7 +359,8 @@
       '(("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil))
       cdlatex-command-alist
-      '(("frm" "frame" "" cdlatex-environment ("frame") t nil)
+      '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
+	("frm" "frame" "" cdlatex-environment ("frame") t nil)
 	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
