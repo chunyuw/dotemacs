@@ -358,7 +358,7 @@
       cdlatex-env-alist
       '(;("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
 	("frame" "\\begin{frame}\n?\n\n\\end{frame}\n" nil)
-	("columns" "\\begin{columns}\n\\column{.45\\textwidth}\n?\n\\column{.54\\textwidth}\n\n\\end{columns}\n" nil))
+	("columns" "\\begin{columns}\n\\column{.8\\textwidth}\n?\n\\column{.2\\textwidth}\n\n\\end{columns}\n" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
 	("frm" "frame" "" cdlatex-environment ("frame") t nil)
