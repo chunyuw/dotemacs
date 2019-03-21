@@ -292,6 +292,7 @@
 
 (setq TeX-auto-save t
       TeX-parse-self t
+      TeX-save-query nil
       TeX-auto-untabify t
       TeX-command-force "LaTeX"
       TeX-region "z_region"
@@ -362,7 +363,7 @@
 	("dfn" "\\begin{dfn}\n?\n\\end{dfn}" nil)
 	("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil)
-	("columns" "\\begin{columns}\n\\column{.8\\textwidth}\n?\n\\column{.19\\textwidth}\n\\end{columns}" nil))
+	("columns" "\\begin{columns}\n\\column{.8\\textwidth}\n?\\column{.19\\textwidth}\n\\end{columns}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
 	("blo" "block" "" cdlatex-environment ("block") t nil)
@@ -390,16 +391,20 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
+     (define-key TeX-mode-map [(f7)] 'TeX-command-run-all-region)
      (define-key TeX-mode-map [(f8)] 'TeX-command-region)
+     (define-key TeX-mode-map [(f9)] 'TeX-command-run-all)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
+     (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
 (defun beamer-setup ()
   (set (make-local-variable 'reftex-section-levels)
        '(("part" . 0) ("section" . 1) ("frametitle" . 2)))
   (reftex-reset-mode)
-  (define-key TeX-mode-map "\M-m\M-." 'LaTeX-mark-build-frame))
+  (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-frame)
+  (define-key TeX-mode-map [(f7)] 'TeX-command-region))
 
 (defun LaTeX-mark-build-frame ()
   "mark frame enviroment."
@@ -469,7 +474,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 140) (height . 64)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 64)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
@@ -489,7 +494,7 @@
   (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(left . (- 0)))
+  (add-to-list 'default-frame-alist '(left . 1300)) ;'(left . (- 0))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
