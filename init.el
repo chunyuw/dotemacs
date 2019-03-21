@@ -293,6 +293,7 @@
 (setq TeX-auto-save t
       TeX-parse-self t
       TeX-auto-untabify t
+      TeX-command-force "LaTeX"
       TeX-region "z_region"
       TeX-fold-type-list '(env)
       TeX-fold-env-spec-list
@@ -351,18 +352,22 @@
       ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
+	(?b ("\\beta" "\\boldsymbol" ""))
 	(?d ("\\delta" "\\hat\\delta" "\\partial"))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
       '(;("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
-	("frame" "\\begin{frame}\n?\n\n\\end{frame}\n" nil)
-	("columns" "\\begin{columns}\n\\column{.8\\textwidth}\n?\n\\column{.2\\textwidth}\n\n\\end{columns}\n" nil))
+	("dfn" "\\begin{dfn}\n?\n\\end{dfn}" nil)
+	("block" "\\begin{block}{}\n?\n\\end{block}" nil)
+	("frame" "\\begin{frame}\n?\n\\end{frame}" nil)
+	("columns" "\\begin{columns}\n\\column{.8\\textwidth}\n?\n\\column{.19\\textwidth}\n\\end{columns}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
-	("frm" "frame" "" cdlatex-environment ("frame") t nil)
+	("blo" "block" "" cdlatex-environment ("block") t nil)
 	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
+	("dfn" "block" "" cdlatex-environment ("dfn") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
 	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
@@ -385,6 +390,7 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
+     (define-key TeX-mode-map [(f8)] 'TeX-command-region)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (TeX-global-PDF-mode t)))
