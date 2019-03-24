@@ -405,7 +405,20 @@
 (defun beamer-setup ()
   (reftex-reset-mode)
   (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-frame)
-  (define-key TeX-mode-map [(f7)] 'TeX-command-region))
+  (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-run-all-frame))
+
+(defun LaTeX-mark-build-run-all-frame ()
+  "mark frame enviroment."
+  (interactive)
+  (let ((cur (point)) begin end)
+    (save-excursion
+      (re-search-forward "^[^%]*?end.frame" nil t)
+      (beginning-of-line 2) (setq end (point))
+      (goto-char cur)
+      (re-search-backward "^[^%]*?begin.frame" nil t)
+      (beginning-of-line 1) (setq begin (point))
+      (TeX-pin-region begin end))
+    (TeX-command-run-all-region)))
 
 (defun LaTeX-mark-build-frame ()
   "mark frame enviroment."
