@@ -406,7 +406,7 @@
      (TeX-global-PDF-mode t)))
 
 (defun beamer-setup ()
-;;  (reftex-reset-mode)
+  (reftex-reset-mode)
   (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
   (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame))
 
