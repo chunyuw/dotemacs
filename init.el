@@ -301,6 +301,8 @@
       TeX-fold-env-spec-list
       '(("[algorithmic]" ("algorithmic"))
 	("[comment]" ("comment"))
+	("[tabular]" ("tabular"))
+	("[align*]" ("align*"))
 	("[tikzpicture]" ("tikzpicture")))
       TeX-source-correlate-mode t
       TeX-source-correlate-start-server t
@@ -343,7 +345,7 @@
       reftex-plug-into-AUCTeX t
       reftex-section-levels
       '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
-	("frametitle" . 3) ("subsubsection" . 4) ("paragraph" . 5)
+	("frametitle" . 4) ("subsubsection" . 4) ("paragraph" . 5)
 	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
 
 (setq font-latex-fontify-script 'invisible
@@ -388,7 +390,8 @@
 (eval-after-load 'latex
   '(progn
      (setq LaTeX-font-list
-	   (append '((?\C-a "\\alert{" "}" "\\mathcal{" "}")
+	   (append '((?\C-p "\\mode<presentation>{" "}")
+		     (?\C-a "\\alert{" "}" "\\mathcal{" "}")
 		     (?\C-o "\\only<.>{" "}" "" "")) LaTeX-font-list))))
 
 (eval-after-load 'tex
@@ -403,7 +406,7 @@
      (TeX-global-PDF-mode t)))
 
 (defun beamer-setup ()
-  (reftex-reset-mode)
+;;  (reftex-reset-mode)
   (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-frame)
   (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-run-all-frame))
 
@@ -527,7 +530,7 @@
  '(global-eldoc-mode nil)
  '(package-selected-packages
    (quote
-    (auctex-lua markdown-mode recentf-ext magit auctex-latexmk auctex cdlatex helm))))
+    (yaml-mode auctex-lua markdown-mode recentf-ext magit auctex-latexmk auctex cdlatex helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
