@@ -299,11 +299,11 @@
       TeX-region "z_region"
       TeX-fold-type-list '(env)
       TeX-fold-env-spec-list
-      '(("[algorithmic]" ("algorithmic"))
-	("[comment]" ("comment"))
-	("[tabular]" ("tabular"))
+      '(("[algo]" ("algorithmic"))
+	("[comm]" ("comment"))
+	("[tab]" ("tabular"))
 	("[align*]" ("align*"))
-	("[tikzpicture]" ("tikzpicture")))
+	("[tikz]" ("tikzpicture")))
       TeX-source-correlate-mode t
       TeX-source-correlate-start-server t
       TeX-view-program-list
