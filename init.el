@@ -297,6 +297,7 @@
       TeX-auto-untabify t
       TeX-command-force "LaTeX"
       TeX-region "z_region"
+      TeX-brace-indent-level 0
       TeX-fold-type-list '(env)
       TeX-fold-env-spec-list
       '(("[algo]" ("algorithmic"))
@@ -320,6 +321,8 @@
       preview-auto-cache-preamble nil)
 
 (setq tool-bar-mode nil
+      LaTeX-indent-level 0
+      LaTeX-item-indent 0
       LaTeX-math-list
       '((nil "derive" "Arrows" 8658)
 	(nil "derives" "Arrows" 8658))
@@ -381,7 +384,7 @@
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
-	    (turn-on-reftex) (auto-fill-mode 1) (prettify-symbols-mode 1)))
+	    (turn-on-reftex) (prettify-symbols-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()

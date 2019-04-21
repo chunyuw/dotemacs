@@ -1,5 +1,9 @@
 *.elc
 *~
+.DS_Store
+/.org-id-locations
+/network-security.data
+/others/local.el
 abbrev_defs
 anything*
 auto-install
@@ -10,6 +14,7 @@ elpa
 history
 image-dired
 mypass
+newsticker
 places
 recentf
 semanticdb
@@ -20,7 +25,3 @@ tramp
 tutorial
 twit*
 url
-/others/local.el
-/.org-id-locations
-/network-security.data
-.DS_Store
