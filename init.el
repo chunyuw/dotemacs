@@ -321,13 +321,14 @@
       preview-auto-cache-preamble nil)
 
 (setq tool-bar-mode nil
+      LaTeX-syntactic-comments t
       LaTeX-indent-level 0
       LaTeX-item-indent 0
       LaTeX-math-list
       '((nil "derive" "Arrows" 8658)
 	(nil "derives" "Arrows" 8658))
-      LaTeX-enable-toolbar nil
-      LaTeX-document-regexp "document\\|frame")
+      LaTeX-indent-environment-list nil
+      LaTeX-enable-toolbar nil)
 
 (setq bibtex-autokey-names 1
       bibtex-autokey-names-stretch 1
@@ -494,7 +495,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 120) (height . 64)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 166) (height . 64)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
@@ -514,7 +515,7 @@
   (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(left . 1300)) ;'(left . (- 0))
+  (add-to-list 'default-frame-alist '(left . (- 0)))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
