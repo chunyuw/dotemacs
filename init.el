@@ -401,18 +401,20 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
-     (define-key TeX-mode-map [(f7)] 'TeX-command-run-all-region)
-     (define-key TeX-mode-map [(f8)] 'TeX-command-region)
+     ;; (define-key TeX-mode-map [(f7)] 'TeX-command-run-all-region)
+     (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
+     ;; (define-key TeX-mode-map [(f8)] 'TeX-command-region)
+     (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame)
      (define-key TeX-mode-map [(f9)] 'TeX-command-run-all)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
-     (TeX-add-style-hook "beamer" 'beamer-setup)
+     ;; (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
-(defun beamer-setup ()
-  (reftex-reset-mode)
-  (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
-  (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame))
+;; (defun beamer-setup ()
+;;   (reftex-reset-mode)
+;;   (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
+;;   (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame))
 
 (defun LaTeX-mark-build-run-all-frame ()
   "mark frame enviroment."
