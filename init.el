@@ -427,6 +427,8 @@
       (re-search-backward "^[^%]*?begin.frame" nil t)
       (beginning-of-line 1) (setq begin (point))
       (TeX-pin-region begin end))
+    (unless (file-exists-p TeX-master)
+      (shell-command (concat "make " TeX-master)))
     (TeX-command-run-all-region)))
 
 (defun LaTeX-mark-build-frame ()
