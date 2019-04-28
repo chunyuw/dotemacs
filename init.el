@@ -496,13 +496,13 @@
   (setq exec-path (split-string (getenv "PATH") ":"))
 
   (setq face-font-rescale-alist
-	'(("Noto Sans CJK SC Thin" . 1.2)("PingFang SC" . 1.2)))
+	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
   (set-fontset-font "fontset-default" 'han "PingFang SC")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
-  (set-fontset-font "fontset-default" 'cjk-misc  "PingFang SC"))
+  (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
   (add-to-list 'default-frame-alist '(left . (- 0)))
