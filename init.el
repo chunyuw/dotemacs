@@ -159,7 +159,7 @@
 ;; ;; package ;;
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-	("marmalade" . "http://marmalade-repo.org/packages/")
+	;; ("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.org/packages/")))
 ;; ;; package ends here ;;
 
@@ -346,15 +346,10 @@
       reftex-save-parse-info nil
       reftex-use-multiple-selection-buffers t
       reftex-auto-recenter-toc t
-      reftex-plug-into-AUCTeX t
-      reftex-section-levels
-      '(("part" . 0) ("chapter" . 1) ("section" . 2) ("subsection" . 3)
-	("frametitle" . 4) ("subsubsection" . 4) ("paragraph" . 5)
-	("subparagraph" . 6) ("addchap" . -1) ("addsec" . -2)))
+      reftex-plug-into-AUCTeX t)
 
 (setq font-latex-fontify-script 'invisible
-      font-latex-fontify-sectioning 'color
-      font-latex-match-slide-title-keywords '("frametitle"))
+      font-latex-fontify-sectioning 'color)
 
 (setq cdlatex-math-modify-prefix [(super ?')]
       ;; cdlatex-math-symbol-prefix [(super ?`)]
@@ -367,29 +362,22 @@
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
       '(;("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
-	("dfn" "\\begin{dfn}\n?\n\\end{dfn}" nil)
 	("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil)
-	("columns2" "\\begin{columns}[onlytextwidth]\n\\column{.75\\textwidth}\n?\\column{.25\\textwidth}\n\\end{columns}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
 	("blk" "block" "" cdlatex-environment ("block") t nil)
-	("the" "theorem" "" cdlatex-environment ("theorem") t nil)
-	("dfn" "block" "" cdlatex-environment ("dfn") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
-	("col2" "columns2" "" cdlatex-environment ("columns2") t nil)
-	("pro" "proof" "\\begin{proof}[证明]\n?\n\\end{proof}\n" cdlatex-position-cursor nil t nil)
-	("tik" "block" "" cdlatex-environment ("tikzpicture") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
-	    (turn-on-reftex) (prettify-symbols-mode 1)))
+	    (turn-on-reftex) (cdlatex-mode 1) (prettify-symbols-mode 1)))
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (TeX-fold-mode 1) (turn-on-cdlatex) (TeX-fold-buffer)))
+	    (TeX-fold-mode 1) (cdlatex-mode 1) (TeX-fold-buffer)))
 
 (eval-after-load 'latex
   '(progn
@@ -408,17 +396,19 @@
      (define-key TeX-mode-map [(f9)] 'TeX-command-run-all)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
-     ;; (TeX-add-style-hook "beamer" 'beamer-setup)
+     (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
-;; (defun beamer-setup ()
-;;   (reftex-reset-mode)
-;;   (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
-;;   (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame))
+(defun beamer-setup ()
+  (reftex-reset-mode)
+  (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
+  (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame))
 
-(defun LaTeX-mark-build-run-all-frame ()
+(defun LaTeX-mark-build-run-all-frame (arg)
   "mark frame enviroment."
-  (interactive)
+  (interactive "P")
+  (if (and arg (stringp TeX-master) (not (file-exists-p TeX-master)))
+      (shell-command (concat "make " TeX-master)))
   (let ((cur (point)) begin end)
     (save-excursion
       (re-search-forward "^[^%]*?end.frame" nil t)
@@ -427,8 +417,6 @@
       (re-search-backward "^[^%]*?begin.frame" nil t)
       (beginning-of-line 1) (setq begin (point))
       (TeX-pin-region begin end))
-    (unless (file-exists-p TeX-master)
-      (shell-command (concat "make " TeX-master)))
     (TeX-command-run-all-region)))
 
 (defun LaTeX-mark-build-frame ()
@@ -481,8 +469,6 @@
 (autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
-(autoload 'cdlatex-mode "cdlatex" nil t)
-(autoload 'turn-on-cdlatex "cdlatex" nil t)
 (autoload 'markdown-mode "markdown-mode" nil t)
 ;; autoloads end here ;;
 
