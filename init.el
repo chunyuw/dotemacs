@@ -384,7 +384,7 @@
      (setq LaTeX-font-list
 	   (append '((?\C-p "\\mode<presentation>{" "}")
 		     (?\C-a "\\alert{" "}" "\\mathcal{" "}")
-		     (?\C-o "\\only<.>{" "}" "" "")) LaTeX-font-list))))
+		     (?\C-o "\\only<article>{" "}" "" "")) LaTeX-font-list))))
 
 (eval-after-load 'tex
   '(progn
