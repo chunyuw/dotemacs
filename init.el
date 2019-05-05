@@ -72,6 +72,7 @@
       comment-auto-fill-only-comments t
       comment-style 'extra-line
       view-inhibit-help-message t
+      prettify-symbols-unprettify-at-point 'right-edge
       save-abbrevs 'silently)
 
 (setq calendar-latitude 45.74027
@@ -324,9 +325,6 @@
       LaTeX-syntactic-comments t
       LaTeX-indent-level 0
       LaTeX-item-indent 0
-      LaTeX-math-list
-      '((nil "derive" "Arrows" 8658)
-	(nil "derives" "Arrows" 8658))
       LaTeX-indent-environment-list nil
       LaTeX-enable-toolbar nil)
 
@@ -361,10 +359,8 @@
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
-      '(;("frame" "\\begin{frame}\n\\frametitle{?}\n\n\\end{frame}\n" nil)
-	("block" "\\begin{block}{}\n?\n\\end{block}" nil)
-	("frame" "\\begin{frame}\n?\n\\end{frame}" nil)
-	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil))
+      '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
+	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
 	("blk" "block" "" cdlatex-environment ("block") t nil)
@@ -389,10 +385,8 @@
 (eval-after-load 'tex
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
-     ;; (define-key TeX-mode-map [(f7)] 'TeX-command-run-all-region)
-     (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame)
-     ;; (define-key TeX-mode-map [(f8)] 'TeX-command-region)
-     (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame)
+     (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame) ; TeX-command-region
+     (define-key TeX-mode-map [(f8)] 'LaTeX-mark-build-run-all-frame) ; TeX-command-run-all-region
      (define-key TeX-mode-map [(f9)] 'TeX-command-run-all)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
