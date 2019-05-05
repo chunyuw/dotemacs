@@ -360,11 +360,12 @@
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
+	("pedagogy" (concat "\\begin{pedagogy}\n\\begin{figure}[h]\n\\centering\n\\framebox"
+			    "{\\includeslide[width=.6\\textwidth]{?}}\n\\end{figure}\n\\end{pedagogy}\n") nil)
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
-	("blk" "block" "" cdlatex-environment ("block") t nil)
-	("col" "columns" "" cdlatex-environment ("columns") t nil)
+	("ped" "pedagogy" "" cdlatex-environment ("pedagogy") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
 
 (add-hook 'TeX-mode-hook
