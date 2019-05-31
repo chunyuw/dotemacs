@@ -392,6 +392,9 @@
      (define-key TeX-mode-map [(f9)] 'TeX-command-run-all)
      (define-key TeX-mode-map "\M-n" 'next-line)
      (define-key TeX-mode-map "\M-p" 'previous-line)
+     (add-to-list 'tex--prettify-symbols-alist '("\\varnothing" . ?∅))
+     (add-to-list 'tex--prettify-symbols-alist '("\\derive" . ?⇒))
+     (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇒))
      (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
