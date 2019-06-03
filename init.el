@@ -365,6 +365,7 @@
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
+	("blk" "block" "" cdlatex-environment ("block") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
 	("peda" "pedagogy" "" cdlatex-environment ("pedagogy") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
