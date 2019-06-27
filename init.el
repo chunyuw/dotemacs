@@ -361,6 +361,7 @@
       cdlatex-env-alist
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
+	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}\n" nil)
 	("peda" "\\begin{pedagogy}\n\\peda[.4\\textwidth]{?}\n\\end{pedagogy}\n" nil)
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
       cdlatex-command-alist
