@@ -21,8 +21,6 @@
 (global-set-key "\M-z" 'zap-up-to-char)
 (global-set-key "\M-sv" 'view-mode)
 (global-set-key "\M-sg" 'magit-status)
-(global-set-key "\M-s\M-f" 'magit-file-popup)
-(global-set-key "\M-s\M-g" 'magit-dispatch-popup)
 (global-set-key "\M-a" 'helm-multi-files)
 (global-set-key "\M-A" 'helm-find-files)
 (global-set-key "\C-x\C-f" 'ido-find-file)
@@ -523,9 +521,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-eldoc-mode nil)
- '(package-selected-packages
+ '(package-selected-packages (quote (magit auctex cdlatex helm)))
+ '(safe-local-variable-values
    (quote
-    (magit auctex cdlatex helm))))
+    ((TeX-command-extra-options . "-shell-escape")
+     (dired-omit-mode . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
