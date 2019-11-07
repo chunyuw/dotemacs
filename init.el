@@ -521,7 +521,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-eldoc-mode nil)
- '(package-selected-packages (quote (magit auctex cdlatex helm)))
+ '(package-selected-packages (quote (stan-mode magit auctex cdlatex helm)))
  '(safe-local-variable-values
    (quote
     ((TeX-command-extra-options . "-shell-escape")
