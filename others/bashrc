@@ -8,6 +8,11 @@
 # export DGROOT=$HOME/.dgroot
 # export ADMIN=chunyu@hit.edu.cn
 
+if [ -n "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]; then
+		ln -sf $SSH_AUTH_SOCK $HOME/.ssh/auth_sock \
+		&& export SSH_AUTH_SOCK=$HOME/.ssh/auth_sock
+fi
+
 export EDITOR='emacsclient -tca ""' 
 
 #export XDG_CONFIG_HOME=$HOME/.google
@@ -21,3 +26,4 @@ alias  cls=clear
 alias  e='emacsclient -tca ""'
 alias  ec='emacsclient -tca ""'
 alias  se='sudo `which emacs` -u `whoami`'
+alias  p='parallel'
