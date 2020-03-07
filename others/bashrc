@@ -4,21 +4,18 @@
 #     . "$HOME/.emacs.d/others/bashrc"
 # fi
 
-#export PATH=$PATH:/usr/local/sbin:/usr/sbin::/sbin
-# export DGROOT=$HOME/.dgroot
-# export ADMIN=chunyu@hit.edu.cn
-
 export EDITOR='emacsclient -tca ""' 
 
 #export XDG_CONFIG_HOME=$HOME/.google
 export NCURSES_NO_UTF8_ACS=1
 
-export SFK_COLORS=theme:black
+#export SFK_COLORS=theme:black
 
 shopt -s cdspell
 
 alias  cls=clear
-alias  e='emacsclient -tca ""'
-alias  ec='emacsclient -tca ""'
-alias  se='sudo `which emacs` -u `whoami`'
-alias  p='parallel'
+alias  e=' emacsclient -tca ""'
+alias  ec=' emacsclient -tca ""'
+alias  se=' sudo `which emacs` -u `whoami`'
+alias  p=parallel
+alias  d=docker
