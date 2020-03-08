@@ -5,6 +5,7 @@
 (global-unset-key [(insert)])
 (global-unset-key [(insertchar)])
 (global-unset-key [(meta tab)])
+(global-unset-key [(meta ?`)])
 (global-set-key [(control return)] [(return)])
 (global-set-key "\C-x\C-b" 'bs-show)
 (global-set-key "\C-x\C-j" 'dired-jump)
