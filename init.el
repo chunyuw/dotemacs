@@ -563,7 +563,7 @@
  '(match ((t (:background "color-178"))))
  '(mode-line ((t (:background "wheat" :foreground "black"))))
  '(preview-reference-face ((t (:background "#001414" :foreground "wheat"))))
- '(region ((t (:background "gray15")))))
+ '(region ((t (:background "gray25")))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
