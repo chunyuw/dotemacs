@@ -202,7 +202,7 @@
 	   (concat dired-omit-files "\\|^\\.\\|^__init__.py$\\|^__pycache__$"))
 
      (setq dired-guess-shell-alist-user
-	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf")))
+	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
 
      (when (eq system-type 'darwin)
        (define-key dired-mode-map "O"
