@@ -361,14 +361,17 @@
       cdlatex-env-alist
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
-	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}\n" nil)
-	("peda" "\\begin{pedagogy}\n\\peda[.4\\textwidth]{?}\n\\end{pedagogy}\n" nil)
+	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
+	("soln" "\\begin{soln}\n?\n\\end{soln}" nil)
+	("pedagogy" "\\begin{pedagogy}\n\\peda[.4\\textwidth]{?}\n\\end{pedagogy}" nil)
 	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
       cdlatex-command-alist
       '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
 	("blk" "block" "" cdlatex-environment ("block") t nil)
 	("col" "columns" "" cdlatex-environment ("columns") t nil)
+	("sol" "soln" "" cdlatex-environment ("soln") t nil)
 	("peda" "pedagogy" "" cdlatex-environment ("pedagogy") t nil)
+	("ped" "pedagogy" "" cdlatex-environment ("pedagogy") t nil)
 	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
 
 (add-hook 'TeX-mode-hook
