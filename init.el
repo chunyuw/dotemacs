@@ -304,6 +304,7 @@
       '(("[algo]" ("algorithmic"))
 	("[comm]" ("comment"))
 	("[tab]" ("tabular"))
+	("[soln]" ("soln"))
 	("[align*]" ("align*"))
 	("[tikz]" ("tikzpicture")))
       TeX-source-correlate-mode t
@@ -355,21 +356,25 @@
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
 	(?b ("\\beta" "\\boldsymbol" ""))
 	(?d ("\\delta" "\\hat\\delta" "\\partial"))
+	(?0 ("\\varnothing" "\\emptyset" ""))
+	(?c ("\\Sym{?}" "" ""))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
-	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}\n" nil)
-	("peda" "\\begin{pedagogy}\n\\peda[.4\\textwidth]{?}\n\\end{pedagogy}\n" nil)
-	("frame" "\\begin{frame}\n?\n\\end{frame}" nil))
+	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
+	("pedagogy" "\\begin{pedagogy}\n\\peda[.4\\textwidth]{?}\n\\end{pedagogy}" nil))
       cdlatex-command-alist
-      '(("fr" "frame" "" cdlatex-environment ("frame") t nil)
-	("blk" "block" "" cdlatex-environment ("block") t nil)
-	("col" "columns" "" cdlatex-environment ("columns") t nil)
-	("peda" "pedagogy" "" cdlatex-environment ("pedagogy") t nil)
-	("tikz" "block" "" cdlatex-environment ("tikzpicture") t nil)))
+      '(("fr" nil "" cdlatex-environment ("frame") t nil)
+	("blk" nil "" cdlatex-environment ("block") t nil)
+	("col" nil "" cdlatex-environment ("columns") t nil)
+	("sol" nil "" cdlatex-environment ("soln") t nil)
+	("reg" nil "$\\mathbf{?}$" cdlatex-position-cursor nil t nil)
+	("ped" nil "" cdlatex-environment ("pedagogy") t nil)
+	("peda" nil "" cdlatex-environment ("pedagogy") t nil)
+	("tikz" nil "" cdlatex-environment ("tikzpicture") t nil)))
 
 (add-hook 'TeX-mode-hook
 	  (lambda ()
@@ -383,6 +388,7 @@
   '(progn
      (setq LaTeX-font-list
 	   (append '((?\C-p "\\mode<presentation>{" "}")
+		     (?\C-f "\\Sym{" "}")
 		     (?\C-a "\\alert{" "}" "\\mathcal{" "}")
 		     (?\C-o "\\only<article>{" "}" "" "")) LaTeX-font-list))))
 
@@ -522,6 +528,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(compilation-always-kill t)
+ '(compilation-auto-jump-to-first-error t)
+ '(compilation-mode-hook nil)
+ '(compilation-scroll-output t)
+ '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages (quote (json-mode ess stan-mode magit auctex cdlatex helm)))
  '(safe-local-variable-values
