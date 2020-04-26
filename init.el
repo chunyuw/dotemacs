@@ -365,7 +365,7 @@
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
 	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
-	("pedagogy" "\\begin{pedagogy}\n{?}\n\\end{pedagogy}" nil))
+	("pedagogy" "\\begin{pedagogy}\n?\n\\end{pedagogy}" nil))
       cdlatex-command-alist
       '(("fr" nil "" cdlatex-environment ("frame") t nil)
 	("blk" nil "" cdlatex-environment ("block") t nil)
