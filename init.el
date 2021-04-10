@@ -513,6 +513,7 @@
 
 (when (eq system-type 'windows-nt) ;; Windows
   (add-to-list 'default-frame-alist '(left . 1745 )) ; '(left . (- 0))
+  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
