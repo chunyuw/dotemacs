@@ -199,7 +199,9 @@
      (define-key dired-mode-map "K" 'dired-kill-subdir)
 
      (setq dired-omit-files
-	   (concat dired-omit-files "\\|^\\.\\|^__init__.py$\\|^__pycache__$"))
+	   (concat dired-omit-files
+		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$"
+		   "\\|\\.fdb_\\|\\.fls$\\|\\.synctex\\|\\.xdv$\\|\\.log"))
 
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
@@ -538,8 +540,7 @@
  '(package-selected-packages (quote (json-mode ess stan-mode magit auctex cdlatex helm)))
  '(safe-local-variable-values
    (quote
-    ((TeX-command-extra-options . "-shell-escape")
-     (dired-omit-mode . t)))))
+    ((TeX-command-extra-options . "-shell-escape")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
