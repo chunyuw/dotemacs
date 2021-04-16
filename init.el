@@ -537,7 +537,7 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
- '(package-selected-packages '(json-mode ess stan-mode magit cdlatex helm))
+ '(package-selected-packages '(json-mode ess stan-mode magit auctex cdlatex helm))
  '(safe-local-variable-values
    (quote
     ((TeX-command-extra-options . "-shell-escape")))))
