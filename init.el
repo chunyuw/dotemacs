@@ -200,8 +200,7 @@
 
      (setq dired-omit-files
 	   (concat dired-omit-files
-		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$"
-		   "\\|\\.fdb_\\|\\.fls$\\|\\.synctex\\|\\.xdv$\\|\\.log"))
+		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$\\|\\(slides\\|notes\\)-ch..\\.tex"))
 
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
@@ -247,7 +246,8 @@
       ido-create-new-buffer 'always
       ido-use-virtual-buffers t
       completion-ignored-extensions
-      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb")
+      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb" ".fls" ".xdv"
+		".synctex.gz" ".fdb_latexmk" ".log")
 	      completion-ignored-extensions))
 
 (eval-after-load 'ido
@@ -514,8 +514,8 @@
   (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(left . 1745 )) ; '(left . (- 0))
-  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  ;(add-to-list 'default-frame-alist '(left . 1745 )) ; '(left . (- 0))
+  (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
@@ -537,7 +537,7 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
- '(package-selected-packages '(json-mode ess stan-mode magit auctex cdlatex helm))
+ '(package-selected-packages (quote (json-mode ess stan-mode magit auctex cdlatex helm)))
  '(safe-local-variable-values
    (quote
     ((TeX-command-extra-options . "-shell-escape")))))
