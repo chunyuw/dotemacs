@@ -233,7 +233,7 @@
 		(c (substitute-in-file-name "$COMMANDER_PATH\\totalcmd64.exe"))
 		(g (subst-char-in-string ?/ ?\\ f)))
 	   (if (file-exists-p f)
-	       (w32-shell-execute nil c (format "/O %S" g) 1)))))))
+	       (w32-shell-execute nil c (format "/O %S" g) 3)))))))
 ;; Dired ends here ;;
 
 ;; Ido ;;
