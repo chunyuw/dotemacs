@@ -494,7 +494,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 167) (height . 64)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 128) (height . 52)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
@@ -514,12 +514,12 @@
   (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  ;(add-to-list 'default-frame-alist '(left . 1745 )) ; '(left . (- 0))
-  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  (add-to-list 'default-frame-alist '(left . 1750 )) ; '(left . (- 0))
+  ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
 
-  (set-face-attribute 'default nil :family "Consolas" :height 140)
+  (set-face-attribute 'default nil :family "Consolas" :height 136)
 
   (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
