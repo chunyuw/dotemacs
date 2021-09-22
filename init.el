@@ -494,7 +494,7 @@
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 128) (height . 52)))))
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
@@ -514,7 +514,7 @@
   (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (add-to-list 'default-frame-alist '(left . 1750 )) ; '(left . (- 0))
+  (add-to-list 'default-frame-alist '(left . 1665)) ; '(left . (- 0))
   ;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
   (setq face-font-rescale-alist	'(("微软雅黑" . 1.1) ("宋体" . 1.1)))
