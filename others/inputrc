@@ -10,6 +10,6 @@ set show-all-if-ambiguous on
 #set completion-query-item 500
 
 "\C-z": set-mark-command
-"\C-\M-w": " emacsclient -tca '' .\n"
-"\C-\M-e": " emacsclient -tca '' \n"
-"\C-\M-r": " screen -R\n"
+"\e\C-w": " emacsclient -tca '' .\n"
+"\e\C-e": " emacsclient -tca '' \n"
+"\e\C-r": " screen -R\n"
