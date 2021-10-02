@@ -91,7 +91,7 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-(setq safe-local-variable-values '((dired-omit-mode . t))
+(setq ;; safe-local-variable-values '((dired-omit-mode . t))
       completion-styles '(partial-completion initials)
       completion-pcm-complete-word-inserts-delimiters t
       savehist-ignored-variables '(file-name-history))
@@ -184,8 +184,9 @@
       dired-bind-man nil
       dired-bind-vm nil
       dired-isearch-filenames 'dwim
-      wdired-use-dired-vertical-movement 'sometime
-      dired-omit-files-p t)
+      wdired-use-dired-vertical-movement 'sometime)
+
+(add-hook 'dired-mode-hook 'dired-omit-mode)
 
 (eval-after-load 'dired
   '(progn
