@@ -1,4 +1,0 @@
-Local Variables:
-dired-omit-files: "^\\(\\..*\\|history\\|network-security.data\\|places\\|recentf\\|auto-save-list\\)$"
-dired-omit-files-p: t
-End:
