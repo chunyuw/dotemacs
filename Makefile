@@ -20,10 +20,6 @@ clean:
 	-@$(RM) -rv auto-save-list abbrev_defs ede-projects.el 
 	-@$(RM) -rv image-dired srecode-map.el url semanticdb tutorial
 
-HOSTS=s1 s2 s3 s4 nc1 nc2 cstgw cst
-upall:; @for x in $(HOSTS) ; do ssh $$x "echo $$x; cd .emacs.d; git pull" ; done
-cleanall:; @for x in $(HOSTS) ; do ssh $$x "echo $$x; cd .emacs.d; make clean" ; done
-
 # Local Variables:
 # mode: makefile-gmake
 # End:
