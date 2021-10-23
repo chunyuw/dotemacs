@@ -55,6 +55,8 @@
       ring-bell-function 'ignore
       Info-use-header-line nil
       max-mini-window-height 3
+      initial-scratch-message nil
+      initial-major-mode 'text-mode
       isearch-allow-scroll t)
 
 (setq-default major-mode 'text-mode
