@@ -82,7 +82,7 @@
       calendar-week-start-day 1)
 
 (setq user-full-name "Chunyu Wang"
-      user-mail-address "cymacs@gmail.com")
+      user-mail-address "chunyu@hit.edu.cn")
 
 (setq version-control t
       kept-old-versions 2
