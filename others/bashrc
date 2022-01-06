@@ -17,3 +17,8 @@ alias  cls=clear
 alias  e=' emacsclient -tca ""'
 alias  ec=' emacsclient -tca ""'
 alias  se=' sudo `which emacs` -u `whoami`'
+
+
+uptocc () {
+  curl -T "$1" "http://cc.nclab.net/up/$1"
+}
