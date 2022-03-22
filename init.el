@@ -210,6 +210,7 @@
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
 
      (when (eq system-type 'darwin)
+       (global-unset-key [(control x) (control z)])
        (define-key dired-mode-map "O"
 	 (lambda () (interactive) ;; (shell-command "open .")
 	   (shell-command (concat "open \"" (dired-get-filename) "\""))))
