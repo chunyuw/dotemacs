@@ -309,8 +309,8 @@
       TeX-fold-type-list '(env)
       TeX-fold-env-spec-list
       '(("[algo]" ("algorithmic"))
-	("[comm]" ("comment"))
-	("[tab]" ("tabular"))
+	("[comment]" ("comment"))
+	("[tabular]" ("tabular"))
 	("[soln]" ("soln"))
 	("[align*]" ("align*"))
 	("[tikz]" ("tikzpicture")))
