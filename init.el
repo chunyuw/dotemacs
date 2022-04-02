@@ -204,7 +204,7 @@
 
      (setq dired-omit-files
 	   (concat dired-omit-files
-		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$\\|comment.cut\\|\\(slides\\|notes\\|exec\\)-ch..\\.tex"))
+		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$\\|comment.cut\\|\\(slides\\|notes\\)-ch..\\.tex"))
 
      (setq dired-guess-shell-alist-user
 	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
