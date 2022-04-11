@@ -219,8 +219,8 @@
 	   (shell-command (concat "open \"" (dired-get-filename) "\"")))))
 
      (when (eq system-type 'windows-nt)
-       (define-key dired-mode-map "O" 'my-dired-open-explorer)
-       (define-key dired-mode-map "o" 'my-totalcmd-open)
+       (define-key dired-mode-map "o" 'my-dired-open-explorer)
+       (define-key dired-mode-map "O" 'my-totalcmd-open)
        (define-key dired-mode-map "W"
 	 (lambda () (interactive)
 	   (browse-url-generic (concat "file:///" (dired-get-filename)))))
