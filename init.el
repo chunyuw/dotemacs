@@ -378,6 +378,7 @@
 	("blk" nil "" cdlatex-environment ("block") t nil)
 	("col" nil "" cdlatex-environment ("columns") t nil)
 	("sol" nil "" cdlatex-environment ("soln") t nil)
+	("soln" nil "" cdlatex-environment ("soln") t nil)
 	("reg" nil "$\\mathbf{?}$" cdlatex-position-cursor nil t nil)
 	("ped" nil "" cdlatex-environment ("pedagogy") t nil)
 	("peda" nil "" cdlatex-environment ("pedagogy") t nil)
