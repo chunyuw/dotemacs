@@ -94,6 +94,11 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
+;; (setq url-proxy-services
+;;     '(("no_proxy" . "^\\(localhost\\|10.*\\|*.edu.cn\\)")
+;;       ("http" . "192.168.6.5:3000")
+;;       ("https" . "192.168.6.5:3000")))
+
 (setq ;; safe-local-variable-values '((dired-omit-mode . t))
       completion-styles '(partial-completion initials)
       completion-pcm-complete-word-inserts-delimiters t
@@ -163,7 +168,7 @@
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
 	;; ("marmalade" . "http://marmalade-repo.org/packages/")
-	("melpa" . "http://melpa.org/packages/")))
+	("melpa" . "http://stable.melpa.org/packages/")))
 ;; ;; package ends here ;;
 
 ;; Python ;;
@@ -543,10 +548,8 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
- '(package-selected-packages (quote (json-mode ess stan-mode magit auctex cdlatex helm)))
- '(safe-local-variable-values
-   (quote
-    ((TeX-command-extra-options . "-shell-escape")))))
+ '(package-selected-packages '(json-mode ess stan-mode magit auctex cdlatex helm))
+ '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
