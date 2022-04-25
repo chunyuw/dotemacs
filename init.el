@@ -257,7 +257,7 @@
       ido-use-virtual-buffers t
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb" ".fls" ".xdv"
-		".synctex.gz" ".fdb_latexmk" ".log")
+		".synctex.gz" ".synctex(busy)" ".listing" ".fdb_latexmk" ".log")
 	      completion-ignored-extensions))
 
 (eval-after-load 'ido
@@ -548,7 +548,8 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
- '(package-selected-packages '(json-mode ess stan-mode magit auctex cdlatex helm))
+ '(package-selected-packages
+   '(tNFA htmlize json-mode ess stan-mode magit auctex cdlatex helm))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
