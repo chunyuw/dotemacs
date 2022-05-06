@@ -269,9 +269,7 @@
 ;; Ido ends here ;;
 
 ;; magit ;;
-(setq magit-repository-directories
-      '("~/automata" "~/rnotes" "~/.emacs.d" "~/ccsite")
-      magit-auto-revert-immediately nil
+(setq magit-auto-revert-immediately nil
       auto-revert-interval 2
       magit-process-popup-time 10)
 ;; magit ends here ;;
