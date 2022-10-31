@@ -524,6 +524,8 @@
   (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
+  (setq package-gnupghome-dir "/d/home/.emacs.d/elpa/gnupg")
+
   ;; (add-to-list 'default-frame-alist '(left . 1665)) ; '(left . (- 0))
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
 

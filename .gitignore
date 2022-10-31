@@ -3,6 +3,7 @@
 .DS_Store
 /network-security.data
 bookmarks
+eln-cache
 elpa
 history
 places
