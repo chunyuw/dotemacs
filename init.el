@@ -366,7 +366,7 @@
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
 	(?b ("\\beta" "\\boldsymbol" ""))
-	(?d ("\\delta" "\\hat\\delta" "\\partial"))
+	(?d ("\\delta" "\\delta^{*}" "\\partial"))
 	(?0 ("\\varnothing" "\\emptyset" ""))
 	(?o ("\\omega" "\\overline{?}" ""))
 	(?c ("\\Sym{?}" "" ""))
@@ -376,13 +376,20 @@
       cdlatex-paired-parens "$[{(<|"
       cdlatex-env-alist
       '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
-	("example" "\\begin{example}{}{?}\n\n\\end{example}" nil)
+	("example" "\\begin{example} % ex:?\n\n\\end{example}" nil)
+	("definition" "\\begin{definition} % def:?\n\n\\end{definition}" nil)
+	("theorem" "\\begin{theorem} % thm:?\n\n\\end{theorem}" nil)
+	("figure" "\\begin{figure} % fig:?\n\\end{figure}" nil)
 	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
 	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
 	("pedagogy" "\\begin{pedagogy}\n?\n\\end{pedagogy}" nil))
       cdlatex-command-alist
       '(("fr" nil "" cdlatex-environment ("frame") t nil)
 	("ex" nil "" cdlatex-environment ("example") t nil)
+	("fig" nil "" cdlatex-environment ("figure") t nil)
+	("def" nil "" cdlatex-environment ("definition") t nil)
+	("th" nil "" cdlatex-environment ("theorem") t nil)
+	("thm" nil "" cdlatex-environment ("theorem") t nil)
 	("blk" nil "" cdlatex-environment ("block") t nil)
 	("col" nil "" cdlatex-environment ("columns") t nil)
 	("sol" nil "" cdlatex-environment ("soln") t nil)
