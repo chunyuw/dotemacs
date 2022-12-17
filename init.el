@@ -258,7 +258,8 @@
       ido-use-virtual-buffers t
       completion-ignored-extensions
       (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb" ".fls" ".xdv"
-		".synctex.gz" ".synctex(busy)" ".listing" ".fdb_latexmk" ".log")
+		".synctex.gz" ".synctex(busy)" ".listing" ".fdb_latexmk" ".log" ".maf"
+		".mtc" ".mtc0" ".mtc1" ".mtc2")
 	      completion-ignored-extensions))
 
 (eval-after-load 'ido
@@ -361,7 +362,7 @@
 (setq font-latex-fontify-script 'invisible
       font-latex-fontify-sectioning 'color)
 
-(setq cdlatex-math-modify-prefix [(super ?')]
+(setq cdlatex-math-modify-prefix [(meta ?m)]
       ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
@@ -369,32 +370,28 @@
 	(?d ("\\delta" "\\delta^{*}" "\\partial"))
 	(?0 ("\\varnothing" "\\emptyset" ""))
 	(?o ("\\omega" "\\overline{?}" ""))
-	(?c ("\\Sym{?}" "" ""))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
-	(?= ("\\Leftrightarrow" "\\Longleftrightarrow" "\equiv"))
+	(?= ( "\\equiv" "\\Leftrightarrow" "\\Longleftrightarrow"))
 	(?{ ("\\subset" "\\{?\\}")))
-      cdlatex-paired-parens "$[{(<|"
+      cdlatex-paired-parens "$[{(|"
       cdlatex-env-alist
-      '(("block" "\\begin{block}{}\n?\n\\end{block}" nil)
-	("example" "\\begin{example} % ex:?\n\n\\end{example}" nil)
-	("definition" "\\begin{definition} % def:?\n\n\\end{definition}" nil)
-	("theorem" "\\begin{theorem} % thm:?\n\n\\end{theorem}" nil)
-	("figure" "\\begin{figure} % fig:?\n\\end{figure}" nil)
-	("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
+      '(("columns" "\\begin{columns}[onlytextwidth]\n\\column{.8\\textwidth}\n?\\column{.2\\textwidth}\n\\end{columns}" nil)
 	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
 	("pedagogy" "\\begin{pedagogy}\n?\n\\end{pedagogy}" nil))
       cdlatex-command-alist
       '(("fr" nil "" cdlatex-environment ("frame") t nil)
-	("ex" nil "" cdlatex-environment ("example") t nil)
-	("fig" nil "" cdlatex-environment ("figure") t nil)
-	("def" nil "" cdlatex-environment ("definition") t nil)
-	("th" nil "" cdlatex-environment ("theorem") t nil)
-	("thm" nil "" cdlatex-environment ("theorem") t nil)
-	("blk" nil "" cdlatex-environment ("block") t nil)
+	("ex" nil "\\begin{example} % ex:?\n\n\\end{example}" cdlatex-position-cursor nil t nil)
+	("fig" nil "\\begin{figure} % fig:?\n\\end{figure}" cdlatex-position-cursor nil t nil)
+	("def" nil "\\begin{definition} % def:?\n\n\\end{definition}" cdlatex-position-cursor nil t nil)
+	("thm" nil "\\begin{theorem} % thm:?\n\n\\end{theorem}" cdlatex-position-cursor nil t nil)
+	("blk" nil "\\begin{block}{}\n?\n\\end{block}" cdlatex-position-cursor nil t nil)
+	("dfa" nil "$M?=(Q,\\Sigma,\\delta,q_0,F)$" cdlatex-position-cursor nil t t)
+	("pda" nil "$M?=(Q,\\Sigma,\\Gamma,\\delta,q_0,Z_0,F)$" cdlatex-position-cursor nil t t)
+	("cfg" nil "$G?=(V,T,P,S)$" cdlatex-position-cursor nil t t)
+	("L" nil "$L=\\BrSet{?}{}$" cdlatex-position-cursor nil t t)
 	("col" nil "" cdlatex-environment ("columns") t nil)
 	("sol" nil "" cdlatex-environment ("soln") t nil)
 	("soln" nil "" cdlatex-environment ("soln") t nil)
-	("reg" nil "$\\mathbf{?}$" cdlatex-position-cursor nil t nil)
 	("ped" nil "" cdlatex-environment ("pedagogy") t nil)
 	("peda" nil "" cdlatex-environment ("pedagogy") t nil)
 	("tikz" nil "" cdlatex-environment ("tikzpicture") t nil)))
