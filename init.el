@@ -105,7 +105,7 @@
       savehist-ignored-variables '(file-name-history))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?i '(file . "/sshx:ii:/var/www/iilab"))
+(set-register ?i '(file . "/ssh:ii:/var/www/iilab"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -593,7 +593,7 @@
  '(magit-diff-removed ((t (:background "#5f0000"))))
  '(magit-diff-removed-highlight ((t (:background "#af0000"))))
  '(magit-section-highlight ((t (:background "#262626"))))
- '(match ((t (:background "color-178"))))
+ '(match ((t (:background "dark green"))))
  '(mode-line ((t (:background "wheat" :foreground "black"))))
  '(preview-reference-face ((t (:background "#001414" :foreground "wheat"))))
  '(region ((t (:background "gray25")))))
