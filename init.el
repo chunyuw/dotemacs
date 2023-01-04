@@ -105,7 +105,7 @@
       savehist-ignored-variables '(file-name-history))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?i '(file . "/ssh:ii:/var/www/iilab"))
+(set-register ?i '(file . "/sshx:ii:/var/www/iilab"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -559,7 +559,7 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(tNFA htmlize json-mode ess stan-mode magit auctex cdlatex helm))
+   '(auctex-latexmk helm-core helm tNFA htmlize json-mode ess stan-mode magit auctex cdlatex))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
