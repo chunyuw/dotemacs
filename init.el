@@ -491,6 +491,7 @@
 ;; misc packages end here ;;
 
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.[pP][dD][fF]\\'" . pdf-view-mode))
 
 ;; autoloads ;;
 (autoload 'helm-fild-files "helm-files" nil t)
@@ -498,6 +499,7 @@
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
 (autoload 'markdown-mode "markdown-mode" nil t)
+(autoload 'pdf-view-mode "pdf-view" nil t)
 ;; autoloads end here ;;
 
 (mapc (lambda (func) (put func 'disabled t))
@@ -559,7 +561,7 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex-latexmk helm-core helm tNFA htmlize json-mode ess stan-mode magit auctex cdlatex))
+   '(markdown-mode pdf-tools auctex-latexmk helm-core helm tNFA htmlize json-mode ess stan-mode magit auctex cdlatex))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
