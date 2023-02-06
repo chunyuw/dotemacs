@@ -165,12 +165,6 @@
      (define-key diff-mode-map "\M-K" 'kill-this-buffer)
      (define-key diff-mode-map "\M-k" 'kill-buffer-and-window)))
 
-(eval-after-load 'pdf-view
-  '(progn
-     (define-key pdf-view-mode-map "t" 'pdf-view-themed-minor-mode)
-     (define-key pdf-view-mode-map "j" 'pdf-view-next-line-or-next-page)
-     (define-key pdf-view-mode-map "k" 'pdf-view-previous-line-or-previous-page)))
-
 ;; ;; package ;;
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -486,6 +480,18 @@
 (recentf-mode 1)
 (require 'recentf-ext nil t)
 ;; recentf ends here ;;
+
+;; pdf-view-mode ;;
+(add-hook 'pdf-view-mode-hook
+	  (lambda ()
+	    (pdf-view-fit-page-to-window)))
+
+(eval-after-load 'pdf-view
+  '(progn
+     (define-key pdf-view-mode-map "t" 'pdf-view-themed-minor-mode)
+     (define-key pdf-view-mode-map "j" 'pdf-view-next-line-or-next-page)
+     (define-key pdf-view-mode-map "k" 'pdf-view-previous-line-or-previous-page)))
+;; pdf-view-mode ends here ;;
 
 ;; misc packages ;;
 (eval-after-load 'calc
