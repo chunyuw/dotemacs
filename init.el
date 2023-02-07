@@ -372,6 +372,7 @@
 	(?0 ("\\varnothing" "\\emptyset" ""))
 	(?o ("\\omega" "\\overline{?}" ""))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
+	(?\: ("\\ldots"))
 	(?= ( "\\equiv" "\\Leftrightarrow" "\\Longleftrightarrow"))
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(|"
