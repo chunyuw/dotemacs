@@ -372,6 +372,7 @@
 	(?0 ("\\varnothing" "\\emptyset" ""))
 	(?o ("\\omega" "\\overline{?}" ""))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
+	(?\. ("\\cdot" "\\cdots"))
 	(?\: ("\\ldots"))
 	(?= ( "\\equiv" "\\Leftrightarrow" "\\Longleftrightarrow"))
 	(?{ ("\\subset" "\\{?\\}")))
