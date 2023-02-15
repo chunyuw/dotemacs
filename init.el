@@ -391,7 +391,7 @@
 	("dfa" nil "$M?=(Q,\\Sigma,\\delta,q_0,F)$" cdlatex-position-cursor nil t t)
 	("pda" nil "$M?=(Q,\\Sigma,\\Gamma,\\delta,q_0,Z_0,F)$" cdlatex-position-cursor nil t t)
 	("cfg" nil "$G?=(V,T,P,S)$" cdlatex-position-cursor nil t t)
-	("L" nil "$L=\\BrSet{?}{}$" cdlatex-position-cursor nil t t)
+	("L" nil "$L=\\set{?}{}$" cdlatex-position-cursor nil t t)
 	("col" nil "" cdlatex-environment ("columns") t nil)
 	("sol" nil "" cdlatex-environment ("soln") t nil)
 	("soln" nil "" cdlatex-environment ("soln") t nil)
