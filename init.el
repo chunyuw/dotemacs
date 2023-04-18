@@ -392,6 +392,7 @@
 	("dfa" nil "$M?=(Q,\\Sigma,\\delta,q_0,F)$" cdlatex-position-cursor nil t t)
 	("pda" nil "$M?=(Q,\\Sigma,\\Gamma,\\delta,q_0,Z_0,F)$" cdlatex-position-cursor nil t t)
 	("cfg" nil "$G?=(V,T,S,P)$" cdlatex-position-cursor nil t t)
+	("wig" nil "$w\\in L(G)$" cdlatex-position-cursor nil t t)
 	("L" nil "$L=\\set{?}{}$" cdlatex-position-cursor nil t t)
 	("col" nil "" cdlatex-environment ("columns") t nil)
 	("sol" nil "" cdlatex-environment ("soln") t nil)
@@ -406,7 +407,7 @@
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (TeX-fold-mode 1) (cdlatex-mode 1) (TeX-fold-buffer)))
+	    (TeX-fold-mode 1) (cdlatex-mode 1) (TeX-fold-buffer) (abbrev-mode 1)))
 
 (eval-after-load 'latex
   '(progn
