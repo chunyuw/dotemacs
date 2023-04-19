@@ -473,6 +473,22 @@
     (if (> (length fpath) 0) (find-file fpath)
       (message "Kpsewhich not found: %s" filename))))
 
+(defun cfg-replace (beginning end)
+  (interactive "*r")
+  (setq end (copy-marker end))
+  (save-match-data
+    (save-excursion
+      (goto-char beginning)
+      (while (search-forward "→" end t)
+        (replace-match "\\\\rightarrow " nil nil nil))
+      (goto-char beginning)
+      (while (search-forward "|" end t)
+        (replace-match "\\\\mid " nil nil nil))
+      (goto-char beginning)
+      (while (search-forward "λ" end t)
+        (replace-match "\\\\lambda " nil nil nil))
+      (set-marker end nil))))
+
 (load "preview-latex.el" t t t)
 (load "auctex.el" t t t)
 ;; AUCTeX, RefTeX, CDLaTeX etc. end here ;;
