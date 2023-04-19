@@ -480,7 +480,7 @@
     (save-excursion
       (goto-char beginning)
       (while (search-forward "→" end t)
-        (replace-match "\\\\rightarrow " nil nil nil))
+        (replace-match "& \\\\rightarrow " nil nil nil))
       (goto-char beginning)
       (while (search-forward "|" end t)
         (replace-match "\\\\mid " nil nil nil))
