@@ -487,6 +487,9 @@
       (goto-char beginning)
       (while (search-forward "λ" end t)
         (replace-match "\\\\lambda " nil nil nil))
+      (goto-char beginning)
+      (while (search-forward "⇒" end t)
+        (replace-match "\\\\derive " nil nil nil))
       (set-marker end nil))))
 
 (load "preview-latex.el" t t t)
