@@ -371,7 +371,7 @@
 	(?d ("\\delta" "\\delta^{*}(?)" "\\partial"))
 	(?0 ("\\varnothing" "\\emptyset" ""))
 	(?o ("\\omega" "\\overline{?}" ""))
-	(?\, ("\\widehat{?}"))
+	(?\, ("\\widehat" "\\widehat G"))
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?\. ("\\cdot" "\\cdots"))
 	(?\: ("\\ldots"))
