@@ -391,7 +391,7 @@
 	("blk" nil "\\begin{block}{}\n?\n\\end{block}" cdlatex-position-cursor nil t nil)
 	("dfa" nil "$M?=(Q,\\Sigma,\\delta,q_0,F)$" cdlatex-position-cursor nil t t)
 	("pda" nil "$M?=(Q,\\Sigma,\\Gamma,\\delta,q_0,Z_0,F)$" cdlatex-position-cursor nil t t)
-	("cfg" nil "$G?=(V,T,S,P)$" cdlatex-position-cursor nil t t)
+	("cfg" nil "$G=(V,T,S,P)$" cdlatex-position-cursor nil t t)
 	("wig" nil "$w\\in L(G)$" cdlatex-position-cursor nil t t)
 	("L" nil "$L=\\set{?}{}$" cdlatex-position-cursor nil t t)
 	("lg" nil "$L(G)$" cdlatex-position-cursor nil t t)
