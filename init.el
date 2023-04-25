@@ -375,6 +375,7 @@
 	(?\; ("\\derive" "\\derives" "\\derivesg"))
 	(?\. ("\\cdot" "\\cdots"))
 	(?\: ("\\ldots"))
+	(?\B ("\\square"))
 	(?= ( "\\equiv" "\\Leftrightarrow" "\\Longleftrightarrow"))
 	(?{ ("\\subset" "\\{?\\}")))
       cdlatex-paired-parens "$[{(|"
