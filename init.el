@@ -367,6 +367,7 @@
       ;; cdlatex-math-symbol-prefix [(super ?`)]
       cdlatex-math-symbol-alist
       '((?e ("\\varepsilon" "\\epsilon" "\\exp"))
+	(?f ("\\frac" "\\phi" "\\varphi"))
 	(?b ("\\beta" "\\boldsymbol" ""))
 	(?d ("\\delta" "\\delta^{*}(?)" "\\partial"))
 	(?0 ("\\varnothing" "\\emptyset" ""))
