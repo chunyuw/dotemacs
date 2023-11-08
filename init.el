@@ -436,8 +436,8 @@
      (define-key TeX-mode-map "\M-p" 'previous-line)
      (add-to-list 'tex--prettify-symbols-alist '("\\varnothing" . ?∅))
      (add-to-list 'tex--prettify-symbols-alist '("\\derive" . ?⇒))
-     (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇒))
-     (add-to-list 'tex--prettify-symbols-alist '("\\bigcdot" . ?⇒•))
+     (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇛))
+     (add-to-list 'tex--prettify-symbols-alist '("\\bigcdot" . ?•))
      (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
 
