@@ -105,7 +105,7 @@
       savehist-ignored-variables '(file-name-history))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?i '(file . "/sshx:ii:/var/www/iilab/automata"))
+(set-register ?i '(file . "/sshx:xx:/var/www/iilab/automata"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -437,6 +437,7 @@
      (add-to-list 'tex--prettify-symbols-alist '("\\varnothing" . ?∅))
      (add-to-list 'tex--prettify-symbols-alist '("\\derive" . ?⇒))
      (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇛))
+     (add-to-list 'tex--prettify-symbols-alist '("\\bigcdot" . ?•))
      (add-to-list 'tex--prettify-symbols-alist '("\\dotC" . ?•))
      (TeX-add-style-hook "beamer" 'beamer-setup)
      (TeX-global-PDF-mode t)))
