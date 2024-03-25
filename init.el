@@ -426,7 +426,7 @@
 		     (?\C-a "\\alert{" "}" "\\mathcal{" "}")
 		     (?\C-o "\\only<article>{" "}" "" "")) LaTeX-font-list))))
 
-(eval-after-load 'tex
+(eval-after-load 'tex-mode
   '(progn
      (define-key TeX-mode-map [(backtab)] 'indent-for-tab-command)
      (define-key TeX-mode-map [(f7)] 'LaTeX-mark-build-frame) ; TeX-command-region
