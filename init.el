@@ -432,8 +432,7 @@
      (add-to-list 'tex--prettify-symbols-alist '("\\derive" . ?⇒))
      (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇛))
      (add-to-list 'tex--prettify-symbols-alist '("\\bigcdot" . ?•))
-     (add-to-list 'tex--prettify-symbols-alist '("\\dotC" . ?•))
-     (TeX-global-PDF-mode t)))
+     (add-to-list 'tex--prettify-symbols-alist '("\\dotC" . ?•))))
 
 (defun LaTeX-mark-build-run-all-frame (arg)
   "mark frame enviroment."
