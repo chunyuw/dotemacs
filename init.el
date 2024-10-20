@@ -31,10 +31,6 @@
 
 (defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
-(setq w32-lwindow-modifier 'super
-      w32-apps-modifier 'hyper
-      w32-pass-lwindow-to-system nil)
-
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta
       mac-right-command-modifier 'super
