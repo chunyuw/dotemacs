@@ -59,6 +59,7 @@
 (setq-default major-mode 'text-mode
 	      fill-column 78
 	      mouse-yank-at-point t
+	      indent-tabs-mode nil
 	      indicate-empty-lines 'left
 	      indicate-buffer-boundaries 'left)
 
