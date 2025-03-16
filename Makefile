@@ -15,7 +15,7 @@ ci:;    @git commit -a -m "$(AUTOCSTR)"
 st:;	@git status
 sync:   pull push
 
-clean:
+c clean:
 	-@$(RM) -rv history places recentf tramp 
 	-@$(RM) -rv auto-save-list abbrev_defs ede-projects.el 
 	-@$(RM) -rv image-dired srecode-map.el url semanticdb tutorial
