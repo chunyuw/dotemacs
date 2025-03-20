@@ -35,6 +35,6 @@ pitemp () {
     ## ******************************************* ##
     ## NOTE : ADJUST " /opt/vc/bin/vcgencmd " path ##
     ## ******************************************* ##
-    echo "GPU => $(vcgencmd measure_temp)"
-    echo "CPU => $((cpu/1000))'C"
+    echo "GPU $(vcgencmd measure_temp)"
+    echo "CPU temp=$((cpu/1000))'C"
 }
