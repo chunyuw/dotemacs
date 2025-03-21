@@ -38,6 +38,6 @@ pitemp () {
     echo "GPU $(vcgencmd measure_temp)"
     echo "CPU temp=$((cpu/1000))'C"
 
-    fanrpm=$(</sys/devices/platform/cooling_fan/hwmon/hwmon2/fan1_input)
+    fanrpm=$(</sys/devices/platform/cooling_fan/hwmon/hwmon*/fan1_input)
     echo "FAN speed=$fanrpm RPM"
 }
