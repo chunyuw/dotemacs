@@ -516,15 +516,15 @@
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
-	(ns . ((background-color . "#002020") (foreground-color . "wheat") (fullscreen . maximized)))
+	(ns . ((background-color . "#002020") (foreground-color . "wheat") (left . 650) (height . 42))) ;(fullscreen . maximized)
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
 
   (scroll-bar-mode -1) (tool-bar-mode -1)
-  (setq default-directory "~/" ns-use-thin-smoothing t)
-  (setenv "PATH" (concat "/usr/local/bin:/Library/TeX/texbin:" (getenv "PATH")))
+  ;(setq default-directory "~/" ns-use-thin-smoothing t)
+  ;(setenv "PATH" (concat "/usr/local/bin:/Library/TeX/texbin:" (getenv "PATH")))
   (setq exec-path (split-string (getenv "PATH") ":"))
 
   (setq face-font-rescale-alist
