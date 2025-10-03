@@ -530,6 +530,8 @@
   (setq face-font-rescale-alist
 	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
+  (exec-path-from-shell-initialize)
+
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
   (set-fontset-font "fontset-default" 'han "PingFang SC")
@@ -563,7 +565,8 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(markdown-mode pdf-tools auctex-latexmk helm-core helm tNFA htmlize json-mode ess stan-mode magit auctex cdlatex))
+   '(auctex auctex-latexmk cdlatex ess exec-path-from-shell helm helm-core
+            htmlize json-mode magit markdown-mode pdf-tools stan-mode tNFA))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
