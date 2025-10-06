@@ -567,7 +567,8 @@
  '(package-selected-packages
    '(auctex auctex-latexmk cdlatex ess exec-path-from-shell helm helm-core
             htmlize json-mode magit markdown-mode pdf-tools stan-mode tNFA))
- '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
+ '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
+ '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
