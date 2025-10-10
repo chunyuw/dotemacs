@@ -96,13 +96,12 @@
 ;;       ("http" . "192.168.6.5:3000")
 ;;       ("https" . "192.168.6.5:3000")))
 
-(setq ;; safe-local-variable-values '((dired-omit-mode . t))
-      completion-styles '(partial-completion initials)
+(setq completion-styles '(partial-completion initials)
       completion-pcm-complete-word-inserts-delimiters t
       savehist-ignored-variables '(file-name-history))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?i '(file . "/sshx:xx:/var/www/iilab/automata"))
+(set-register ?i '(file . "/sshx:xx:/var/www/iilab/programming"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -162,13 +161,6 @@
      (define-key diff-mode-map "\M-K" 'kill-current-buffer)
      (define-key diff-mode-map "\M-k" 'kill-buffer-and-window)))
 
-;; ;; package ;;
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-	;; ("marmalade" . "http://marmalade-repo.org/packages/")
-	("nongnu" . "https://elpa.nongnu.org/nongnu/")
-	("melpa" . "http://stable.melpa.org/packages/")))
-;; ;; package ends here ;;
 
 ;; Python ;;
 (setq python-indent-guess-indent-offset-verbose nil)
@@ -193,7 +185,13 @@
       dired-isearch-filenames 'dwim
       wdired-use-dired-vertical-movement 'sometime)
 
+
 (add-hook 'dired-mode-hook 'dired-omit-mode)
+
+(eval-after-load 'dired-gitignore
+  '(progn
+     (dired-gitignore-global-mode t)
+     (define-key dired-mode-map "," 'dired-gitignore-global-mode)))
 
 (eval-after-load 'dired
   '(progn
@@ -211,12 +209,12 @@
 		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$\\|comment.cut\\|\\(slides\\|notes\\)-ch..\\.tex"))
 
      (setq dired-guess-shell-alist-user
-	   '(("\\.ps\\'"  "gsview32") ("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
+	   '(("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
 
      (when (eq system-type 'darwin)
        (global-unset-key [(control x) (control z)])
        (define-key dired-mode-map "O"
-	 (lambda () (interactive) ;; (shell-command "open .")
+	 (lambda () (interactive)
 	   (shell-command (concat "open \"" (dired-get-filename) "\""))))
        (define-key dired-mode-map "o"
 	 (lambda () (interactive)
@@ -342,17 +340,6 @@
       LaTeX-indent-environment-list nil
       LaTeX-enable-toolbar nil)
 
-(setq bibtex-autokey-names 1
-      bibtex-autokey-names-stretch 1
-      bibtex-autokey-name-separator "-"
-      bibtex-autokey-additional-names "-et.al."
-      bibtex-autokey-name-case-convert 'identity
-      bibtex-autokey-name-year-separator "-"
-      bibtex-autokey-titlewords-stretch 0
-      bibtex-autokey-titlewords 0
-      bibtex-maintain-sorted-entries 'plain
-      bibtex-entry-format '(opts-or-alts numerical-fields))
-
 (setq reftex-revisit-to-follow t
       reftex-enable-partial-scans t
       reftex-save-parse-info nil
@@ -404,13 +391,12 @@
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (TeX-fold-mode 1) (cdlatex-mode 1) (TeX-fold-buffer) (abbrev-mode 1)))
+	    (TeX-fold-mode 1) (cdlatex-mode 1) (TeX-fold-buffer)))
 
 (eval-after-load 'latex
   '(progn
      (setq LaTeX-font-list
 	   (append '((?\C-p "\\mode<presentation>{" "}")
-		     (?\C-f "\\Sym{" "}")
 		     (?\C-a "\\alert{" "}" "\\mathcal{" "}")
 		     (?\C-o "\\only<article>{" "}" "" "")) LaTeX-font-list))))
 
@@ -421,34 +407,6 @@
      (add-to-list 'tex--prettify-symbols-alist '("\\derives" . ?⇛))
      (add-to-list 'tex--prettify-symbols-alist '("\\bigcdot" . ?•))
      (add-to-list 'tex--prettify-symbols-alist '("\\dotC" . ?•))))
-
-(defun LaTeX-mark-build-run-all-frame (arg)
-  "mark frame enviroment."
-  (interactive "P")
-  (if (and arg (stringp TeX-master) (not (file-exists-p TeX-master)))
-      (shell-command (concat "make " TeX-master)))
-  (let ((cur (point)) begin end)
-    (save-excursion
-      (re-search-forward "^[^%]*?end.frame" nil t)
-      (beginning-of-line 2) (setq end (point))
-      (goto-char cur)
-      (re-search-backward "^[^%]*?begin.frame" nil t)
-      (beginning-of-line 1) (setq begin (point))
-      (TeX-pin-region begin end))
-    (TeX-command-run-all-region)))
-
-(defun LaTeX-mark-build-frame ()
-  "mark frame enviroment."
-  (interactive)
-  (let ((cur (point)) begin end)
-    (save-excursion
-      (re-search-forward "^[^%]*?end.frame" nil t)
-      (beginning-of-line 2) (setq end (point))
-      (goto-char cur)
-      (re-search-backward "^[^%]*?begin.frame" nil t)
-      (beginning-of-line 1) (setq begin (point))
-      (TeX-pin-region begin end))
-    (TeX-command-region)))
 
 (defun kpsewhich-open (filename)
   "Open TeXLive file in kpathsea."
@@ -471,18 +429,6 @@
 (require 'recentf-ext nil t)
 ;; recentf ends here ;;
 
-;; pdf-view-mode ;;
-(add-hook 'pdf-view-mode-hook
-	  (lambda ()
-	    (pdf-view-fit-page-to-window)))
-
-(eval-after-load 'pdf-view
-  '(progn
-     (define-key pdf-view-mode-map "t" 'pdf-view-themed-minor-mode)
-     (define-key pdf-view-mode-map "j" 'pdf-view-next-line-or-next-page)
-     (define-key pdf-view-mode-map "k" 'pdf-view-previous-line-or-previous-page)))
-;; pdf-view-mode ends here ;;
-
 ;; misc packages ;;
 (eval-after-load 'calc
   '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
@@ -492,24 +438,14 @@
      (define-key calc-mode-map "\C-\M-k" 'calc-copy-as-kill)))
 ;; misc packages end here ;;
 
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.[pP][dD][fF]\\'" . pdf-view-mode))
-
-;; autoloads ;;
-(autoload 'helm-fild-files "helm-files" nil t)
-(autoload 'magit-status "magit" nil t)
-(autoload 'zap-up-to-char "misc" nil t)
-(autoload 'dired-jump "dired-x" nil t)
-(autoload 'markdown-mode "markdown-mode" nil t)
-(autoload 'pdf-view-mode "pdf-view" nil t)
-;; autoloads end here ;;
-
-(mapc (lambda (func) (put func 'disabled t))
-      '(overwrite-mode rmail iconify-or-deiconify-frame))
-
-(mapc (lambda (var) (put var 'safe-local-variable 'string-or-null-p))
-      '(TeX-master TeX-header-end TeX-trailer-start dired-omit-files
-		   org-export-html-style org-export-publishing-directory))
+;; packages ;;
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(use-package markdown-mode)
+(use-package dired-gitignore)
+(use-package helm)
+(use-package magit)
+;; packages end here ;;
 
 ;; Frame configuration ;;
 (setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral") (auto-raise . t) (top . 0)))
@@ -523,8 +459,6 @@
   (add-to-list 'default-frame-alist '(left . 5))
 
   (scroll-bar-mode -1) (tool-bar-mode -1)
-  ;(setq default-directory "~/" ns-use-thin-smoothing t)
-  ;(setenv "PATH" (concat "/usr/local/bin:/Library/TeX/texbin:" (getenv "PATH")))
   (setq exec-path (split-string (getenv "PATH") ":"))
 
   (setq face-font-rescale-alist
@@ -539,7 +473,7 @@
   (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
 
 (when (eq system-type 'windows-nt) ;; Windows
-  (setq package-gnupghome-dir "/d/home/.emacs.d/elpa/gnupg")
+  (setq package-gnupghome-dir "~/.emacs.d/elpa/gnupg")
 
   ;; (add-to-list 'default-frame-alist '(left . 1665)) ; '(left . (- 0))
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -564,9 +498,6 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
- '(package-selected-packages
-   '(auctex auctex-latexmk cdlatex ess exec-path-from-shell helm helm-core
-            htmlize json-mode magit markdown-mode pdf-tools stan-mode tNFA))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
