@@ -439,6 +439,7 @@
 ;; misc packages end here ;;
 
 ;; packages ;;
+(autoload 'dired-jump "dired-x" nil t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (use-package markdown-mode)
