@@ -251,12 +251,7 @@
       ido-enable-prefix nil
       ido-enable-regexp t
       ido-create-new-buffer 'always
-      ido-use-virtual-buffers t
-      completion-ignored-extensions
-      (append '(".tmp" ".tuo" ".tui" ".tup" ".snm" ".nav" ".out" ".vrb" ".fls" ".xdv"
-		".synctex.gz" ".synctex(busy)" ".listing" ".fdb_latexmk" ".log" ".maf"
-		".mtc" ".mtc0" ".mtc1" ".mtc2")
-	      completion-ignored-extensions))
+      ido-use-virtual-buffers t)
 
 (eval-after-load 'ido
   '(progn
@@ -504,6 +499,8 @@
  '(compilation-scroll-output t)
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
+ '(package-selected-packages
+   '(auctex cdlatex exec-path-from-shell helm magit markdown-mode))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
