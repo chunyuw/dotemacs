@@ -439,13 +439,18 @@
 ;; misc packages end here ;;
 
 ;; packages ;;
+(autoload 'helm-fild-files "helm-files" nil t)
+(autoload 'magit-status "magit" nil t)
+(autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
+(autoload 'markdown-mode "markdown-mode" nil t)
+(autoload 'pdf-view-mode "pdf-view" nil t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(use-package markdown-mode)
-(use-package dired-gitignore)
-(use-package helm)
-(use-package magit)
+;; (use-package markdown-mode)
+;; (use-package dired-gitignore)
+;; (use-package helm)
+;; (use-package magit)
 ;; packages end here ;;
 
 ;; Frame configuration ;;
