@@ -424,6 +424,14 @@
 (require 'recentf-ext nil t)
 ;; recentf ends here ;;
 
+;; markdown ;;
+(setq markdown-open-command 'markdown-marp-open-command)
+(defun markdown-marp-open-command ()
+  "marp preview current .md file."
+  (start-process "marp-preview" "*Marp Preview Output*"
+   "marp" "-p" (buffer-file-name)))
+;; markdown ends here ;;
+
 ;; misc packages ;;
 (eval-after-load 'calc
   '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
