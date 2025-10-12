@@ -432,6 +432,14 @@
    "marp" "-p" (buffer-file-name)))
 ;; markdown ends here ;;
 
+;; tempel ;;
+;;(add-hook 'after-init-hook 'global-company-mode)
+(autoload 'tempel-complete "tempel" nil t)
+(autoload 'tempel-insert "tempel" nil t)
+(global-set-key "\M-+" 'tempel-insert)
+(global-set-key "\M-*" 'tempel-complete)
+;; tempel ends here ;;
+
 ;; misc packages ;;
 (eval-after-load 'calc
   '(progn (define-key calc-mode-map "\M-k" 'kill-buffer-and-window)))
@@ -508,7 +516,7 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex cdlatex exec-path-from-shell helm magit markdown-mode))
+   '(auctex cdlatex company exec-path-from-shell helm magit markdown-mode tempel))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces

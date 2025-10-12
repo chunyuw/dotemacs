@@ -1,0 +1,87 @@
+;; ~/.emacs.d/templates
+
+fundamental-mode ;; Available everywhere
+
+(today (format-time-string "%Y-%m-%d"))
+
+
+
+markdown-mode
+
+(ccol "<style scoped>" n
+     ".columns { grid-template-columns: "
+     (p "2" L ) "fr " (p "2" R ) "fr; }" n
+     "</style>" n n 
+     "<div class=\"columns\"><div>" n n p n n
+     "</div><div>" n n q n n
+     "</div></div>" n)
+
+(sty "<style scoped>" n
+     "blockquote { font-size: 70%; background: none; }" n
+     "center { font-size: 90%; }" n
+     "</style>" n )
+
+(col "<div class=\"columns\"><div>" n n r n n
+     "</div><div>" n n p n n
+     "</div></div>" n)
+
+(gitcollapse & "## " (p "Heading") n n "<details>" n n
+             "<summary>" (p "Sub Heading")  "</summary>" n n
+             (r "Insert Link or comments") n n "</details>")
+
+(unorderlist & "- "  (p "First") n> "- " (p "Second") n> "- " (p "Third"))
+(orderlist   & "1. " (p "First") n> "2. " (p "Second") n> "3. " (p "Third"))
+(insertimage (call-interactively #'markdown-insert-image))
+(insertlink (call-interactively #'markdown-insert-link))
+(hugotitle & "+++" n "title = " (p "title") n "date = " (format-time-string "%Y-%m-%d") n "tags = [ " (p "tag1, tag2 ") "]" n "draft = false" n "+++")
+(h1 & "# " p " #")
+(h2 & "## " p " ##")
+(h3 & "### " p " ###")
+(h4 & "#### " p " ####")
+(inserttable (call-interactively #'markdown-insert-table))
+
+
+text-mode
+
+(box "┌─" (make-string (length str) ?─) "─┐" n
+     "│ " (s str)                       " │" n
+     "└─" (make-string (length str) ?─) "─┘" n :doc "UNICODE BOX")
+(abox "+-" (make-string (length str) ?-) "-+" n
+      "| " (s str)                       " |" n
+      "+-" (make-string (length str) ?-) "-+" n :doc "ASCII BOX")
+(cut "--8<---------------cut here---------------start------------->8---" n r n
+     "--8<---------------cut here---------------end--------------->8---" n)
+(rot13 (p "plain text" text) n "----" n (rot13 text))
+;; (calc (p "taylor(sin(x),x=0,3)" formula) n "----" n (format "%s" (calc-eval formula)))
+;; (table (p (read-number "Rows: ") rows noinsert)
+;;        (p (read-number "Cols: ") cols noinsert)
+;;        "| " (p "  ") (* (1- cols) " | " (p "  ")) " |" n
+;;        "|" (* cols "----|") n
+;;        (* rows "| " (p "  ") (* (1- cols) " | " (p "  ")) " |" n))
+
+
+org-mode
+
+(caption "#+caption: ")
+;; (drawer ":" p ":" n r ":end:")
+;; (begin "#+begin_" (s name) n> r> n "#+end_" name)
+;; (quote "#+begin_quote" n> r> n "#+end_quote")
+;; (sidenote "#+begin_sidenote" n> r> n "#+end_sidenote")
+;; (marginnote "#+begin_marginnote" n> r> n "#+end_marginnote")
+;; (example "#+begin_example" n> r> n "#+end_example")
+;; (center "#+begin_center" n> r> n "#+end_center")
+;; (ascii "#+begin_export ascii" n> r> n "#+end_export")
+;; (html "#+begin_export html" n> r> n "#+end_export")
+;; (latex "#+begin_export latex" n> r> n "#+end_export")
+;; (comment "#+begin_comment" n> r> n "#+end_comment")
+;; (verse "#+begin_verse" n> r> n "#+end_verse")
+;; (src "#+begin_src " q n r n "#+end_src")
+;; (gnuplot "#+begin_src gnuplot :var data=" (p "table") " :file " (p "plot.png") n r n "#+end_src" :post (org-edit-src-code))
+;; (elisp "#+begin_src emacs-lisp" n r n "#+end_src" :post (org-edit-src-code))
+;; (inlsrc "src_" p "{" q "}")
+;; (title "#+title: " p n "#+author: Daniel Mendler" n "#+language: en")
+
+;; Local Variables:
+;; mode: lisp-data
+;; outline-regexp: "[a-z]"
+;; End:
