@@ -430,7 +430,7 @@
 (defun markdown-marp-open-command ()
   "marp preview current .md file."
   (start-process "marp-preview" "*Marp Preview Output*"
-   "marp" "-p" (buffer-file-name)))
+                 "marp" "-p" "--no-stdin" (buffer-file-name)))
 ;; markdown ends here ;;
 
 ;; tempel ;;
