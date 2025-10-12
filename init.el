@@ -192,6 +192,7 @@
   '(progn
      (dired-gitignore-global-mode t)
      (define-key dired-mode-map "," 'dired-gitignore-global-mode)))
+(require 'dired-gitignore nil t)
 
 (eval-after-load 'dired
   '(progn
@@ -459,7 +460,7 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; (use-package markdown-mode)
-;; (use-package dired-gitignore)
+(use-package dired-gitignore)
 ;; (use-package helm)
 ;; (use-package magit)
 ;; packages end here ;;
@@ -516,7 +517,8 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex cdlatex company exec-path-from-shell helm magit markdown-mode tempel))
+   '(auctex cdlatex company dired-gitignore exec-path-from-shell helm magit
+            markdown-mode tempel))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
