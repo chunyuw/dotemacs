@@ -451,6 +451,7 @@
 ;; misc packages end here ;;
 
 ;; packages ;;
+(autoload 'dired-gitignore-global-mode "dired-gitignore" nil t)
 (autoload 'helm-fild-files "helm-files" nil t)
 (autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
@@ -460,7 +461,7 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; (use-package markdown-mode)
-(use-package dired-gitignore)
+;; (use-package dired-gitignore)
 ;; (use-package helm)
 ;; (use-package magit)
 ;; packages end here ;;
