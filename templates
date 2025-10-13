@@ -4,12 +4,10 @@ fundamental-mode ;; Available everywhere
 
 (today (format-time-string "%Y-%m-%d"))
 
-
-
 markdown-mode
 
 (ccol "<style scoped>" n
-     ".columns { grid-template-columns: "
+     "div.columns { grid-template-columns: "
      (p "2" L ) "fr " (p "2" R ) "fr; }" n
      "</style>" n n 
      "<div class=\"columns\"><div>" n n p n n
