@@ -25,6 +25,8 @@
 (global-set-key "\M-r" 'ffap)
 (global-set-key "\M-a" 'helm-multi-files)
 (global-set-key "\M-A" 'helm-find-files)
+(global-set-key "\M-[" 'previous-buffer)
+(global-set-key "\M-]" 'next-buffer)
 (global-set-key "\C-x\C-f" 'ido-find-file)
 (global-set-key "\C-xb" 'ido-switch-buffer)
 (global-set-key "\C-xd" 'ido-dired)
