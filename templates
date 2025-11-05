@@ -14,10 +14,13 @@ markdown-mode
      "</div><div>" n n q n n
      "</div></div>" n)
 
-(sty "<style scoped>" n
+(center "<style scoped>" n
      "blockquote { font-size: 70%; background: none; }" n
      "center { font-size: 90%; }" n
-     "</style>" n )
+     "</style>" n n 
+     "<center>" n n q n
+     "</center>" n)
+     
 
 (col "<div class=\"columns\"><div>" n n r n n
      "</div><div>" n n p n n
