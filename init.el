@@ -95,8 +95,8 @@
 
 ;; (setq url-proxy-services
 ;;     '(("no_proxy" . "^\\(localhost\\|10.*\\|*.edu.cn\\)")
-;;       ("http" . "192.168.6.5:3000")
-;;       ("https" . "192.168.6.5:3000")))
+;;       ("http" . "10.3.3.1:4001")
+;;       ("https" . "10.3.3.1:4001")))
 
 (setq completion-styles '(partial-completion initials)
       completion-pcm-complete-word-inserts-delimiters t
@@ -473,6 +473,7 @@
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
+        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 100) (height . 55)))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (left . 650) (height . 42))) ;(fullscreen . maximized)
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
 
@@ -506,6 +507,12 @@
   (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
   (set-fontset-font "fontset-default" 'cjk-misc "SimHei"))
+
+(when (eq system-type 'gnu/linux) ;; debian@raspi
+  (add-to-list 'default-frame-alist '(top . 80))
+
+  (scroll-bar-mode -1) (tool-bar-mode -1) (menu-bar-mode -1))
+
 ;; Frame configuration ends here ;;
 
 (custom-set-variables
