@@ -473,7 +473,7 @@
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
-        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 100) (height . 55)))
+        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 90) (height . 40)))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (left . 650) (height . 42))) ;(fullscreen . maximized)
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
 
@@ -508,7 +508,7 @@
   (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
   (set-fontset-font "fontset-default" 'cjk-misc "SimHei"))
 
-(when (eq system-type 'gnu/linux) ;; debian@raspi
+(when (eq window-system 'x) ;; debian@raspi
   (add-to-list 'default-frame-alist '(top . 80))
 
   (scroll-bar-mode -1) (tool-bar-mode -1) (menu-bar-mode -1))
