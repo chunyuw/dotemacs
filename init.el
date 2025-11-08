@@ -190,8 +190,9 @@
 
 (eval-after-load 'dired-gitignore
   '(progn
-     (dired-gitignore-global-mode t)
-     (define-key dired-mode-map "," 'dired-gitignore-global-mode)))
+     (add-hook 'dired-mode-hook 'dired-gitignore-mode)
+     (define-key dired-mode-map "," 'dired-gitignore-mode)))
+
 (require 'dired-gitignore nil t)
 
 (eval-after-load 'dired
@@ -484,7 +485,7 @@
   (setq face-font-rescale-alist
 	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
-  (exec-path-from-shell-initialize)
+  ;;(exec-path-from-shell-initialize)
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
