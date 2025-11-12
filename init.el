@@ -485,7 +485,10 @@
   (setq face-font-rescale-alist
 	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
-  ;;(exec-path-from-shell-initialize)
+  
+  ;; (use-package exec-path-from-shell
+  ;;   :config
+  ;;   (exec-path-from-shell-initialize))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
