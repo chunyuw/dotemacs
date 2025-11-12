@@ -1,4 +1,4 @@
-;; Chunyu <cymacs@gmail.com>'s ~/.emacs.d/init.el for GNU Emacs, since 2001-12-11
+;; Chunyu's init.el for GNU Emacs, since 2001-12-11
 
 (package-initialize)
 
@@ -28,8 +28,6 @@
 (global-set-key "\C-x\C-f" 'ido-find-file)
 (global-set-key "\C-xb" 'ido-switch-buffer)
 (global-set-key "\C-xd" 'ido-dired)
-
-(defalias 'toggle-input-method 'toggle-truncate-lines) ;; C-\
 
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta
@@ -72,6 +70,7 @@
       comment-style 'extra-line
       view-inhibit-help-message t
       prettify-symbols-unprettify-at-point 'right-edge
+      python-indent-guess-indent-offset-verbose nil
       save-abbrevs 'silently)
 
 (setq calendar-latitude 45.74027
@@ -113,6 +112,7 @@
 (mouse-avoidance-mode 'jump)
 (column-number-mode 1)
 (blink-cursor-mode -1)
+(save-place-mode 1)
 (show-paren-mode 1)
 (icomplete-mode 1)
 (savehist-mode 1)
@@ -161,30 +161,11 @@
      (define-key diff-mode-map "\M-K" 'kill-current-buffer)
      (define-key diff-mode-map "\M-k" 'kill-buffer-and-window)))
 
-
-;; Python ;;
-(setq python-indent-guess-indent-offset-verbose nil)
-;; Python ends here ;;
-
-;; SavePlace ;;
-(if (fboundp 'save-place-mode)
-    (save-place-mode 1)
-  (setq-default save-place t)
-  (require 'saveplace)
-  (add-hook 'find-file-hook 'save-place-find-file-hook t)
-  (add-hook 'kill-emacs-hook 'save-place-kill-emacs-hook)
-  (add-hook 'kill-buffer-hook 'save-place-to-alist))
-;; SavePlace ends here ;;
-
 ;; Dired ;;
 (setq dired-listing-switches "-avl"
       dired-dwim-target t
-      directory-free-space-args "-Ph"
-      dired-bind-man nil
-      dired-bind-vm nil
       dired-isearch-filenames 'dwim
       wdired-use-dired-vertical-movement 'sometime)
-
 
 (add-hook 'dired-mode-hook 'dired-omit-mode)
 
@@ -208,10 +189,10 @@
 
      (setq dired-omit-files
 	   (concat dired-omit-files
-		   "\\|^\\.\\|^__init__.py$\\|^__pycache__$\\|comment.cut\\|\\(slides\\|notes\\)-ch..\\.tex"))
+		   "\\|^\\.\\|\\(slides\\|notes\\)-ch..\\.tex"))
 
      (setq dired-guess-shell-alist-user
-	   '(("\\.mp\\'"  "mptopdf") ("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
+	   '(("\\.rar\\'" "unar") ("\\.zip\\'" "unar")))
 
      (when (eq system-type 'darwin)
        (global-unset-key [(control x) (control z)])
@@ -427,11 +408,17 @@
 ;; recentf ends here ;;
 
 ;; markdown ;;
-(setq markdown-open-command 'markdown-marp-open-command)
-(defun markdown-marp-open-command ()
-  "marp preview current .md file."
-  (start-process "marp-preview" "*Marp Preview Output*"
-                 "marp" "-p" "--no-stdin" "--html" (buffer-file-name)))
+;;(autoload 'markdown-mode "markdown-mode" nil t)
+(use-package markdown-mode
+  :init
+  (setq markdown-fontify-code-blocks-natively t
+        markdown-open-command 'markdown-marp-open-command)
+  (defun markdown-marp-open-command ()
+    "marp preview current .md file."
+    (start-process "marp-preview" "*Marp Preview Output*"
+                   "marp" "-p" "--no-stdin" "--html"
+                   (buffer-file-name)))
+  :defer t)
 ;; markdown ends here ;;
 
 ;; tempel ;;
@@ -457,14 +444,9 @@
 (autoload 'magit-status "magit" nil t)
 (autoload 'zap-up-to-char "misc" nil t)
 (autoload 'dired-jump "dired-x" nil t)
-(autoload 'markdown-mode "markdown-mode" nil t)
 (autoload 'pdf-view-mode "pdf-view" nil t)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;; (use-package markdown-mode)
-;; (use-package dired-gitignore)
-;; (use-package helm)
-;; (use-package magit)
 ;; packages end here ;;
 
 ;; Frame configuration ;;
@@ -486,9 +468,10 @@
 	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
   
-  ;; (use-package exec-path-from-shell
-  ;;   :config
-  ;;   (exec-path-from-shell-initialize))
+  (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-initialize))
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
@@ -529,8 +512,8 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex cdlatex dired-gitignore edit-indirect helm magit markdown-mode tempel
-            valign))
+   '(auctex cdlatex dired-gitignore edit-indirect exec-path-from-shell helm magit
+            markdown-mode pyim-basedict tempel valign))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
