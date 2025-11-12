@@ -529,7 +529,8 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex cdlatex dired-gitignore helm magit markdown-mode tempel valign))
+   '(auctex cdlatex dired-gitignore edit-indirect helm magit markdown-mode tempel
+            valign))
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
