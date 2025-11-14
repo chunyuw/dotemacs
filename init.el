@@ -469,7 +469,6 @@
   (setq face-font-rescale-alist
 	'(("Noto Sans CJK SC Thin" . 1.2) ("PingFang SC" . 1.2)))
 
-  
   (use-package exec-path-from-shell
     :ensure t
     :config
