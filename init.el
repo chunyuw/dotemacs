@@ -90,14 +90,16 @@
       backup-by-copying-when-linked t
       backup-by-copying-when-mismatch t)
 
-;; (setq url-proxy-services
-;;     '(("no_proxy" . "^\\(localhost\\|10.*\\|*.edu.cn\\)")
-;;       ("http" . "10.3.3.1:4001")
-;;       ("https" . "10.3.3.1:4001")))
-
 (setq completion-styles '(partial-completion initials)
       completion-pcm-complete-word-inserts-delimiters t
       savehist-ignored-variables '(file-name-history))
+
+(defun enable-proxy ()
+  (interactive)
+  (setq url-proxy-services
+        '(("no_proxy" . "^\\(localhost\\|10.*\\|*.edu.cn\\)")
+          ("http" . "10.3.3.1:4001")
+          ("https" . "10.3.3.1:4001"))))
 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?i '(file . "/sshx:xx:/var/www/iilab/programming"))
@@ -454,7 +456,7 @@
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
-        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 90) (height . 40)))
+        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 110) (height . 40)))
 	(ns . ((background-color . "#002020") (foreground-color . "wheat") (left . 650) (height . 42))) ;(fullscreen . maximized)
 	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
 
