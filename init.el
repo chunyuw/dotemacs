@@ -452,13 +452,17 @@
 ;; packages end here ;;
 
 ;; Frame configuration ;;
-(setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral") (auto-raise . t) (top . 0)))
+(setq default-frame-alist '((background-mode . dark) (cursor-color . "Coral")
+                            (auto-raise . t) (top . 0)))
 
 (setq window-system-default-frame-alist
       '((t . ((background-color . "black") (foreground-color . "white")))
-        (x . ((background-color . "#001414") (foreground-color . "wheat")(width . 110) (height . 40)))
-	(ns . ((background-color . "#002020") (foreground-color . "wheat") (left . 650) (height . 42))) ;(fullscreen . maximized)
-	(w32 . ((background-color . "#001414") (foreground-color . "wheat") (width . 110) (height . 43)))))
+        (x . ((background-color . "#001414") (foreground-color . "wheat")
+              (width . 80) (height . 40)))
+	(ns . ((background-color . "#002020") (foreground-color . "wheat")
+               (left . 650) (height . 42))) ;(fullscreen . maximized)
+	(w32 . ((background-color . "#001414") (foreground-color . "wheat")
+                (width . 110) (height . 43)))))
 
 (when (eq system-type 'darwin) ;; macOS
   (add-to-list 'default-frame-alist '(left . 5))
@@ -496,6 +500,14 @@
 
 (when (eq window-system 'x) ;; debian@raspi
   (add-to-list 'default-frame-alist '(top . 80))
+
+  (set-fontset-font t 'han (font-spec :family "Noto Sans CJK SC"
+                                      :fallback "Microsoft YaHei"))
+
+  (setq face-font-rescale-alist	'(("Microsoft YaHei" . 1.1)
+                                  ("Noto Sans CJK SC" . 1.1)))
+
+  (set-face-attribute 'default nil :height 150)
 
   (scroll-bar-mode -1) (tool-bar-mode -1) (menu-bar-mode -1))
 
@@ -559,4 +571,4 @@
 ;; coding: utf-8
 ;; End:
 
-;; Chunyu's .emacs.d/init.el ends here.
+;; Chunyu's init.el ends here.
