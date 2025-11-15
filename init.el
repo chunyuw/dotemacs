@@ -480,9 +480,9 @@
 
   (set-face-attribute 'default nil :family "Monaco" :height 160)
 
-  (set-fontset-font "fontset-default" 'han "PingFang SC")
-  (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
-  (set-fontset-font "fontset-default" 'cjk-misc "PingFang SC"))
+  (set-fontset-font t 'han (font-spec :family "PingFang SC"))
+  (set-fontset-font t 'symbol (font-spec :family "Noto Sans Symbols"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "PingFang SC")))
 
 (when (eq system-type 'windows-nt) ;; Windows
   (setq package-gnupghome-dir "~/.emacs.d/elpa/gnupg")
@@ -494,21 +494,17 @@
 
   (set-face-attribute 'default nil :family "Consolas" :height 136)
 
-  (set-fontset-font "fontset-default" 'han "Microsoft YaHei")
-  (set-fontset-font "fontset-default" 'symbol "Noto Sans Symbols")
-  (set-fontset-font "fontset-default" 'cjk-misc "SimHei"))
+  (set-fontset-font t 'han (font-spec :family "Microsoft YaHei"))
+  (set-fontset-font t 'symbol (font-spec :family "Noto Sans Symbols"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "SimHei")))
 
 (when (eq window-system 'x) ;; debian@raspi
   (add-to-list 'default-frame-alist '(top . 80))
-
-  (set-fontset-font t 'han (font-spec :family "Noto Sans CJK SC"
-                                      :fallback "Microsoft YaHei"))
-
+  (set-fontset-font t 'han (font-spec :family "Microsoft YaHei"
+                                      :fallback "Noto Sans CJK SC Regular"))
   (setq face-font-rescale-alist	'(("Microsoft YaHei" . 1.1)
                                   ("Noto Sans CJK SC" . 1.1)))
-
   (set-face-attribute 'default nil :height 150)
-
   (scroll-bar-mode -1) (tool-bar-mode -1) (menu-bar-mode -1))
 
 ;; Frame configuration ends here ;;
