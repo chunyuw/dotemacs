@@ -352,7 +352,8 @@
 	("enumerate" "\\begin{enumerate}\n\\item ?\n\\end{enumerate}" nil)
 	("pedagogy" "\\begin{pedagogy}\n?\n\\end{pedagogy}" nil))
       cdlatex-command-alist
-      '(("fr" nil "" cdlatex-environment ("frame") t nil)
+      '(("py" nil "```python\n?\n```\n" cdlatex-position-cursor nil t nil)
+        ("fr" nil "" cdlatex-environment ("frame") t nil)
 	("ex" nil "\\begin{example} % ex:?\n\n\\end{example}" cdlatex-position-cursor nil t nil)
 	("fig" nil "\\begin{figure} % fig:?\n\\end{figure}" cdlatex-position-cursor nil t nil)
 	("def" nil "\\begin{definition} % def:?\n\n\\end{definition}" cdlatex-position-cursor nil t nil)
@@ -413,12 +414,23 @@
 ;;(autoload 'markdown-mode "markdown-mode" nil t)
 (use-package markdown-mode :defer t :init
   (setq markdown-fontify-code-blocks-natively t
-              markdown-open-command 'markdown-marp-open-command)
+        markdown-open-command 'markdown-marp-open-command)
   (defun markdown-marp-open-command ()
     "marp preview current .md file."
     (start-process "marp-preview" "*Marp Preview Output*"
                    "marp" "-p" "--no-stdin" "--html"
                    (buffer-file-name)))
+  (defun markdown-indent-current-code-block (&optional arg)
+    (interactive)
+    (let ((bounds (markdown-code-block-at-point-p)))
+      (if bounds
+          (progn (markdown-mark-block)
+                 (if (use-region-p)
+                     (let ((start (region-beginning)) (end (region-end)))
+                       (indent-rigidly start end (if arg (- tab-width) tab-width))
+                       (user-error "Failed to activate region for indentation"))
+                   (message "Point is not inside a Markdown fenced code block."))))))
+  ;; :hook (markdown-mode . cdlatex-mode)
   :bind (("M-h" . markdown-mark-block)
          ("M-<left>" . markdown-outdent-region)
          ("M-<right>" . markdown-indent-region)))
