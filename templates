@@ -4,7 +4,7 @@ fundamental-mode ;; Available everywhere
 
 (today (format-time-string "%Y-%m-%d"))
 
-markdown-mode
+(py "```python" n q n "```" n)
 
 (ccol "<style scoped>" n
      "div.columns { grid-template-columns: "
