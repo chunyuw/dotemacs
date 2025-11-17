@@ -411,16 +411,17 @@
 
 ;; markdown ;;
 ;;(autoload 'markdown-mode "markdown-mode" nil t)
-(use-package markdown-mode
-  :init
+(use-package markdown-mode :defer t :init
   (setq markdown-fontify-code-blocks-natively t
-        markdown-open-command 'markdown-marp-open-command)
+              markdown-open-command 'markdown-marp-open-command)
   (defun markdown-marp-open-command ()
     "marp preview current .md file."
     (start-process "marp-preview" "*Marp Preview Output*"
                    "marp" "-p" "--no-stdin" "--html"
                    (buffer-file-name)))
-  :defer t)
+  :bind (("M-h" . markdown-mark-block)
+         ("M-<left>" . markdown-outdent-region)
+         ("M-<right>" . markdown-indent-region)))
 ;; markdown ends here ;;
 
 ;; tempel ;;
