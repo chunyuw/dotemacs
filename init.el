@@ -536,7 +536,10 @@
  '(package-selected-packages
    '(auctex cdlatex dired-gitignore edit-indirect exec-path-from-shell helm magit
             markdown-mode pyim-basedict tempel valign))
- '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
+ '(safe-local-variable-values
+   '((TeX-trailer-start . "%% Start-of-Trailer %%")
+     (TeX-header-end . "%% End-of-Header %%")
+     (TeX-command-extra-options . "-shell-escape")))
  '(tramp-auto-save-directory "~/.tmp"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
