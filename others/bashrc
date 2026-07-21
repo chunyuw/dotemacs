@@ -43,9 +43,9 @@ pitemp () {
 }
 
 proxy_on() {
-  export http_proxy="socks5://10.3.3.1:4000"
-  export https_proxy="socks5://10.3.3.1:4000"
-  echo "Proxy ON (socks5://10.3.3.1:4000)"
+  export http_proxy="http://10.3.3.1:4001"
+  export https_proxy="http://10.3.3.1:4001"
+  echo "Proxy ON (http://10.3.3.1:4001)"
 }
 
 proxy_off() {
