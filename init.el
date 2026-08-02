@@ -534,8 +534,7 @@
  '(compilation-window-height 4)
  '(global-eldoc-mode nil)
  '(package-selected-packages
-   '(auctex cdlatex dired-gitignore edit-indirect exec-path-from-shell helm magit
-            markdown-mode pyim-basedict tempel valign))
+   '(dired-gitignore exec-path-from-shell helm llama magit-section markdown-mode))
  '(safe-local-variable-values
    '((TeX-trailer-start . "%% Start-of-Trailer %%")
      (TeX-header-end . "%% End-of-Header %%")
